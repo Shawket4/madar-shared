@@ -1,0 +1,17 @@
+# madar-time: business-day rules the backend and the POS core both run.
+[package]
+name = "madar-time"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[dependencies]
+# No `clock`: nothing here reads the time. Callers pass instants in.
+chrono = { version = "0.4", default-features = false, features = ["std"] }
+chrono-tz = "0.10"
+serde = { version = "1", features = ["derive"] }
+
+[dev-dependencies]
+serde_json = "1"

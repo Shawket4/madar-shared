@@ -18,6 +18,8 @@ rust_decimal = { version = "1", default-features = false }
 serde = { version = "1", features = ["derive"] }
 chrono = { version = "0.4", default-features = false, features = ["std"] }
 chrono-tz = "0.10"
+# The business date is madar-time's (one copy, same tag).
+madar-time = { path = "../madar-time", version = "0.1.0" }
 
 [dev-dependencies]
 rust_decimal_macros = "1"

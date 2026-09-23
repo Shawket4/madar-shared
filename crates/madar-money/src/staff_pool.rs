@@ -198,15 +198,10 @@ pub fn decide(
 }
 
 /// The branch-local business date of an instant — the same boundary the Z
-/// report and the backend's `service_day_bounds` use. A DST gap cannot move a
-/// date, so the naive local date is exactly right here. (The till formats it
-/// `YYYY-MM-DD`, which is `NaiveDate`'s `Display`.)
-pub fn business_date_of(tz: chrono_tz::Tz, at: chrono::DateTime<chrono::Utc>) -> chrono::NaiveDate {
-    use chrono::TimeZone as _;
-    tz.from_utc_datetime(&at.naive_utc()).date_naive()
-}
+/// report and the backend's `service_day_bounds` use (`madar_time`). The till
+/// formats it `YYYY-MM-DD`, which is `NaiveDate`'s `Display`.
+pub use madar_time::business_date_of;
 
-/// Moved from madar-core `staff_pool::tests`.
 #[cfg(test)]
 mod tests {
     use super::*;
