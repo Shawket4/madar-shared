@@ -1,0 +1,4372 @@
+[
+  {
+    "order_total": 11400,
+    "order_tax": 1400,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 5700,
+    "sql": true,
+    "tax": 700,
+    "service_charge": 0
+  },
+  {
+    "order_total": 11400,
+    "order_tax": 1400,
+    "order_service_charge": 0,
+    "refunded_before": 5700,
+    "amount": 5700,
+    "sql": true,
+    "tax": 700,
+    "service_charge": 0
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 0,
+    "amount": 1000,
+    "sql": true,
+    "tax": 123,
+    "service_charge": 94
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 1000,
+    "amount": 11768,
+    "sql": true,
+    "tax": 1445,
+    "service_charge": 1106
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 0,
+    "amount": 12768,
+    "sql": true,
+    "tax": 1568,
+    "service_charge": 1200
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 12000,
+    "amount": 5000,
+    "sql": true,
+    "tax": 94,
+    "service_charge": 72
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 2,
+    "amount": 331,
+    "sql": true,
+    "tax": 41,
+    "service_charge": 0
+  },
+  {
+    "order_total": 0,
+    "order_tax": 0,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 100,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1,
+    "order_tax": 0,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1,
+    "order_tax": 0,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1,
+    "order_tax": 0,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1,
+    "order_tax": 0,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 6,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1,
+    "order_tax": 0,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1,
+    "order_tax": 0,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1,
+    "order_tax": 0,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1,
+    "order_tax": 0,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 6,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1,
+    "order_tax": 0,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1,
+    "order_tax": 0,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1,
+    "order_tax": 0,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1,
+    "order_tax": 0,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 6,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1,
+    "order_tax": 0,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1,
+    "order_tax": 0,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1,
+    "order_tax": 0,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1,
+    "order_tax": 0,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 6,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1,
+    "order_tax": 0,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1,
+    "order_tax": 0,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1,
+    "order_tax": 0,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1,
+    "order_tax": 0,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 6,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1,
+    "order_tax": 0,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1,
+    "order_tax": 0,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1,
+    "order_tax": 0,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1,
+    "order_tax": 0,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 6,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 3,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 6,
+    "sql": true,
+    "tax": 1,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 7,
+    "sql": true,
+    "tax": 1,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 12,
+    "sql": true,
+    "tax": 1,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 3,
+    "sql": true,
+    "tax": 1,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 6,
+    "sql": true,
+    "tax": 1,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 7,
+    "sql": true,
+    "tax": 1,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 12,
+    "sql": true,
+    "tax": 1,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 2,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 2,
+    "amount": 2,
+    "sql": true,
+    "tax": 1,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 2,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 2,
+    "amount": 3,
+    "sql": true,
+    "tax": 1,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 2,
+    "amount": 6,
+    "sql": true,
+    "tax": 1,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 2,
+    "amount": 7,
+    "sql": true,
+    "tax": 1,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 2,
+    "amount": 12,
+    "sql": true,
+    "tax": 1,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 3,
+    "amount": 1,
+    "sql": true,
+    "tax": 1,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 3,
+    "amount": 2,
+    "sql": true,
+    "tax": 1,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 3,
+    "amount": 1,
+    "sql": true,
+    "tax": 1,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 3,
+    "amount": 3,
+    "sql": true,
+    "tax": 1,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 3,
+    "amount": 6,
+    "sql": true,
+    "tax": 1,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 3,
+    "amount": 7,
+    "sql": true,
+    "tax": 1,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 3,
+    "amount": 12,
+    "sql": true,
+    "tax": 1,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 6,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 6,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 6,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 6,
+    "amount": 3,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 6,
+    "amount": 6,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 6,
+    "amount": 7,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 6,
+    "amount": 12,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 7,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 7,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 7,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 7,
+    "amount": 3,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 7,
+    "amount": 6,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 7,
+    "amount": 7,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 7,
+    "order_tax": 1,
+    "order_service_charge": 0,
+    "refunded_before": 7,
+    "amount": 12,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 47,
+    "sql": true,
+    "tax": 6,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 166,
+    "sql": true,
+    "tax": 20,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 332,
+    "sql": true,
+    "tax": 41,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 333,
+    "sql": true,
+    "tax": 41,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 338,
+    "sql": true,
+    "tax": 41,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 47,
+    "sql": true,
+    "tax": 6,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 166,
+    "sql": true,
+    "tax": 21,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 332,
+    "sql": true,
+    "tax": 41,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 333,
+    "sql": true,
+    "tax": 41,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 338,
+    "sql": true,
+    "tax": 41,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 111,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 111,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 111,
+    "amount": 47,
+    "sql": true,
+    "tax": 5,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 111,
+    "amount": 166,
+    "sql": true,
+    "tax": 20,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 111,
+    "amount": 332,
+    "sql": true,
+    "tax": 27,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 111,
+    "amount": 333,
+    "sql": true,
+    "tax": 27,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 111,
+    "amount": 338,
+    "sql": true,
+    "tax": 27,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 166,
+    "amount": 1,
+    "sql": true,
+    "tax": 1,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 166,
+    "amount": 2,
+    "sql": true,
+    "tax": 1,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 166,
+    "amount": 47,
+    "sql": true,
+    "tax": 6,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 166,
+    "amount": 166,
+    "sql": true,
+    "tax": 21,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 166,
+    "amount": 332,
+    "sql": true,
+    "tax": 21,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 166,
+    "amount": 333,
+    "sql": true,
+    "tax": 21,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 166,
+    "amount": 338,
+    "sql": true,
+    "tax": 21,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 332,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 332,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 332,
+    "amount": 47,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 332,
+    "amount": 166,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 332,
+    "amount": 332,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 332,
+    "amount": 333,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 332,
+    "amount": 338,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 333,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 333,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 333,
+    "amount": 47,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 333,
+    "amount": 166,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 333,
+    "amount": 332,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 333,
+    "amount": 333,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 333,
+    "amount": 338,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 814,
+    "sql": true,
+    "tax": 100,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 2850,
+    "sql": true,
+    "tax": 350,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 5699,
+    "sql": true,
+    "tax": 700,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 5700,
+    "sql": true,
+    "tax": 700,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 5705,
+    "sql": true,
+    "tax": 700,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 814,
+    "sql": true,
+    "tax": 100,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 2850,
+    "sql": true,
+    "tax": 350,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 5699,
+    "sql": true,
+    "tax": 700,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 5700,
+    "sql": true,
+    "tax": 700,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 5705,
+    "sql": true,
+    "tax": 700,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 1900,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 1900,
+    "amount": 2,
+    "sql": true,
+    "tax": 1,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 1900,
+    "amount": 814,
+    "sql": true,
+    "tax": 100,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 1900,
+    "amount": 2850,
+    "sql": true,
+    "tax": 350,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 1900,
+    "amount": 5699,
+    "sql": true,
+    "tax": 467,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 1900,
+    "amount": 5700,
+    "sql": true,
+    "tax": 467,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 1900,
+    "amount": 5705,
+    "sql": true,
+    "tax": 467,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 2850,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 2850,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 2850,
+    "amount": 814,
+    "sql": true,
+    "tax": 100,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 2850,
+    "amount": 2850,
+    "sql": true,
+    "tax": 350,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 2850,
+    "amount": 5699,
+    "sql": true,
+    "tax": 350,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 2850,
+    "amount": 5700,
+    "sql": true,
+    "tax": 350,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 2850,
+    "amount": 5705,
+    "sql": true,
+    "tax": 350,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 5699,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 5699,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 5699,
+    "amount": 814,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 5699,
+    "amount": 2850,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 5699,
+    "amount": 5699,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 5699,
+    "amount": 5700,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 5699,
+    "amount": 5705,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 5700,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 5700,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 5700,
+    "amount": 814,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 5700,
+    "amount": 2850,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 5700,
+    "amount": 5699,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 5700,
+    "amount": 5700,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 5700,
+    "amount": 5705,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 0,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 0,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 0,
+    "amount": 814,
+    "sql": true,
+    "tax": 100,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 0,
+    "amount": 2850,
+    "sql": true,
+    "tax": 350,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 0,
+    "amount": 5700,
+    "sql": true,
+    "tax": 700,
+    "service_charge": 1
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 0,
+    "amount": 5701,
+    "sql": true,
+    "tax": 700,
+    "service_charge": 1
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 0,
+    "amount": 5706,
+    "sql": true,
+    "tax": 700,
+    "service_charge": 1
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 1,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 1,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 1,
+    "amount": 814,
+    "sql": true,
+    "tax": 100,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 1,
+    "amount": 2850,
+    "sql": true,
+    "tax": 350,
+    "service_charge": 1
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 1,
+    "amount": 5700,
+    "sql": true,
+    "tax": 700,
+    "service_charge": 1
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 1,
+    "amount": 5701,
+    "sql": true,
+    "tax": 700,
+    "service_charge": 1
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 1,
+    "amount": 5706,
+    "sql": true,
+    "tax": 700,
+    "service_charge": 1
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 1900,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 1900,
+    "amount": 2,
+    "sql": true,
+    "tax": 1,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 1900,
+    "amount": 814,
+    "sql": true,
+    "tax": 100,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 1900,
+    "amount": 2850,
+    "sql": true,
+    "tax": 350,
+    "service_charge": 1
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 1900,
+    "amount": 5700,
+    "sql": true,
+    "tax": 467,
+    "service_charge": 1
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 1900,
+    "amount": 5701,
+    "sql": true,
+    "tax": 467,
+    "service_charge": 1
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 1900,
+    "amount": 5706,
+    "sql": true,
+    "tax": 467,
+    "service_charge": 1
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 2850,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 1
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 2850,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 1
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 2850,
+    "amount": 814,
+    "sql": true,
+    "tax": 100,
+    "service_charge": 1
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 2850,
+    "amount": 2850,
+    "sql": true,
+    "tax": 350,
+    "service_charge": 1
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 2850,
+    "amount": 5700,
+    "sql": true,
+    "tax": 350,
+    "service_charge": 1
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 2850,
+    "amount": 5701,
+    "sql": true,
+    "tax": 350,
+    "service_charge": 1
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 2850,
+    "amount": 5706,
+    "sql": true,
+    "tax": 350,
+    "service_charge": 1
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 5700,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 5700,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 5700,
+    "amount": 814,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 5700,
+    "amount": 2850,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 5700,
+    "amount": 5700,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 5700,
+    "amount": 5701,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 5700,
+    "amount": 5706,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 5701,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 5701,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 5701,
+    "amount": 814,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 5701,
+    "amount": 2850,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 5701,
+    "amount": 5700,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 5701,
+    "amount": 5701,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 5701,
+    "amount": 5706,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 0,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 0,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 0,
+    "amount": 912,
+    "sql": true,
+    "tax": 112,
+    "service_charge": 86
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 0,
+    "amount": 3192,
+    "sql": true,
+    "tax": 392,
+    "service_charge": 300
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 0,
+    "amount": 6383,
+    "sql": true,
+    "tax": 784,
+    "service_charge": 600
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 0,
+    "amount": 6384,
+    "sql": true,
+    "tax": 784,
+    "service_charge": 600
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 0,
+    "amount": 6389,
+    "sql": true,
+    "tax": 784,
+    "service_charge": 600
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 1,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 1,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 1,
+    "amount": 912,
+    "sql": true,
+    "tax": 112,
+    "service_charge": 86
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 1,
+    "amount": 3192,
+    "sql": true,
+    "tax": 392,
+    "service_charge": 300
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 1,
+    "amount": 6383,
+    "sql": true,
+    "tax": 784,
+    "service_charge": 600
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 1,
+    "amount": 6384,
+    "sql": true,
+    "tax": 784,
+    "service_charge": 600
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 1,
+    "amount": 6389,
+    "sql": true,
+    "tax": 784,
+    "service_charge": 600
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 2128,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 2128,
+    "amount": 2,
+    "sql": true,
+    "tax": 1,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 2128,
+    "amount": 912,
+    "sql": true,
+    "tax": 112,
+    "service_charge": 86
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 2128,
+    "amount": 3192,
+    "sql": true,
+    "tax": 392,
+    "service_charge": 300
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 2128,
+    "amount": 6383,
+    "sql": true,
+    "tax": 523,
+    "service_charge": 400
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 2128,
+    "amount": 6384,
+    "sql": true,
+    "tax": 523,
+    "service_charge": 400
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 2128,
+    "amount": 6389,
+    "sql": true,
+    "tax": 523,
+    "service_charge": 400
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 3192,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 3192,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 3192,
+    "amount": 912,
+    "sql": true,
+    "tax": 112,
+    "service_charge": 86
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 3192,
+    "amount": 3192,
+    "sql": true,
+    "tax": 392,
+    "service_charge": 300
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 3192,
+    "amount": 6383,
+    "sql": true,
+    "tax": 392,
+    "service_charge": 300
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 3192,
+    "amount": 6384,
+    "sql": true,
+    "tax": 392,
+    "service_charge": 300
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 3192,
+    "amount": 6389,
+    "sql": true,
+    "tax": 392,
+    "service_charge": 300
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 6383,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 6383,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 6383,
+    "amount": 912,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 6383,
+    "amount": 3192,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 6383,
+    "amount": 6383,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 6383,
+    "amount": 6384,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 6383,
+    "amount": 6389,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 6384,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 6384,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 6384,
+    "amount": 912,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 6384,
+    "amount": 3192,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 6384,
+    "amount": 6383,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 6384,
+    "amount": 6384,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6384,
+    "order_tax": 784,
+    "order_service_charge": 600,
+    "refunded_before": 6384,
+    "amount": 6389,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 0,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 0,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 0,
+    "amount": 900,
+    "sql": true,
+    "tax": 100,
+    "service_charge": 86
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 0,
+    "amount": 3150,
+    "sql": true,
+    "tax": 350,
+    "service_charge": 300
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 0,
+    "amount": 6299,
+    "sql": true,
+    "tax": 700,
+    "service_charge": 600
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 0,
+    "amount": 6300,
+    "sql": true,
+    "tax": 700,
+    "service_charge": 600
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 0,
+    "amount": 6305,
+    "sql": true,
+    "tax": 700,
+    "service_charge": 600
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 1,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 1,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 1,
+    "amount": 900,
+    "sql": true,
+    "tax": 100,
+    "service_charge": 86
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 1,
+    "amount": 3150,
+    "sql": true,
+    "tax": 350,
+    "service_charge": 300
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 1,
+    "amount": 6299,
+    "sql": true,
+    "tax": 700,
+    "service_charge": 600
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 1,
+    "amount": 6300,
+    "sql": true,
+    "tax": 700,
+    "service_charge": 600
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 1,
+    "amount": 6305,
+    "sql": true,
+    "tax": 700,
+    "service_charge": 600
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 2100,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 2100,
+    "amount": 2,
+    "sql": true,
+    "tax": 1,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 2100,
+    "amount": 900,
+    "sql": true,
+    "tax": 100,
+    "service_charge": 86
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 2100,
+    "amount": 3150,
+    "sql": true,
+    "tax": 350,
+    "service_charge": 300
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 2100,
+    "amount": 6299,
+    "sql": true,
+    "tax": 467,
+    "service_charge": 400
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 2100,
+    "amount": 6300,
+    "sql": true,
+    "tax": 467,
+    "service_charge": 400
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 2100,
+    "amount": 6305,
+    "sql": true,
+    "tax": 467,
+    "service_charge": 400
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 3150,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 3150,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 3150,
+    "amount": 900,
+    "sql": true,
+    "tax": 100,
+    "service_charge": 86
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 3150,
+    "amount": 3150,
+    "sql": true,
+    "tax": 350,
+    "service_charge": 300
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 3150,
+    "amount": 6299,
+    "sql": true,
+    "tax": 350,
+    "service_charge": 300
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 3150,
+    "amount": 6300,
+    "sql": true,
+    "tax": 350,
+    "service_charge": 300
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 3150,
+    "amount": 6305,
+    "sql": true,
+    "tax": 350,
+    "service_charge": 300
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 6299,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 6299,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 6299,
+    "amount": 900,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 6299,
+    "amount": 3150,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 6299,
+    "amount": 6299,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 6299,
+    "amount": 6300,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 6299,
+    "amount": 6305,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 6300,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 6300,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 6300,
+    "amount": 900,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 6300,
+    "amount": 3150,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 6300,
+    "amount": 6299,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 6300,
+    "amount": 6300,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 6300,
+    "order_tax": 700,
+    "order_service_charge": 600,
+    "refunded_before": 6300,
+    "amount": 6305,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 0,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 0,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 0,
+    "amount": 1824,
+    "sql": true,
+    "tax": 224,
+    "service_charge": 171
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 0,
+    "amount": 6384,
+    "sql": true,
+    "tax": 784,
+    "service_charge": 600
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 0,
+    "amount": 12767,
+    "sql": true,
+    "tax": 1568,
+    "service_charge": 1200
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 0,
+    "amount": 12768,
+    "sql": true,
+    "tax": 1568,
+    "service_charge": 1200
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 0,
+    "amount": 12773,
+    "sql": true,
+    "tax": 1568,
+    "service_charge": 1200
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 1,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 1,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 1,
+    "amount": 1824,
+    "sql": true,
+    "tax": 224,
+    "service_charge": 172
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 1,
+    "amount": 6384,
+    "sql": true,
+    "tax": 784,
+    "service_charge": 600
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 1,
+    "amount": 12767,
+    "sql": true,
+    "tax": 1568,
+    "service_charge": 1200
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 1,
+    "amount": 12768,
+    "sql": true,
+    "tax": 1568,
+    "service_charge": 1200
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 1,
+    "amount": 12773,
+    "sql": true,
+    "tax": 1568,
+    "service_charge": 1200
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 4256,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 4256,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 4256,
+    "amount": 1824,
+    "sql": true,
+    "tax": 224,
+    "service_charge": 171
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 4256,
+    "amount": 6384,
+    "sql": true,
+    "tax": 784,
+    "service_charge": 600
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 4256,
+    "amount": 12767,
+    "sql": true,
+    "tax": 1045,
+    "service_charge": 800
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 4256,
+    "amount": 12768,
+    "sql": true,
+    "tax": 1045,
+    "service_charge": 800
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 4256,
+    "amount": 12773,
+    "sql": true,
+    "tax": 1045,
+    "service_charge": 800
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 6384,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 6384,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 6384,
+    "amount": 1824,
+    "sql": true,
+    "tax": 224,
+    "service_charge": 171
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 6384,
+    "amount": 6384,
+    "sql": true,
+    "tax": 784,
+    "service_charge": 600
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 6384,
+    "amount": 12767,
+    "sql": true,
+    "tax": 784,
+    "service_charge": 600
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 6384,
+    "amount": 12768,
+    "sql": true,
+    "tax": 784,
+    "service_charge": 600
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 6384,
+    "amount": 12773,
+    "sql": true,
+    "tax": 784,
+    "service_charge": 600
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 12767,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 12767,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 12767,
+    "amount": 1824,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 12767,
+    "amount": 6384,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 12767,
+    "amount": 12767,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 12767,
+    "amount": 12768,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 12767,
+    "amount": 12773,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 12768,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 12768,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 12768,
+    "amount": 1824,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 12768,
+    "amount": 6384,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 12768,
+    "amount": 12767,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 12768,
+    "amount": 12768,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 12768,
+    "amount": 12773,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 0,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 0,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 0,
+    "amount": 14109,
+    "sql": true,
+    "tax": 1733,
+    "service_charge": 1270
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 0,
+    "amount": 49382,
+    "sql": true,
+    "tax": 6064,
+    "service_charge": 4444
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 0,
+    "amount": 98764,
+    "sql": true,
+    "tax": 12129,
+    "service_charge": 8888
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 0,
+    "amount": 98765,
+    "sql": true,
+    "tax": 12129,
+    "service_charge": 8888
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 0,
+    "amount": 98770,
+    "sql": true,
+    "tax": 12129,
+    "service_charge": 8888
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 1,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 1,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 1,
+    "amount": 14109,
+    "sql": true,
+    "tax": 1733,
+    "service_charge": 1270
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 1,
+    "amount": 49382,
+    "sql": true,
+    "tax": 6065,
+    "service_charge": 4444
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 1,
+    "amount": 98764,
+    "sql": true,
+    "tax": 12129,
+    "service_charge": 8888
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 1,
+    "amount": 98765,
+    "sql": true,
+    "tax": 12129,
+    "service_charge": 8888
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 1,
+    "amount": 98770,
+    "sql": true,
+    "tax": 12129,
+    "service_charge": 8888
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 32921,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 32921,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 32921,
+    "amount": 14109,
+    "sql": true,
+    "tax": 1733,
+    "service_charge": 1269
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 32921,
+    "amount": 49382,
+    "sql": true,
+    "tax": 6064,
+    "service_charge": 4444
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 32921,
+    "amount": 98764,
+    "sql": true,
+    "tax": 8086,
+    "service_charge": 5925
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 32921,
+    "amount": 98765,
+    "sql": true,
+    "tax": 8086,
+    "service_charge": 5925
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 32921,
+    "amount": 98770,
+    "sql": true,
+    "tax": 8086,
+    "service_charge": 5925
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 49382,
+    "amount": 1,
+    "sql": true,
+    "tax": 1,
+    "service_charge": 0
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 49382,
+    "amount": 2,
+    "sql": true,
+    "tax": 1,
+    "service_charge": 0
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 49382,
+    "amount": 14109,
+    "sql": true,
+    "tax": 1733,
+    "service_charge": 1270
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 49382,
+    "amount": 49382,
+    "sql": true,
+    "tax": 6065,
+    "service_charge": 4444
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 49382,
+    "amount": 98764,
+    "sql": true,
+    "tax": 6065,
+    "service_charge": 4444
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 49382,
+    "amount": 98765,
+    "sql": true,
+    "tax": 6065,
+    "service_charge": 4444
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 49382,
+    "amount": 98770,
+    "sql": true,
+    "tax": 6065,
+    "service_charge": 4444
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 98764,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 98764,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 98764,
+    "amount": 14109,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 98764,
+    "amount": 49382,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 98764,
+    "amount": 98764,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 98764,
+    "amount": 98765,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 98764,
+    "amount": 98770,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 98765,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 98765,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 98765,
+    "amount": 14109,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 98765,
+    "amount": 49382,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 98765,
+    "amount": 98764,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 98765,
+    "amount": 98765,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 98765,
+    "amount": 98770,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 0,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 0,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 0,
+    "amount": 142857,
+    "sql": true,
+    "tax": 17544,
+    "service_charge": 14286
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 0,
+    "amount": 500000,
+    "sql": true,
+    "tax": 61404,
+    "service_charge": 50000
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 0,
+    "amount": 999999,
+    "sql": true,
+    "tax": 122807,
+    "service_charge": 100000
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 0,
+    "amount": 1000000,
+    "sql": true,
+    "tax": 122807,
+    "service_charge": 100000
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 0,
+    "amount": 1000005,
+    "sql": true,
+    "tax": 122807,
+    "service_charge": 100000
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 1,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 1,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 1,
+    "amount": 142857,
+    "sql": true,
+    "tax": 17544,
+    "service_charge": 14286
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 1,
+    "amount": 500000,
+    "sql": true,
+    "tax": 61404,
+    "service_charge": 50000
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 1,
+    "amount": 999999,
+    "sql": true,
+    "tax": 122807,
+    "service_charge": 100000
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 1,
+    "amount": 1000000,
+    "sql": true,
+    "tax": 122807,
+    "service_charge": 100000
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 1,
+    "amount": 1000005,
+    "sql": true,
+    "tax": 122807,
+    "service_charge": 100000
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 333333,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 333333,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 1
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 333333,
+    "amount": 142857,
+    "sql": true,
+    "tax": 17543,
+    "service_charge": 14286
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 333333,
+    "amount": 500000,
+    "sql": true,
+    "tax": 61403,
+    "service_charge": 50000
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 333333,
+    "amount": 999999,
+    "sql": true,
+    "tax": 81871,
+    "service_charge": 66667
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 333333,
+    "amount": 1000000,
+    "sql": true,
+    "tax": 81871,
+    "service_charge": 66667
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 333333,
+    "amount": 1000005,
+    "sql": true,
+    "tax": 81871,
+    "service_charge": 66667
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 500000,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 500000,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 500000,
+    "amount": 142857,
+    "sql": true,
+    "tax": 17543,
+    "service_charge": 14286
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 500000,
+    "amount": 500000,
+    "sql": true,
+    "tax": 61403,
+    "service_charge": 50000
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 500000,
+    "amount": 999999,
+    "sql": true,
+    "tax": 61403,
+    "service_charge": 50000
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 500000,
+    "amount": 1000000,
+    "sql": true,
+    "tax": 61403,
+    "service_charge": 50000
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 500000,
+    "amount": 1000005,
+    "sql": true,
+    "tax": 61403,
+    "service_charge": 50000
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 999999,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 999999,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 999999,
+    "amount": 142857,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 999999,
+    "amount": 500000,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 999999,
+    "amount": 999999,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 999999,
+    "amount": 1000000,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 999999,
+    "amount": 1000005,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 1000000,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 1000000,
+    "amount": 2,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 1000000,
+    "amount": 142857,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 1000000,
+    "amount": 500000,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 1000000,
+    "amount": 999999,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 1000000,
+    "amount": 1000000,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 1000000,
+    "order_tax": 122807,
+    "order_service_charge": 100000,
+    "refunded_before": 1000000,
+    "amount": 1000005,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 0,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 1,
+    "amount": 333,
+    "sql": true,
+    "tax": 41,
+    "service_charge": 30
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 334,
+    "amount": 4999,
+    "sql": true,
+    "tax": 614,
+    "service_charge": 450
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 5333,
+    "amount": 12345,
+    "sql": true,
+    "tax": 1516,
+    "service_charge": 1111
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 17678,
+    "amount": 40000,
+    "sql": true,
+    "tax": 4912,
+    "service_charge": 3600
+  },
+  {
+    "order_total": 98765,
+    "order_tax": 12129,
+    "order_service_charge": 8888,
+    "refunded_before": 57678,
+    "amount": 41087,
+    "sql": true,
+    "tax": 5046,
+    "service_charge": 3697
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 1,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 2,
+    "amount": 1,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 333,
+    "order_tax": 41,
+    "order_service_charge": 0,
+    "refunded_before": 3,
+    "amount": 330,
+    "sql": true,
+    "tax": 41,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 0,
+    "amount": 1900,
+    "sql": true,
+    "tax": 233,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 1900,
+    "amount": 1900,
+    "sql": true,
+    "tax": 234,
+    "service_charge": 1
+  },
+  {
+    "order_total": 5701,
+    "order_tax": 700,
+    "order_service_charge": 1,
+    "refunded_before": 3800,
+    "amount": 1901,
+    "sql": true,
+    "tax": 233,
+    "service_charge": 0
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 0,
+    "amount": 3,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 3,
+    "amount": 5,
+    "sql": true,
+    "tax": 1,
+    "service_charge": 1
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 8,
+    "amount": 7,
+    "sql": true,
+    "tax": 1,
+    "service_charge": 0
+  },
+  {
+    "order_total": 12768,
+    "order_tax": 1568,
+    "order_service_charge": 1200,
+    "refunded_before": 15,
+    "amount": 12753,
+    "sql": true,
+    "tax": 1566,
+    "service_charge": 1199
+  },
+  {
+    "order_total": 0,
+    "order_tax": 100,
+    "order_service_charge": 100,
+    "refunded_before": 0,
+    "amount": 50,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": -100,
+    "order_tax": 14,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 50,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": -700,
+    "order_service_charge": 0,
+    "refunded_before": 0,
+    "amount": 5700,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": -10,
+    "refunded_before": 0,
+    "amount": 5700,
+    "sql": true,
+    "tax": 700,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": -5,
+    "amount": 100,
+    "sql": false,
+    "tax": 12,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 100,
+    "amount": -3,
+    "sql": false,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 6000,
+    "amount": 100,
+    "sql": true,
+    "tax": 0,
+    "service_charge": 0
+  },
+  {
+    "order_total": 5700,
+    "order_tax": 700,
+    "order_service_charge": 0,
+    "refunded_before": 5000,
+    "amount": 10000,
+    "sql": true,
+    "tax": 86,
+    "service_charge": 0
+  }
+]

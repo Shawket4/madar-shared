@@ -1,0 +1,25 @@
+//! # madar-money
+//!
+//! Money rules the backend (MadarRust) and the Rust cores (madar-core) both
+//! run, in ONE copy. v1 is a zero-behaviour move: only code that was already
+//! identical on both sides and pinned by vectors.
+//!
+//! - [`tax`]: the bill engine (`compute`, `discount_amount`), the sale-channel
+//!   rule (`SaleChannel`, `TaxPolicy::for_sale`), `negative_part`, `is_sane`,
+//!   and the refund tax/service split (`refund_split`).
+//! - [`staff_pool`]: the staff drinks pool decision.
+//! - [`staff_comp`]: what a staff drink is given free (the rule, not the
+//!   input builders).
+//! - [`loyalty`]: what a reward covers on a line.
+//! - [`metrics`]: POS metrics `average_ticket` and the report's constants.
+//! - [`vectors`]: the vector files, for consumer tests that pin their own
+//!   code (SQL, bill assembly) to the same bytes.
+//!
+//! Nothing here does I/O or reads a clock. Callers pass everything in.
+
+pub mod loyalty;
+pub mod metrics;
+pub mod staff_comp;
+pub mod staff_pool;
+pub mod tax;
+pub mod vectors;

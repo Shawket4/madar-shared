@@ -1,0 +1,2189 @@
+[
+  {
+    "subtotal": -1,
+    "discount": -1,
+    "service_charge": -1,
+    "tax": -1,
+    "total": -1,
+    "net": 1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": -1,
+    "service_charge": -1,
+    "tax": -1,
+    "total": 0,
+    "net": 0,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": -1,
+    "service_charge": -1,
+    "tax": -1,
+    "total": 1,
+    "net": -1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": -1,
+    "service_charge": -1,
+    "tax": 0,
+    "total": -1,
+    "net": 1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": -1,
+    "service_charge": -1,
+    "tax": 0,
+    "total": 0,
+    "net": 0,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": -1,
+    "service_charge": -1,
+    "tax": 0,
+    "total": 1,
+    "net": -1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": -1,
+    "service_charge": -1,
+    "tax": 1,
+    "total": -1,
+    "net": 1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": -1,
+    "service_charge": -1,
+    "tax": 1,
+    "total": 0,
+    "net": 0,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": -1,
+    "service_charge": -1,
+    "tax": 1,
+    "total": 1,
+    "net": -1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": -1,
+    "service_charge": 0,
+    "tax": -1,
+    "total": -1,
+    "net": 1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": -1,
+    "service_charge": 0,
+    "tax": -1,
+    "total": 0,
+    "net": 0,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": -1,
+    "service_charge": 0,
+    "tax": -1,
+    "total": 1,
+    "net": -1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": -1,
+    "service_charge": 0,
+    "tax": 0,
+    "total": -1,
+    "net": 1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": -1,
+    "service_charge": 0,
+    "tax": 0,
+    "total": 0,
+    "net": 0,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": -1,
+    "service_charge": 0,
+    "tax": 0,
+    "total": 1,
+    "net": -1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": -1,
+    "service_charge": 0,
+    "tax": 1,
+    "total": -1,
+    "net": 1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": -1,
+    "service_charge": 0,
+    "tax": 1,
+    "total": 0,
+    "net": 0,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": -1,
+    "service_charge": 0,
+    "tax": 1,
+    "total": 1,
+    "net": -1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": -1,
+    "service_charge": 1,
+    "tax": -1,
+    "total": -1,
+    "net": 1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": -1,
+    "service_charge": 1,
+    "tax": -1,
+    "total": 0,
+    "net": 0,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": -1,
+    "service_charge": 1,
+    "tax": -1,
+    "total": 1,
+    "net": -1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": -1,
+    "service_charge": 1,
+    "tax": 0,
+    "total": -1,
+    "net": 1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": -1,
+    "service_charge": 1,
+    "tax": 0,
+    "total": 0,
+    "net": 0,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": -1,
+    "service_charge": 1,
+    "tax": 0,
+    "total": 1,
+    "net": -1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": -1,
+    "service_charge": 1,
+    "tax": 1,
+    "total": -1,
+    "net": 1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": -1,
+    "service_charge": 1,
+    "tax": 1,
+    "total": 0,
+    "net": 0,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": -1,
+    "service_charge": 1,
+    "tax": 1,
+    "total": 1,
+    "net": -1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 0,
+    "service_charge": -1,
+    "tax": -1,
+    "total": -1,
+    "net": 1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 0,
+    "service_charge": -1,
+    "tax": -1,
+    "total": 0,
+    "net": 0,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 0,
+    "service_charge": -1,
+    "tax": -1,
+    "total": 1,
+    "net": -1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 0,
+    "service_charge": -1,
+    "tax": 0,
+    "total": -1,
+    "net": 1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 0,
+    "service_charge": -1,
+    "tax": 0,
+    "total": 0,
+    "net": 0,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 0,
+    "service_charge": -1,
+    "tax": 0,
+    "total": 1,
+    "net": -1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 0,
+    "service_charge": -1,
+    "tax": 1,
+    "total": -1,
+    "net": 1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 0,
+    "service_charge": -1,
+    "tax": 1,
+    "total": 0,
+    "net": 0,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 0,
+    "service_charge": -1,
+    "tax": 1,
+    "total": 1,
+    "net": -1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 0,
+    "service_charge": 0,
+    "tax": -1,
+    "total": -1,
+    "net": 1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 0,
+    "service_charge": 0,
+    "tax": -1,
+    "total": 0,
+    "net": 0,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 0,
+    "service_charge": 0,
+    "tax": -1,
+    "total": 1,
+    "net": -1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 0,
+    "service_charge": 0,
+    "tax": 0,
+    "total": -1,
+    "net": 1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 0,
+    "service_charge": 0,
+    "tax": 0,
+    "total": 0,
+    "net": 0,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 0,
+    "service_charge": 0,
+    "tax": 0,
+    "total": 1,
+    "net": -1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 0,
+    "service_charge": 0,
+    "tax": 1,
+    "total": -1,
+    "net": 1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 0,
+    "service_charge": 0,
+    "tax": 1,
+    "total": 0,
+    "net": 0,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 0,
+    "service_charge": 0,
+    "tax": 1,
+    "total": 1,
+    "net": -1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 0,
+    "service_charge": 1,
+    "tax": -1,
+    "total": -1,
+    "net": 1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 0,
+    "service_charge": 1,
+    "tax": -1,
+    "total": 0,
+    "net": 0,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 0,
+    "service_charge": 1,
+    "tax": -1,
+    "total": 1,
+    "net": -1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 0,
+    "service_charge": 1,
+    "tax": 0,
+    "total": -1,
+    "net": 1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 0,
+    "service_charge": 1,
+    "tax": 0,
+    "total": 0,
+    "net": 0,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 0,
+    "service_charge": 1,
+    "tax": 0,
+    "total": 1,
+    "net": -1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 0,
+    "service_charge": 1,
+    "tax": 1,
+    "total": -1,
+    "net": 1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 0,
+    "service_charge": 1,
+    "tax": 1,
+    "total": 0,
+    "net": 0,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 0,
+    "service_charge": 1,
+    "tax": 1,
+    "total": 1,
+    "net": -1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 1,
+    "service_charge": -1,
+    "tax": -1,
+    "total": -1,
+    "net": 1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 1,
+    "service_charge": -1,
+    "tax": -1,
+    "total": 0,
+    "net": 0,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 1,
+    "service_charge": -1,
+    "tax": -1,
+    "total": 1,
+    "net": -1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 1,
+    "service_charge": -1,
+    "tax": 0,
+    "total": -1,
+    "net": 1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 1,
+    "service_charge": -1,
+    "tax": 0,
+    "total": 0,
+    "net": 0,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 1,
+    "service_charge": -1,
+    "tax": 0,
+    "total": 1,
+    "net": -1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 1,
+    "service_charge": -1,
+    "tax": 1,
+    "total": -1,
+    "net": 1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 1,
+    "service_charge": -1,
+    "tax": 1,
+    "total": 0,
+    "net": 0,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 1,
+    "service_charge": -1,
+    "tax": 1,
+    "total": 1,
+    "net": -1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 1,
+    "service_charge": 0,
+    "tax": -1,
+    "total": -1,
+    "net": 1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 1,
+    "service_charge": 0,
+    "tax": -1,
+    "total": 0,
+    "net": 0,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 1,
+    "service_charge": 0,
+    "tax": -1,
+    "total": 1,
+    "net": -1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 1,
+    "service_charge": 0,
+    "tax": 0,
+    "total": -1,
+    "net": 1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 1,
+    "service_charge": 0,
+    "tax": 0,
+    "total": 0,
+    "net": 0,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 1,
+    "service_charge": 0,
+    "tax": 0,
+    "total": 1,
+    "net": -1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 1,
+    "service_charge": 0,
+    "tax": 1,
+    "total": -1,
+    "net": 1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 1,
+    "service_charge": 0,
+    "tax": 1,
+    "total": 0,
+    "net": 0,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 1,
+    "service_charge": 0,
+    "tax": 1,
+    "total": 1,
+    "net": -1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 1,
+    "service_charge": 1,
+    "tax": -1,
+    "total": -1,
+    "net": 1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 1,
+    "service_charge": 1,
+    "tax": -1,
+    "total": 0,
+    "net": 0,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 1,
+    "service_charge": 1,
+    "tax": -1,
+    "total": 1,
+    "net": -1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 1,
+    "service_charge": 1,
+    "tax": 0,
+    "total": -1,
+    "net": 1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 1,
+    "service_charge": 1,
+    "tax": 0,
+    "total": 0,
+    "net": 0,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 1,
+    "service_charge": 1,
+    "tax": 0,
+    "total": 1,
+    "net": -1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 1,
+    "service_charge": 1,
+    "tax": 1,
+    "total": -1,
+    "net": 1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 1,
+    "service_charge": 1,
+    "tax": 1,
+    "total": 0,
+    "net": 0,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": -1,
+    "discount": 1,
+    "service_charge": 1,
+    "tax": 1,
+    "total": 1,
+    "net": -1,
+    "part": "subtotal"
+  },
+  {
+    "subtotal": 0,
+    "discount": -1,
+    "service_charge": -1,
+    "tax": -1,
+    "total": -1,
+    "net": 1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 0,
+    "discount": -1,
+    "service_charge": -1,
+    "tax": -1,
+    "total": 0,
+    "net": 0,
+    "part": "discount"
+  },
+  {
+    "subtotal": 0,
+    "discount": -1,
+    "service_charge": -1,
+    "tax": -1,
+    "total": 1,
+    "net": -1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 0,
+    "discount": -1,
+    "service_charge": -1,
+    "tax": 0,
+    "total": -1,
+    "net": 1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 0,
+    "discount": -1,
+    "service_charge": -1,
+    "tax": 0,
+    "total": 0,
+    "net": 0,
+    "part": "discount"
+  },
+  {
+    "subtotal": 0,
+    "discount": -1,
+    "service_charge": -1,
+    "tax": 0,
+    "total": 1,
+    "net": -1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 0,
+    "discount": -1,
+    "service_charge": -1,
+    "tax": 1,
+    "total": -1,
+    "net": 1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 0,
+    "discount": -1,
+    "service_charge": -1,
+    "tax": 1,
+    "total": 0,
+    "net": 0,
+    "part": "discount"
+  },
+  {
+    "subtotal": 0,
+    "discount": -1,
+    "service_charge": -1,
+    "tax": 1,
+    "total": 1,
+    "net": -1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 0,
+    "discount": -1,
+    "service_charge": 0,
+    "tax": -1,
+    "total": -1,
+    "net": 1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 0,
+    "discount": -1,
+    "service_charge": 0,
+    "tax": -1,
+    "total": 0,
+    "net": 0,
+    "part": "discount"
+  },
+  {
+    "subtotal": 0,
+    "discount": -1,
+    "service_charge": 0,
+    "tax": -1,
+    "total": 1,
+    "net": -1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 0,
+    "discount": -1,
+    "service_charge": 0,
+    "tax": 0,
+    "total": -1,
+    "net": 1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 0,
+    "discount": -1,
+    "service_charge": 0,
+    "tax": 0,
+    "total": 0,
+    "net": 0,
+    "part": "discount"
+  },
+  {
+    "subtotal": 0,
+    "discount": -1,
+    "service_charge": 0,
+    "tax": 0,
+    "total": 1,
+    "net": -1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 0,
+    "discount": -1,
+    "service_charge": 0,
+    "tax": 1,
+    "total": -1,
+    "net": 1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 0,
+    "discount": -1,
+    "service_charge": 0,
+    "tax": 1,
+    "total": 0,
+    "net": 0,
+    "part": "discount"
+  },
+  {
+    "subtotal": 0,
+    "discount": -1,
+    "service_charge": 0,
+    "tax": 1,
+    "total": 1,
+    "net": -1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 0,
+    "discount": -1,
+    "service_charge": 1,
+    "tax": -1,
+    "total": -1,
+    "net": 1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 0,
+    "discount": -1,
+    "service_charge": 1,
+    "tax": -1,
+    "total": 0,
+    "net": 0,
+    "part": "discount"
+  },
+  {
+    "subtotal": 0,
+    "discount": -1,
+    "service_charge": 1,
+    "tax": -1,
+    "total": 1,
+    "net": -1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 0,
+    "discount": -1,
+    "service_charge": 1,
+    "tax": 0,
+    "total": -1,
+    "net": 1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 0,
+    "discount": -1,
+    "service_charge": 1,
+    "tax": 0,
+    "total": 0,
+    "net": 0,
+    "part": "discount"
+  },
+  {
+    "subtotal": 0,
+    "discount": -1,
+    "service_charge": 1,
+    "tax": 0,
+    "total": 1,
+    "net": -1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 0,
+    "discount": -1,
+    "service_charge": 1,
+    "tax": 1,
+    "total": -1,
+    "net": 1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 0,
+    "discount": -1,
+    "service_charge": 1,
+    "tax": 1,
+    "total": 0,
+    "net": 0,
+    "part": "discount"
+  },
+  {
+    "subtotal": 0,
+    "discount": -1,
+    "service_charge": 1,
+    "tax": 1,
+    "total": 1,
+    "net": -1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 0,
+    "discount": 0,
+    "service_charge": -1,
+    "tax": -1,
+    "total": -1,
+    "net": 1,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 0,
+    "discount": 0,
+    "service_charge": -1,
+    "tax": -1,
+    "total": 0,
+    "net": 0,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 0,
+    "discount": 0,
+    "service_charge": -1,
+    "tax": -1,
+    "total": 1,
+    "net": -1,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 0,
+    "discount": 0,
+    "service_charge": -1,
+    "tax": 0,
+    "total": -1,
+    "net": 1,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 0,
+    "discount": 0,
+    "service_charge": -1,
+    "tax": 0,
+    "total": 0,
+    "net": 0,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 0,
+    "discount": 0,
+    "service_charge": -1,
+    "tax": 0,
+    "total": 1,
+    "net": -1,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 0,
+    "discount": 0,
+    "service_charge": -1,
+    "tax": 1,
+    "total": -1,
+    "net": 1,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 0,
+    "discount": 0,
+    "service_charge": -1,
+    "tax": 1,
+    "total": 0,
+    "net": 0,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 0,
+    "discount": 0,
+    "service_charge": -1,
+    "tax": 1,
+    "total": 1,
+    "net": -1,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 0,
+    "discount": 0,
+    "service_charge": 0,
+    "tax": -1,
+    "total": -1,
+    "net": 1,
+    "part": "tax"
+  },
+  {
+    "subtotal": 0,
+    "discount": 0,
+    "service_charge": 0,
+    "tax": -1,
+    "total": 0,
+    "net": 0,
+    "part": "tax"
+  },
+  {
+    "subtotal": 0,
+    "discount": 0,
+    "service_charge": 0,
+    "tax": -1,
+    "total": 1,
+    "net": -1,
+    "part": "tax"
+  },
+  {
+    "subtotal": 0,
+    "discount": 0,
+    "service_charge": 0,
+    "tax": 0,
+    "total": -1,
+    "net": 1,
+    "part": "total"
+  },
+  {
+    "subtotal": 0,
+    "discount": 0,
+    "service_charge": 0,
+    "tax": 0,
+    "total": 0,
+    "net": 0,
+    "part": null
+  },
+  {
+    "subtotal": 0,
+    "discount": 0,
+    "service_charge": 0,
+    "tax": 0,
+    "total": 1,
+    "net": -1,
+    "part": null
+  },
+  {
+    "subtotal": 0,
+    "discount": 0,
+    "service_charge": 0,
+    "tax": 1,
+    "total": -1,
+    "net": 1,
+    "part": "total"
+  },
+  {
+    "subtotal": 0,
+    "discount": 0,
+    "service_charge": 0,
+    "tax": 1,
+    "total": 0,
+    "net": 0,
+    "part": null
+  },
+  {
+    "subtotal": 0,
+    "discount": 0,
+    "service_charge": 0,
+    "tax": 1,
+    "total": 1,
+    "net": -1,
+    "part": null
+  },
+  {
+    "subtotal": 0,
+    "discount": 0,
+    "service_charge": 1,
+    "tax": -1,
+    "total": -1,
+    "net": 1,
+    "part": "tax"
+  },
+  {
+    "subtotal": 0,
+    "discount": 0,
+    "service_charge": 1,
+    "tax": -1,
+    "total": 0,
+    "net": 0,
+    "part": "tax"
+  },
+  {
+    "subtotal": 0,
+    "discount": 0,
+    "service_charge": 1,
+    "tax": -1,
+    "total": 1,
+    "net": -1,
+    "part": "tax"
+  },
+  {
+    "subtotal": 0,
+    "discount": 0,
+    "service_charge": 1,
+    "tax": 0,
+    "total": -1,
+    "net": 1,
+    "part": "total"
+  },
+  {
+    "subtotal": 0,
+    "discount": 0,
+    "service_charge": 1,
+    "tax": 0,
+    "total": 0,
+    "net": 0,
+    "part": null
+  },
+  {
+    "subtotal": 0,
+    "discount": 0,
+    "service_charge": 1,
+    "tax": 0,
+    "total": 1,
+    "net": -1,
+    "part": null
+  },
+  {
+    "subtotal": 0,
+    "discount": 0,
+    "service_charge": 1,
+    "tax": 1,
+    "total": -1,
+    "net": 1,
+    "part": "total"
+  },
+  {
+    "subtotal": 0,
+    "discount": 0,
+    "service_charge": 1,
+    "tax": 1,
+    "total": 0,
+    "net": 0,
+    "part": null
+  },
+  {
+    "subtotal": 0,
+    "discount": 0,
+    "service_charge": 1,
+    "tax": 1,
+    "total": 1,
+    "net": -1,
+    "part": null
+  },
+  {
+    "subtotal": 0,
+    "discount": 1,
+    "service_charge": -1,
+    "tax": -1,
+    "total": -1,
+    "net": 1,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 0,
+    "discount": 1,
+    "service_charge": -1,
+    "tax": -1,
+    "total": 0,
+    "net": 0,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 0,
+    "discount": 1,
+    "service_charge": -1,
+    "tax": -1,
+    "total": 1,
+    "net": -1,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 0,
+    "discount": 1,
+    "service_charge": -1,
+    "tax": 0,
+    "total": -1,
+    "net": 1,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 0,
+    "discount": 1,
+    "service_charge": -1,
+    "tax": 0,
+    "total": 0,
+    "net": 0,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 0,
+    "discount": 1,
+    "service_charge": -1,
+    "tax": 0,
+    "total": 1,
+    "net": -1,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 0,
+    "discount": 1,
+    "service_charge": -1,
+    "tax": 1,
+    "total": -1,
+    "net": 1,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 0,
+    "discount": 1,
+    "service_charge": -1,
+    "tax": 1,
+    "total": 0,
+    "net": 0,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 0,
+    "discount": 1,
+    "service_charge": -1,
+    "tax": 1,
+    "total": 1,
+    "net": -1,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 0,
+    "discount": 1,
+    "service_charge": 0,
+    "tax": -1,
+    "total": -1,
+    "net": 1,
+    "part": "tax"
+  },
+  {
+    "subtotal": 0,
+    "discount": 1,
+    "service_charge": 0,
+    "tax": -1,
+    "total": 0,
+    "net": 0,
+    "part": "tax"
+  },
+  {
+    "subtotal": 0,
+    "discount": 1,
+    "service_charge": 0,
+    "tax": -1,
+    "total": 1,
+    "net": -1,
+    "part": "tax"
+  },
+  {
+    "subtotal": 0,
+    "discount": 1,
+    "service_charge": 0,
+    "tax": 0,
+    "total": -1,
+    "net": 1,
+    "part": "total"
+  },
+  {
+    "subtotal": 0,
+    "discount": 1,
+    "service_charge": 0,
+    "tax": 0,
+    "total": 0,
+    "net": 0,
+    "part": null
+  },
+  {
+    "subtotal": 0,
+    "discount": 1,
+    "service_charge": 0,
+    "tax": 0,
+    "total": 1,
+    "net": -1,
+    "part": null
+  },
+  {
+    "subtotal": 0,
+    "discount": 1,
+    "service_charge": 0,
+    "tax": 1,
+    "total": -1,
+    "net": 1,
+    "part": "total"
+  },
+  {
+    "subtotal": 0,
+    "discount": 1,
+    "service_charge": 0,
+    "tax": 1,
+    "total": 0,
+    "net": 0,
+    "part": null
+  },
+  {
+    "subtotal": 0,
+    "discount": 1,
+    "service_charge": 0,
+    "tax": 1,
+    "total": 1,
+    "net": -1,
+    "part": null
+  },
+  {
+    "subtotal": 0,
+    "discount": 1,
+    "service_charge": 1,
+    "tax": -1,
+    "total": -1,
+    "net": 1,
+    "part": "tax"
+  },
+  {
+    "subtotal": 0,
+    "discount": 1,
+    "service_charge": 1,
+    "tax": -1,
+    "total": 0,
+    "net": 0,
+    "part": "tax"
+  },
+  {
+    "subtotal": 0,
+    "discount": 1,
+    "service_charge": 1,
+    "tax": -1,
+    "total": 1,
+    "net": -1,
+    "part": "tax"
+  },
+  {
+    "subtotal": 0,
+    "discount": 1,
+    "service_charge": 1,
+    "tax": 0,
+    "total": -1,
+    "net": 1,
+    "part": "total"
+  },
+  {
+    "subtotal": 0,
+    "discount": 1,
+    "service_charge": 1,
+    "tax": 0,
+    "total": 0,
+    "net": 0,
+    "part": null
+  },
+  {
+    "subtotal": 0,
+    "discount": 1,
+    "service_charge": 1,
+    "tax": 0,
+    "total": 1,
+    "net": -1,
+    "part": null
+  },
+  {
+    "subtotal": 0,
+    "discount": 1,
+    "service_charge": 1,
+    "tax": 1,
+    "total": -1,
+    "net": 1,
+    "part": "total"
+  },
+  {
+    "subtotal": 0,
+    "discount": 1,
+    "service_charge": 1,
+    "tax": 1,
+    "total": 0,
+    "net": 0,
+    "part": null
+  },
+  {
+    "subtotal": 0,
+    "discount": 1,
+    "service_charge": 1,
+    "tax": 1,
+    "total": 1,
+    "net": -1,
+    "part": null
+  },
+  {
+    "subtotal": 1,
+    "discount": -1,
+    "service_charge": -1,
+    "tax": -1,
+    "total": -1,
+    "net": 1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 1,
+    "discount": -1,
+    "service_charge": -1,
+    "tax": -1,
+    "total": 0,
+    "net": 0,
+    "part": "discount"
+  },
+  {
+    "subtotal": 1,
+    "discount": -1,
+    "service_charge": -1,
+    "tax": -1,
+    "total": 1,
+    "net": -1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 1,
+    "discount": -1,
+    "service_charge": -1,
+    "tax": 0,
+    "total": -1,
+    "net": 1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 1,
+    "discount": -1,
+    "service_charge": -1,
+    "tax": 0,
+    "total": 0,
+    "net": 0,
+    "part": "discount"
+  },
+  {
+    "subtotal": 1,
+    "discount": -1,
+    "service_charge": -1,
+    "tax": 0,
+    "total": 1,
+    "net": -1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 1,
+    "discount": -1,
+    "service_charge": -1,
+    "tax": 1,
+    "total": -1,
+    "net": 1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 1,
+    "discount": -1,
+    "service_charge": -1,
+    "tax": 1,
+    "total": 0,
+    "net": 0,
+    "part": "discount"
+  },
+  {
+    "subtotal": 1,
+    "discount": -1,
+    "service_charge": -1,
+    "tax": 1,
+    "total": 1,
+    "net": -1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 1,
+    "discount": -1,
+    "service_charge": 0,
+    "tax": -1,
+    "total": -1,
+    "net": 1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 1,
+    "discount": -1,
+    "service_charge": 0,
+    "tax": -1,
+    "total": 0,
+    "net": 0,
+    "part": "discount"
+  },
+  {
+    "subtotal": 1,
+    "discount": -1,
+    "service_charge": 0,
+    "tax": -1,
+    "total": 1,
+    "net": -1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 1,
+    "discount": -1,
+    "service_charge": 0,
+    "tax": 0,
+    "total": -1,
+    "net": 1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 1,
+    "discount": -1,
+    "service_charge": 0,
+    "tax": 0,
+    "total": 0,
+    "net": 0,
+    "part": "discount"
+  },
+  {
+    "subtotal": 1,
+    "discount": -1,
+    "service_charge": 0,
+    "tax": 0,
+    "total": 1,
+    "net": -1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 1,
+    "discount": -1,
+    "service_charge": 0,
+    "tax": 1,
+    "total": -1,
+    "net": 1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 1,
+    "discount": -1,
+    "service_charge": 0,
+    "tax": 1,
+    "total": 0,
+    "net": 0,
+    "part": "discount"
+  },
+  {
+    "subtotal": 1,
+    "discount": -1,
+    "service_charge": 0,
+    "tax": 1,
+    "total": 1,
+    "net": -1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 1,
+    "discount": -1,
+    "service_charge": 1,
+    "tax": -1,
+    "total": -1,
+    "net": 1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 1,
+    "discount": -1,
+    "service_charge": 1,
+    "tax": -1,
+    "total": 0,
+    "net": 0,
+    "part": "discount"
+  },
+  {
+    "subtotal": 1,
+    "discount": -1,
+    "service_charge": 1,
+    "tax": -1,
+    "total": 1,
+    "net": -1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 1,
+    "discount": -1,
+    "service_charge": 1,
+    "tax": 0,
+    "total": -1,
+    "net": 1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 1,
+    "discount": -1,
+    "service_charge": 1,
+    "tax": 0,
+    "total": 0,
+    "net": 0,
+    "part": "discount"
+  },
+  {
+    "subtotal": 1,
+    "discount": -1,
+    "service_charge": 1,
+    "tax": 0,
+    "total": 1,
+    "net": -1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 1,
+    "discount": -1,
+    "service_charge": 1,
+    "tax": 1,
+    "total": -1,
+    "net": 1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 1,
+    "discount": -1,
+    "service_charge": 1,
+    "tax": 1,
+    "total": 0,
+    "net": 0,
+    "part": "discount"
+  },
+  {
+    "subtotal": 1,
+    "discount": -1,
+    "service_charge": 1,
+    "tax": 1,
+    "total": 1,
+    "net": -1,
+    "part": "discount"
+  },
+  {
+    "subtotal": 1,
+    "discount": 0,
+    "service_charge": -1,
+    "tax": -1,
+    "total": -1,
+    "net": 1,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 1,
+    "discount": 0,
+    "service_charge": -1,
+    "tax": -1,
+    "total": 0,
+    "net": 0,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 1,
+    "discount": 0,
+    "service_charge": -1,
+    "tax": -1,
+    "total": 1,
+    "net": -1,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 1,
+    "discount": 0,
+    "service_charge": -1,
+    "tax": 0,
+    "total": -1,
+    "net": 1,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 1,
+    "discount": 0,
+    "service_charge": -1,
+    "tax": 0,
+    "total": 0,
+    "net": 0,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 1,
+    "discount": 0,
+    "service_charge": -1,
+    "tax": 0,
+    "total": 1,
+    "net": -1,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 1,
+    "discount": 0,
+    "service_charge": -1,
+    "tax": 1,
+    "total": -1,
+    "net": 1,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 1,
+    "discount": 0,
+    "service_charge": -1,
+    "tax": 1,
+    "total": 0,
+    "net": 0,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 1,
+    "discount": 0,
+    "service_charge": -1,
+    "tax": 1,
+    "total": 1,
+    "net": -1,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 1,
+    "discount": 0,
+    "service_charge": 0,
+    "tax": -1,
+    "total": -1,
+    "net": 1,
+    "part": "tax"
+  },
+  {
+    "subtotal": 1,
+    "discount": 0,
+    "service_charge": 0,
+    "tax": -1,
+    "total": 0,
+    "net": 0,
+    "part": "tax"
+  },
+  {
+    "subtotal": 1,
+    "discount": 0,
+    "service_charge": 0,
+    "tax": -1,
+    "total": 1,
+    "net": -1,
+    "part": "tax"
+  },
+  {
+    "subtotal": 1,
+    "discount": 0,
+    "service_charge": 0,
+    "tax": 0,
+    "total": -1,
+    "net": 1,
+    "part": "total"
+  },
+  {
+    "subtotal": 1,
+    "discount": 0,
+    "service_charge": 0,
+    "tax": 0,
+    "total": 0,
+    "net": 0,
+    "part": null
+  },
+  {
+    "subtotal": 1,
+    "discount": 0,
+    "service_charge": 0,
+    "tax": 0,
+    "total": 1,
+    "net": -1,
+    "part": null
+  },
+  {
+    "subtotal": 1,
+    "discount": 0,
+    "service_charge": 0,
+    "tax": 1,
+    "total": -1,
+    "net": 1,
+    "part": "total"
+  },
+  {
+    "subtotal": 1,
+    "discount": 0,
+    "service_charge": 0,
+    "tax": 1,
+    "total": 0,
+    "net": 0,
+    "part": null
+  },
+  {
+    "subtotal": 1,
+    "discount": 0,
+    "service_charge": 0,
+    "tax": 1,
+    "total": 1,
+    "net": -1,
+    "part": null
+  },
+  {
+    "subtotal": 1,
+    "discount": 0,
+    "service_charge": 1,
+    "tax": -1,
+    "total": -1,
+    "net": 1,
+    "part": "tax"
+  },
+  {
+    "subtotal": 1,
+    "discount": 0,
+    "service_charge": 1,
+    "tax": -1,
+    "total": 0,
+    "net": 0,
+    "part": "tax"
+  },
+  {
+    "subtotal": 1,
+    "discount": 0,
+    "service_charge": 1,
+    "tax": -1,
+    "total": 1,
+    "net": -1,
+    "part": "tax"
+  },
+  {
+    "subtotal": 1,
+    "discount": 0,
+    "service_charge": 1,
+    "tax": 0,
+    "total": -1,
+    "net": 1,
+    "part": "total"
+  },
+  {
+    "subtotal": 1,
+    "discount": 0,
+    "service_charge": 1,
+    "tax": 0,
+    "total": 0,
+    "net": 0,
+    "part": null
+  },
+  {
+    "subtotal": 1,
+    "discount": 0,
+    "service_charge": 1,
+    "tax": 0,
+    "total": 1,
+    "net": -1,
+    "part": null
+  },
+  {
+    "subtotal": 1,
+    "discount": 0,
+    "service_charge": 1,
+    "tax": 1,
+    "total": -1,
+    "net": 1,
+    "part": "total"
+  },
+  {
+    "subtotal": 1,
+    "discount": 0,
+    "service_charge": 1,
+    "tax": 1,
+    "total": 0,
+    "net": 0,
+    "part": null
+  },
+  {
+    "subtotal": 1,
+    "discount": 0,
+    "service_charge": 1,
+    "tax": 1,
+    "total": 1,
+    "net": -1,
+    "part": null
+  },
+  {
+    "subtotal": 1,
+    "discount": 1,
+    "service_charge": -1,
+    "tax": -1,
+    "total": -1,
+    "net": 1,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 1,
+    "discount": 1,
+    "service_charge": -1,
+    "tax": -1,
+    "total": 0,
+    "net": 0,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 1,
+    "discount": 1,
+    "service_charge": -1,
+    "tax": -1,
+    "total": 1,
+    "net": -1,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 1,
+    "discount": 1,
+    "service_charge": -1,
+    "tax": 0,
+    "total": -1,
+    "net": 1,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 1,
+    "discount": 1,
+    "service_charge": -1,
+    "tax": 0,
+    "total": 0,
+    "net": 0,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 1,
+    "discount": 1,
+    "service_charge": -1,
+    "tax": 0,
+    "total": 1,
+    "net": -1,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 1,
+    "discount": 1,
+    "service_charge": -1,
+    "tax": 1,
+    "total": -1,
+    "net": 1,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 1,
+    "discount": 1,
+    "service_charge": -1,
+    "tax": 1,
+    "total": 0,
+    "net": 0,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 1,
+    "discount": 1,
+    "service_charge": -1,
+    "tax": 1,
+    "total": 1,
+    "net": -1,
+    "part": "service_charge"
+  },
+  {
+    "subtotal": 1,
+    "discount": 1,
+    "service_charge": 0,
+    "tax": -1,
+    "total": -1,
+    "net": 1,
+    "part": "tax"
+  },
+  {
+    "subtotal": 1,
+    "discount": 1,
+    "service_charge": 0,
+    "tax": -1,
+    "total": 0,
+    "net": 0,
+    "part": "tax"
+  },
+  {
+    "subtotal": 1,
+    "discount": 1,
+    "service_charge": 0,
+    "tax": -1,
+    "total": 1,
+    "net": -1,
+    "part": "tax"
+  },
+  {
+    "subtotal": 1,
+    "discount": 1,
+    "service_charge": 0,
+    "tax": 0,
+    "total": -1,
+    "net": 1,
+    "part": "total"
+  },
+  {
+    "subtotal": 1,
+    "discount": 1,
+    "service_charge": 0,
+    "tax": 0,
+    "total": 0,
+    "net": 0,
+    "part": null
+  },
+  {
+    "subtotal": 1,
+    "discount": 1,
+    "service_charge": 0,
+    "tax": 0,
+    "total": 1,
+    "net": -1,
+    "part": null
+  },
+  {
+    "subtotal": 1,
+    "discount": 1,
+    "service_charge": 0,
+    "tax": 1,
+    "total": -1,
+    "net": 1,
+    "part": "total"
+  },
+  {
+    "subtotal": 1,
+    "discount": 1,
+    "service_charge": 0,
+    "tax": 1,
+    "total": 0,
+    "net": 0,
+    "part": null
+  },
+  {
+    "subtotal": 1,
+    "discount": 1,
+    "service_charge": 0,
+    "tax": 1,
+    "total": 1,
+    "net": -1,
+    "part": null
+  },
+  {
+    "subtotal": 1,
+    "discount": 1,
+    "service_charge": 1,
+    "tax": -1,
+    "total": -1,
+    "net": 1,
+    "part": "tax"
+  },
+  {
+    "subtotal": 1,
+    "discount": 1,
+    "service_charge": 1,
+    "tax": -1,
+    "total": 0,
+    "net": 0,
+    "part": "tax"
+  },
+  {
+    "subtotal": 1,
+    "discount": 1,
+    "service_charge": 1,
+    "tax": -1,
+    "total": 1,
+    "net": -1,
+    "part": "tax"
+  },
+  {
+    "subtotal": 1,
+    "discount": 1,
+    "service_charge": 1,
+    "tax": 0,
+    "total": -1,
+    "net": 1,
+    "part": "total"
+  },
+  {
+    "subtotal": 1,
+    "discount": 1,
+    "service_charge": 1,
+    "tax": 0,
+    "total": 0,
+    "net": 0,
+    "part": null
+  },
+  {
+    "subtotal": 1,
+    "discount": 1,
+    "service_charge": 1,
+    "tax": 0,
+    "total": 1,
+    "net": -1,
+    "part": null
+  },
+  {
+    "subtotal": 1,
+    "discount": 1,
+    "service_charge": 1,
+    "tax": 1,
+    "total": -1,
+    "net": 1,
+    "part": "total"
+  },
+  {
+    "subtotal": 1,
+    "discount": 1,
+    "service_charge": 1,
+    "tax": 1,
+    "total": 0,
+    "net": 0,
+    "part": null
+  },
+  {
+    "subtotal": 1,
+    "discount": 1,
+    "service_charge": 1,
+    "tax": 1,
+    "total": 1,
+    "net": -1,
+    "part": null
+  }
+]
