@@ -1,0 +1,22 @@
+# madar-authz: the ONE permission decision library (PERMISSIONS_ARCHITECTURE §3 E).
+#
+# Used by the backend (MadarRust) and the POS core (madar/rust-core) through a
+# git tag of this repo. The registry in src/generated.rs is generated from
+# authz/spec/capabilities.toml by authz-gen; never edit it by hand.
+[package]
+name = "madar-authz"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[dev-dependencies]
+proptest = "1"
