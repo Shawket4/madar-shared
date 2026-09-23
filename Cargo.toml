@@ -1,0 +1,21 @@
+# madar-shared: pure, I/O-free logic the Madar backend (MadarRust) and the Rust
+# cores (madar/rust-core) must both run and must never disagree on.
+#
+# Every crate here is consumed by git TAG:
+#   madar-authz = { git = "https://github.com/Shawket4/madar-shared", tag = "vX.Y.Z" }
+# See README.md for the release flow and the machine-local [patch] link.
+[workspace]
+resolver = "2"
+members = ["crates/*", "authz/gen"]
+
+[workspace.package]
+version = "0.1.0"
+# Edition 2021 so every crate builds inside the POS workspace (2021) and the
+# backend (2024) alike.
+edition = "2021"
+# The backend's Docker image builds with rust:1.88 (MadarRust/Dockerfile), the
+# oldest toolchain any consumer uses. CI checks the workspace on it.
+rust-version = "1.88"
+license = "UNLICENSED"
+publish = false
+repository = "https://github.com/Shawket4/madar-shared"

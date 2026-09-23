@@ -1,0 +1,63 @@
+name: CI
+
+# The shared crates' own gate. Every consumer (MadarRust, madar/rust-core)
+# pins a TAG of this repo, so a tag is only as good as the commit it points at:
+# nothing is tagged that this workflow has not passed.
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  check:
+    name: fmt + clippy + tests + generated files
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: rustfmt
+        run: cargo fmt --all --check
+
+      - name: clippy
+        run: cargo clippy --workspace --all-targets --locked -- -D warnings
+
+      - name: tests
+        run: cargo test --workspace --locked
+
+      # The permission registry (crates/madar-authz/src/generated.rs) is
+      # generated from authz/spec/capabilities.toml. Fail when it is stale.
+      # The dashboard's capabilities.ts and the POS's capabilities.dart are
+      # checked by passing --dashboard/--pos next to sibling checkouts; CI has
+      # neither, so it checks this repo's own output.
+      - name: permission registry is generated and current
+        run: cargo run --locked -p authz-gen -- --check
+
+  msrv:
+    # The oldest toolchain a consumer builds these crates with: the backend's
+    # Docker image (rust:1.88). A newer language feature here breaks a deploy.
+    name: MSRV (1.88)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@1.88
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: msrv
+      - name: build (library crates)
+        run: cargo build --workspace --exclude authz-gen --locked
