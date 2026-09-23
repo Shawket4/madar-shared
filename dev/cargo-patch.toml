@@ -1,0 +1,9 @@
+# Machine-local link: build a consumer (MadarRust, madar/rust-core) against a
+# local madar-shared checkout instead of the tag it pins. See README.md
+# "Local links". Paths assume madar-shared sits beside the consumer checkouts
+# in ~/ClaudeProjects; edit them for another layout.
+[patch."https://github.com/Shawket4/madar-shared"]
+madar-authz = { path = "/home/apex/ClaudeProjects/madar-shared/crates/madar-authz" }
+madar-money = { path = "/home/apex/ClaudeProjects/madar-shared/crates/madar-money" }
+madar-time = { path = "/home/apex/ClaudeProjects/madar-shared/crates/madar-time" }
+madar-sync = { path = "/home/apex/ClaudeProjects/madar-shared/crates/madar-sync" }

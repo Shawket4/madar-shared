@@ -38,6 +38,8 @@ Plus `authz/gen` (`authz-gen`), the generator for the permission registry.
 ```toml
 madar-authz = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.1.0" }
 madar-money = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.1.0" }
+madar-time  = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.1.0" }
+madar-sync  = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.1.0" }
 ```
 
 All crates share one version and are released together under one tag.
@@ -91,6 +93,42 @@ MADAR_REGENERATE_TIME_VECTORS=1   cargo test -p madar-time day_bound_vectors
 (`MadarRust/tests/reports_pos_metrics_tests.rs`, `MADAR_WRITE_POS_METRICS_VECTORS=1`),
 which writes it into a sibling `madar-shared` checkout.
 
-## Developing against a local checkout
+## Local links
 
-See [Local links](#local-links) below.
+To build a consumer against THIS checkout rather than the tag it pins, cargo's
+`[patch]` swaps the git source for local paths. The patch is in
+`dev/cargo-patch.toml` (absolute paths for this machine's
+`~/ClaudeProjects` layout). Use it per command:
+
+```sh
+cd ~/ClaudeProjects/MadarRust          # or madar/rust-core
+cargo --config ../madar-shared/dev/cargo-patch.toml test
+```
+
+or, for a checkout you always want linked, copy it to that checkout's
+`.cargo/config.toml` (untracked).
+
+**Three things to know**
+
+1. **The tag must exist.** cargo still resolves `tag = "vX.Y.Z"` against
+   GitHub before it applies a patch, so a tag that is not pushed yet fails with
+   "failed to find tag" even with the patch. Push the tag first, or (for a
+   release in progress) point cargo at the local checkout for one command
+   without touching any global config:
+   ```sh
+   CARGO_NET_GIT_FETCH_WITH_CLI=true GIT_CONFIG_COUNT=1 \
+   GIT_CONFIG_KEY_0=url.file://$HOME/ClaudeProjects/madar-shared.insteadOf \
+   GIT_CONFIG_VALUE_0=https://github.com/Shawket4/madar-shared cargo update -p madar-authz
+   ```
+   (the local repo needs the tag locally; the resulting `Cargo.lock` is exactly
+   what the pushed tag gives, as long as the tag points at the same commit).
+2. **Never commit a lock built with the patch.** With the patch active cargo
+   drops the `source = "git+https://github.com/Shawket4/madar-shared?tag=…"`
+   lines from the consumer's `Cargo.lock`. Before committing, build once
+   without the patch (or `cargo update -p madar-authz` without it) and check
+   `grep -c 'madar-shared?tag=' Cargo.lock` is one per madar-shared crate.
+3. **Not in a shared parent directory.** A `[patch]` in
+   `~/ClaudeProjects/.cargo/config.toml` applies to every cargo project below
+   it, and cargo writes `[[patch.unused]]` into the lockfile of each project
+   that does not use madar-shared (and of one that uses only some of the
+   crates). Keep it per command or per checkout.
