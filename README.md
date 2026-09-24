@@ -95,6 +95,26 @@ which writes it into a sibling `madar-shared` checkout.
 
 ## Local links
 
+**The usual way (owner decision, 2026-09-24): opt in with `dev/link.sh`**, and
+link only while you are changing a shared crate:
+
+```sh
+dev/link.sh on        # every sibling consumer: ../MadarRust, ../madar/rust-core, ../wt-*
+dev/link.sh status
+dev/link.sh off       # unlink; Cargo.lock goes back to the pinned tag lines
+dev/link.sh on ../MadarRust      # or just one checkout
+```
+
+`on` writes a marked `.cargo/config.toml` with the `[patch]` into each consumer
+(git-ignored through that clone's `info/exclude`, never committed) and
+re-resolves; `off` removes it and re-resolves so `Cargo.lock` is clean again.
+The same script works on any machine where madar-shared sits beside the
+consumer checkouts (e.g. `~/Desktop/Madar` on the Mac). **Unlink before you
+commit** a consumer: a linked `Cargo.lock` has local paths, and CI's
+`--locked` refuses it.
+
+The details below are what the script does under the hood.
+
 To build a consumer against THIS checkout rather than the tag it pins, cargo's
 `[patch]` swaps the git source for local paths. The patch is in
 `dev/cargo-patch.toml` (absolute paths for this machine's
