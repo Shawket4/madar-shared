@@ -17,6 +17,7 @@
 //!   table bill's preview, and the tender / change / split rules.
 //! - [`discount`] (v2): the discount act a sale asks for, its capability and
 //!   figures (`ask_from`, basis points, `figures`).
+//! - [`waste`] (v2): what a waste is worth and which inputs may be recorded.
 //! - [`vectors`]: the vector files, for consumer tests that pin their own
 //!   code (SQL, bill assembly) to the same bytes.
 //!
@@ -31,3 +32,4 @@ pub mod staff_comp;
 pub mod staff_pool;
 pub mod tax;
 pub mod vectors;
+pub mod waste;

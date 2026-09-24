@@ -1,0 +1,276 @@
+{
+  "values": [
+    {
+      "lines": [],
+      "value_minor": null,
+      "partial": false,
+      "bad": false
+    },
+    {
+      "lines": [
+        [
+          1.0,
+          100.0
+        ]
+      ],
+      "value_minor": 100,
+      "partial": false,
+      "bad": false
+    },
+    {
+      "lines": [
+        [
+          250.0,
+          0.35
+        ]
+      ],
+      "value_minor": 88,
+      "partial": false,
+      "bad": false
+    },
+    {
+      "lines": [
+        [
+          0.5,
+          1.0
+        ]
+      ],
+      "value_minor": 1,
+      "partial": false,
+      "bad": false
+    },
+    {
+      "lines": [
+        [
+          1.5,
+          1.0
+        ]
+      ],
+      "value_minor": 2,
+      "partial": false,
+      "bad": false
+    },
+    {
+      "lines": [
+        [
+          2.5,
+          1.0
+        ]
+      ],
+      "value_minor": 3,
+      "partial": false,
+      "bad": false
+    },
+    {
+      "lines": [
+        [
+          1.0,
+          null
+        ]
+      ],
+      "value_minor": null,
+      "partial": true,
+      "bad": false
+    },
+    {
+      "lines": [
+        [
+          1.0,
+          null
+        ],
+        [
+          2.0,
+          10.0
+        ]
+      ],
+      "value_minor": 20,
+      "partial": true,
+      "bad": false
+    },
+    {
+      "lines": [
+        [
+          0.0,
+          100.0
+        ]
+      ],
+      "value_minor": 0,
+      "partial": false,
+      "bad": false
+    },
+    {
+      "lines": [
+        [
+          -1.0,
+          100.0
+        ]
+      ],
+      "value_minor": null,
+      "partial": false,
+      "bad": true
+    },
+    {
+      "lines": [
+        [
+          1.0,
+          -0.01
+        ]
+      ],
+      "value_minor": null,
+      "partial": false,
+      "bad": true
+    },
+    {
+      "lines": [
+        [
+          1.7976931348623157e+308,
+          1.0
+        ]
+      ],
+      "value_minor": null,
+      "partial": false,
+      "bad": true
+    },
+    {
+      "lines": [
+        [
+          1.0,
+          1.7976931348623157e+308
+        ]
+      ],
+      "value_minor": null,
+      "partial": false,
+      "bad": true
+    },
+    {
+      "lines": [
+        [
+          1e+300,
+          1e+300
+        ]
+      ],
+      "value_minor": null,
+      "partial": false,
+      "bad": true
+    },
+    {
+      "lines": [
+        [
+          0.3333,
+          3.0
+        ],
+        [
+          0.3333,
+          3.0
+        ],
+        [
+          0.3334,
+          3.0
+        ]
+      ],
+      "value_minor": 3,
+      "partial": false,
+      "bad": false
+    }
+  ],
+  "inputs": [
+    {
+      "subject_kind": "ingredient",
+      "quantity": 1.0,
+      "unit": "kg",
+      "base_quantity": 1.0,
+      "refused": null
+    },
+    {
+      "subject_kind": "ingredient",
+      "quantity": 0.0004,
+      "unit": "g",
+      "base_quantity": 0.0,
+      "refused": "quantity"
+    },
+    {
+      "subject_kind": "ingredient",
+      "quantity": 0.0005,
+      "unit": "g",
+      "base_quantity": 0.001,
+      "refused": null
+    },
+    {
+      "subject_kind": "ingredient",
+      "quantity": 2000000.0,
+      "unit": "g",
+      "base_quantity": 2000.0,
+      "refused": "quantity"
+    },
+    {
+      "subject_kind": "ingredient",
+      "quantity": 1000000.0,
+      "unit": "g",
+      "base_quantity": 1000.0,
+      "refused": null
+    },
+    {
+      "subject_kind": "ingredient",
+      "quantity": 0.0,
+      "unit": "g",
+      "base_quantity": 0.0,
+      "refused": "quantity"
+    },
+    {
+      "subject_kind": "ingredient",
+      "quantity": -3.0,
+      "unit": "g",
+      "base_quantity": -3.0,
+      "refused": "quantity"
+    },
+    {
+      "subject_kind": "ingredient",
+      "quantity": 250.0,
+      "unit": "ml",
+      "base_quantity": 250.0,
+      "refused": null
+    },
+    {
+      "subject_kind": "menu_item",
+      "quantity": 1.0,
+      "unit": null,
+      "base_quantity": null,
+      "refused": null
+    },
+    {
+      "subject_kind": "menu_item",
+      "quantity": 2.0,
+      "unit": "pcs",
+      "base_quantity": null,
+      "refused": null
+    },
+    {
+      "subject_kind": "menu_item",
+      "quantity": 1.5,
+      "unit": null,
+      "base_quantity": null,
+      "refused": "whole_units"
+    },
+    {
+      "subject_kind": "menu_item",
+      "quantity": 1.0,
+      "unit": "g",
+      "base_quantity": null,
+      "refused": "menu_item_unit"
+    },
+    {
+      "subject_kind": "menu_item",
+      "quantity": 1000001.0,
+      "unit": null,
+      "base_quantity": null,
+      "refused": "quantity"
+    },
+    {
+      "subject_kind": "menu_item",
+      "quantity": 0.0,
+      "unit": "pcs",
+      "base_quantity": null,
+      "refused": "quantity"
+    }
+  ]
+}

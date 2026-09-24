@@ -27,3 +27,5 @@ pub const LINE_TOTAL: &str = include_str!("../vectors/line_total_vectors.json");
 pub const BILL: &str = include_str!("../vectors/bill_vectors.json");
 /// `discount::vectors`: basis points, the discount ask and its figures.
 pub const DISCOUNT: &str = include_str!("../vectors/discount_vectors.json");
+/// `waste::vectors`: a waste's value and the input rules.
+pub const WASTE: &str = include_str!("../vectors/waste_vectors.json");
