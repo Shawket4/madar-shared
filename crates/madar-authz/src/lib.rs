@@ -12,12 +12,16 @@
 //! - [`decide`]: allow, needs a manager's approval, or deny, with limits.
 //! - [`guard`]: anti-escalation rules for every write that changes access.
 //! - [`legacy`]: the old `resource:action` cells for pre-0.8 tablets.
+//! - [`acts`]: the facts a void is judged on (`void_facts`, `VoidAsk`).
+//! - [`pin`]: the offline PIN verify (argon2id) and one shared PHC string.
 //!
 //! Nothing here does I/O. Callers load grants and pass them in.
 
+pub mod acts;
 #[rustfmt::skip]
 pub mod generated;
 pub mod guard;
+pub mod pin;
 pub mod snapshot;
 
 use std::collections::BTreeMap;
