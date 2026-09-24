@@ -242,6 +242,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "madar-catalog"
+version = "0.2.0"
+dependencies = [
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "madar-dawam"
 version = "0.2.0"
 dependencies = [
