@@ -9,3 +9,4 @@ madar-time = { path = "/home/apex/ClaudeProjects/madar-shared/crates/madar-time"
 madar-sync = { path = "/home/apex/ClaudeProjects/madar-shared/crates/madar-sync" }
 madar-till = { path = "/home/apex/ClaudeProjects/madar-shared/crates/madar-till" }
 madar-units = { path = "/home/apex/ClaudeProjects/madar-shared/crates/madar-units" }
+madar-ids = { path = "/home/apex/ClaudeProjects/madar-shared/crates/madar-ids" }

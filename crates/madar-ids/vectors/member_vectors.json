@@ -1,0 +1,54 @@
+{
+  "tokens": [
+    [
+      "00000000000000000000000000000000",
+      "MAAAAAAAAAAAAAAAAAAAAAA"
+    ],
+    [
+      "ffffffffffffffffffffffffffffffff",
+      "M_____________________w"
+    ],
+    [
+      "9f1c02a87b334d108122deadbeef0001",
+      "MnxwCqHszTRCBIt6tvu8AAQ"
+    ],
+    [
+      "fbffbf3e007f8001feef1020304050fc",
+      "M-_-_PgB_gAH-7xAgMEBQ_A"
+    ]
+  ],
+  "shapes": [
+    [
+      "MAAAAAAAAAAAAAAAAAAAAAA",
+      true
+    ],
+    [
+      "M_-__-__-__-__-__-__-_A",
+      true
+    ],
+    [
+      "MAAAAAAAAAAAAAAAAAAAAA",
+      false
+    ],
+    [
+      "MAAAAAAAAAAAAAAAAAAAAAAA",
+      false
+    ],
+    [
+      "XAAAAAAAAAAAAAAAAAAAAAA",
+      false
+    ],
+    [
+      "MAAAAAAAAAAAAAAAAAAAA+A",
+      false
+    ],
+    [
+      "M٠AAAAAAAAAAAAAAAAAAAA",
+      false
+    ],
+    [
+      "",
+      false
+    ]
+  ]
+}
