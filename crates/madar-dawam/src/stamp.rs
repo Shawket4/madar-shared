@@ -15,8 +15,10 @@ pub const ANCHOR_HEADER: &str = "x-dawam-time";
 /// The anchor format's version tag.
 pub const ANCHOR_VERSION: &str = "v1";
 
-/// The offline stamp, as the wire carries it. With the `utoipa` feature it is
-/// also the backend's OpenAPI schema `OfflineStamp`.
+// With the `utoipa` feature this is also the backend's OpenAPI schema
+// `OfflineStamp` (its doc comment is the schema's description).
+/// What a punch or ping recorded offline carries, so the server can date it
+/// without trusting the phone's wall clock.
 #[derive(Deserialize, Serialize, Clone, Debug, PartialEq, Eq)]
 #[cfg_attr(feature = "utoipa", derive(utoipa::ToSchema))]
 pub struct OfflineStamp {
