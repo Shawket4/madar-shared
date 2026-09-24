@@ -1,0 +1,16 @@
+# madar-dawam: the Dawam (staff attendance) rules the backend and the staff
+# app's core must agree on: the geofence, the pay period, the offline stamp.
+[package]
+name = "madar-dawam"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[dependencies]
+# `serde` for the offline stamp's instants; no `clock`.
+chrono = { version = "0.4", default-features = false, features = ["std", "serde"] }
+serde = { version = "1", features = ["derive"] }
+
+serde_json = "1"

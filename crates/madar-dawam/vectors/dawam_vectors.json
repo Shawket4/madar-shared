@@ -1,0 +1,1271 @@
+{
+  "fences": [
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.02047,
+        31.004112
+      ],
+      "geo_radius_meters": null,
+      "distance_m": 0.0,
+      "radius_m": 200,
+      "inside": true
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.02047,
+        31.004112
+      ],
+      "geo_radius_meters": 0,
+      "distance_m": 0.0,
+      "radius_m": 0,
+      "inside": true
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.02047,
+        31.004112
+      ],
+      "geo_radius_meters": -5,
+      "distance_m": 0.0,
+      "radius_m": 0,
+      "inside": true
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.02047,
+        31.004112
+      ],
+      "geo_radius_meters": 150,
+      "distance_m": 0.0,
+      "radius_m": 150,
+      "inside": true
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.02047,
+        31.004112
+      ],
+      "geo_radius_meters": 200,
+      "distance_m": 0.0,
+      "radius_m": 200,
+      "inside": true
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.02047,
+        31.004112
+      ],
+      "geo_radius_meters": 350,
+      "distance_m": 0.0,
+      "radius_m": 350,
+      "inside": true
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.020478993210126,
+        31.004112
+      ],
+      "geo_radius_meters": null,
+      "distance_m": 0.999999340350578,
+      "radius_m": 200,
+      "inside": true
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.020478993210126,
+        31.004112
+      ],
+      "geo_radius_meters": 0,
+      "distance_m": 0.999999340350578,
+      "radius_m": 0,
+      "inside": false
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.020478993210126,
+        31.004112
+      ],
+      "geo_radius_meters": -5,
+      "distance_m": 0.999999340350578,
+      "radius_m": 0,
+      "inside": false
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.020478993210126,
+        31.004112
+      ],
+      "geo_radius_meters": 150,
+      "distance_m": 0.999999340350578,
+      "radius_m": 150,
+      "inside": true
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.020478993210126,
+        31.004112
+      ],
+      "geo_radius_meters": 200,
+      "distance_m": 0.999999340350578,
+      "radius_m": 200,
+      "inside": true
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.020478993210126,
+        31.004112
+      ],
+      "geo_radius_meters": 350,
+      "distance_m": 0.999999340350578,
+      "radius_m": 350,
+      "inside": true
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.02181898151895,
+        31.004112
+      ],
+      "geo_radius_meters": null,
+      "distance_m": 149.99990104468586,
+      "radius_m": 200,
+      "inside": true
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.02181898151895,
+        31.004112
+      ],
+      "geo_radius_meters": 0,
+      "distance_m": 149.99990104468586,
+      "radius_m": 0,
+      "inside": false
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.02181898151895,
+        31.004112
+      ],
+      "geo_radius_meters": -5,
+      "distance_m": 149.99990104468586,
+      "radius_m": 0,
+      "inside": false
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.02181898151895,
+        31.004112
+      ],
+      "geo_radius_meters": 150,
+      "distance_m": 149.99990104468586,
+      "radius_m": 150,
+      "inside": true
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.02181898151895,
+        31.004112
+      ],
+      "geo_radius_meters": 200,
+      "distance_m": 149.99990104468586,
+      "radius_m": 200,
+      "inside": true
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.02181898151895,
+        31.004112
+      ],
+      "geo_radius_meters": 350,
+      "distance_m": 149.99990104468586,
+      "radius_m": 350,
+      "inside": true
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.02226774270426,
+        31.004112
+      ],
+      "geo_radius_meters": null,
+      "distance_m": 199.8998681258489,
+      "radius_m": 200,
+      "inside": true
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.02226774270426,
+        31.004112
+      ],
+      "geo_radius_meters": 0,
+      "distance_m": 199.8998681258489,
+      "radius_m": 0,
+      "inside": false
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.02226774270426,
+        31.004112
+      ],
+      "geo_radius_meters": -5,
+      "distance_m": 199.8998681258489,
+      "radius_m": 0,
+      "inside": false
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.02226774270426,
+        31.004112
+      ],
+      "geo_radius_meters": 150,
+      "distance_m": 199.8998681258489,
+      "radius_m": 150,
+      "inside": false
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.02226774270426,
+        31.004112
+      ],
+      "geo_radius_meters": 200,
+      "distance_m": 199.8998681258489,
+      "radius_m": 200,
+      "inside": true
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.02226774270426,
+        31.004112
+      ],
+      "geo_radius_meters": 350,
+      "distance_m": 199.8998681258489,
+      "radius_m": 350,
+      "inside": true
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.02226864202527,
+        31.004112
+      ],
+      "geo_radius_meters": null,
+      "distance_m": 199.99986805984446,
+      "radius_m": 200,
+      "inside": true
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.02226864202527,
+        31.004112
+      ],
+      "geo_radius_meters": 0,
+      "distance_m": 199.99986805984446,
+      "radius_m": 0,
+      "inside": false
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.02226864202527,
+        31.004112
+      ],
+      "geo_radius_meters": -5,
+      "distance_m": 199.99986805984446,
+      "radius_m": 0,
+      "inside": false
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.02226864202527,
+        31.004112
+      ],
+      "geo_radius_meters": 150,
+      "distance_m": 199.99986805984446,
+      "radius_m": 150,
+      "inside": false
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.02226864202527,
+        31.004112
+      ],
+      "geo_radius_meters": 200,
+      "distance_m": 199.99986805984446,
+      "radius_m": 200,
+      "inside": true
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.02226864202527,
+        31.004112
+      ],
+      "geo_radius_meters": 350,
+      "distance_m": 199.99986805984446,
+      "radius_m": 350,
+      "inside": true
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.022269541346283,
+        31.004112
+      ],
+      "geo_radius_meters": null,
+      "distance_m": 200.09986799384006,
+      "radius_m": 200,
+      "inside": false
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.022269541346283,
+        31.004112
+      ],
+      "geo_radius_meters": 0,
+      "distance_m": 200.09986799384006,
+      "radius_m": 0,
+      "inside": false
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.022269541346283,
+        31.004112
+      ],
+      "geo_radius_meters": -5,
+      "distance_m": 200.09986799384006,
+      "radius_m": 0,
+      "inside": false
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.022269541346283,
+        31.004112
+      ],
+      "geo_radius_meters": 150,
+      "distance_m": 200.09986799384006,
+      "radius_m": 150,
+      "inside": false
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.022269541346283,
+        31.004112
+      ],
+      "geo_radius_meters": 200,
+      "distance_m": 200.09986799384006,
+      "radius_m": 200,
+      "inside": false
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.022269541346283,
+        31.004112
+      ],
+      "geo_radius_meters": 350,
+      "distance_m": 200.09986799384006,
+      "radius_m": 350,
+      "inside": true
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.023617623544222,
+        31.004112
+      ],
+      "geo_radius_meters": null,
+      "distance_m": 349.9997691045303,
+      "radius_m": 200,
+      "inside": false
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.023617623544222,
+        31.004112
+      ],
+      "geo_radius_meters": 0,
+      "distance_m": 349.9997691045303,
+      "radius_m": 0,
+      "inside": false
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.023617623544222,
+        31.004112
+      ],
+      "geo_radius_meters": -5,
+      "distance_m": 349.9997691045303,
+      "radius_m": 0,
+      "inside": false
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.023617623544222,
+        31.004112
+      ],
+      "geo_radius_meters": 150,
+      "distance_m": 349.9997691045303,
+      "radius_m": 150,
+      "inside": false
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.023617623544222,
+        31.004112
+      ],
+      "geo_radius_meters": 200,
+      "distance_m": 349.9997691045303,
+      "radius_m": 200,
+      "inside": false
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.023617623544222,
+        31.004112
+      ],
+      "geo_radius_meters": 350,
+      "distance_m": 349.9997691045303,
+      "radius_m": 350,
+      "inside": true
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.06543605063177,
+        31.004112
+      ],
+      "geo_radius_meters": null,
+      "distance_m": 4999.996701495322,
+      "radius_m": 200,
+      "inside": false
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.06543605063177,
+        31.004112
+      ],
+      "geo_radius_meters": 0,
+      "distance_m": 4999.996701495322,
+      "radius_m": 0,
+      "inside": false
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.06543605063177,
+        31.004112
+      ],
+      "geo_radius_meters": -5,
+      "distance_m": 4999.996701495322,
+      "radius_m": 0,
+      "inside": false
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.06543605063177,
+        31.004112
+      ],
+      "geo_radius_meters": 150,
+      "distance_m": 4999.996701495322,
+      "radius_m": 150,
+      "inside": false
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.06543605063177,
+        31.004112
+      ],
+      "geo_radius_meters": 200,
+      "distance_m": 4999.996701495322,
+      "radius_m": 200,
+      "inside": false
+    },
+    {
+      "branch": [
+        30.02047,
+        31.004112
+      ],
+      "phone": [
+        30.06543605063177,
+        31.004112
+      ],
+      "geo_radius_meters": 350,
+      "distance_m": 4999.996701495322,
+      "radius_m": 350,
+      "inside": false
+    },
+    {
+      "branch": [
+        0.0,
+        0.0
+      ],
+      "phone": [
+        1.0,
+        0.0
+      ],
+      "geo_radius_meters": null,
+      "distance_m": 111194.92664455874,
+      "radius_m": 200,
+      "inside": false
+    },
+    {
+      "branch": [
+        30.0444,
+        31.2357
+      ],
+      "phone": [
+        31.2001,
+        29.9187
+      ],
+      "geo_radius_meters": null,
+      "distance_m": 179984.39766056478,
+      "radius_m": 200,
+      "inside": false
+    },
+    {
+      "branch": [
+        0.0,
+        179.9
+      ],
+      "phone": [
+        0.0,
+        -179.9
+      ],
+      "geo_radius_meters": null,
+      "distance_m": 22238.985328911924,
+      "radius_m": 200,
+      "inside": false
+    },
+    {
+      "branch": [
+        90.0,
+        0.0
+      ],
+      "phone": [
+        -90.0,
+        0.0
+      ],
+      "geo_radius_meters": null,
+      "distance_m": 20015086.79602057,
+      "radius_m": 200,
+      "inside": false
+    }
+  ],
+  "periods": [
+    {
+      "day": "2026-01-01",
+      "start_day": -3,
+      "start": "2026-01-01",
+      "end": "2026-01-31"
+    },
+    {
+      "day": "2026-01-01",
+      "start_day": 0,
+      "start": "2026-01-01",
+      "end": "2026-01-31"
+    },
+    {
+      "day": "2026-01-01",
+      "start_day": 1,
+      "start": "2026-01-01",
+      "end": "2026-01-31"
+    },
+    {
+      "day": "2026-01-01",
+      "start_day": 15,
+      "start": "2025-12-15",
+      "end": "2026-01-14"
+    },
+    {
+      "day": "2026-01-01",
+      "start_day": 26,
+      "start": "2025-12-26",
+      "end": "2026-01-25"
+    },
+    {
+      "day": "2026-01-01",
+      "start_day": 28,
+      "start": "2025-12-28",
+      "end": "2026-01-27"
+    },
+    {
+      "day": "2026-01-01",
+      "start_day": 29,
+      "start": "2025-12-28",
+      "end": "2026-01-27"
+    },
+    {
+      "day": "2026-01-01",
+      "start_day": 31,
+      "start": "2025-12-28",
+      "end": "2026-01-27"
+    },
+    {
+      "day": "2026-01-25",
+      "start_day": -3,
+      "start": "2026-01-01",
+      "end": "2026-01-31"
+    },
+    {
+      "day": "2026-01-25",
+      "start_day": 0,
+      "start": "2026-01-01",
+      "end": "2026-01-31"
+    },
+    {
+      "day": "2026-01-25",
+      "start_day": 1,
+      "start": "2026-01-01",
+      "end": "2026-01-31"
+    },
+    {
+      "day": "2026-01-25",
+      "start_day": 15,
+      "start": "2026-01-15",
+      "end": "2026-02-14"
+    },
+    {
+      "day": "2026-01-25",
+      "start_day": 26,
+      "start": "2025-12-26",
+      "end": "2026-01-25"
+    },
+    {
+      "day": "2026-01-25",
+      "start_day": 28,
+      "start": "2025-12-28",
+      "end": "2026-01-27"
+    },
+    {
+      "day": "2026-01-25",
+      "start_day": 29,
+      "start": "2025-12-28",
+      "end": "2026-01-27"
+    },
+    {
+      "day": "2026-01-25",
+      "start_day": 31,
+      "start": "2025-12-28",
+      "end": "2026-01-27"
+    },
+    {
+      "day": "2026-01-26",
+      "start_day": -3,
+      "start": "2026-01-01",
+      "end": "2026-01-31"
+    },
+    {
+      "day": "2026-01-26",
+      "start_day": 0,
+      "start": "2026-01-01",
+      "end": "2026-01-31"
+    },
+    {
+      "day": "2026-01-26",
+      "start_day": 1,
+      "start": "2026-01-01",
+      "end": "2026-01-31"
+    },
+    {
+      "day": "2026-01-26",
+      "start_day": 15,
+      "start": "2026-01-15",
+      "end": "2026-02-14"
+    },
+    {
+      "day": "2026-01-26",
+      "start_day": 26,
+      "start": "2026-01-26",
+      "end": "2026-02-25"
+    },
+    {
+      "day": "2026-01-26",
+      "start_day": 28,
+      "start": "2025-12-28",
+      "end": "2026-01-27"
+    },
+    {
+      "day": "2026-01-26",
+      "start_day": 29,
+      "start": "2025-12-28",
+      "end": "2026-01-27"
+    },
+    {
+      "day": "2026-01-26",
+      "start_day": 31,
+      "start": "2025-12-28",
+      "end": "2026-01-27"
+    },
+    {
+      "day": "2026-01-31",
+      "start_day": -3,
+      "start": "2026-01-01",
+      "end": "2026-01-31"
+    },
+    {
+      "day": "2026-01-31",
+      "start_day": 0,
+      "start": "2026-01-01",
+      "end": "2026-01-31"
+    },
+    {
+      "day": "2026-01-31",
+      "start_day": 1,
+      "start": "2026-01-01",
+      "end": "2026-01-31"
+    },
+    {
+      "day": "2026-01-31",
+      "start_day": 15,
+      "start": "2026-01-15",
+      "end": "2026-02-14"
+    },
+    {
+      "day": "2026-01-31",
+      "start_day": 26,
+      "start": "2026-01-26",
+      "end": "2026-02-25"
+    },
+    {
+      "day": "2026-01-31",
+      "start_day": 28,
+      "start": "2026-01-28",
+      "end": "2026-02-27"
+    },
+    {
+      "day": "2026-01-31",
+      "start_day": 29,
+      "start": "2026-01-28",
+      "end": "2026-02-27"
+    },
+    {
+      "day": "2026-01-31",
+      "start_day": 31,
+      "start": "2026-01-28",
+      "end": "2026-02-27"
+    },
+    {
+      "day": "2026-02-28",
+      "start_day": -3,
+      "start": "2026-02-01",
+      "end": "2026-02-28"
+    },
+    {
+      "day": "2026-02-28",
+      "start_day": 0,
+      "start": "2026-02-01",
+      "end": "2026-02-28"
+    },
+    {
+      "day": "2026-02-28",
+      "start_day": 1,
+      "start": "2026-02-01",
+      "end": "2026-02-28"
+    },
+    {
+      "day": "2026-02-28",
+      "start_day": 15,
+      "start": "2026-02-15",
+      "end": "2026-03-14"
+    },
+    {
+      "day": "2026-02-28",
+      "start_day": 26,
+      "start": "2026-02-26",
+      "end": "2026-03-25"
+    },
+    {
+      "day": "2026-02-28",
+      "start_day": 28,
+      "start": "2026-02-28",
+      "end": "2026-03-27"
+    },
+    {
+      "day": "2026-02-28",
+      "start_day": 29,
+      "start": "2026-02-28",
+      "end": "2026-03-27"
+    },
+    {
+      "day": "2026-02-28",
+      "start_day": 31,
+      "start": "2026-02-28",
+      "end": "2026-03-27"
+    },
+    {
+      "day": "2026-03-01",
+      "start_day": -3,
+      "start": "2026-03-01",
+      "end": "2026-03-31"
+    },
+    {
+      "day": "2026-03-01",
+      "start_day": 0,
+      "start": "2026-03-01",
+      "end": "2026-03-31"
+    },
+    {
+      "day": "2026-03-01",
+      "start_day": 1,
+      "start": "2026-03-01",
+      "end": "2026-03-31"
+    },
+    {
+      "day": "2026-03-01",
+      "start_day": 15,
+      "start": "2026-02-15",
+      "end": "2026-03-14"
+    },
+    {
+      "day": "2026-03-01",
+      "start_day": 26,
+      "start": "2026-02-26",
+      "end": "2026-03-25"
+    },
+    {
+      "day": "2026-03-01",
+      "start_day": 28,
+      "start": "2026-02-28",
+      "end": "2026-03-27"
+    },
+    {
+      "day": "2026-03-01",
+      "start_day": 29,
+      "start": "2026-02-28",
+      "end": "2026-03-27"
+    },
+    {
+      "day": "2026-03-01",
+      "start_day": 31,
+      "start": "2026-02-28",
+      "end": "2026-03-27"
+    },
+    {
+      "day": "2026-03-25",
+      "start_day": -3,
+      "start": "2026-03-01",
+      "end": "2026-03-31"
+    },
+    {
+      "day": "2026-03-25",
+      "start_day": 0,
+      "start": "2026-03-01",
+      "end": "2026-03-31"
+    },
+    {
+      "day": "2026-03-25",
+      "start_day": 1,
+      "start": "2026-03-01",
+      "end": "2026-03-31"
+    },
+    {
+      "day": "2026-03-25",
+      "start_day": 15,
+      "start": "2026-03-15",
+      "end": "2026-04-14"
+    },
+    {
+      "day": "2026-03-25",
+      "start_day": 26,
+      "start": "2026-02-26",
+      "end": "2026-03-25"
+    },
+    {
+      "day": "2026-03-25",
+      "start_day": 28,
+      "start": "2026-02-28",
+      "end": "2026-03-27"
+    },
+    {
+      "day": "2026-03-25",
+      "start_day": 29,
+      "start": "2026-02-28",
+      "end": "2026-03-27"
+    },
+    {
+      "day": "2026-03-25",
+      "start_day": 31,
+      "start": "2026-02-28",
+      "end": "2026-03-27"
+    },
+    {
+      "day": "2026-03-26",
+      "start_day": -3,
+      "start": "2026-03-01",
+      "end": "2026-03-31"
+    },
+    {
+      "day": "2026-03-26",
+      "start_day": 0,
+      "start": "2026-03-01",
+      "end": "2026-03-31"
+    },
+    {
+      "day": "2026-03-26",
+      "start_day": 1,
+      "start": "2026-03-01",
+      "end": "2026-03-31"
+    },
+    {
+      "day": "2026-03-26",
+      "start_day": 15,
+      "start": "2026-03-15",
+      "end": "2026-04-14"
+    },
+    {
+      "day": "2026-03-26",
+      "start_day": 26,
+      "start": "2026-03-26",
+      "end": "2026-04-25"
+    },
+    {
+      "day": "2026-03-26",
+      "start_day": 28,
+      "start": "2026-02-28",
+      "end": "2026-03-27"
+    },
+    {
+      "day": "2026-03-26",
+      "start_day": 29,
+      "start": "2026-02-28",
+      "end": "2026-03-27"
+    },
+    {
+      "day": "2026-03-26",
+      "start_day": 31,
+      "start": "2026-02-28",
+      "end": "2026-03-27"
+    },
+    {
+      "day": "2026-12-31",
+      "start_day": -3,
+      "start": "2026-12-01",
+      "end": "2026-12-31"
+    },
+    {
+      "day": "2026-12-31",
+      "start_day": 0,
+      "start": "2026-12-01",
+      "end": "2026-12-31"
+    },
+    {
+      "day": "2026-12-31",
+      "start_day": 1,
+      "start": "2026-12-01",
+      "end": "2026-12-31"
+    },
+    {
+      "day": "2026-12-31",
+      "start_day": 15,
+      "start": "2026-12-15",
+      "end": "2027-01-14"
+    },
+    {
+      "day": "2026-12-31",
+      "start_day": 26,
+      "start": "2026-12-26",
+      "end": "2027-01-25"
+    },
+    {
+      "day": "2026-12-31",
+      "start_day": 28,
+      "start": "2026-12-28",
+      "end": "2027-01-27"
+    },
+    {
+      "day": "2026-12-31",
+      "start_day": 29,
+      "start": "2026-12-28",
+      "end": "2027-01-27"
+    },
+    {
+      "day": "2026-12-31",
+      "start_day": 31,
+      "start": "2026-12-28",
+      "end": "2027-01-27"
+    },
+    {
+      "day": "2028-02-29",
+      "start_day": -3,
+      "start": "2028-02-01",
+      "end": "2028-02-29"
+    },
+    {
+      "day": "2028-02-29",
+      "start_day": 0,
+      "start": "2028-02-01",
+      "end": "2028-02-29"
+    },
+    {
+      "day": "2028-02-29",
+      "start_day": 1,
+      "start": "2028-02-01",
+      "end": "2028-02-29"
+    },
+    {
+      "day": "2028-02-29",
+      "start_day": 15,
+      "start": "2028-02-15",
+      "end": "2028-03-14"
+    },
+    {
+      "day": "2028-02-29",
+      "start_day": 26,
+      "start": "2028-02-26",
+      "end": "2028-03-25"
+    },
+    {
+      "day": "2028-02-29",
+      "start_day": 28,
+      "start": "2028-02-28",
+      "end": "2028-03-27"
+    },
+    {
+      "day": "2028-02-29",
+      "start_day": 29,
+      "start": "2028-02-28",
+      "end": "2028-03-27"
+    },
+    {
+      "day": "2028-02-29",
+      "start_day": 31,
+      "start": "2028-02-28",
+      "end": "2028-03-27"
+    }
+  ],
+  "anchors": [
+    {
+      "anchor": "v1.1758700000000.abababababababababababababababababababababababababababababababab",
+      "ms": 1758700000000
+    },
+    {
+      "anchor": "  v1.1758700000000.abababababababababababababababababababababababababababababababab\n",
+      "ms": 1758700000000
+    },
+    {
+      "anchor": "v2.1758700000000.abababababababababababababababababababababababababababababababab",
+      "ms": null
+    },
+    {
+      "anchor": "v1.x.abababababababababababababababababababababababababababababababab",
+      "ms": null
+    },
+    {
+      "anchor": "v1.1758700000000.ababababababababababababababababababababababababababababababab",
+      "ms": null
+    },
+    {
+      "anchor": "v1.1758700000000.abababababababababababababababababababababababababababababababzz",
+      "ms": null
+    },
+    {
+      "anchor": "v1.-5.abababababababababababababababababababababababababababababababab",
+      "ms": -5
+    },
+    {
+      "anchor": "v1.1758700000000",
+      "ms": null
+    },
+    {
+      "anchor": "",
+      "ms": null
+    }
+  ],
+  "stamps": [
+    {
+      "anchor": "v1.1758528000000.abababababababababababababababababababababababababababababababab",
+      "elapsed_ms": 1800000,
+      "gps_time": "2026-09-22T08:31:00Z",
+      "rebooted": false,
+      "server_time": "2026-09-22T08:00:00+00:00"
+    },
+    {
+      "elapsed_ms": 0,
+      "gps_time": null,
+      "rebooted": true,
+      "server_time": "2026-09-22T08:00:00.123+00:00"
+    },
+    {
+      "elapsed_ms": 5,
+      "server_time": "2026-09-22T08:00:00Z"
+    }
+  ]
+}
