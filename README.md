@@ -21,6 +21,7 @@ copy, its vectors are its own tests, and both consumers pin the same tag.
 | `madar-ids` | The canonical phone (also pinned for the backend's SQL `phone_canonical`), order-ref formats and reading a device code back out of one, the member card token. |
 | `madar-time` | Business-day rules: week start, business date of an instant, the `YYMMDD` stamp, local day bounds (with the DST-gap rule). |
 | `madar-sync` | `/sync/pull` type lists and ledger classification, the R-checksum, the kitchen UUIDv5 ids; the `/sync/replay` envelopes (`replay`) and the current release's envelope fixture. |
+| `madar-catalog` | How a sale line is priced from the catalogue — the size price (a size's branch price, else its catalogue price while active, else the branch's item price, else the lowest active size), each option (a swap charged as the difference over the recipe's own choice, floored at 0, one per swap family; an add-on at its price) and the optional fields offered on the size — over a `CatalogView` the backend loads from SQL and the POS core builds from the feed rows' `pricing` (`feed`). The server's rule; pinned by `catalog_vectors.json`, which the backend generates. |
 | `madar-dawam` | Dawam (staff attendance): the geofence (distance, effective radius), the pay-period window, the offline stamp's type and the signed anchor's format (the HMAC stays on the server). |
 
 Plus `authz/gen` (`authz-gen`), the generator for the permission registry.
@@ -40,14 +41,15 @@ Plus `authz/gen` (`authz-gen`), the generator for the permission registry.
 ## Consuming it
 
 ```toml
-madar-authz = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.2.0" }
-madar-money = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.2.0" }
-madar-till  = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.2.0" }
-madar-units = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.2.0" }
-madar-ids   = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.2.0" }
-madar-time  = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.2.0" }
-madar-sync  = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.2.0" }
-madar-dawam = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.2.0" }
+madar-authz = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.3.0" }
+madar-money = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.3.0" }
+madar-till  = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.3.0" }
+madar-units = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.3.0" }
+madar-ids   = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.3.0" }
+madar-time  = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.3.0" }
+madar-sync  = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.3.0" }
+madar-dawam = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.3.0" }
+madar-catalog = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.3.0" }
 ```
 
 Every release is listed in [CHANGELOG.md](CHANGELOG.md).

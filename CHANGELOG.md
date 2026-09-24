@@ -3,6 +3,48 @@
 Every tag both consumers pin. A release that changes a result on either side
 says so here; everything else is a move.
 
+## v0.3.0 — C, catalogue pricing (2026-09-24)
+
+New crate `madar-catalog`: how a sale line is priced from the catalogue.
+
+- The rule is the SERVER's, moved from MadarRust `orders/handlers.rs`
+  (`catalog_unit_price`) and `orders/component_resolve.rs` (`swap_target`,
+  `collapse_families`, `merge_sized_option_lines`, the pricing half of the
+  resolver) with its two swap-family tests. The server's results did not
+  change: every case of `catalog_vectors.json` (54 lines over 7 items and
+  20 options) was checked against the order path's answers taken before the
+  move, stock deductions included.
+- `view`: `CatalogView` — an item (sizes with their branch prices, the
+  branch's item price, the recipe's lines per size and its default size, the
+  swap bases' candidates, the optional fields) and the options (price, type,
+  group, effect, swap category, the ingredient it replaces, its lines per
+  size). The backend builds it from SQL; `feed` rebuilds it from the
+  `pricing` the backend now ships on every `/menu-items?full=true` row and
+  every add-on row.
+- `price`: `price_line`, `price_options` (a bundle component), `unit_price`,
+  `option_charge` / `is_recipe_choice` (what a sheet shows and preselects),
+  `swap_target`, `collapse_families`, `merge_sized_lines`.
+
+**What changes on a till built against v0.3.0** (the server's answer, where
+the till's own swap families and size rule disagreed; a tablet in the field
+keeps its old pricing until it updates, and the server flags — never
+refuses — a sale priced the old way):
+
+- An explicit `swaps` group (a tea group over a black-tea recipe): green is
+  charged the 400 difference, not 700; the recipe's black is free, not 300.
+- An option sharing the recipe's ingredient with the default (a "barista
+  whole" at 300 beside whole milk at 0) is the recipe's own choice: 0, not 300.
+- A swap is charged over the recipe's option in the chosen option's own group
+  first, the active ones before an inactive one (not over
+  `default_milk_addon_id`).
+- A swap group picked twice keeps the LAST pick once, where it was picked
+  (a till sent vanilla ×2 + caramel as additive: 650; now caramel ×1: 50).
+- A line with no size is the branch's item price, else the lowest active
+  size (was the lowest size); an inactive size or a size only the branch
+  prices takes the server's fallback.
+- An optional field offered on another size only is skipped.
+- The recipe preview swaps what the rule swaps.
+
 ## v0.2.0 — B2, the second extraction (2026-09-24)
 
 New crates `madar-till`, `madar-units`, `madar-ids`, `madar-dawam`; new
