@@ -17,6 +17,9 @@ use crate::view::{CatalogView, ItemView, OptionView};
 /// `catalog_vectors.json`.
 pub const CATALOG: &str = include_str!("../vectors/catalog_vectors.json");
 
+/// `staff_input_vectors.json`: `staff::vectors::StaffInputVector`s.
+pub const STAFF_INPUT: &str = include_str!("../vectors/staff_input_vectors.json");
+
 /// The vector file.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct Vectors {

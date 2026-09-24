@@ -22,11 +22,12 @@
 //! - **picks**, the optionals and the quantity: as the line rang them.
 
 use madar_money::staff_comp::{CompGroup, CompInput, CompOption, CompPick, CompSize};
+use serde::{Deserialize, Serialize};
 
 use crate::view::{GroupView, ItemView};
 
 /// A staff line as it rang, before the catalogue is read.
-#[derive(Clone, Debug, Default, PartialEq, Eq)]
+#[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
 pub struct StaffLine {
     pub size_label: Option<String>,
     /// The pool decision allowed the line.
@@ -123,6 +124,52 @@ pub fn comp_input(item: &ItemView, line: &StaffLine) -> CompInput {
         picks: line.picks.clone(),
         optionals_per_unit: line.optionals_per_unit,
         quantity: line.quantity,
+    }
+}
+
+pub mod vectors {
+    //! Staff lines over catalogue items, with the input the SERVER built for
+    //! each (MadarRust `tests/staff_pool_input_tests.rs`, which writes this
+    //! file into the madar-shared checkout beside it with
+    //! `MADAR_WRITE_STAFF_INPUT_VECTORS=1`): first from its SQL builder, which
+    //! the crate's replaced, then from the crate over its own loader.
+
+    use serde::{Deserialize, Serialize};
+
+    use super::StaffLine;
+    use crate::view::ItemView;
+    use madar_money::staff_comp::CompInput;
+
+    #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
+    pub struct StaffInputVector {
+        pub name: String,
+        pub item: ItemView,
+        pub line: StaffLine,
+        pub expected: CompInput,
+    }
+
+    #[cfg(test)]
+    mod tests {
+        use super::*;
+
+        #[test]
+        fn staff_input_vectors() {
+            let vectors: Vec<StaffInputVector> =
+                serde_json::from_str(crate::vectors::STAFF_INPUT).unwrap();
+            assert!(
+                vectors.len() >= 10,
+                "only {} staff input vectors",
+                vectors.len()
+            );
+            for v in &vectors {
+                assert_eq!(
+                    super::super::comp_input(&v.item, &v.line),
+                    v.expected,
+                    "{}",
+                    v.name
+                );
+            }
+        }
     }
 }
 
