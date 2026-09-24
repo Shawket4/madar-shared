@@ -13,6 +13,11 @@
 //! 4. the service charge and tax are the shared engine's
 //!    ([`crate::tax::compute`]), under the sale's channel policy.
 //!
+//! [`price_bill_on`] is the same assembly over a subtotal the till STATED
+//! (the server records a till's word on what was sold unless it priced the
+//! bill itself); [`price_subtotal`] is its last two steps, for a caller that
+//! already holds the subtotal; [`rule_of`] reads a stored discount rule.
+//!
 //! [`price_open_bill`] is a table bill's preview (the server's
 //! `price_bill_under`, which the till's `reprice_with` re-runs after a void or
 //! a discount). The tender helpers are the server's split/change rules and the
@@ -20,6 +25,7 @@
 //!
 //! Pinned by `vectors/bill_vectors.json` (bills, open bills, tenders).
 
+use rust_decimal::Decimal;
 use serde::{Deserialize, Serialize};
 
 use crate::loyalty::covered_minor;
@@ -84,6 +90,27 @@ pub fn discount_on(subtotal: Minor, discount: BillDiscount) -> Minor {
     }
 }
 
+/// A stored discount rule as the schema spells it (`discount_type`,
+/// `discount_value`): `percentage` is a FRACTION (`0.10` is 10% off), `fixed`
+/// an amount in minor units; any other type, or none, is no discount. The
+/// server's `discounts::calc_discount` and its table-bill preview, and the
+/// till's bill preview, all read a rule this way.
+pub fn rule_of(discount_type: Option<&str>, value: Decimal) -> Discount {
+    match discount_type {
+        Some("percentage") => Discount::Percentage(value),
+        Some("fixed") => Discount::Fixed(value),
+        _ => Discount::None,
+    }
+}
+
+/// Price a subtotal: the discount resolved against it ([`discount_on`]), then
+/// the service charge and tax. The last two steps of [`price_bill`], for a
+/// caller that already holds the subtotal (a delivery order, the server's
+/// expected bill).
+pub fn price_subtotal(subtotal: Minor, discount: BillDiscount, policy: &TaxPolicy) -> Breakdown {
+    compute(subtotal, discount_on(subtotal, discount), policy)
+}
+
 /// A priced bill.
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct Bill {
@@ -99,14 +126,31 @@ pub struct Bill {
 /// Assemble a bill: net lines → subtotal → discount → service charge and tax.
 /// Never refuses; [`refusal`] says whether the result may be booked.
 pub fn price_bill(lines: &[BillLine], discount: BillDiscount, policy: &TaxPolicy) -> Bill {
+    price_bill_on(lines, None, discount, policy)
+}
+
+/// [`price_bill`], over the subtotal a till STATED when it is given one.
+///
+/// The server records what a till says was sold (line prices are the till's
+/// word; a sale that happened offline was charged at the till's figures), so
+/// on a bill the server did not price itself — no reward, no staff comp priced
+/// here — the subtotal is the till's and only the arithmetic on it is the
+/// server's. The lines are still netted, so a line below zero is still
+/// [`refusal`]'s to name; a stated subtotal below zero is refused as the
+/// bill's `subtotal` part.
+pub fn price_bill_on(
+    lines: &[BillLine],
+    stated_subtotal: Option<Minor>,
+    discount: BillDiscount,
+    policy: &TaxPolicy,
+) -> Bill {
     let nets: Vec<NetLine> = lines.iter().map(net_line).collect();
-    let subtotal: Minor = nets.iter().map(|n| n.net).sum();
-    let amount = discount_on(subtotal, discount);
+    let subtotal: Minor = stated_subtotal.unwrap_or_else(|| nets.iter().map(|n| n.net).sum());
     Bill {
         reward_covered: nets.iter().map(|n| n.covered).sum(),
         staff_comp: nets.iter().map(|n| n.staff_comp).sum(),
         lines: nets,
-        breakdown: compute(subtotal, amount, policy),
+        breakdown: price_subtotal(subtotal, discount, policy),
     }
 }
 
@@ -130,8 +174,7 @@ pub fn refusal(bill: &Bill) -> Option<BillRefusal> {
 /// zero — the settle refuses it with its own message — then the discount rule
 /// is resolved against it and the engine prices the rest.
 pub fn price_open_bill(subtotal: Minor, discount: Discount, policy: &TaxPolicy) -> Breakdown {
-    let subtotal = subtotal.max(0);
-    compute(subtotal, discount_amount(subtotal, discount), policy)
+    price_subtotal(subtotal.max(0), BillDiscount::Rule(discount), policy)
 }
 
 // ── Tender ──────────────────────────────────────────────────────────────────
@@ -628,6 +671,64 @@ mod tests {
         );
         assert_eq!(recorded_tender(&legs, Some(2000), None, 5400), (None, None));
         assert_eq!(legs_cover(&legs, 5400), Ok(()));
+    }
+
+    #[test]
+    fn a_stored_rule_reads_as_the_schema_spells_it() {
+        use rust_decimal_macros::dec;
+        assert_eq!(
+            rule_of(Some("percentage"), dec!(0.10)),
+            Discount::Percentage(dec!(0.10))
+        );
+        assert_eq!(
+            rule_of(Some("fixed"), dec!(300)),
+            Discount::Fixed(dec!(300))
+        );
+        assert_eq!(rule_of(Some("bogus"), dec!(0.5)), Discount::None);
+        assert_eq!(rule_of(None, dec!(0.5)), Discount::None);
+    }
+
+    #[test]
+    fn a_stated_subtotal_is_priced_as_stated_and_the_lines_still_netted() {
+        use rust_decimal_macros::dec;
+        let policy = TaxPolicy {
+            tax_rate: dec!(0.14),
+            ..TaxPolicy::default()
+        };
+        let lines = [BillLine {
+            charged: 3000,
+            per_unit: 1500,
+            reward_units: 0,
+            staff_comp: 500,
+        }];
+        let d = BillDiscount::Rule(Discount::Percentage(dec!(0.10)));
+        let own = price_bill(&lines, d, &policy);
+        assert_eq!(own, price_bill_on(&lines, None, d, &policy));
+        assert_eq!(own.breakdown, price_subtotal(2500, d, &policy));
+        let stated = price_bill_on(&lines, Some(4000), d, &policy);
+        assert_eq!(stated.lines, own.lines);
+        assert_eq!(stated.staff_comp, 500);
+        assert_eq!(stated.breakdown, compute(4000, 400, &policy));
+        // A stated subtotal below zero is the bill's subtotal part.
+        let neg = price_bill_on(&lines, Some(-1), BillDiscount::Stated(50), &policy);
+        assert_eq!(neg.breakdown.discount, 0);
+        assert_eq!(
+            refusal(&neg),
+            Some(BillRefusal::Part(NegativePart::Subtotal))
+        );
+    }
+
+    #[test]
+    fn a_stated_discount_is_clamped_to_the_subtotal() {
+        let p = TaxPolicy::default();
+        assert_eq!(
+            price_subtotal(1000, BillDiscount::Stated(5000), &p).discount,
+            1000
+        );
+        assert_eq!(
+            price_subtotal(1000, BillDiscount::Stated(-5), &p).discount,
+            0
+        );
     }
 
     #[test]
