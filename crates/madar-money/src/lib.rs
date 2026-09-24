@@ -12,11 +12,19 @@
 //!   input builders).
 //! - [`loyalty`]: what a reward covers on a line.
 //! - [`metrics`]: POS metrics `average_ticket` and the report's constants.
+//! - [`line`] (v2): what a sale line comes to, bundle components included.
+//! - [`bill`] (v2): bill assembly (staff comp → reward → discount → tax), a
+//!   table bill's preview, and the tender / change / split rules.
+//! - [`discount`] (v2): the discount act a sale asks for, its capability and
+//!   figures (`ask_from`, basis points, `figures`).
 //! - [`vectors`]: the vector files, for consumer tests that pin their own
 //!   code (SQL, bill assembly) to the same bytes.
 //!
 //! Nothing here does I/O or reads a clock. Callers pass everything in.
 
+pub mod bill;
+pub mod discount;
+pub mod line;
 pub mod loyalty;
 pub mod metrics;
 pub mod staff_comp;

@@ -21,3 +21,9 @@ pub const STAFF_COMP: &str = include_str!("../vectors/staff_comp_vectors.json");
 /// POS metrics: `/sync/pull` rows and the report the backend computed from
 /// them. Produced by MadarRust `tests/reports_pos_metrics_tests.rs`.
 pub const POS_METRICS: &str = include_str!("../vectors/pos_metrics_vectors.json");
+/// `line::vectors`: what a sale line comes to.
+pub const LINE_TOTAL: &str = include_str!("../vectors/line_total_vectors.json");
+/// `bill::vectors`: bill assembly, table-bill previews and tenders.
+pub const BILL: &str = include_str!("../vectors/bill_vectors.json");
+/// `discount::vectors`: basis points, the discount ask and its figures.
+pub const DISCOUNT: &str = include_str!("../vectors/discount_vectors.json");
