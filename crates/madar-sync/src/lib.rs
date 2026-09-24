@@ -9,11 +9,12 @@
 //!   types and deleted drinks a snapshot page did not carry;
 //! - the R-checksum ([`checksum_of`]), pinned by
 //!   `vectors/sync_checksum_vector.json`;
-//! - the deterministic kitchen ids ([`kitchen`]) an offline device predicts.
-//!
-//! The replay envelopes are not here yet.
+//! - the deterministic kitchen ids ([`kitchen`]) an offline device predicts;
+//! - the `/sync/replay` envelopes ([`replay`]) and the current release's
+//!   fixture ([`vectors::REPLAY_CURRENT`]).
 
 pub mod kitchen;
+pub mod replay;
 
 /// Every wire type the server serves and a POS syncs (a LAN peer may hand
 /// over any of them too). The order is the server's response order.
@@ -106,6 +107,9 @@ pub fn checksum_of(rows: &[(String, i64)]) -> String {
 pub mod vectors {
     /// `checksum_of` over four rows.
     pub const SYNC_CHECKSUM: &str = include_str!("../vectors/sync_checksum_vector.json");
+    /// One `/sync/replay` envelope per op, as the CURRENT till writes them
+    /// (madar-core `replay_fixture`, `MADAR_WRITE_REPLAY_FIXTURE=1`).
+    pub const REPLAY_CURRENT: &str = include_str!("../vectors/replay_current.json");
 }
 
 #[cfg(test)]

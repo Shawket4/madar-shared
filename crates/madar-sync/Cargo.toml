@@ -10,7 +10,9 @@ publish.workspace = true
 [dependencies]
 # sha2 0.10: already in both consumers' trees (the core also carries 0.11).
 sha2 = "0.10"
-uuid = { version = "1", default-features = false, features = ["v5"] }
-
-[dev-dependencies]
+# `serde` for the replay envelopes' ids (both consumers build uuid with it).
+uuid = { version = "1", default-features = false, features = ["v5", "serde"] }
+# The replay envelopes (`replay`): their `request` bodies stay JSON here; each
+# side types them against its own request structs.
+serde = { version = "1", features = ["derive"] }
 serde_json = "1"
