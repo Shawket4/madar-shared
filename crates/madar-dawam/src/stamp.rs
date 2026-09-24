@@ -15,8 +15,10 @@ pub const ANCHOR_HEADER: &str = "x-dawam-time";
 /// The anchor format's version tag.
 pub const ANCHOR_VERSION: &str = "v1";
 
-/// The offline stamp, as the wire carries it.
+/// The offline stamp, as the wire carries it. With the `utoipa` feature it is
+/// also the backend's OpenAPI schema `OfflineStamp`.
 #[derive(Deserialize, Serialize, Clone, Debug, PartialEq, Eq)]
+#[cfg_attr(feature = "utoipa", derive(utoipa::ToSchema))]
 pub struct OfflineStamp {
     /// The last server time the phone saw. Only a guide: a valid `anchor`
     /// replaces it, and without one the punch is marked unverified.
@@ -26,7 +28,8 @@ pub struct OfflineStamp {
     /// The phone restarted after `server_time`, so `elapsed_ms` means nothing.
     #[serde(default)]
     pub rebooted: bool,
-    /// The GPS fix's own satellite time, when the platform gives one.
+    /// The GPS fix's own satellite time, when the platform gives one (Android's
+    /// GNSS provider; iOS gives none).
     #[serde(default)]
     pub gps_time: Option<DateTime<Utc>>,
     /// The `X-Dawam-Time` value of the last response the phone saw (signed).
@@ -64,4 +67,37 @@ pub fn parse_anchor(anchor: &str) -> Option<Anchor> {
 pub fn format_anchor(ms: i64, tag: &[u8]) -> String {
     let hex: String = tag.iter().map(|b| format!("{b:02x}")).collect();
     format!("{ANCHOR_VERSION}.{ms}.{hex}")
+}
+
+#[cfg(all(test, feature = "utoipa"))]
+mod schema {
+    use super::OfflineStamp;
+
+    /// The schema the backend's OpenAPI spec carries: the two fields a stamp
+    /// cannot go without are required, the rest optional.
+    #[test]
+    fn the_openapi_schema_requires_what_the_wire_requires() {
+        let schema = <OfflineStamp as utoipa::PartialSchema>::schema();
+        let v = serde_json::to_value(&schema).unwrap();
+        assert_eq!(
+            v["required"],
+            serde_json::json!(["server_time", "elapsed_ms"])
+        );
+        let props = v["properties"].as_object().unwrap();
+        let mut names: Vec<&str> = props.keys().map(String::as_str).collect();
+        names.sort_unstable();
+        assert_eq!(
+            names,
+            [
+                "anchor",
+                "elapsed_ms",
+                "gps_time",
+                "rebooted",
+                "server_time"
+            ]
+        );
+        assert_eq!(props["server_time"]["format"], "date-time");
+        assert_eq!(props["elapsed_ms"]["format"], "int64");
+        assert_eq!(<OfflineStamp as utoipa::ToSchema>::name(), "OfflineStamp");
+    }
 }

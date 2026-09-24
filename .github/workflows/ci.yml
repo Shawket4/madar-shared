@@ -40,6 +40,13 @@ jobs:
       - name: tests
         run: cargo test --workspace --locked
 
+      # Optional features a consumer switches on (the backend's OpenAPI
+      # schemas): linted and tested too.
+      - name: tests (all features)
+        run: |
+          cargo clippy --workspace --all-targets --all-features --locked -- -D warnings
+          cargo test --workspace --all-features --locked
+
       # The permission registry (crates/madar-authz/src/generated.rs) is
       # generated from authz/spec/capabilities.toml. Fail when it is stale.
       # The dashboard's capabilities.ts and the POS's capabilities.dart are
@@ -60,4 +67,4 @@ jobs:
         with:
           key: msrv
       - name: build
-        run: cargo build --workspace --locked
+        run: cargo build --workspace --all-features --locked
