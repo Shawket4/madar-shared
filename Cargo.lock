@@ -270,6 +270,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "madar-loyalty"
+version = "0.3.0"
+dependencies = [
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "madar-money"
 version = "0.3.0"
 dependencies = [

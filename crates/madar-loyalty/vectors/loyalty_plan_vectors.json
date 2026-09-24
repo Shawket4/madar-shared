@@ -1,0 +1,2236 @@
+[
+  {
+    "name": "one_latte",
+    "lines": [
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "quantity": 3,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "quantity": 2,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "quantity": 1,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": null,
+        "quantity": 1,
+        "is_staff_drink": false
+      }
+    ],
+    "programme": {
+      "rewards": [
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 5
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "cost": 3
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 1
+        }
+      ],
+      "any_item": false,
+      "any_item_cost": 0,
+      "max_per_order": null,
+      "balance": 10
+    },
+    "asks": [
+      {
+        "line": 0,
+        "units": 1
+      }
+    ],
+    "till": {
+      "lines": [
+        {
+          "line": 0,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "units": 1,
+          "unit_cost": 5,
+          "cost": 5
+        }
+      ],
+      "cost": 5,
+      "units": 1,
+      "trimmed": null
+    },
+    "server": {
+      "Ok": {
+        "lines": [
+          {
+            "line": 0,
+            "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+            "units": 1,
+            "unit_cost": 5,
+            "cost": 5
+          }
+        ],
+        "cost": 5,
+        "units": 1,
+        "trimmed": null
+      }
+    },
+    "replay": [
+      {
+        "line": 0,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "units": 1,
+        "unit_cost": 0,
+        "cost": 0
+      }
+    ]
+  },
+  {
+    "name": "default_one_unit",
+    "lines": [
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "quantity": 3,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "quantity": 2,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "quantity": 1,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": null,
+        "quantity": 1,
+        "is_staff_drink": false
+      }
+    ],
+    "programme": {
+      "rewards": [
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 5
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "cost": 3
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 1
+        }
+      ],
+      "any_item": false,
+      "any_item_cost": 0,
+      "max_per_order": null,
+      "balance": 10
+    },
+    "asks": [
+      {
+        "line": 1,
+        "units": null
+      }
+    ],
+    "till": {
+      "lines": [
+        {
+          "line": 1,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "units": 1,
+          "unit_cost": 3,
+          "cost": 3
+        }
+      ],
+      "cost": 3,
+      "units": 1,
+      "trimmed": null
+    },
+    "server": {
+      "Ok": {
+        "lines": [
+          {
+            "line": 1,
+            "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+            "units": 1,
+            "unit_cost": 3,
+            "cost": 3
+          }
+        ],
+        "cost": 3,
+        "units": 1,
+        "trimmed": null
+      }
+    },
+    "replay": [
+      {
+        "line": 1,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "units": 1,
+        "unit_cost": 0,
+        "cost": 0
+      }
+    ]
+  },
+  {
+    "name": "two_lines_fit",
+    "lines": [
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "quantity": 3,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "quantity": 2,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "quantity": 1,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": null,
+        "quantity": 1,
+        "is_staff_drink": false
+      }
+    ],
+    "programme": {
+      "rewards": [
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 5
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "cost": 3
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 1
+        }
+      ],
+      "any_item": false,
+      "any_item_cost": 0,
+      "max_per_order": null,
+      "balance": 16
+    },
+    "asks": [
+      {
+        "line": 0,
+        "units": 2
+      },
+      {
+        "line": 1,
+        "units": 2
+      }
+    ],
+    "till": {
+      "lines": [
+        {
+          "line": 0,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "units": 2,
+          "unit_cost": 5,
+          "cost": 10
+        },
+        {
+          "line": 1,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "units": 2,
+          "unit_cost": 3,
+          "cost": 6
+        }
+      ],
+      "cost": 16,
+      "units": 4,
+      "trimmed": null
+    },
+    "server": {
+      "Ok": {
+        "lines": [
+          {
+            "line": 0,
+            "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+            "units": 2,
+            "unit_cost": 5,
+            "cost": 10
+          },
+          {
+            "line": 1,
+            "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+            "units": 2,
+            "unit_cost": 3,
+            "cost": 6
+          }
+        ],
+        "cost": 16,
+        "units": 4,
+        "trimmed": null
+      }
+    },
+    "replay": [
+      {
+        "line": 0,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "units": 2,
+        "unit_cost": 0,
+        "cost": 0
+      },
+      {
+        "line": 1,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "units": 2,
+        "unit_cost": 0,
+        "cost": 0
+      }
+    ]
+  },
+  {
+    "name": "first_catalogue_entry_wins",
+    "lines": [
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "quantity": 3,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "quantity": 2,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "quantity": 1,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": null,
+        "quantity": 1,
+        "is_staff_drink": false
+      }
+    ],
+    "programme": {
+      "rewards": [
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 5
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "cost": 3
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 1
+        }
+      ],
+      "any_item": false,
+      "any_item_cost": 0,
+      "max_per_order": null,
+      "balance": 5
+    },
+    "asks": [
+      {
+        "line": 0,
+        "units": 1
+      }
+    ],
+    "till": {
+      "lines": [
+        {
+          "line": 0,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "units": 1,
+          "unit_cost": 5,
+          "cost": 5
+        }
+      ],
+      "cost": 5,
+      "units": 1,
+      "trimmed": null
+    },
+    "server": {
+      "Ok": {
+        "lines": [
+          {
+            "line": 0,
+            "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+            "units": 1,
+            "unit_cost": 5,
+            "cost": 5
+          }
+        ],
+        "cost": 5,
+        "units": 1,
+        "trimmed": null
+      }
+    },
+    "replay": [
+      {
+        "line": 0,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "units": 1,
+        "unit_cost": 0,
+        "cost": 0
+      }
+    ]
+  },
+  {
+    "name": "balance_short_on_the_second",
+    "lines": [
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "quantity": 3,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "quantity": 2,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "quantity": 1,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": null,
+        "quantity": 1,
+        "is_staff_drink": false
+      }
+    ],
+    "programme": {
+      "rewards": [
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 5
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "cost": 3
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 1
+        }
+      ],
+      "any_item": false,
+      "any_item_cost": 0,
+      "max_per_order": null,
+      "balance": 12
+    },
+    "asks": [
+      {
+        "line": 0,
+        "units": 2
+      },
+      {
+        "line": 1,
+        "units": 2
+      }
+    ],
+    "till": {
+      "lines": [
+        {
+          "line": 0,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "units": 2,
+          "unit_cost": 5,
+          "cost": 10
+        }
+      ],
+      "cost": 10,
+      "units": 2,
+      "trimmed": "balance_short"
+    },
+    "server": {
+      "Err": {
+        "refusal": "balance_short",
+        "balance": 12,
+        "spent": 16
+      }
+    },
+    "replay": [
+      {
+        "line": 0,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "units": 2,
+        "unit_cost": 0,
+        "cost": 0
+      },
+      {
+        "line": 1,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "units": 2,
+        "unit_cost": 0,
+        "cost": 0
+      }
+    ]
+  },
+  {
+    "name": "balance_exactly",
+    "lines": [
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "quantity": 3,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "quantity": 2,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "quantity": 1,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": null,
+        "quantity": 1,
+        "is_staff_drink": false
+      }
+    ],
+    "programme": {
+      "rewards": [
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 5
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "cost": 3
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 1
+        }
+      ],
+      "any_item": false,
+      "any_item_cost": 0,
+      "max_per_order": null,
+      "balance": 15
+    },
+    "asks": [
+      {
+        "line": 0,
+        "units": 3
+      }
+    ],
+    "till": {
+      "lines": [
+        {
+          "line": 0,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "units": 3,
+          "unit_cost": 5,
+          "cost": 15
+        }
+      ],
+      "cost": 15,
+      "units": 3,
+      "trimmed": null
+    },
+    "server": {
+      "Ok": {
+        "lines": [
+          {
+            "line": 0,
+            "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+            "units": 3,
+            "unit_cost": 5,
+            "cost": 15
+          }
+        ],
+        "cost": 15,
+        "units": 3,
+        "trimmed": null
+      }
+    },
+    "replay": [
+      {
+        "line": 0,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "units": 3,
+        "unit_cost": 0,
+        "cost": 0
+      }
+    ]
+  },
+  {
+    "name": "negative_balance",
+    "lines": [
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "quantity": 3,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "quantity": 2,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "quantity": 1,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": null,
+        "quantity": 1,
+        "is_staff_drink": false
+      }
+    ],
+    "programme": {
+      "rewards": [
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 5
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "cost": 3
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 1
+        }
+      ],
+      "any_item": false,
+      "any_item_cost": 0,
+      "max_per_order": null,
+      "balance": -4
+    },
+    "asks": [
+      {
+        "line": 1,
+        "units": 1
+      }
+    ],
+    "till": {
+      "lines": [],
+      "cost": 0,
+      "units": 0,
+      "trimmed": "balance_short"
+    },
+    "server": {
+      "Err": {
+        "refusal": "balance_short",
+        "balance": -4,
+        "spent": 3
+      }
+    },
+    "replay": [
+      {
+        "line": 1,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "units": 1,
+        "unit_cost": 0,
+        "cost": 0
+      }
+    ]
+  },
+  {
+    "name": "more_units_than_the_line",
+    "lines": [
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "quantity": 3,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "quantity": 2,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "quantity": 1,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": null,
+        "quantity": 1,
+        "is_staff_drink": false
+      }
+    ],
+    "programme": {
+      "rewards": [
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 5
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "cost": 3
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 1
+        }
+      ],
+      "any_item": false,
+      "any_item_cost": 0,
+      "max_per_order": null,
+      "balance": 100
+    },
+    "asks": [
+      {
+        "line": 1,
+        "units": 3
+      }
+    ],
+    "till": {
+      "lines": [
+        {
+          "line": 1,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "units": 2,
+          "unit_cost": 3,
+          "cost": 6
+        }
+      ],
+      "cost": 6,
+      "units": 2,
+      "trimmed": "line_shrank"
+    },
+    "server": {
+      "Err": {
+        "refusal": "more_units_than_line",
+        "have": 2,
+        "asked": 3
+      }
+    },
+    "replay": [
+      {
+        "line": 1,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "units": 2,
+        "unit_cost": 0,
+        "cost": 0
+      }
+    ]
+  },
+  {
+    "name": "zero_units",
+    "lines": [
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "quantity": 3,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "quantity": 2,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "quantity": 1,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": null,
+        "quantity": 1,
+        "is_staff_drink": false
+      }
+    ],
+    "programme": {
+      "rewards": [
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 5
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "cost": 3
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 1
+        }
+      ],
+      "any_item": false,
+      "any_item_cost": 0,
+      "max_per_order": null,
+      "balance": 100
+    },
+    "asks": [
+      {
+        "line": 0,
+        "units": 0
+      }
+    ],
+    "till": {
+      "lines": [],
+      "cost": 0,
+      "units": 0,
+      "trimmed": null
+    },
+    "server": {
+      "Err": {
+        "refusal": "below_one_unit"
+      }
+    },
+    "replay": []
+  },
+  {
+    "name": "negative_units",
+    "lines": [
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "quantity": 3,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "quantity": 2,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "quantity": 1,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": null,
+        "quantity": 1,
+        "is_staff_drink": false
+      }
+    ],
+    "programme": {
+      "rewards": [
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 5
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "cost": 3
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 1
+        }
+      ],
+      "any_item": false,
+      "any_item_cost": 0,
+      "max_per_order": null,
+      "balance": 100
+    },
+    "asks": [
+      {
+        "line": 0,
+        "units": -2
+      }
+    ],
+    "till": {
+      "lines": [],
+      "cost": 0,
+      "units": 0,
+      "trimmed": null
+    },
+    "server": {
+      "Err": {
+        "refusal": "below_one_unit"
+      }
+    },
+    "replay": []
+  },
+  {
+    "name": "no_line_named",
+    "lines": [
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "quantity": 3,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "quantity": 2,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "quantity": 1,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": null,
+        "quantity": 1,
+        "is_staff_drink": false
+      }
+    ],
+    "programme": {
+      "rewards": [
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 5
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "cost": 3
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 1
+        }
+      ],
+      "any_item": false,
+      "any_item_cost": 0,
+      "max_per_order": null,
+      "balance": 100
+    },
+    "asks": [
+      {
+        "line": null,
+        "units": 1
+      }
+    ],
+    "till": {
+      "lines": [],
+      "cost": 0,
+      "units": 0,
+      "trimmed": "line_gone"
+    },
+    "server": {
+      "Err": {
+        "refusal": "no_line_named"
+      }
+    },
+    "replay": []
+  },
+  {
+    "name": "line_past_the_end",
+    "lines": [
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "quantity": 3,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "quantity": 2,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "quantity": 1,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": null,
+        "quantity": 1,
+        "is_staff_drink": false
+      }
+    ],
+    "programme": {
+      "rewards": [
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 5
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "cost": 3
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 1
+        }
+      ],
+      "any_item": false,
+      "any_item_cost": 0,
+      "max_per_order": null,
+      "balance": 100
+    },
+    "asks": [
+      {
+        "line": 9,
+        "units": 1
+      },
+      {
+        "line": 0,
+        "units": 1
+      }
+    ],
+    "till": {
+      "lines": [
+        {
+          "line": 0,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "units": 1,
+          "unit_cost": 5,
+          "cost": 5
+        }
+      ],
+      "cost": 5,
+      "units": 1,
+      "trimmed": "line_gone"
+    },
+    "server": {
+      "Err": {
+        "refusal": "no_such_line",
+        "line": 9
+      }
+    },
+    "replay": [
+      {
+        "line": 0,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "units": 1,
+        "unit_cost": 0,
+        "cost": 0
+      }
+    ]
+  },
+  {
+    "name": "twice_on_one_line",
+    "lines": [
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "quantity": 3,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "quantity": 2,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "quantity": 1,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": null,
+        "quantity": 1,
+        "is_staff_drink": false
+      }
+    ],
+    "programme": {
+      "rewards": [
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 5
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "cost": 3
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 1
+        }
+      ],
+      "any_item": false,
+      "any_item_cost": 0,
+      "max_per_order": null,
+      "balance": 100
+    },
+    "asks": [
+      {
+        "line": 0,
+        "units": 1
+      },
+      {
+        "line": 0,
+        "units": 2
+      }
+    ],
+    "till": {
+      "lines": [
+        {
+          "line": 0,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "units": 1,
+          "unit_cost": 5,
+          "cost": 5
+        }
+      ],
+      "cost": 5,
+      "units": 1,
+      "trimmed": null
+    },
+    "server": {
+      "Err": {
+        "refusal": "twice_on_one_line"
+      }
+    },
+    "replay": [
+      {
+        "line": 0,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "units": 1,
+        "unit_cost": 0,
+        "cost": 0
+      }
+    ]
+  },
+  {
+    "name": "a_bundle",
+    "lines": [
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "quantity": 3,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "quantity": 2,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "quantity": 1,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": null,
+        "quantity": 1,
+        "is_staff_drink": false
+      }
+    ],
+    "programme": {
+      "rewards": [
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 5
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "cost": 3
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 1
+        }
+      ],
+      "any_item": false,
+      "any_item_cost": 0,
+      "max_per_order": null,
+      "balance": 100
+    },
+    "asks": [
+      {
+        "line": 3,
+        "units": 1
+      }
+    ],
+    "till": {
+      "lines": [],
+      "cost": 0,
+      "units": 0,
+      "trimmed": "not_on_offer"
+    },
+    "server": {
+      "Err": {
+        "refusal": "bundle"
+      }
+    },
+    "replay": []
+  },
+  {
+    "name": "not_on_offer",
+    "lines": [
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "quantity": 3,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "quantity": 2,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "quantity": 1,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": null,
+        "quantity": 1,
+        "is_staff_drink": false
+      }
+    ],
+    "programme": {
+      "rewards": [
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 5
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "cost": 3
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 1
+        }
+      ],
+      "any_item": false,
+      "any_item_cost": 0,
+      "max_per_order": null,
+      "balance": 100
+    },
+    "asks": [
+      {
+        "line": 2,
+        "units": 1
+      },
+      {
+        "line": 0,
+        "units": 1
+      }
+    ],
+    "till": {
+      "lines": [
+        {
+          "line": 0,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "units": 1,
+          "unit_cost": 5,
+          "cost": 5
+        }
+      ],
+      "cost": 5,
+      "units": 1,
+      "trimmed": "not_on_offer"
+    },
+    "server": {
+      "Err": {
+        "refusal": "not_on_offer"
+      }
+    },
+    "replay": [
+      {
+        "line": 2,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "units": 1,
+        "unit_cost": 0,
+        "cost": 0
+      },
+      {
+        "line": 0,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "units": 1,
+        "unit_cost": 0,
+        "cost": 0
+      }
+    ]
+  },
+  {
+    "name": "any_item_prices_the_tea",
+    "lines": [
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "quantity": 3,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "quantity": 2,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "quantity": 1,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": null,
+        "quantity": 1,
+        "is_staff_drink": false
+      }
+    ],
+    "programme": {
+      "rewards": [
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 5
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "cost": 3
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 1
+        }
+      ],
+      "any_item": true,
+      "any_item_cost": 4,
+      "max_per_order": null,
+      "balance": 100
+    },
+    "asks": [
+      {
+        "line": 2,
+        "units": 1
+      }
+    ],
+    "till": {
+      "lines": [
+        {
+          "line": 2,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+          "units": 1,
+          "unit_cost": 4,
+          "cost": 4
+        }
+      ],
+      "cost": 4,
+      "units": 1,
+      "trimmed": null
+    },
+    "server": {
+      "Ok": {
+        "lines": [
+          {
+            "line": 2,
+            "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+            "units": 1,
+            "unit_cost": 4,
+            "cost": 4
+          }
+        ],
+        "cost": 4,
+        "units": 1,
+        "trimmed": null
+      }
+    },
+    "replay": [
+      {
+        "line": 2,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "units": 1,
+        "unit_cost": 0,
+        "cost": 0
+      }
+    ]
+  },
+  {
+    "name": "any_item_keeps_the_catalogue_price",
+    "lines": [
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "quantity": 3,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "quantity": 2,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "quantity": 1,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": null,
+        "quantity": 1,
+        "is_staff_drink": false
+      }
+    ],
+    "programme": {
+      "rewards": [
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 5
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "cost": 3
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 1
+        }
+      ],
+      "any_item": true,
+      "any_item_cost": 4,
+      "max_per_order": null,
+      "balance": 100
+    },
+    "asks": [
+      {
+        "line": 0,
+        "units": 1
+      }
+    ],
+    "till": {
+      "lines": [
+        {
+          "line": 0,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "units": 1,
+          "unit_cost": 5,
+          "cost": 5
+        }
+      ],
+      "cost": 5,
+      "units": 1,
+      "trimmed": null
+    },
+    "server": {
+      "Ok": {
+        "lines": [
+          {
+            "line": 0,
+            "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+            "units": 1,
+            "unit_cost": 5,
+            "cost": 5
+          }
+        ],
+        "cost": 5,
+        "units": 1,
+        "trimmed": null
+      }
+    },
+    "replay": [
+      {
+        "line": 0,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "units": 1,
+        "unit_cost": 0,
+        "cost": 0
+      }
+    ]
+  },
+  {
+    "name": "any_item_at_nothing",
+    "lines": [
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "quantity": 3,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "quantity": 2,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "quantity": 1,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": null,
+        "quantity": 1,
+        "is_staff_drink": false
+      }
+    ],
+    "programme": {
+      "rewards": [
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 5
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "cost": 3
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 1
+        }
+      ],
+      "any_item": true,
+      "any_item_cost": 0,
+      "max_per_order": null,
+      "balance": 100
+    },
+    "asks": [
+      {
+        "line": 2,
+        "units": 1
+      }
+    ],
+    "till": {
+      "lines": [],
+      "cost": 0,
+      "units": 0,
+      "trimmed": "not_on_offer"
+    },
+    "server": {
+      "Err": {
+        "refusal": "no_price"
+      }
+    },
+    "replay": [
+      {
+        "line": 2,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "units": 1,
+        "unit_cost": 0,
+        "cost": 0
+      }
+    ]
+  },
+  {
+    "name": "listed_at_nothing_is_not_any_item",
+    "lines": [
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "quantity": 3,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "quantity": 2,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "quantity": 1,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": null,
+        "quantity": 1,
+        "is_staff_drink": false
+      }
+    ],
+    "programme": {
+      "rewards": [
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+          "cost": 0
+        }
+      ],
+      "any_item": true,
+      "any_item_cost": 4,
+      "max_per_order": null,
+      "balance": 100
+    },
+    "asks": [
+      {
+        "line": 2,
+        "units": 1
+      }
+    ],
+    "till": {
+      "lines": [],
+      "cost": 0,
+      "units": 0,
+      "trimmed": "not_on_offer"
+    },
+    "server": {
+      "Err": {
+        "refusal": "no_price"
+      }
+    },
+    "replay": [
+      {
+        "line": 2,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "units": 1,
+        "unit_cost": 0,
+        "cost": 0
+      }
+    ]
+  },
+  {
+    "name": "cap_counts_units",
+    "lines": [
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "quantity": 3,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "quantity": 2,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "quantity": 1,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": null,
+        "quantity": 1,
+        "is_staff_drink": false
+      }
+    ],
+    "programme": {
+      "rewards": [
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 5
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "cost": 3
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 1
+        }
+      ],
+      "any_item": false,
+      "any_item_cost": 0,
+      "max_per_order": 2,
+      "balance": 100
+    },
+    "asks": [
+      {
+        "line": 0,
+        "units": 3
+      }
+    ],
+    "till": {
+      "lines": [
+        {
+          "line": 0,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "units": 2,
+          "unit_cost": 5,
+          "cost": 10
+        }
+      ],
+      "cost": 10,
+      "units": 2,
+      "trimmed": "over_cap"
+    },
+    "server": {
+      "Err": {
+        "refusal": "over_cap",
+        "max": 2,
+        "claimed": 3
+      }
+    },
+    "replay": [
+      {
+        "line": 0,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "units": 3,
+        "unit_cost": 0,
+        "cost": 0
+      }
+    ]
+  },
+  {
+    "name": "cap_across_lines",
+    "lines": [
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "quantity": 3,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "quantity": 2,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "quantity": 1,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": null,
+        "quantity": 1,
+        "is_staff_drink": false
+      }
+    ],
+    "programme": {
+      "rewards": [
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 5
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "cost": 3
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 1
+        }
+      ],
+      "any_item": false,
+      "any_item_cost": 0,
+      "max_per_order": 3,
+      "balance": 100
+    },
+    "asks": [
+      {
+        "line": 0,
+        "units": 2
+      },
+      {
+        "line": 1,
+        "units": 2
+      }
+    ],
+    "till": {
+      "lines": [
+        {
+          "line": 0,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "units": 2,
+          "unit_cost": 5,
+          "cost": 10
+        },
+        {
+          "line": 1,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "units": 1,
+          "unit_cost": 3,
+          "cost": 3
+        }
+      ],
+      "cost": 13,
+      "units": 3,
+      "trimmed": "over_cap"
+    },
+    "server": {
+      "Err": {
+        "refusal": "over_cap",
+        "max": 3,
+        "claimed": 4
+      }
+    },
+    "replay": [
+      {
+        "line": 0,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "units": 2,
+        "unit_cost": 0,
+        "cost": 0
+      },
+      {
+        "line": 1,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "units": 2,
+        "unit_cost": 0,
+        "cost": 0
+      }
+    ]
+  },
+  {
+    "name": "cap_exactly",
+    "lines": [
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "quantity": 3,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "quantity": 2,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "quantity": 1,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": null,
+        "quantity": 1,
+        "is_staff_drink": false
+      }
+    ],
+    "programme": {
+      "rewards": [
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 5
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "cost": 3
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 1
+        }
+      ],
+      "any_item": false,
+      "any_item_cost": 0,
+      "max_per_order": 3,
+      "balance": 100
+    },
+    "asks": [
+      {
+        "line": 0,
+        "units": 2
+      },
+      {
+        "line": 1,
+        "units": 1
+      }
+    ],
+    "till": {
+      "lines": [
+        {
+          "line": 0,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "units": 2,
+          "unit_cost": 5,
+          "cost": 10
+        },
+        {
+          "line": 1,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "units": 1,
+          "unit_cost": 3,
+          "cost": 3
+        }
+      ],
+      "cost": 13,
+      "units": 3,
+      "trimmed": null
+    },
+    "server": {
+      "Ok": {
+        "lines": [
+          {
+            "line": 0,
+            "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+            "units": 2,
+            "unit_cost": 5,
+            "cost": 10
+          },
+          {
+            "line": 1,
+            "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+            "units": 1,
+            "unit_cost": 3,
+            "cost": 3
+          }
+        ],
+        "cost": 13,
+        "units": 3,
+        "trimmed": null
+      }
+    },
+    "replay": [
+      {
+        "line": 0,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "units": 2,
+        "unit_cost": 0,
+        "cost": 0
+      },
+      {
+        "line": 1,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "units": 1,
+        "unit_cost": 0,
+        "cost": 0
+      }
+    ]
+  },
+  {
+    "name": "cap_zero_is_no_cap",
+    "lines": [
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "quantity": 3,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "quantity": 2,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "quantity": 1,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": null,
+        "quantity": 1,
+        "is_staff_drink": false
+      }
+    ],
+    "programme": {
+      "rewards": [
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 5
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "cost": 3
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 1
+        }
+      ],
+      "any_item": false,
+      "any_item_cost": 0,
+      "max_per_order": 0,
+      "balance": 100
+    },
+    "asks": [
+      {
+        "line": 0,
+        "units": 3
+      }
+    ],
+    "till": {
+      "lines": [
+        {
+          "line": 0,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "units": 3,
+          "unit_cost": 5,
+          "cost": 15
+        }
+      ],
+      "cost": 15,
+      "units": 3,
+      "trimmed": null
+    },
+    "server": {
+      "Ok": {
+        "lines": [
+          {
+            "line": 0,
+            "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+            "units": 3,
+            "unit_cost": 5,
+            "cost": 15
+          }
+        ],
+        "cost": 15,
+        "units": 3,
+        "trimmed": null
+      }
+    },
+    "replay": [
+      {
+        "line": 0,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "units": 3,
+        "unit_cost": 0,
+        "cost": 0
+      }
+    ]
+  },
+  {
+    "name": "staff_drink",
+    "lines": [
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "quantity": 1,
+        "is_staff_drink": true
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "quantity": 1,
+        "is_staff_drink": false
+      }
+    ],
+    "programme": {
+      "rewards": [
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 5
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "cost": 3
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 1
+        }
+      ],
+      "any_item": false,
+      "any_item_cost": 0,
+      "max_per_order": null,
+      "balance": 100
+    },
+    "asks": [
+      {
+        "line": 0,
+        "units": 1
+      },
+      {
+        "line": 1,
+        "units": 1
+      }
+    ],
+    "till": {
+      "lines": [
+        {
+          "line": 1,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "units": 1,
+          "unit_cost": 3,
+          "cost": 3
+        }
+      ],
+      "cost": 3,
+      "units": 1,
+      "trimmed": "not_on_offer"
+    },
+    "server": {
+      "Ok": {
+        "lines": [
+          {
+            "line": 0,
+            "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+            "units": 1,
+            "unit_cost": 5,
+            "cost": 5
+          },
+          {
+            "line": 1,
+            "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+            "units": 1,
+            "unit_cost": 3,
+            "cost": 3
+          }
+        ],
+        "cost": 8,
+        "units": 2,
+        "trimmed": null
+      }
+    },
+    "replay": [
+      {
+        "line": 0,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "units": 1,
+        "unit_cost": 0,
+        "cost": 0
+      },
+      {
+        "line": 1,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "units": 1,
+        "unit_cost": 0,
+        "cost": 0
+      }
+    ]
+  },
+  {
+    "name": "trim_reasons_keep_the_first",
+    "lines": [
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "quantity": 3,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "quantity": 2,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "quantity": 1,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": null,
+        "quantity": 1,
+        "is_staff_drink": false
+      }
+    ],
+    "programme": {
+      "rewards": [
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 5
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "cost": 3
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 1
+        }
+      ],
+      "any_item": false,
+      "any_item_cost": 0,
+      "max_per_order": 2,
+      "balance": 9
+    },
+    "asks": [
+      {
+        "line": 1,
+        "units": 5
+      },
+      {
+        "line": 0,
+        "units": 2
+      },
+      {
+        "line": 2,
+        "units": 1
+      }
+    ],
+    "till": {
+      "lines": [
+        {
+          "line": 1,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "units": 2,
+          "unit_cost": 3,
+          "cost": 6
+        }
+      ],
+      "cost": 6,
+      "units": 2,
+      "trimmed": "line_shrank"
+    },
+    "server": {
+      "Err": {
+        "refusal": "more_units_than_line",
+        "have": 2,
+        "asked": 5
+      }
+    },
+    "replay": [
+      {
+        "line": 1,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "units": 2,
+        "unit_cost": 0,
+        "cost": 0
+      },
+      {
+        "line": 0,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "units": 2,
+        "unit_cost": 0,
+        "cost": 0
+      },
+      {
+        "line": 2,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "units": 1,
+        "unit_cost": 0,
+        "cost": 0
+      }
+    ]
+  },
+  {
+    "name": "empty",
+    "lines": [
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "quantity": 3,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "quantity": 2,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a3",
+        "quantity": 1,
+        "is_staff_drink": false
+      },
+      {
+        "menu_item_id": null,
+        "quantity": 1,
+        "is_staff_drink": false
+      }
+    ],
+    "programme": {
+      "rewards": [
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 5
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "cost": 3
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 1
+        }
+      ],
+      "any_item": false,
+      "any_item_cost": 0,
+      "max_per_order": null,
+      "balance": 0
+    },
+    "asks": [],
+    "till": {
+      "lines": [],
+      "cost": 0,
+      "units": 0,
+      "trimmed": null
+    },
+    "server": {
+      "Ok": {
+        "lines": [],
+        "cost": 0,
+        "units": 0,
+        "trimmed": null
+      }
+    },
+    "replay": []
+  },
+  {
+    "name": "empty_cart",
+    "lines": [],
+    "programme": {
+      "rewards": [
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 5
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "cost": 3
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 1
+        }
+      ],
+      "any_item": false,
+      "any_item_cost": 0,
+      "max_per_order": null,
+      "balance": 10
+    },
+    "asks": [
+      {
+        "line": 0,
+        "units": 1
+      }
+    ],
+    "till": {
+      "lines": [],
+      "cost": 0,
+      "units": 0,
+      "trimmed": "line_gone"
+    },
+    "server": {
+      "Err": {
+        "refusal": "no_such_line",
+        "line": 0
+      }
+    },
+    "replay": []
+  }
+]

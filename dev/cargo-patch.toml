@@ -11,3 +11,5 @@ madar-till = { path = "/home/apex/ClaudeProjects/madar-shared/crates/madar-till"
 madar-units = { path = "/home/apex/ClaudeProjects/madar-shared/crates/madar-units" }
 madar-ids = { path = "/home/apex/ClaudeProjects/madar-shared/crates/madar-ids" }
 madar-dawam = { path = "/home/apex/ClaudeProjects/madar-shared/crates/madar-dawam" }
+madar-catalog = { path = "/home/apex/ClaudeProjects/madar-shared/crates/madar-catalog" }
+madar-loyalty = { path = "/home/apex/ClaudeProjects/madar-shared/crates/madar-loyalty" }

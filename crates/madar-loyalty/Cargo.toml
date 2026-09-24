@@ -1,0 +1,15 @@
+# madar-loyalty: which rewards a sale may take — the redemption planner the
+# backend (strict) and the POS core (trimming) both run.
+[package]
+name = "madar-loyalty"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+
+[dev-dependencies]
+serde_json = "1"
