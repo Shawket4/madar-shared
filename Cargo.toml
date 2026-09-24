@@ -9,7 +9,7 @@ resolver = "2"
 members = ["crates/*", "authz/gen"]
 
 [workspace.package]
-version = "0.1.0"
+version = "0.2.0"
 # Edition 2021 so every crate builds inside the POS workspace (2021) and the
 # backend (2024) alike.
 edition = "2021"

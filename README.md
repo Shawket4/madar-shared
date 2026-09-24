@@ -14,10 +14,14 @@ copy, its vectors are its own tests, and both consumers pin the same tag.
 
 | Crate | What it holds |
 |---|---|
-| `madar-authz` | The permission decision library: the capability registry (generated from `authz/spec/capabilities.toml`), `resolve`, `decide`, the anti-escalation guard, the signed-snapshot binding. |
-| `madar-money` | Money rules already identical on both sides: the tax engine and the sale-channel rule, the refund tax/service split, the staff pool decision, the staff-comp rule, the loyalty reward cover, POS-metrics `average_ticket` and its constants. |
+| `madar-authz` | The permission decision library: the capability registry (generated from `authz/spec/capabilities.toml`), `resolve`, `decide`, the anti-escalation guard, the signed-snapshot binding; the void facts (`acts::void_facts`: own = the order's teller, age in whole minutes) and the offline PIN verify (`pin`, argon2id, with one shared PHC test string). |
+| `madar-money` | Money: the tax engine and the sale-channel rule, the refund tax/service split, the staff pool decision, the staff-comp rule, the loyalty reward cover, POS-metrics `average_ticket`; a line's total with bundle component quantity (`line`); bill assembly — staff comp, reward, discount, tax — a table bill's preview, the tender / change / split rules (`bill`); the discount act a sale asks for, its basis points and figures (`discount`); a waste's value and which waste inputs may be recorded (`waste`). |
+| `madar-till` | A till's drawer and Z report as a fold over rows (`report`), the drawer carryover picker (`carryover`), close reconciliation — `plan_lines`, `rollup_status`, the codes (`reconcile`). The backend's SQL is pinned to the fold by the till vectors. |
+| `madar-units` | Inventory units (`g`, `kg`, `ml`, `l`, `pcs`), their families and conversion, with the density bridge. |
+| `madar-ids` | The canonical phone (also pinned for the backend's SQL `phone_canonical`), order-ref formats and reading a device code back out of one, the member card token. |
 | `madar-time` | Business-day rules: week start, business date of an instant, the `YYMMDD` stamp, local day bounds (with the DST-gap rule). |
-| `madar-sync` | `/sync/pull` type lists and ledger classification, the R-checksum, the kitchen UUIDv5 ids. |
+| `madar-sync` | `/sync/pull` type lists and ledger classification, the R-checksum, the kitchen UUIDv5 ids; the `/sync/replay` envelopes (`replay`) and the current release's envelope fixture. |
+| `madar-dawam` | Dawam (staff attendance): the geofence (distance, effective radius), the pay-period window, the offline stamp's type and the signed anchor's format (the HMAC stays on the server). |
 
 Plus `authz/gen` (`authz-gen`), the generator for the permission registry.
 
@@ -36,11 +40,17 @@ Plus `authz/gen` (`authz-gen`), the generator for the permission registry.
 ## Consuming it
 
 ```toml
-madar-authz = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.1.0" }
-madar-money = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.1.0" }
-madar-time  = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.1.0" }
-madar-sync  = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.1.0" }
+madar-authz = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.2.0" }
+madar-money = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.2.0" }
+madar-till  = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.2.0" }
+madar-units = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.2.0" }
+madar-ids   = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.2.0" }
+madar-time  = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.2.0" }
+madar-sync  = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.2.0" }
+madar-dawam = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.2.0" }
 ```
+
+Every release is listed in [CHANGELOG.md](CHANGELOG.md).
 
 All crates share one version and are released together under one tag.
 
@@ -87,11 +97,28 @@ MADAR_REGENERATE_REWARD_VECTORS=1 cargo test -p madar-money loyalty::vectors
 MADAR_REGENERATE_REFUND_VECTORS=1 cargo test -p madar-money refund_split_vectors
 MADAR_REGENERATE_NEGATIVE_VECTORS=1 cargo test -p madar-money negative_part_vectors
 MADAR_REGENERATE_TIME_VECTORS=1   cargo test -p madar-time day_bound_vectors
+MADAR_REGENERATE_LINE_VECTORS=1   cargo test -p madar-money line_total_vectors
+MADAR_REGENERATE_BILL_VECTORS=1   cargo test -p madar-money bill_vectors
+MADAR_REGENERATE_DISCOUNT_VECTORS=1 cargo test -p madar-money discount_vectors
+MADAR_REGENERATE_WASTE_VECTORS=1  cargo test -p madar-money waste_vectors
+MADAR_REGENERATE_CARRYOVER_VECTORS=1 cargo test -p madar-till carryover_vectors
+MADAR_REGENERATE_UNIT_VECTORS=1   cargo test -p madar-units unit_vectors
+MADAR_REGENERATE_ORDER_REF_VECTORS=1 cargo test -p madar-ids order_ref_vectors
+MADAR_REGENERATE_MEMBER_VECTORS=1 cargo test -p madar-ids member_vectors
+MADAR_REGENERATE_DAWAM_VECTORS=1  cargo test -p madar-dawam dawam_vectors
 ```
 
-`pos_metrics_vectors.json` is produced by the backend's SQL scenario
-(`MadarRust/tests/reports_pos_metrics_tests.rs`, `MADAR_WRITE_POS_METRICS_VECTORS=1`),
-which writes it into a sibling `madar-shared` checkout.
+Some vectors are produced by a CONSUMER, from its own behaviour, and written
+into the madar-shared checkout beside it (or `$MADAR_SHARED_DIR`):
+
+| File | Produced by |
+|---|---|
+| `madar-money/vectors/pos_metrics_vectors.json` | MadarRust `tests/reports_pos_metrics_tests.rs` (`MADAR_WRITE_POS_METRICS_VECTORS=1`) |
+| `madar-till/vectors/till_report_vectors.json`, `till_edge_vectors.json` | MadarRust `tests/tills_report_vectors_tests.rs` (`MADAR_WRITE_TILL_VECTORS=1`) |
+| `madar-sync/vectors/replay_current.json` | madar-core `lifecycle_tests::replay_fixture` (`MADAR_WRITE_REPLAY_FIXTURE=1`) |
+
+`madar-ids/vectors/phone_vectors.json` is hand-authored; the dashboard keeps an
+identical copy (`src/lib/phone_vectors.json`) for its TypeScript rule.
 
 ## Local links
 
