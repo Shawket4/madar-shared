@@ -21,12 +21,15 @@
 //!   [`unit_price`], the display helpers [`option_charge`] and
 //!   [`is_recipe_choice`], and the pieces the server's stock deduction shares
 //!   ([`swap_target`], [`merge_sized_lines`]).
+//! - [`staff`]: the staff comp's input built from the same view (the sizes
+//!   and required groups a staff drink's base is judged on).
 //!
 //! Pinned by `vectors/catalog_vectors.json`, generated from the server's
 //! behaviour (MadarRust `tests/catalog_pricing_tests.rs`).
 
 pub mod feed;
 pub mod price;
+pub mod staff;
 pub mod vectors;
 pub mod view;
 
@@ -37,6 +40,6 @@ pub use price::{
     SwapTarget,
 };
 pub use view::{
-    BaseCandidate, BaseCandidates, CatalogView, IngredientLine, IngredientRef, ItemView,
-    OptionView, OptionalView, RecipeLine, SizeView, SizedLine,
+    BaseCandidate, BaseCandidates, CatalogView, GroupOption, GroupView, IngredientLine,
+    IngredientRef, ItemView, OptionView, OptionalView, RecipeLine, SizeView, SizedLine,
 };

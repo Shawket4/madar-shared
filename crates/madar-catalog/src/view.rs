@@ -65,6 +65,53 @@ pub struct ItemView {
     /// The item's active optional fields.
     #[serde(default)]
     pub optionals: Vec<OptionalView>,
+    /// The choice groups attached to the item (active groups only), in the
+    /// server's order (attachment sort, then group name, then id; options by
+    /// sort, then name, then id). Read by the staff comp's input builder
+    /// ([`crate::staff`]), not by the pricing rule. Empty from a server older
+    /// than v0.4.0, which did not send it.
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub groups: Vec<GroupView>,
+}
+
+/// A choice group attached to an item (`menu_item_modifier_groups` over an
+/// active `modifier_groups` row), with the attachment's overrides resolved.
+#[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+pub struct GroupView {
+    pub id: String,
+    /// `COALESCE(min_override, min_selections)`.
+    #[serde(default)]
+    pub min: i64,
+    /// `COALESCE(is_required_override, is_required)`.
+    #[serde(default)]
+    pub is_required: bool,
+    /// `none` | `adds` | `swaps`.
+    #[serde(default)]
+    pub effect: String,
+    /// The legacy add-on type the group was made from (`milk_type`, …).
+    #[serde(default)]
+    pub legacy_type: Option<String>,
+    /// The attachment's allow-list; `None` offers every option.
+    #[serde(default)]
+    pub included: Option<Vec<String>>,
+    #[serde(default)]
+    pub options: Vec<GroupOption>,
+}
+
+/// One option of a choice group, priced for the branch.
+#[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+pub struct GroupOption {
+    pub id: String,
+    /// The catalogue price (`addon_items.default_price`).
+    pub price: i64,
+    /// The branch's price (`branch_addon_overrides.price_override`).
+    #[serde(default)]
+    pub branch_price: Option<i64>,
+    #[serde(default)]
+    pub is_default: bool,
+    /// The option, its add-on item and the branch's availability all on.
+    #[serde(default)]
+    pub is_active: bool,
 }
 
 /// A size and what it costs at the branch.
