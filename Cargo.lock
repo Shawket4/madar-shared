@@ -234,6 +234,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "madar-till"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+ "madar-money",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "madar-time"
 version = "0.1.0"
 dependencies = [

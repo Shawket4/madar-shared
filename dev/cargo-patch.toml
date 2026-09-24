@@ -7,3 +7,4 @@ madar-authz = { path = "/home/apex/ClaudeProjects/madar-shared/crates/madar-auth
 madar-money = { path = "/home/apex/ClaudeProjects/madar-shared/crates/madar-money" }
 madar-time = { path = "/home/apex/ClaudeProjects/madar-shared/crates/madar-time" }
 madar-sync = { path = "/home/apex/ClaudeProjects/madar-shared/crates/madar-sync" }
+madar-till = { path = "/home/apex/ClaudeProjects/madar-shared/crates/madar-till" }

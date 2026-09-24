@@ -1,0 +1,172 @@
+[
+  {
+    "name": "no tills",
+    "tills": [],
+    "device_id": "00000000-0000-4000-8000-00000000000a",
+    "expected": null
+  },
+  {
+    "name": "T2: this device's own close beats an older device-less one",
+    "tills": [
+      {
+        "status": "closed",
+        "device_id": null,
+        "opened_at": "2026-09-01T08:00:00+00:00",
+        "closing_cash_declared": 500
+      },
+      {
+        "status": "closed",
+        "device_id": "00000000-0000-4000-8000-00000000000a",
+        "opened_at": "2026-09-10T08:00:00+00:00",
+        "closing_cash_declared": 900
+      }
+    ],
+    "device_id": "00000000-0000-4000-8000-00000000000a",
+    "expected": 900
+  },
+  {
+    "name": "T2 reversed: this device's own close beats a NEWER device-less one",
+    "tills": [
+      {
+        "status": "closed",
+        "device_id": null,
+        "opened_at": "2026-09-10T08:00:00+00:00",
+        "closing_cash_declared": 500
+      },
+      {
+        "status": "closed",
+        "device_id": "00000000-0000-4000-8000-00000000000a",
+        "opened_at": "2026-09-01T08:00:00+00:00",
+        "closing_cash_declared": 900
+      }
+    ],
+    "device_id": "00000000-0000-4000-8000-00000000000a",
+    "expected": 900
+  },
+  {
+    "name": "no device known: the branch's newest close",
+    "tills": [
+      {
+        "status": "closed",
+        "device_id": null,
+        "opened_at": "2026-09-01T08:00:00+00:00",
+        "closing_cash_declared": 500
+      },
+      {
+        "status": "closed",
+        "device_id": "00000000-0000-4000-8000-00000000000a",
+        "opened_at": "2026-09-10T08:00:00+00:00",
+        "closing_cash_declared": 900
+      }
+    ],
+    "device_id": null,
+    "expected": 900
+  },
+  {
+    "name": "another device's close only: the branch's newest",
+    "tills": [
+      {
+        "status": "closed",
+        "device_id": "00000000-0000-4000-8000-00000000000b",
+        "opened_at": "2026-09-05T08:00:00+00:00",
+        "closing_cash_declared": 700
+      },
+      {
+        "status": "closed",
+        "device_id": null,
+        "opened_at": "2026-09-01T08:00:00+00:00",
+        "closing_cash_declared": 300
+      }
+    ],
+    "device_id": "00000000-0000-4000-8000-00000000000a",
+    "expected": 700
+  },
+  {
+    "name": "an open till and an undeclared close are not carryovers",
+    "tills": [
+      {
+        "status": "open",
+        "device_id": "00000000-0000-4000-8000-00000000000a",
+        "opened_at": "2026-09-10T08:00:00+00:00",
+        "closing_cash_declared": 111
+      },
+      {
+        "status": "closed",
+        "device_id": "00000000-0000-4000-8000-00000000000a",
+        "opened_at": "2026-09-05T08:00:00+00:00",
+        "closing_cash_declared": null
+      },
+      {
+        "status": "force_closed",
+        "device_id": "00000000-0000-4000-8000-00000000000a",
+        "opened_at": "2026-09-01T08:00:00+00:00",
+        "closing_cash_declared": 222
+      }
+    ],
+    "device_id": "00000000-0000-4000-8000-00000000000a",
+    "expected": 222
+  },
+  {
+    "name": "a force-closed till counts",
+    "tills": [
+      {
+        "status": "force_closed",
+        "device_id": null,
+        "opened_at": "2026-09-10T08:00:00+00:00",
+        "closing_cash_declared": 0
+      },
+      {
+        "status": "closed",
+        "device_id": null,
+        "opened_at": "2026-09-01T08:00:00+00:00",
+        "closing_cash_declared": 50
+      }
+    ],
+    "device_id": null,
+    "expected": 0
+  },
+  {
+    "name": "two devices side by side keep their own drawers",
+    "tills": [
+      {
+        "status": "closed",
+        "device_id": "00000000-0000-4000-8000-00000000000a",
+        "opened_at": "2026-09-01T08:00:00+00:00",
+        "closing_cash_declared": 1000
+      },
+      {
+        "status": "closed",
+        "device_id": "00000000-0000-4000-8000-00000000000b",
+        "opened_at": "2026-09-10T08:00:00+00:00",
+        "closing_cash_declared": 2000
+      },
+      {
+        "status": "closed",
+        "device_id": "00000000-0000-4000-8000-00000000000a",
+        "opened_at": "2026-09-05T08:00:00+00:00",
+        "closing_cash_declared": 1500
+      }
+    ],
+    "device_id": "00000000-0000-4000-8000-00000000000a",
+    "expected": 1500
+  },
+  {
+    "name": "an unknown device falls back to the branch",
+    "tills": [
+      {
+        "status": "closed",
+        "device_id": "00000000-0000-4000-8000-00000000000a",
+        "opened_at": "2026-09-01T08:00:00+00:00",
+        "closing_cash_declared": 1000
+      },
+      {
+        "status": "closed",
+        "device_id": "00000000-0000-4000-8000-00000000000b",
+        "opened_at": "2026-09-10T08:00:00+00:00",
+        "closing_cash_declared": 2000
+      }
+    ],
+    "device_id": "00000000-0000-4000-8000-0000000000cc",
+    "expected": 2000
+  }
+]
