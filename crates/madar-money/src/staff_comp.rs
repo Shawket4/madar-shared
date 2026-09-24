@@ -25,8 +25,10 @@
 //! this one now, and the vectors are this crate's tests
 //! (`tests/staff_comp_vectors.rs`). **Change the rule in the fixture first.**
 //!
-//! Only the RULE lives here. The inputs are still built on each side from its
-//! own menu view (server `staff_pool/order_line.rs`, core `cart.rs`).
+//! Only the RULE lives here. Its input is built by one function too, over the
+//! catalogue view: `madar_catalog::staff::comp_input` (the server's builder,
+//! run by the server over its loaded catalogue and by the core over its
+//! mirror).
 //!
 //! ## What a "price" is here
 //!

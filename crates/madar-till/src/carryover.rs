@@ -1,9 +1,10 @@
 //! The drawer carryover: the declared close the next opening is compared with.
 //!
-//! The server picks it in SQL (MadarRust `tills::handlers::
-//! last_close_declared`: `ORDER BY COALESCE(device_id = $2, false) DESC,
-//! opened_at DESC LIMIT 1` over the branch's closed tills that declared a
-//! count); the till picks it from its rows offline (madar-core
+//! The server loads its two candidates (MadarRust `tills::handlers::
+//! last_close_declared`: the branch's latest declared close and this device's)
+//! and picks with this since v0.4.0 (it used `ORDER BY COALESCE(device_id = $2,
+//! false) DESC, opened_at DESC LIMIT 1` before); the till picks it from its
+//! rows offline (madar-core
 //! `till::last_close_declared_rows`, which calls this). A drawer is a physical
 //! box, identified by DEVICE where one is known and by the branch otherwise —
 //! never by the person, because cash stays in the drawer when a shift changes.
@@ -11,7 +12,7 @@
 //! own (Postgres sorted the NULL key first).
 //!
 //! Pinned by `vectors/carryover_vectors.json`, which the backend also runs
-//! through its SQL.
+//! through its loads and this picker, over real tills.
 
 use chrono::{DateTime, FixedOffset};
 use serde::{Deserialize, Serialize};

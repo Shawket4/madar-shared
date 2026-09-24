@@ -11,7 +11,8 @@
 //! - [`reconcile`]: close reconciliation ([`reconcile::plan_lines`],
 //!   [`reconcile::rollup_status`]) and its error codes.
 //!
-//! The server still computes the report in SQL; it is pinned to this fold by
+//! The server runs this fold over the rows it loads (since v0.4.0; it was SQL
+//! before), pinned to what that SQL computed by
 //! `vectors/till_report_vectors.json` (the backend's own scenarios, the rows
 //! as `/sync/pull` projects them, and what the backend computed) and
 //! `vectors/till_edge_vectors.json`. The core loads its rows from SQLite and
