@@ -19,9 +19,9 @@ serde = { version = "1", features = ["derive"] }
 chrono = { version = "0.4", default-features = false, features = ["std"] }
 chrono-tz = "0.10"
 # The business date is madar-time's (one copy, same tag).
-madar-time = { path = "../madar-time", version = "0.3.0" }
+madar-time = { path = "../madar-time", version = "0.4.0" }
 # The discount act is judged by madar-authz (one copy, same tag).
-madar-authz = { path = "../madar-authz", version = "0.3.0" }
+madar-authz = { path = "../madar-authz", version = "0.4.0" }
 
 [dev-dependencies]
 rust_decimal_macros = "1"

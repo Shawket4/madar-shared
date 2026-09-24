@@ -3,6 +3,66 @@
 Every tag both consumers pin. A release that changes a result on either side
 says so here; everything else is a move.
 
+## v0.4.0 — every deferred item: the server calls the crates (2026-09-25)
+
+New crate `madar-loyalty`; new pieces in `madar-money`, `madar-catalog`,
+`madar-dawam`. The backend's pinned copies are gone: it calls the crates.
+
+- **madar-money `bill`**: `price_bill_on` (the assembly over a subtotal a till
+  STATED, the server's reading when it priced no reward or staff comp
+  itself), `price_subtotal` (the discount and the engine over a subtotal
+  already held), `rule_of` (a stored discount rule: a percentage is a
+  fraction, fixed is minor units). `price_bill` and `price_open_bill` call the
+  same steps; nothing they return changed.
+- **madar-loyalty** (new): `plan(lines, programme, asks, mode)` — which of the
+  asked rewards a sale takes. `Mode::Server` is the backend's `plan_strict`
+  (the first refusal, in its order); `Mode::Till` is the till's reward board
+  (trim, name the first trim). `replay_lines` is the backend's replay of a
+  refused plan. Pinned by `loyalty_plan_vectors.json` (27 cases, each with
+  the till's plan, the server's verdict and the replay's lines) and two
+  invariants: a trimmed plan is one the server takes; a plan the server
+  takes is not trimmed.
+- **madar-catalog `staff`**: `comp_input(item, line)` — the staff comp's input
+  (catalogue sizes for a sized line, with the branch's price; the attached
+  required groups that are not swap groups, options by the allow-list) — the
+  backend's SQL builder, moved. `ItemView.groups` (`GroupView`) carries the
+  item's attached groups; skipped when empty, so every existing view
+  serialises as before. Pinned by `staff_input_vectors.json` (75 staff lines,
+  written by the backend from its SQL builder while both ran).
+- **madar-dawam**: the offline stamp derives its OpenAPI schema behind the
+  new `utoipa` feature (the backend's schema `OfflineStamp`, now with a
+  description).
+- **Docs**: madar-till's fold and carryover picker are what the backend runs.
+
+**The backend (a move; its results did not change):** the order path's bill
+(create order, the ticket settle, the table bill's preview, the delivery
+intake) is `price_bill_on` / `price_subtotal` / `rule_of`, a line's extras
+`line::extras_per_unit`; the till's drawer, Z report and close lines are
+`madar_till::report` over the rows it loads, the carryover
+`carryover::last_close_declared` over its two candidates; a sale's rewards are
+`madar_loyalty::plan` (strict); a staff line's comp input is
+`madar_catalog::staff::comp_input` over the order's loaded catalogue, whose
+feed `pricing` now carries the item's groups; `OfflineStamp` is madar-dawam's.
+Pinned by the till vectors (the SQL's own answers), the bill vectors rung
+through `POST /orders`, new order-path tests (service charge, reward, staff
+drink, discount, split tender and change), the staff input vectors (the SQL
+builder's answers) and the backend's whole suite.
+
+**What changes on a till built against v0.4.0** (the server's inputs, where
+the till read its mirror its own way; a tablet in the field keeps its old
+reading until it updates):
+
+- A staff drink's comp is judged on the choice groups the server ships in the
+  item's `pricing` (from a v0.4.0 server): a required group's DEFAULT option
+  sets the allowance on every menu (the till's legacy path took the cheapest,
+  so a required group with A 5.00 default picked and B 3.00 comped 3.00 and
+  charged 2.00; now 5.00 and 0.00, as the server books it); a non-swap group
+  holding a swap option, and an item-private optional in a group, are judged
+  as the server judges them; sizes carry the branch's price beside the
+  catalogue's. From an older server the till reads its mirror as before.
+- The reward board, the table bill's preview and the rest are the same
+  rules run from one copy: no figure changes.
+
 ## v0.3.0 — C, catalogue pricing (2026-09-24)
 
 New crate `madar-catalog`: how a sale line is priced from the catalogue.
