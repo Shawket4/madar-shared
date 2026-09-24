@@ -1,0 +1,542 @@
+[
+  {
+    "salary": 0,
+    "percent": "0",
+    "value": 0
+  },
+  {
+    "salary": 0,
+    "percent": "0.5",
+    "value": 0
+  },
+  {
+    "salary": 0,
+    "percent": "1",
+    "value": 0
+  },
+  {
+    "salary": 0,
+    "percent": "12.5",
+    "value": 0
+  },
+  {
+    "salary": 0,
+    "percent": "33.3",
+    "value": 0
+  },
+  {
+    "salary": 0,
+    "percent": "33.33",
+    "value": 0
+  },
+  {
+    "salary": 0,
+    "percent": "50",
+    "value": 0
+  },
+  {
+    "salary": 0,
+    "percent": "66.67",
+    "value": 0
+  },
+  {
+    "salary": 0,
+    "percent": "99.99",
+    "value": 0
+  },
+  {
+    "salary": 0,
+    "percent": "100",
+    "value": 0
+  },
+  {
+    "salary": 0,
+    "percent": "150",
+    "value": 0
+  },
+  {
+    "salary": 0,
+    "percent": "-10",
+    "value": 0
+  },
+  {
+    "salary": 1,
+    "percent": "0",
+    "value": 0
+  },
+  {
+    "salary": 1,
+    "percent": "0.5",
+    "value": 0
+  },
+  {
+    "salary": 1,
+    "percent": "1",
+    "value": 0
+  },
+  {
+    "salary": 1,
+    "percent": "12.5",
+    "value": 0
+  },
+  {
+    "salary": 1,
+    "percent": "33.3",
+    "value": 0
+  },
+  {
+    "salary": 1,
+    "percent": "33.33",
+    "value": 0
+  },
+  {
+    "salary": 1,
+    "percent": "50",
+    "value": 1
+  },
+  {
+    "salary": 1,
+    "percent": "66.67",
+    "value": 1
+  },
+  {
+    "salary": 1,
+    "percent": "99.99",
+    "value": 1
+  },
+  {
+    "salary": 1,
+    "percent": "100",
+    "value": 1
+  },
+  {
+    "salary": 1,
+    "percent": "150",
+    "value": 2
+  },
+  {
+    "salary": 1,
+    "percent": "-10",
+    "value": 0
+  },
+  {
+    "salary": 100,
+    "percent": "0",
+    "value": 0
+  },
+  {
+    "salary": 100,
+    "percent": "0.5",
+    "value": 1
+  },
+  {
+    "salary": 100,
+    "percent": "1",
+    "value": 1
+  },
+  {
+    "salary": 100,
+    "percent": "12.5",
+    "value": 13
+  },
+  {
+    "salary": 100,
+    "percent": "33.3",
+    "value": 33
+  },
+  {
+    "salary": 100,
+    "percent": "33.33",
+    "value": 33
+  },
+  {
+    "salary": 100,
+    "percent": "50",
+    "value": 50
+  },
+  {
+    "salary": 100,
+    "percent": "66.67",
+    "value": 67
+  },
+  {
+    "salary": 100,
+    "percent": "99.99",
+    "value": 100
+  },
+  {
+    "salary": 100,
+    "percent": "100",
+    "value": 100
+  },
+  {
+    "salary": 100,
+    "percent": "150",
+    "value": 150
+  },
+  {
+    "salary": 100,
+    "percent": "-10",
+    "value": 0
+  },
+  {
+    "salary": 501,
+    "percent": "0",
+    "value": 0
+  },
+  {
+    "salary": 501,
+    "percent": "0.5",
+    "value": 3
+  },
+  {
+    "salary": 501,
+    "percent": "1",
+    "value": 5
+  },
+  {
+    "salary": 501,
+    "percent": "12.5",
+    "value": 63
+  },
+  {
+    "salary": 501,
+    "percent": "33.3",
+    "value": 167
+  },
+  {
+    "salary": 501,
+    "percent": "33.33",
+    "value": 167
+  },
+  {
+    "salary": 501,
+    "percent": "50",
+    "value": 251
+  },
+  {
+    "salary": 501,
+    "percent": "66.67",
+    "value": 334
+  },
+  {
+    "salary": 501,
+    "percent": "99.99",
+    "value": 501
+  },
+  {
+    "salary": 501,
+    "percent": "100",
+    "value": 501
+  },
+  {
+    "salary": 501,
+    "percent": "150",
+    "value": 752
+  },
+  {
+    "salary": 501,
+    "percent": "-10",
+    "value": 0
+  },
+  {
+    "salary": 1500,
+    "percent": "0",
+    "value": 0
+  },
+  {
+    "salary": 1500,
+    "percent": "0.5",
+    "value": 8
+  },
+  {
+    "salary": 1500,
+    "percent": "1",
+    "value": 15
+  },
+  {
+    "salary": 1500,
+    "percent": "12.5",
+    "value": 188
+  },
+  {
+    "salary": 1500,
+    "percent": "33.3",
+    "value": 500
+  },
+  {
+    "salary": 1500,
+    "percent": "33.33",
+    "value": 500
+  },
+  {
+    "salary": 1500,
+    "percent": "50",
+    "value": 750
+  },
+  {
+    "salary": 1500,
+    "percent": "66.67",
+    "value": 1000
+  },
+  {
+    "salary": 1500,
+    "percent": "99.99",
+    "value": 1500
+  },
+  {
+    "salary": 1500,
+    "percent": "100",
+    "value": 1500
+  },
+  {
+    "salary": 1500,
+    "percent": "150",
+    "value": 2250
+  },
+  {
+    "salary": 1500,
+    "percent": "-10",
+    "value": 0
+  },
+  {
+    "salary": 999999,
+    "percent": "0",
+    "value": 0
+  },
+  {
+    "salary": 999999,
+    "percent": "0.5",
+    "value": 5000
+  },
+  {
+    "salary": 999999,
+    "percent": "1",
+    "value": 10000
+  },
+  {
+    "salary": 999999,
+    "percent": "12.5",
+    "value": 125000
+  },
+  {
+    "salary": 999999,
+    "percent": "33.3",
+    "value": 333000
+  },
+  {
+    "salary": 999999,
+    "percent": "33.33",
+    "value": 333300
+  },
+  {
+    "salary": 999999,
+    "percent": "50",
+    "value": 500000
+  },
+  {
+    "salary": 999999,
+    "percent": "66.67",
+    "value": 666699
+  },
+  {
+    "salary": 999999,
+    "percent": "99.99",
+    "value": 999899
+  },
+  {
+    "salary": 999999,
+    "percent": "100",
+    "value": 999999
+  },
+  {
+    "salary": 999999,
+    "percent": "150",
+    "value": 1499999
+  },
+  {
+    "salary": 999999,
+    "percent": "-10",
+    "value": 0
+  },
+  {
+    "salary": 1200000,
+    "percent": "0",
+    "value": 0
+  },
+  {
+    "salary": 1200000,
+    "percent": "0.5",
+    "value": 6000
+  },
+  {
+    "salary": 1200000,
+    "percent": "1",
+    "value": 12000
+  },
+  {
+    "salary": 1200000,
+    "percent": "12.5",
+    "value": 150000
+  },
+  {
+    "salary": 1200000,
+    "percent": "33.3",
+    "value": 399600
+  },
+  {
+    "salary": 1200000,
+    "percent": "33.33",
+    "value": 399960
+  },
+  {
+    "salary": 1200000,
+    "percent": "50",
+    "value": 600000
+  },
+  {
+    "salary": 1200000,
+    "percent": "66.67",
+    "value": 800040
+  },
+  {
+    "salary": 1200000,
+    "percent": "99.99",
+    "value": 1199880
+  },
+  {
+    "salary": 1200000,
+    "percent": "100",
+    "value": 1200000
+  },
+  {
+    "salary": 1200000,
+    "percent": "150",
+    "value": 1800000
+  },
+  {
+    "salary": 1200000,
+    "percent": "-10",
+    "value": 0
+  },
+  {
+    "salary": 3333333,
+    "percent": "0",
+    "value": 0
+  },
+  {
+    "salary": 3333333,
+    "percent": "0.5",
+    "value": 16667
+  },
+  {
+    "salary": 3333333,
+    "percent": "1",
+    "value": 33333
+  },
+  {
+    "salary": 3333333,
+    "percent": "12.5",
+    "value": 416667
+  },
+  {
+    "salary": 3333333,
+    "percent": "33.3",
+    "value": 1110000
+  },
+  {
+    "salary": 3333333,
+    "percent": "33.33",
+    "value": 1111000
+  },
+  {
+    "salary": 3333333,
+    "percent": "50",
+    "value": 1666667
+  },
+  {
+    "salary": 3333333,
+    "percent": "66.67",
+    "value": 2222333
+  },
+  {
+    "salary": 3333333,
+    "percent": "99.99",
+    "value": 3333000
+  },
+  {
+    "salary": 3333333,
+    "percent": "100",
+    "value": 3333333
+  },
+  {
+    "salary": 3333333,
+    "percent": "150",
+    "value": 5000000
+  },
+  {
+    "salary": 3333333,
+    "percent": "-10",
+    "value": 0
+  },
+  {
+    "salary": -500,
+    "percent": "0",
+    "value": 0
+  },
+  {
+    "salary": -500,
+    "percent": "0.5",
+    "value": 0
+  },
+  {
+    "salary": -500,
+    "percent": "1",
+    "value": 0
+  },
+  {
+    "salary": -500,
+    "percent": "12.5",
+    "value": 0
+  },
+  {
+    "salary": -500,
+    "percent": "33.3",
+    "value": 0
+  },
+  {
+    "salary": -500,
+    "percent": "33.33",
+    "value": 0
+  },
+  {
+    "salary": -500,
+    "percent": "50",
+    "value": 0
+  },
+  {
+    "salary": -500,
+    "percent": "66.67",
+    "value": 0
+  },
+  {
+    "salary": -500,
+    "percent": "99.99",
+    "value": 0
+  },
+  {
+    "salary": -500,
+    "percent": "100",
+    "value": 0
+  },
+  {
+    "salary": -500,
+    "percent": "150",
+    "value": 0
+  },
+  {
+    "salary": -500,
+    "percent": "-10",
+    "value": 0
+  }
+]

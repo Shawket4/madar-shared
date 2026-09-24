@@ -10,6 +10,10 @@ use crate::{geofence, pay, stamp};
 
 /// The file, for consumer tests.
 pub const DAWAM: &str = include_str!("../vectors/dawam_vectors.json");
+/// `shift::vectors`: shifts placed as Postgres places them.
+pub const SHIFT: &str = include_str!("../vectors/shift_vectors.json");
+/// `pay::percent_vectors`: a percentage of a salary, the server's rounding.
+pub const PERCENT: &str = include_str!("../vectors/percent_vectors.json");
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
 pub struct FenceVector {

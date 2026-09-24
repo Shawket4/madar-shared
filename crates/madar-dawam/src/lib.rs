@@ -15,5 +15,6 @@
 
 pub mod geofence;
 pub mod pay;
+pub mod shift;
 pub mod stamp;
 pub mod vectors;
