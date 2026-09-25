@@ -1,0 +1,21 @@
+{
+  "about": "madar_money::alloc::split — hand-computed. Cumulative pro-rata: upto_i = round_half_away(total * cum_i, W), share_i = upto_i - upto_(i-1); the last upto is the total, so the shares sum exactly. All-zero weights split equally; negative inputs clamp to 0.",
+  "cases": [
+    {"name": "combo_lunch_large_latte", "total": 15000, "weights": [12000, 4000, 5000], "expected": [8571, 2858, 3571]},
+    {"name": "deal_b2g1_free_5000", "total": 5000, "weights": [6000, 5000, 5000], "expected": [1875, 1563, 1562]},
+    {"name": "deal_two_bites_2000", "total": 2000, "weights": [5500, 5500], "expected": [1000, 1000]},
+    {"name": "thirds_of_100", "total": 100, "weights": [1, 1, 1], "expected": [33, 34, 33]},
+    {"name": "all_zero_weights_split_equally", "total": 100, "weights": [0, 0, 0], "expected": [33, 34, 33]},
+    {"name": "single_weight_takes_all", "total": 777, "weights": [5], "expected": [777]},
+    {"name": "zero_total", "total": 0, "weights": [3, 4], "expected": [0, 0]},
+    {"name": "a_zero_weight_among_others", "total": 1000, "weights": [0, 3, 1], "expected": [0, 750, 250]},
+    {"name": "no_weights", "total": 100, "weights": [], "expected": []},
+    {"name": "half_rounds_away_from_zero", "total": 5, "weights": [1, 1], "expected": [3, 2]},
+    {"name": "one_piastre_over_three", "total": 1, "weights": [1, 1, 1], "expected": [0, 1, 0]},
+    {"name": "seven_over_1_2_3_4", "total": 7, "weights": [1, 2, 3, 4], "expected": [1, 1, 2, 3]},
+    {"name": "negative_total_clamps_to_zero", "total": -5, "weights": [1, 1], "expected": [0, 0]},
+    {"name": "negative_weight_clamps_to_zero", "total": 10, "weights": [-3, 2], "expected": [0, 10]},
+    {"name": "large_needs_i128", "total": 4000000000000000000, "weights": [1, 1, 1, 1], "expected": [1000000000000000000, 1000000000000000000, 1000000000000000000, 1000000000000000000]},
+    {"name": "large_three_quarters", "total": 9000000000000000000, "weights": [3, 1], "expected": [6750000000000000000, 2250000000000000000]}
+  ]
+}

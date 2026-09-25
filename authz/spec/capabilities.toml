@@ -2384,6 +2384,56 @@ hint_en = "Up to the amount set here. Above it, the deduction waits for someone 
 hint_ar = "لحد المبلغ المحدد هنا. فوقه، الخصم بيستنى حد عنده حد أعلى، غالبًا المالك. المكافآت ليها حد منفصل."
 # --- end phase-b payroll ---
 
+# --- combos and deals (COMBOS_CONTRACT.md §2.1, 2026-09-25) ---
+# The contract named ids 260-263, but a capability id must be below 256 (the
+# `[u64; 4]` CapSet; 512 would be a format bump), so the module takes 250-253:
+# clear of Phase B's 237-240 and of 242-249 beside its 241/245.
+# Reading combos and deals is `menu.items.read`; selling a combo needs nothing
+# more than selling an item.
+
+[[cap]]
+id = 250
+key = "menu.combos.edit"
+group = "menu"
+tier = "configurable"
+risk = "money"
+defaults = "o"
+en = "Create and change combos, meal deals and \"make it a meal\""
+ar = "إنشاء وتعديل الكومبو والوجبات و«اجعلها وجبة»"
+
+[[cap]]
+id = 251
+key = "menu.deals.edit"
+group = "menu"
+tier = "configurable"
+risk = "money"
+defaults = "o"
+en = "Create and change deals (mix & match, buy X get Y)"
+ar = "إنشاء وتعديل العروض (اختر أي صنفين، اشترِ واحصل)"
+
+[[cap]]
+id = 252
+key = "orders.deals.apply"
+group = "selling"
+tier = "configurable"
+risk = "money"
+defaults = "omt"
+approval = true
+pos = true
+en = "Apply a deal the till suggests"
+ar = "تطبيق عرض يقترحه الكاشير"
+
+[[cap]]
+id = 253
+key = "reports.bundles"
+group = "reports"
+tier = "configurable"
+risk = "money"
+defaults = "om"
+en = "See the combos and deals report"
+ar = "عرض تقرير الكومبو والعروض"
+# --- end combos and deals ---
+
 # ============================================================================
 # Role templates (Phase 7). `defaults` above IS the restaurant template for the
 # five system roles; a template may add or remove on top.

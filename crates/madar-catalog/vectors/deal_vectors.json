@@ -1,0 +1,2022 @@
+{
+ "about": "madar_catalog::deal — hand-computed (each case's `why` holds the working). Units expand one per quantity, valued at the line's unit_price (the size price, no add-ons), sorted by value desc then line_index. n_for_price: chunks of N from the top while the chunk saves (sum - price > 0). buy_get without a reward pool: chunks of B+G from the top, the G cheapest of each take get_percent off (round half away). With a reward pool: buy the top B pool units, reward the G cheapest reward units. A chunk's discount is split over its units by alloc::split (proportional to price), summed per line = deal_minor.",
+ "deals": {
+  "two_bites": {
+   "id": "deal-two-bites",
+   "name": "Any 2 bites for 90",
+   "kind": "n_for_price",
+   "qty": 2,
+   "price": 9000,
+   "get_qty": null,
+   "get_percent": null,
+   "max_per_order": null,
+   "sort": 0,
+   "is_active": true,
+   "pool": [
+    {
+     "menu_item_id": null,
+     "category_id": "cat-bites",
+     "size_label": null
+    }
+   ],
+   "reward_pool": [],
+   "windows": []
+  },
+  "two_bites_max1": {
+   "id": "deal-two-bites-max1",
+   "name": "",
+   "kind": "n_for_price",
+   "qty": 2,
+   "price": 9000,
+   "get_qty": null,
+   "get_percent": null,
+   "max_per_order": 1,
+   "sort": 0,
+   "is_active": true,
+   "pool": [
+    {
+     "menu_item_id": null,
+     "category_id": "cat-bites",
+     "size_label": null
+    }
+   ],
+   "reward_pool": [],
+   "windows": []
+  },
+  "b2g1_lattes": {
+   "id": "deal-b2g1",
+   "name": "Buy 2 lattes get 1",
+   "kind": "buy_get",
+   "qty": 2,
+   "price": null,
+   "get_qty": 1,
+   "get_percent": 100,
+   "max_per_order": null,
+   "sort": 0,
+   "is_active": true,
+   "pool": [
+    {
+     "menu_item_id": "latte",
+     "category_id": null,
+     "size_label": null
+    }
+   ],
+   "reward_pool": [],
+   "windows": []
+  },
+  "coffee2_cookie": {
+   "id": "deal-coffee-cookie",
+   "name": "Buy 2 coffees get a cookie",
+   "kind": "buy_get",
+   "qty": 2,
+   "price": null,
+   "get_qty": 1,
+   "get_percent": 100,
+   "max_per_order": null,
+   "sort": 0,
+   "is_active": true,
+   "pool": [
+    {
+     "menu_item_id": null,
+     "category_id": "cat-coffee",
+     "size_label": null
+    }
+   ],
+   "reward_pool": [
+    {
+     "menu_item_id": "cookie",
+     "category_id": null,
+     "size_label": null
+    }
+   ],
+   "windows": []
+  },
+  "half_off_bites": {
+   "id": "deal-half-off",
+   "name": "",
+   "kind": "buy_get",
+   "qty": 1,
+   "price": null,
+   "get_qty": 1,
+   "get_percent": 50,
+   "max_per_order": null,
+   "sort": 1,
+   "is_active": true,
+   "pool": [
+    {
+     "menu_item_id": null,
+     "category_id": "cat-bites",
+     "size_label": null
+    }
+   ],
+   "reward_pool": [],
+   "windows": []
+  },
+  "large_only_2for": {
+   "id": "deal-large-2for",
+   "name": "",
+   "kind": "n_for_price",
+   "qty": 2,
+   "price": 10000,
+   "get_qty": null,
+   "get_percent": null,
+   "max_per_order": null,
+   "sort": 1,
+   "is_active": true,
+   "pool": [
+    {
+     "menu_item_id": "latte",
+     "category_id": null,
+     "size_label": "Large"
+    }
+   ],
+   "reward_pool": [],
+   "windows": []
+  },
+  "lunch_hours_bites": {
+   "id": "deal-lunch-bites",
+   "name": "",
+   "kind": "n_for_price",
+   "qty": 2,
+   "price": 9000,
+   "get_qty": null,
+   "get_percent": null,
+   "max_per_order": null,
+   "sort": 0,
+   "is_active": true,
+   "pool": [
+    {
+     "menu_item_id": null,
+     "category_id": "cat-bites",
+     "size_label": null
+    }
+   ],
+   "reward_pool": [],
+   "windows": [
+    {
+     "weekdays": 62,
+     "starts_at": "12:00",
+     "ends_at": "16:00"
+    }
+   ]
+  },
+  "inactive_bites": {
+   "id": "deal-off",
+   "name": "",
+   "kind": "n_for_price",
+   "qty": 2,
+   "price": 9000,
+   "get_qty": null,
+   "get_percent": null,
+   "max_per_order": null,
+   "sort": 0,
+   "is_active": false,
+   "pool": [
+    {
+     "menu_item_id": null,
+     "category_id": "cat-bites",
+     "size_label": null
+    }
+   ],
+   "reward_pool": [],
+   "windows": []
+  },
+  "broken_no_price": {
+   "id": "deal-broken",
+   "name": "",
+   "kind": "n_for_price",
+   "qty": 2,
+   "price": null,
+   "get_qty": null,
+   "get_percent": null,
+   "max_per_order": null,
+   "sort": 0,
+   "is_active": true,
+   "pool": [
+    {
+     "menu_item_id": null,
+     "category_id": "cat-bites",
+     "size_label": null
+    }
+   ],
+   "reward_pool": [],
+   "windows": []
+  },
+  "broken_buy_get": {
+   "id": "deal-broken-bg",
+   "name": "",
+   "kind": "buy_get",
+   "qty": 2,
+   "price": null,
+   "get_qty": null,
+   "get_percent": 100,
+   "max_per_order": null,
+   "sort": 0,
+   "is_active": true,
+   "pool": [
+    {
+     "menu_item_id": null,
+     "category_id": "cat-bites",
+     "size_label": null
+    }
+   ],
+   "reward_pool": [],
+   "windows": []
+  }
+ },
+ "cases": [
+  {
+   "op": "best",
+   "name": "two_bites",
+   "why": "units 5500,5500,4000: the top chunk {5500,5500} saves 11000-9000=2000; {4000} is not a full chunk (the other pairing {5500,4000} would save only 500).",
+   "deal": "two_bites",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "croissant",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 5500,
+     "quantity": 2
+    },
+    {
+     "line_index": 1,
+     "menu_item_id": "cookie",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 4000,
+     "quantity": 1
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": {
+    "deal_id": "deal-two-bites",
+    "times": 1,
+    "units": [
+     {
+      "line_index": 0,
+      "units": 2
+     }
+    ],
+    "saving": 2000
+   }
+  },
+  {
+   "op": "price",
+   "name": "two_bites",
+   "why": "split(2000, 5500/5500) = 1000/1000: the croissant line's deal_minor is 2000 (line_total 11000-2000 = 9000).",
+   "deal": "two_bites",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "croissant",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 5500,
+     "quantity": 2
+    },
+    {
+     "line_index": 1,
+     "menu_item_id": "cookie",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 4000,
+     "quantity": 1
+    }
+   ],
+   "units": [
+    {
+     "line_index": 0,
+     "units": 2
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": {
+    "application": {
+     "deal_id": "deal-two-bites",
+     "times": 1,
+     "discount": 2000,
+     "lines": [
+      {
+       "line_index": 0,
+       "units": 2,
+       "discount": 2000
+      }
+     ]
+    }
+   }
+  },
+  {
+   "op": "best",
+   "name": "b2g1",
+   "why": "units 6000,5000,5000,4500: the chunk of 3 from the top {6000,5000,5000} frees its cheapest, 5000*100/100 = 5000; {4500} is not full.",
+   "deal": "b2g1_lattes",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "latte",
+     "category_id": "cat-coffee",
+     "size_label": "Large",
+     "unit_price": 6000,
+     "quantity": 1
+    },
+    {
+     "line_index": 1,
+     "menu_item_id": "latte",
+     "category_id": "cat-coffee",
+     "size_label": "Regular",
+     "unit_price": 5000,
+     "quantity": 1
+    },
+    {
+     "line_index": 2,
+     "menu_item_id": "latte",
+     "category_id": "cat-coffee",
+     "size_label": "Regular",
+     "unit_price": 5000,
+     "quantity": 1
+    },
+    {
+     "line_index": 3,
+     "menu_item_id": "latte",
+     "category_id": "cat-coffee",
+     "size_label": "Small",
+     "unit_price": 4500,
+     "quantity": 1
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": {
+    "deal_id": "deal-b2g1",
+    "times": 1,
+    "units": [
+     {
+      "line_index": 0,
+      "units": 1
+     },
+     {
+      "line_index": 1,
+      "units": 1
+     },
+     {
+      "line_index": 2,
+      "units": 1
+     }
+    ],
+    "saving": 5000
+   }
+  },
+  {
+   "op": "price",
+   "name": "b2g1",
+   "why": "split(5000, 6000/5000/5000): uptos round(5000*6000/16000)=1875, round(5000*11000/16000)=3438 (3437.5 half away), 5000 -> 1875/1563/1562.",
+   "deal": "b2g1_lattes",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "latte",
+     "category_id": "cat-coffee",
+     "size_label": "Large",
+     "unit_price": 6000,
+     "quantity": 1
+    },
+    {
+     "line_index": 1,
+     "menu_item_id": "latte",
+     "category_id": "cat-coffee",
+     "size_label": "Regular",
+     "unit_price": 5000,
+     "quantity": 1
+    },
+    {
+     "line_index": 2,
+     "menu_item_id": "latte",
+     "category_id": "cat-coffee",
+     "size_label": "Regular",
+     "unit_price": 5000,
+     "quantity": 1
+    },
+    {
+     "line_index": 3,
+     "menu_item_id": "latte",
+     "category_id": "cat-coffee",
+     "size_label": "Small",
+     "unit_price": 4500,
+     "quantity": 1
+    }
+   ],
+   "units": [
+    {
+     "line_index": 0,
+     "units": 1
+    },
+    {
+     "line_index": 1,
+     "units": 1
+    },
+    {
+     "line_index": 2,
+     "units": 1
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": {
+    "application": {
+     "deal_id": "deal-b2g1",
+     "times": 1,
+     "discount": 5000,
+     "lines": [
+      {
+       "line_index": 0,
+       "units": 1,
+       "discount": 1875
+      },
+      {
+       "line_index": 1,
+       "units": 1,
+       "discount": 1563
+      },
+      {
+       "line_index": 2,
+       "units": 1,
+       "discount": 1562
+      }
+     ]
+    }
+   }
+  },
+  {
+   "op": "best",
+   "name": "reward_pool",
+   "why": "buy = the top 2 coffee units (latte 5000 x2), reward = the cheapest cookie (4000, free). The next buy would need 2 more coffees; only the espresso is left.",
+   "deal": "coffee2_cookie",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "latte",
+     "category_id": "cat-coffee",
+     "size_label": null,
+     "unit_price": 5000,
+     "quantity": 2
+    },
+    {
+     "line_index": 1,
+     "menu_item_id": "espresso",
+     "category_id": "cat-coffee",
+     "size_label": null,
+     "unit_price": 3000,
+     "quantity": 1
+    },
+    {
+     "line_index": 2,
+     "menu_item_id": "cookie",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 4000,
+     "quantity": 1
+    },
+    {
+     "line_index": 3,
+     "menu_item_id": "brownie",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 4500,
+     "quantity": 1
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": {
+    "deal_id": "deal-coffee-cookie",
+    "times": 1,
+    "units": [
+     {
+      "line_index": 0,
+      "units": 2
+     },
+     {
+      "line_index": 2,
+      "units": 1
+     }
+    ],
+    "saving": 4000
+   }
+  },
+  {
+   "op": "price",
+   "name": "reward_pool",
+   "why": "the chunk is buys 5000,5000 then the reward 4000; split(4000, 5000/5000/4000): round(4000*5000/14000)=1429 (1428.57), round(4000*10000/14000)=2857 (2857.14), 4000 -> 1429/1428/1143; the latte line 2857, the cookie 1143.",
+   "deal": "coffee2_cookie",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "latte",
+     "category_id": "cat-coffee",
+     "size_label": null,
+     "unit_price": 5000,
+     "quantity": 2
+    },
+    {
+     "line_index": 1,
+     "menu_item_id": "espresso",
+     "category_id": "cat-coffee",
+     "size_label": null,
+     "unit_price": 3000,
+     "quantity": 1
+    },
+    {
+     "line_index": 2,
+     "menu_item_id": "cookie",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 4000,
+     "quantity": 1
+    },
+    {
+     "line_index": 3,
+     "menu_item_id": "brownie",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 4500,
+     "quantity": 1
+    }
+   ],
+   "units": [
+    {
+     "line_index": 0,
+     "units": 2
+    },
+    {
+     "line_index": 2,
+     "units": 1
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": {
+    "application": {
+     "deal_id": "deal-coffee-cookie",
+     "times": 1,
+     "discount": 4000,
+     "lines": [
+      {
+       "line_index": 0,
+       "units": 2,
+       "discount": 2857
+      },
+      {
+       "line_index": 2,
+       "units": 1,
+       "discount": 1143
+      }
+     ]
+    }
+   }
+  },
+  {
+   "op": "best",
+   "name": "half_off_rounds_half_away",
+   "why": "buy 1 get 1 at 50%: the chunk {5500,3333} takes 50% off 3333 = 1666.5 -> 1667.",
+   "deal": "half_off_bites",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "croissant",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 5500,
+     "quantity": 1
+    },
+    {
+     "line_index": 1,
+     "menu_item_id": "muffin",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 3333,
+     "quantity": 1
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": {
+    "deal_id": "deal-half-off",
+    "times": 1,
+    "units": [
+     {
+      "line_index": 0,
+      "units": 1
+     },
+     {
+      "line_index": 1,
+      "units": 1
+     }
+    ],
+    "saving": 1667
+   }
+  },
+  {
+   "op": "price",
+   "name": "half_off_rounds_half_away",
+   "why": "split(1667, 5500/3333): round(1667*5500/8833) = round(1037.98) = 1038 -> 1038/629.",
+   "deal": "half_off_bites",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "croissant",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 5500,
+     "quantity": 1
+    },
+    {
+     "line_index": 1,
+     "menu_item_id": "muffin",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 3333,
+     "quantity": 1
+    }
+   ],
+   "units": [
+    {
+     "line_index": 0,
+     "units": 1
+    },
+    {
+     "line_index": 1,
+     "units": 1
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": {
+    "application": {
+     "deal_id": "deal-half-off",
+     "times": 1,
+     "discount": 1667,
+     "lines": [
+      {
+       "line_index": 0,
+       "units": 1,
+       "discount": 1038
+      },
+      {
+       "line_index": 1,
+       "units": 1,
+       "discount": 629
+      }
+     ]
+    }
+   }
+  },
+  {
+   "op": "best",
+   "name": "twice",
+   "why": "4 croissants: two full chunks, 2000 each.",
+   "deal": "two_bites",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "croissant",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 5500,
+     "quantity": 4
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": {
+    "deal_id": "deal-two-bites",
+    "times": 2,
+    "units": [
+     {
+      "line_index": 0,
+      "units": 4
+     }
+    ],
+    "saving": 4000
+   }
+  },
+  {
+   "op": "price",
+   "name": "twice",
+   "why": "each chunk splits 2000 as 1000/1000; the line takes 4000.",
+   "deal": "two_bites",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "croissant",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 5500,
+     "quantity": 4
+    }
+   ],
+   "units": [
+    {
+     "line_index": 0,
+     "units": 4
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": {
+    "application": {
+     "deal_id": "deal-two-bites",
+     "times": 2,
+     "discount": 4000,
+     "lines": [
+      {
+       "line_index": 0,
+       "units": 4,
+       "discount": 4000
+      }
+     ]
+    }
+   }
+  },
+  {
+   "op": "best",
+   "name": "max_per_order",
+   "why": "max 1: one chunk only.",
+   "deal": "two_bites_max1",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "croissant",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 5500,
+     "quantity": 4
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": {
+    "deal_id": "deal-two-bites-max1",
+    "times": 1,
+    "units": [
+     {
+      "line_index": 0,
+      "units": 2
+     }
+    ],
+    "saving": 2000
+   }
+  },
+  {
+   "op": "best",
+   "name": "max_per_order_already_used",
+   "why": "the order already holds the one application allowed.",
+   "deal": "two_bites_max1",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "croissant",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 5500,
+     "quantity": 4
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": [
+     {
+      "deal_id": "deal-two-bites-max1",
+      "times": 1
+     }
+    ]
+   },
+   "expected": null
+  },
+  {
+   "op": "best",
+   "name": "size_scoped_pool",
+   "why": "only Large lattes count: {6000,6000} saves 12000-10000 = 2000.",
+   "deal": "large_only_2for",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "latte",
+     "category_id": "cat-coffee",
+     "size_label": "Large",
+     "unit_price": 6000,
+     "quantity": 1
+    },
+    {
+     "line_index": 1,
+     "menu_item_id": "latte",
+     "category_id": "cat-coffee",
+     "size_label": "Regular",
+     "unit_price": 5000,
+     "quantity": 2
+    },
+    {
+     "line_index": 2,
+     "menu_item_id": "latte",
+     "category_id": "cat-coffee",
+     "size_label": "Large",
+     "unit_price": 6000,
+     "quantity": 1
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": {
+    "deal_id": "deal-large-2for",
+    "times": 1,
+    "units": [
+     {
+      "line_index": 0,
+      "units": 1
+     },
+     {
+      "line_index": 2,
+      "units": 1
+     }
+    ],
+    "saving": 2000
+   }
+  },
+  {
+   "op": "best",
+   "name": "no_saving",
+   "why": "two cookies 8000 < 9000: nothing to suggest.",
+   "deal": "two_bites",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "cookie",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 4000,
+     "quantity": 2
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": null
+  },
+  {
+   "op": "best",
+   "name": "window_closed",
+   "why": "Saturday is outside Mon-Fri 12-16.",
+   "deal": "lunch_hours_bites",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "croissant",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 5500,
+     "quantity": 2
+    },
+    {
+     "line_index": 1,
+     "menu_item_id": "cookie",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 4000,
+     "quantity": 1
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-03",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": null
+  },
+  {
+   "op": "best",
+   "name": "window_open",
+   "why": "Thursday 13:00 is inside.",
+   "deal": "lunch_hours_bites",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "croissant",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 5500,
+     "quantity": 2
+    },
+    {
+     "line_index": 1,
+     "menu_item_id": "cookie",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 4000,
+     "quantity": 1
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": {
+    "deal_id": "deal-lunch-bites",
+    "times": 1,
+    "units": [
+     {
+      "line_index": 0,
+      "units": 2
+     }
+    ],
+    "saving": 2000
+   }
+  },
+  {
+   "op": "best",
+   "name": "inactive",
+   "why": "an inactive (or branch-disabled) deal is never suggested.",
+   "deal": "inactive_bites",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "croissant",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 5500,
+     "quantity": 2
+    },
+    {
+     "line_index": 1,
+     "menu_item_id": "cookie",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 4000,
+     "quantity": 1
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": null
+  },
+  {
+   "op": "price",
+   "name": "overlap",
+   "why": "line 0 holds 2 units, 3 are claimed.",
+   "deal": "two_bites",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "croissant",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 5500,
+     "quantity": 2
+    },
+    {
+     "line_index": 1,
+     "menu_item_id": "cookie",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 4000,
+     "quantity": 1
+    }
+   ],
+   "units": [
+    {
+     "line_index": 0,
+     "units": 3
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": {
+    "refusal": {
+     "reason": "overlap",
+     "line_index": 0
+    }
+   }
+  },
+  {
+   "op": "price",
+   "name": "no_such_line",
+   "why": "a line that does not exist holds no units.",
+   "deal": "two_bites",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "croissant",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 5500,
+     "quantity": 2
+    },
+    {
+     "line_index": 1,
+     "menu_item_id": "cookie",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 4000,
+     "quantity": 1
+    }
+   ],
+   "units": [
+    {
+     "line_index": 9,
+     "units": 1
+    },
+    {
+     "line_index": 0,
+     "units": 1
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": {
+    "refusal": {
+     "reason": "overlap",
+     "line_index": 9
+    }
+   }
+  },
+  {
+   "op": "price",
+   "name": "not_in_pool",
+   "why": "a latte is not a bite.",
+   "deal": "two_bites",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "croissant",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 5500,
+     "quantity": 2
+    },
+    {
+     "line_index": 1,
+     "menu_item_id": "cookie",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 4000,
+     "quantity": 1
+    },
+    {
+     "line_index": 2,
+     "menu_item_id": "latte",
+     "category_id": "cat-coffee",
+     "size_label": null,
+     "unit_price": 5000,
+     "quantity": 1
+    }
+   ],
+   "units": [
+    {
+     "line_index": 0,
+     "units": 1
+    },
+    {
+     "line_index": 2,
+     "units": 1
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": {
+    "refusal": {
+     "reason": "not_in_pool",
+     "line_index": 2
+    }
+   }
+  },
+  {
+   "op": "price",
+   "name": "count",
+   "why": "one unit is not a whole chunk of 2.",
+   "deal": "two_bites",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "croissant",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 5500,
+     "quantity": 2
+    },
+    {
+     "line_index": 1,
+     "menu_item_id": "cookie",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 4000,
+     "quantity": 1
+    }
+   ],
+   "units": [
+    {
+     "line_index": 0,
+     "units": 1
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": {
+    "refusal": {
+     "reason": "count"
+    }
+   }
+  },
+  {
+   "op": "price",
+   "name": "max_per_order",
+   "why": "2 chunks where 1 is allowed.",
+   "deal": "two_bites_max1",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "croissant",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 5500,
+     "quantity": 4
+    }
+   ],
+   "units": [
+    {
+     "line_index": 0,
+     "units": 4
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": {
+    "refusal": {
+     "reason": "max_per_order"
+    }
+   }
+  },
+  {
+   "op": "price",
+   "name": "max_per_order_with_used",
+   "why": "1 chunk plus the 1 already applied.",
+   "deal": "two_bites_max1",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "croissant",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 5500,
+     "quantity": 4
+    }
+   ],
+   "units": [
+    {
+     "line_index": 0,
+     "units": 2
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": [
+     {
+      "deal_id": "deal-two-bites-max1",
+      "times": 1
+     }
+    ]
+   },
+   "expected": {
+    "refusal": {
+     "reason": "max_per_order"
+    }
+   }
+  },
+  {
+   "op": "price",
+   "name": "no_saving",
+   "why": "two cookies 8000 for 9000: the chunk's discount floors at 0.",
+   "deal": "two_bites",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "cookie",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 4000,
+     "quantity": 2
+    }
+   ],
+   "units": [
+    {
+     "line_index": 0,
+     "units": 2
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": {
+    "refusal": {
+     "reason": "no_saving"
+    }
+   }
+  },
+  {
+   "op": "price",
+   "name": "inactive",
+   "why": "",
+   "deal": "inactive_bites",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "croissant",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 5500,
+     "quantity": 2
+    },
+    {
+     "line_index": 1,
+     "menu_item_id": "cookie",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 4000,
+     "quantity": 1
+    }
+   ],
+   "units": [
+    {
+     "line_index": 0,
+     "units": 2
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": {
+    "refusal": {
+     "reason": "inactive"
+    }
+   }
+  },
+  {
+   "op": "price",
+   "name": "window",
+   "why": "",
+   "deal": "lunch_hours_bites",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "croissant",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 5500,
+     "quantity": 2
+    },
+    {
+     "line_index": 1,
+     "menu_item_id": "cookie",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 4000,
+     "quantity": 1
+    }
+   ],
+   "units": [
+    {
+     "line_index": 0,
+     "units": 2
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-03",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": {
+    "refusal": {
+     "reason": "window"
+    }
+   }
+  },
+  {
+   "op": "price",
+   "name": "invalid_n_for_price",
+   "why": "an n_for_price with no price.",
+   "deal": "broken_no_price",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "croissant",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 5500,
+     "quantity": 2
+    },
+    {
+     "line_index": 1,
+     "menu_item_id": "cookie",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 4000,
+     "quantity": 1
+    }
+   ],
+   "units": [
+    {
+     "line_index": 0,
+     "units": 2
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": {
+    "refusal": {
+     "reason": "invalid"
+    }
+   }
+  },
+  {
+   "op": "price",
+   "name": "invalid_buy_get",
+   "why": "a buy_get with no get_qty.",
+   "deal": "broken_buy_get",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "croissant",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 5500,
+     "quantity": 2
+    },
+    {
+     "line_index": 1,
+     "menu_item_id": "cookie",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 4000,
+     "quantity": 1
+    }
+   ],
+   "units": [
+    {
+     "line_index": 0,
+     "units": 2
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": {
+    "refusal": {
+     "reason": "invalid"
+    }
+   }
+  },
+  {
+   "op": "price",
+   "name": "reward_pool_needs_its_reward",
+   "why": "two lattes and no cookie: no reward unit to discount.",
+   "deal": "coffee2_cookie",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "latte",
+     "category_id": "cat-coffee",
+     "size_label": null,
+     "unit_price": 5000,
+     "quantity": 2
+    },
+    {
+     "line_index": 1,
+     "menu_item_id": "espresso",
+     "category_id": "cat-coffee",
+     "size_label": null,
+     "unit_price": 3000,
+     "quantity": 1
+    },
+    {
+     "line_index": 2,
+     "menu_item_id": "cookie",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 4000,
+     "quantity": 1
+    },
+    {
+     "line_index": 3,
+     "menu_item_id": "brownie",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 4500,
+     "quantity": 1
+    }
+   ],
+   "units": [
+    {
+     "line_index": 0,
+     "units": 2
+    },
+    {
+     "line_index": 1,
+     "units": 1
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": {
+    "refusal": {
+     "reason": "count"
+    }
+   }
+  },
+  {
+   "op": "price",
+   "name": "reward_pool_buy_must_be_in_pool",
+   "why": "a brownie is neither a coffee nor the reward.",
+   "deal": "coffee2_cookie",
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "latte",
+     "category_id": "cat-coffee",
+     "size_label": null,
+     "unit_price": 5000,
+     "quantity": 2
+    },
+    {
+     "line_index": 1,
+     "menu_item_id": "espresso",
+     "category_id": "cat-coffee",
+     "size_label": null,
+     "unit_price": 3000,
+     "quantity": 1
+    },
+    {
+     "line_index": 2,
+     "menu_item_id": "cookie",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 4000,
+     "quantity": 1
+    },
+    {
+     "line_index": 3,
+     "menu_item_id": "brownie",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 4500,
+     "quantity": 1
+    }
+   ],
+   "units": [
+    {
+     "line_index": 0,
+     "units": 1
+    },
+    {
+     "line_index": 3,
+     "units": 1
+    },
+    {
+     "line_index": 2,
+     "units": 1
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": {
+    "refusal": {
+     "reason": "not_in_pool",
+     "line_index": 3
+    }
+   }
+  },
+  {
+   "op": "suggest",
+   "name": "best_first",
+   "why": "half off: {5500,5500} takes 2750 ({4000} is not full) — the best. Then the two 2000 deals by sort (both 0), then id ('deal-lunch-bites' < 'deal-two-bites' < 'deal-two-bites-max1'); the inactive one never appears.",
+   "deals": [
+    "two_bites",
+    "two_bites_max1",
+    "half_off_bites",
+    "lunch_hours_bites",
+    "inactive_bites"
+   ],
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "croissant",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 5500,
+     "quantity": 2
+    },
+    {
+     "line_index": 1,
+     "menu_item_id": "cookie",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 4000,
+     "quantity": 1
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": [
+    {
+     "deal_id": "deal-half-off",
+     "times": 1,
+     "units": [
+      {
+       "line_index": 0,
+       "units": 2
+      }
+     ],
+     "saving": 2750
+    },
+    {
+     "deal_id": "deal-lunch-bites",
+     "times": 1,
+     "units": [
+      {
+       "line_index": 0,
+       "units": 2
+      }
+     ],
+     "saving": 2000
+    },
+    {
+     "deal_id": "deal-two-bites",
+     "times": 1,
+     "units": [
+      {
+       "line_index": 0,
+       "units": 2
+      }
+     ],
+     "saving": 2000
+    },
+    {
+     "deal_id": "deal-two-bites-max1",
+     "times": 1,
+     "units": [
+      {
+       "line_index": 0,
+       "units": 2
+      }
+     ],
+     "saving": 2000
+    }
+   ]
+  },
+  {
+   "op": "suggest",
+   "name": "closed_window_drops_out",
+   "why": "Saturday: the lunch-hours deal is gone.",
+   "deals": [
+    "two_bites",
+    "two_bites_max1",
+    "half_off_bites",
+    "lunch_hours_bites",
+    "inactive_bites"
+   ],
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "croissant",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 5500,
+     "quantity": 2
+    },
+    {
+     "line_index": 1,
+     "menu_item_id": "cookie",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 4000,
+     "quantity": 1
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-03",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": [
+    {
+     "deal_id": "deal-half-off",
+     "times": 1,
+     "units": [
+      {
+       "line_index": 0,
+       "units": 2
+      }
+     ],
+     "saving": 2750
+    },
+    {
+     "deal_id": "deal-two-bites",
+     "times": 1,
+     "units": [
+      {
+       "line_index": 0,
+       "units": 2
+      }
+     ],
+     "saving": 2000
+    },
+    {
+     "deal_id": "deal-two-bites-max1",
+     "times": 1,
+     "units": [
+      {
+       "line_index": 0,
+       "units": 2
+      }
+     ],
+     "saving": 2000
+    }
+   ]
+  },
+  {
+   "op": "auto_apply",
+   "name": "two_deals_in_sequence",
+   "why": "round 1: two bites saves 2000 ({4000,4000} would lose), the Large pair saves 2000 too; tie -> sort 0 first: two bites on the croissants. Round 2: only the Large pair: 1000/1000. Round 3: nothing.",
+   "deals": [
+    "two_bites",
+    "large_only_2for"
+   ],
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "croissant",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 5500,
+     "quantity": 2
+    },
+    {
+     "line_index": 1,
+     "menu_item_id": "cookie",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 4000,
+     "quantity": 2
+    },
+    {
+     "line_index": 2,
+     "menu_item_id": "latte",
+     "category_id": "cat-coffee",
+     "size_label": "Large",
+     "unit_price": 6000,
+     "quantity": 1
+    },
+    {
+     "line_index": 3,
+     "menu_item_id": "latte",
+     "category_id": "cat-coffee",
+     "size_label": "Large",
+     "unit_price": 6000,
+     "quantity": 1
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": [
+    {
+     "deal_id": "deal-two-bites",
+     "times": 1,
+     "discount": 2000,
+     "lines": [
+      {
+       "line_index": 0,
+       "units": 2,
+       "discount": 2000
+      }
+     ]
+    },
+    {
+     "deal_id": "deal-large-2for",
+     "times": 1,
+     "discount": 2000,
+     "lines": [
+      {
+       "line_index": 2,
+       "units": 1,
+       "discount": 1000
+      },
+      {
+       "line_index": 3,
+       "units": 1,
+       "discount": 1000
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "op": "auto_apply",
+   "name": "a_deal_takes_every_chunk_it_can",
+   "why": "half off beats two bites: {5500,5500} takes 2750 and {4000,4000} takes 2000 (50% of 4000) = 4750 in 2 chunks, against two bites' 2000 ({4000,4000} would lose). Splits: 1375/1375 and 1000/1000. Nothing is left for a second round.",
+   "deals": [
+    "two_bites",
+    "half_off_bites"
+   ],
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "croissant",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 5500,
+     "quantity": 2
+    },
+    {
+     "line_index": 1,
+     "menu_item_id": "cookie",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 4000,
+     "quantity": 2
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": [
+    {
+     "deal_id": "deal-half-off",
+     "times": 2,
+     "discount": 4750,
+     "lines": [
+      {
+       "line_index": 0,
+       "units": 2,
+       "discount": 2750
+      },
+      {
+       "line_index": 1,
+       "units": 2,
+       "discount": 2000
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "op": "auto_apply",
+   "name": "max_per_order_holds_across_rounds",
+   "why": "max 1: one application, the rest stays full price.",
+   "deals": [
+    "two_bites_max1"
+   ],
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "croissant",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 5500,
+     "quantity": 4
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": [
+    {
+     "deal_id": "deal-two-bites-max1",
+     "times": 1,
+     "discount": 2000,
+     "lines": [
+      {
+       "line_index": 0,
+       "units": 2,
+       "discount": 2000
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "op": "auto_apply",
+   "name": "nothing",
+   "why": "no deal saves anything.",
+   "deals": [
+    "two_bites"
+   ],
+   "lines": [
+    {
+     "line_index": 0,
+     "menu_item_id": "cookie",
+     "category_id": "cat-bites",
+     "size_label": null,
+     "unit_price": 4000,
+     "quantity": 2
+    }
+   ],
+   "ctx": {
+    "branch_id": null,
+    "now": {
+     "date": "2026-10-01",
+     "time": "13:00"
+    },
+    "used": []
+   },
+   "expected": []
+  }
+ ]
+}

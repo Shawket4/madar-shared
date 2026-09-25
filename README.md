@@ -15,13 +15,13 @@ copy, its vectors are its own tests, and both consumers pin the same tag.
 | Crate | What it holds |
 |---|---|
 | `madar-authz` | The permission decision library: the capability registry (generated from `authz/spec/capabilities.toml`), `resolve`, `decide`, the anti-escalation guard, the signed-snapshot binding; the void facts (`acts::void_facts`: own = the order's teller, age in whole minutes) and the offline PIN verify (`pin`, argon2id, with one shared PHC test string). |
-| `madar-money` | Money: the tax engine and the sale-channel rule, the refund tax/service split, the staff pool decision, the staff-comp rule, the loyalty reward cover, POS-metrics `average_ticket`; a line's total (`line`); bill assembly — staff comp, reward, discount, tax — over the lines or a subtotal a till stated (`price_bill`, `price_bill_on`, `price_subtotal`), a stored discount rule (`rule_of`), a table bill's preview, the tender / change / split rules (`bill`); the discount act a sale asks for, its basis points and figures (`discount`); a waste's value and which waste inputs may be recorded (`waste`). |
+| `madar-money` | Money: the tax engine and the sale-channel rule, the refund tax/service split, the staff pool decision, the staff-comp rule, the loyalty reward cover, POS-metrics `average_ticket`; a line's total (`line`); bill assembly — staff comp, reward, discount, tax — over the lines or a subtotal a till stated (`price_bill`, `price_bill_on`, `price_subtotal`), a stored discount rule (`rule_of`), a table bill's preview, the tender / change / split rules (`bill`); the discount act a sale asks for, its basis points and figures (`discount`); a waste's value and which waste inputs may be recorded (`waste`).; the one proportional allocator, whose shares sum to the amount exactly (`alloc::split`: a combo's price over its parts, a deal's discount over a chunk's units). |
 | `madar-till` | A till's drawer and Z report as a fold over rows (`report`), the drawer carryover picker (`carryover`), close reconciliation — `plan_lines`, `rollup_status`, the codes (`reconcile`). Both sides run the fold over rows they load (the backend since v0.4.0), pinned by the till vectors. |
 | `madar-units` | Inventory units (`g`, `kg`, `ml`, `l`, `pcs`), their families and conversion, with the density bridge. |
 | `madar-ids` | The canonical phone (also pinned for the backend's SQL `phone_canonical`), order-ref formats and reading a device code back out of one, the member card token. |
 | `madar-time` | Business-day rules: week start, business date of an instant, the `YYMMDD` stamp, local day bounds (with the DST-gap rule). |
 | `madar-sync` | `/sync/pull` type lists and ledger classification, the R-checksum, the kitchen UUIDv5 ids; the `/sync/replay` envelopes (`replay`) and the current release's envelope fixture. |
-| `madar-catalog` | How a sale line is priced from the catalogue — the size price (a size's branch price, else its catalogue price while active, else the branch's item price, else the lowest active size), each option (a swap charged as the difference over the recipe's own choice, floored at 0, one per swap family; an add-on at its price) and the optional fields offered on the size — over a `CatalogView` the backend loads from SQL and the POS core builds from the feed rows' `pricing` (`feed`). The server's rule; pinned by `catalog_vectors.json`, which the backend generates. Also the staff comp's input built from the same view — the sizes and the required non-swap groups a staff drink's base is judged on (`staff`, pinned by `staff_input_vectors.json`). |
+| `madar-catalog` | How a sale line is priced from the catalogue — the size price (a size's branch price, else its catalogue price while active, else the branch's item price, else the lowest active size), each option (a swap charged as the difference over the recipe's own choice, floored at 0, one per swap family; an add-on at its price) and the optional fields offered on the size — over a `CatalogView` the backend loads from SQL and the POS core builds from the feed rows' `pricing` (`feed`). The server's rule; pinned by `catalog_vectors.json`, which the backend generates. Also the staff comp's input built from the same view — the sizes and the required non-swap groups a staff drink's base is judged on (`staff`, pinned by `staff_input_vectors.json`). Since v0.5, the combos module: a combo line's parts and the split of its price (`combo::quote`), its availability on a channel at a branch and the org/branch channel switches (`combo`); deal rules over a cart — the till's suggestions, QR/online auto-apply and the pricing of an application (`deal`); and the optional weekday/time/date windows of both (`sale_window`). Pinned by the hand-computed `combo_vectors.json`, `deal_vectors.json` and `sale_window_vectors.json`. |
 | `madar-dawam` | Dawam (staff attendance): the geofence (distance, effective radius), the pay-period window, the offline stamp's type (with its OpenAPI schema behind the `utoipa` feature) and the signed anchor's format (the HMAC stays on the server). |
 | `madar-loyalty` | Which rewards a sale may take: `plan` — strict on the server (the first refusal), trimming on the till (the first trim named) — and the lines a refused replay keeps (`replay_lines`). Pinned by `loyalty_plan_vectors.json`. |
 
@@ -42,16 +42,16 @@ Plus `authz/gen` (`authz-gen`), the generator for the permission registry.
 ## Consuming it
 
 ```toml
-madar-authz = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.4.0" }
-madar-money = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.4.0" }
-madar-till  = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.4.0" }
-madar-units = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.4.0" }
-madar-ids   = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.4.0" }
-madar-time  = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.4.0" }
-madar-sync  = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.4.0" }
-madar-dawam = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.4.0" }
-madar-catalog = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.4.0" }
-madar-loyalty = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.4.0" }
+madar-authz = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.5.0" }
+madar-money = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.5.0" }
+madar-till  = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.5.0" }
+madar-units = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.5.0" }
+madar-ids   = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.5.0" }
+madar-time  = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.5.0" }
+madar-sync  = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.5.0" }
+madar-dawam = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.5.0" }
+madar-catalog = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.5.0" }
+madar-loyalty = { git = "https://github.com/Shawket4/madar-shared", tag = "v0.5.0" }
 ```
 
 Every release is listed in [CHANGELOG.md](CHANGELOG.md).
@@ -122,6 +122,12 @@ into the madar-shared checkout beside it (or `$MADAR_SHARED_DIR`):
 | `madar-till/vectors/till_report_vectors.json`, `till_edge_vectors.json` | MadarRust `tests/tills_report_vectors_tests.rs` (`MADAR_WRITE_TILL_VECTORS=1`) |
 | `madar-sync/vectors/replay_current.json` | madar-core `lifecycle_tests::replay_fixture` (`MADAR_WRITE_REPLAY_FIXTURE=1`) |
 | `madar-catalog/vectors/staff_input_vectors.json` | MadarRust `tests/staff_pool_input_tests.rs` (`MADAR_WRITE_STAFF_INPUT_VECTORS=1`) |
+
+Hand-computed, and never regenerated (a change is a deliberate edit of the
+file, with the working in the case's `why`): `madar-money/vectors/alloc_vectors.json`,
+`madar-catalog/vectors/{combo,deal,sale_window}_vectors.json`. The POS core
+reads them through `madar_money::vectors::ALLOC` and
+`madar_catalog::vectors::{COMBO, DEAL, SALE_WINDOW}`.
 
 `madar-ids/vectors/phone_vectors.json` is hand-authored; the dashboard keeps an
 identical copy (`src/lib/phone_vectors.json`) for its TypeScript rule, pinned

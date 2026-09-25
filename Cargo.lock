@@ -22,7 +22,7 @@ checksum = "d3fb67a6e08acf24fdeccbac2cb6ac4305825bd1f117462e0e6f2f193345ad56"
 
 [[package]]
 name = "authz-gen"
-version = "0.4.0"
+version = "0.5.0"
 dependencies = [
  "serde",
  "toml",
@@ -234,7 +234,7 @@ checksum = "32a66949e030da00e8c7d4434b251670a91556f4144941d37452769c25d58a53"
 
 [[package]]
 name = "madar-authz"
-version = "0.4.0"
+version = "0.5.0"
 dependencies = [
  "argon2",
  "chrono",
@@ -245,7 +245,7 @@ dependencies = [
 
 [[package]]
 name = "madar-catalog"
-version = "0.4.0"
+version = "0.5.0"
 dependencies = [
  "madar-money",
  "serde",
@@ -254,7 +254,7 @@ dependencies = [
 
 [[package]]
 name = "madar-dawam"
-version = "0.4.0"
+version = "0.5.0"
 dependencies = [
  "chrono",
  "chrono-tz",
@@ -267,7 +267,7 @@ dependencies = [
 
 [[package]]
 name = "madar-ids"
-version = "0.4.0"
+version = "0.5.0"
 dependencies = [
  "serde",
  "serde_json",
@@ -275,7 +275,7 @@ dependencies = [
 
 [[package]]
 name = "madar-loyalty"
-version = "0.4.0"
+version = "0.5.0"
 dependencies = [
  "serde",
  "serde_json",
@@ -283,7 +283,7 @@ dependencies = [
 
 [[package]]
 name = "madar-money"
-version = "0.4.0"
+version = "0.5.0"
 dependencies = [
  "chrono",
  "chrono-tz",
@@ -297,7 +297,7 @@ dependencies = [
 
 [[package]]
 name = "madar-sync"
-version = "0.4.0"
+version = "0.5.0"
 dependencies = [
  "serde",
  "serde_json",
@@ -307,7 +307,7 @@ dependencies = [
 
 [[package]]
 name = "madar-till"
-version = "0.4.0"
+version = "0.5.0"
 dependencies = [
  "chrono",
  "madar-money",
@@ -317,7 +317,7 @@ dependencies = [
 
 [[package]]
 name = "madar-time"
-version = "0.4.0"
+version = "0.5.0"
 dependencies = [
  "chrono",
  "chrono-tz",
@@ -327,7 +327,7 @@ dependencies = [
 
 [[package]]
 name = "madar-units"
-version = "0.4.0"
+version = "0.5.0"
 dependencies = [
  "serde",
  "serde_json",

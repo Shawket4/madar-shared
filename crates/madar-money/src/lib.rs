@@ -18,11 +18,15 @@
 //! - [`discount`] (v2): the discount act a sale asks for, its capability and
 //!   figures (`ask_from`, basis points, `figures`).
 //! - [`waste`] (v2): what a waste is worth and which inputs may be recorded.
+//! - [`alloc`] (v0.5): the one allocator — an amount over weights, the
+//!   shares summing to it exactly (a combo's price over its parts, a deal's
+//!   discount over a chunk's units).
 //! - [`vectors`]: the vector files, for consumer tests that pin their own
 //!   code (SQL, bill assembly) to the same bytes.
 //!
 //! Nothing here does I/O or reads a clock. Callers pass everything in.
 
+pub mod alloc;
 pub mod bill;
 pub mod discount;
 pub mod line;

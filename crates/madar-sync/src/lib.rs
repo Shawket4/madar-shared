@@ -49,6 +49,10 @@ pub const ALL_TYPES: &[&str] = &[
     "addon_item",
     "customer",
     "staff_drink",
+    // v0.5: the combos module's deal rules (mix & match, buy X get Y). A
+    // state type, never required: a server that predates it still completes
+    // a till's snapshot.
+    "deal_rule",
 ];
 
 /// The types a snapshot must list to count as COMPLETE (and move the
@@ -148,6 +152,8 @@ mod tests {
         }
         assert!(is_ledger("staff_drink"));
         assert!(!is_ledger("customer"));
+        assert!(ALL_TYPES.contains(&"deal_rule") && !REQUIRED_TYPES.contains(&"deal_rule"));
+        assert!(!is_ledger("deal_rule"));
         for t in REQUIRED_TYPES {
             assert!(ALL_TYPES.contains(t), "{t}");
         }

@@ -4,7 +4,7 @@
 use crate::{CapMeta, GroupMeta, Kinds, LimitKey, Limits, Risk, RoleKind, TemplateMeta, Tier};
 
 pub const SPEC_VERSION: u32 = 2;
-pub const SPEC_HASH: &str = "b79e9c7e15eec025";
+pub const SPEC_HASH: &str = "6c952ec193f4d94b";
 pub const WORDS: usize = 4;
 
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Hash, PartialOrd, Ord)]
@@ -205,6 +205,10 @@ pub enum Cap {
     HrRulesEdit = 236,
     HrRulesView = 241,
     HrDeductionsCreate = 245,
+    MenuCombosEdit = 250,
+    MenuDealsEdit = 251,
+    OrdersDealsApply = 252,
+    ReportsBundles = 253,
 }
 
 pub static CAPS: &[CapMeta] = &[
@@ -403,6 +407,10 @@ pub static CAPS: &[CapMeta] = &[
     CapMeta { cap: Cap::HrRulesEdit, key: "hr.rules.edit", legacy: None, group: "hr", tier: Tier::Configurable, risk: Risk::Money, defaults: Kinds(1), core: Kinds(0), approval: false, limits: &[], pos: false, protected: true, en: "Change attendance and pay rules", ar: "تغيير قواعد الحضور والمرتبات", hint_en: Some("The business-wide rules: lateness and absence costs, working days, overtime, the pay period and the advance cap. Needs every branch."), hint_ar: Some("قواعد النشاط كله: خصم التأخير والغياب، أيام الشغل، الوقت الإضافي، فترة المرتب وحد السلف. محتاج كل الفروع.") },
     CapMeta { cap: Cap::HrRulesView, key: "hr.rules.view", legacy: None, group: "hr", tier: Tier::Configurable, risk: Risk::Normal, defaults: Kinds(3), core: Kinds(0), approval: false, limits: &[], pos: false, protected: false, en: "See attendance and pay rules", ar: "عرض قواعد الحضور والمرتبات", hint_en: Some("Read-only: the business's rules and the overrides of your branches. Changing them needs the owner."), hint_ar: Some("للعرض بس: قواعد النشاط وتعديلات فروعك. تغييرها محتاج المالك.") },
     CapMeta { cap: Cap::HrDeductionsCreate, key: "hr.deductions.create", legacy: None, group: "hr", tier: Tier::Configurable, risk: Risk::Money, defaults: Kinds(3), core: Kinds(0), approval: true, limits: &[LimitKey::MaxAmount], pos: false, protected: false, en: "Add deductions", ar: "إضافة خصومات", hint_en: Some("Up to the amount set here. Above it, the deduction waits for someone with a higher limit, usually the owner. Bonuses have their own limit."), hint_ar: Some("لحد المبلغ المحدد هنا. فوقه، الخصم بيستنى حد عنده حد أعلى، غالب\u{64b}ا المالك. المكافآت ليها حد منفصل.") },
+    CapMeta { cap: Cap::MenuCombosEdit, key: "menu.combos.edit", legacy: None, group: "menu", tier: Tier::Configurable, risk: Risk::Money, defaults: Kinds(1), core: Kinds(0), approval: false, limits: &[], pos: false, protected: false, en: "Create and change combos, meal deals and \"make it a meal\"", ar: "إنشاء وتعديل الكومبو والوجبات و«اجعلها وجبة»", hint_en: None, hint_ar: None },
+    CapMeta { cap: Cap::MenuDealsEdit, key: "menu.deals.edit", legacy: None, group: "menu", tier: Tier::Configurable, risk: Risk::Money, defaults: Kinds(1), core: Kinds(0), approval: false, limits: &[], pos: false, protected: false, en: "Create and change deals (mix & match, buy X get Y)", ar: "إنشاء وتعديل العروض (اختر أي صنفين، اشتر\u{650} واحصل)", hint_en: None, hint_ar: None },
+    CapMeta { cap: Cap::OrdersDealsApply, key: "orders.deals.apply", legacy: None, group: "selling", tier: Tier::Configurable, risk: Risk::Money, defaults: Kinds(7), core: Kinds(0), approval: true, limits: &[], pos: true, protected: false, en: "Apply a deal the till suggests", ar: "تطبيق عرض يقترحه الكاشير", hint_en: None, hint_ar: None },
+    CapMeta { cap: Cap::ReportsBundles, key: "reports.bundles", legacy: None, group: "reports", tier: Tier::Configurable, risk: Risk::Money, defaults: Kinds(3), core: Kinds(0), approval: false, limits: &[], pos: false, protected: false, en: "See the combos and deals report", ar: "عرض تقرير الكومبو والعروض", hint_en: None, hint_ar: None },
 ];
 
 pub static GROUPS: &[GroupMeta] = &[

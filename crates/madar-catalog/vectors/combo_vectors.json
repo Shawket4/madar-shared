@@ -1,0 +1,3094 @@
+{
+ "about": "madar_catalog::combo — hand-computed (each case's `why` holds the working). quote: parts in slot order; the combo price P is split over the parts by alloc::split with weight = the included size's price x pick quantity; a part's line_total = its share + its surcharge; add-ons are extra at their normal prices. Figures are per ONE combo unit except the whole-line ones (quantity, combo_share, combo_surcharge, line_total, addons_total), which are for n units.",
+ "items": {
+  "burger": {
+   "item": {
+    "id": "burger",
+    "sizes": [
+     {
+      "label": "one_size",
+      "price": 12000,
+      "is_active": true
+     }
+    ]
+   },
+   "options": []
+  },
+  "fries": {
+   "item": {
+    "id": "fries",
+    "sizes": [
+     {
+      "label": "one_size",
+      "price": 4000,
+      "is_active": true
+     }
+    ]
+   },
+   "options": []
+  },
+  "latte": {
+   "item": {
+    "id": "latte",
+    "sizes": [
+     {
+      "label": "Regular",
+      "price": 5000,
+      "is_active": true
+     },
+     {
+      "label": "Large",
+      "price": 6000,
+      "is_active": true
+     }
+    ]
+   },
+   "options": [
+    {
+     "id": "opt-oat",
+     "name": "Oat milk",
+     "kind": "extra",
+     "price": 1500
+    }
+   ]
+  },
+  "latte_at_branch": {
+   "item": {
+    "id": "latte",
+    "sizes": [
+     {
+      "label": "Regular",
+      "price": 5000,
+      "is_active": true,
+      "branch_price": 4800
+     },
+     {
+      "label": "Large",
+      "price": 6000,
+      "is_active": true,
+      "branch_price": 6500
+     }
+    ]
+   },
+   "options": [
+    {
+     "id": "opt-oat",
+     "name": "Oat milk",
+     "kind": "extra",
+     "price": 1500
+    }
+   ]
+  },
+  "cake": {
+   "item": {
+    "id": "cake",
+    "sizes": [
+     {
+      "label": "one_size",
+      "price": 3500,
+      "is_active": true
+     }
+    ]
+   },
+   "options": []
+  },
+  "cola": {
+   "item": {
+    "id": "cola",
+    "sizes": [
+     {
+      "label": "one_size",
+      "price": 2500,
+      "is_active": true
+     }
+    ]
+   },
+   "options": []
+  },
+  "juice": {
+   "item": {
+    "id": "juice",
+    "sizes": [
+     {
+      "label": "one_size",
+      "price": 3000,
+      "is_active": true
+     }
+    ]
+   },
+   "options": []
+  },
+  "tea": {
+   "item": {
+    "id": "tea",
+    "sizes": [
+     {
+      "label": "Small",
+      "price": 3000,
+      "is_active": true,
+      "branch_price": 3600
+     },
+     {
+      "label": "Medium",
+      "price": 3500,
+      "is_active": true
+     }
+    ]
+   },
+   "options": []
+  },
+  "sauce_a": {
+   "item": {
+    "id": "sauce_a",
+    "sizes": [
+     {
+      "label": "one_size",
+      "price": 0,
+      "is_active": true
+     }
+    ]
+   },
+   "options": []
+  },
+  "sauce_b": {
+   "item": {
+    "id": "sauce_b",
+    "sizes": [
+     {
+      "label": "one_size",
+      "price": 0,
+      "is_active": true
+     }
+    ]
+   },
+   "options": []
+  },
+  "retired": {
+   "item": {
+    "id": "retired",
+    "sizes": [
+     {
+      "label": "one_size",
+      "price": 2000,
+      "is_active": false
+     }
+    ]
+   },
+   "options": []
+  }
+ },
+ "combos": {
+  "lunch": {
+   "id": "lunch",
+   "price": 15000,
+   "is_active": true,
+   "slots": [
+    {
+     "id": "s-main",
+     "name": "Main",
+     "sort": 0,
+     "min": 1,
+     "max": 1,
+     "choices": [
+      {
+       "menu_item_id": "burger",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": null,
+       "size_surcharges": []
+      }
+     ]
+    },
+    {
+     "id": "s-side",
+     "name": "Side",
+     "sort": 1,
+     "min": 1,
+     "max": 1,
+     "choices": [
+      {
+       "menu_item_id": "fries",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": null,
+       "size_surcharges": []
+      }
+     ]
+    },
+    {
+     "id": "s-drink",
+     "name": "Drink",
+     "sort": 2,
+     "min": 1,
+     "max": 1,
+     "choices": [
+      {
+       "menu_item_id": "latte",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": "Regular",
+       "size_surcharges": []
+      }
+     ]
+    }
+   ],
+   "windows": []
+  },
+  "lunch_owner_surcharge": {
+   "id": "lunch_owner_surcharge",
+   "price": 15000,
+   "is_active": true,
+   "slots": [
+    {
+     "id": "s-main",
+     "name": "Main",
+     "sort": 0,
+     "min": 1,
+     "max": 1,
+     "choices": [
+      {
+       "menu_item_id": "burger",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": null,
+       "size_surcharges": []
+      }
+     ]
+    },
+    {
+     "id": "s-side",
+     "name": "Side",
+     "sort": 1,
+     "min": 1,
+     "max": 1,
+     "choices": [
+      {
+       "menu_item_id": "fries",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": null,
+       "size_surcharges": []
+      }
+     ]
+    },
+    {
+     "id": "s-drink",
+     "name": "Drink",
+     "sort": 2,
+     "min": 1,
+     "max": 1,
+     "choices": [
+      {
+       "menu_item_id": "latte",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": "Regular",
+       "size_surcharges": [
+        {
+         "size_label": "Large",
+         "surcharge": 500
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "windows": []
+  },
+  "lunch_large_included": {
+   "id": "lunch_large_included",
+   "price": 15000,
+   "is_active": true,
+   "slots": [
+    {
+     "id": "s-main",
+     "name": "Main",
+     "sort": 0,
+     "min": 1,
+     "max": 1,
+     "choices": [
+      {
+       "menu_item_id": "burger",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": null,
+       "size_surcharges": []
+      }
+     ]
+    },
+    {
+     "id": "s-side",
+     "name": "Side",
+     "sort": 1,
+     "min": 1,
+     "max": 1,
+     "choices": [
+      {
+       "menu_item_id": "fries",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": null,
+       "size_surcharges": []
+      }
+     ]
+    },
+    {
+     "id": "s-drink",
+     "name": "Drink",
+     "sort": 2,
+     "min": 1,
+     "max": 1,
+     "choices": [
+      {
+       "menu_item_id": "latte",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": "Large",
+       "size_surcharges": []
+      }
+     ]
+    }
+   ],
+   "windows": []
+  },
+  "lunch_optional_dessert": {
+   "id": "lunch_optional_dessert",
+   "price": 15000,
+   "is_active": true,
+   "slots": [
+    {
+     "id": "s-main",
+     "name": "Main",
+     "sort": 0,
+     "min": 1,
+     "max": 1,
+     "choices": [
+      {
+       "menu_item_id": "burger",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": null,
+       "size_surcharges": []
+      }
+     ]
+    },
+    {
+     "id": "s-side",
+     "name": "Side",
+     "sort": 1,
+     "min": 1,
+     "max": 1,
+     "choices": [
+      {
+       "menu_item_id": "fries",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": null,
+       "size_surcharges": []
+      }
+     ]
+    },
+    {
+     "id": "s-drink",
+     "name": "Drink",
+     "sort": 2,
+     "min": 1,
+     "max": 1,
+     "choices": [
+      {
+       "menu_item_id": "latte",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": "Regular",
+       "size_surcharges": []
+      }
+     ]
+    },
+    {
+     "id": "s-dessert",
+     "name": "Dessert",
+     "sort": 3,
+     "min": 0,
+     "max": 1,
+     "choices": [
+      {
+       "menu_item_id": "cake",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": null,
+       "size_surcharges": []
+      }
+     ]
+    }
+   ],
+   "windows": []
+  },
+  "lunch_off": {
+   "id": "lunch_off",
+   "price": 15000,
+   "is_active": false,
+   "slots": [
+    {
+     "id": "s-main",
+     "name": "Main",
+     "sort": 0,
+     "min": 1,
+     "max": 1,
+     "choices": [
+      {
+       "menu_item_id": "burger",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": null,
+       "size_surcharges": []
+      }
+     ]
+    },
+    {
+     "id": "s-side",
+     "name": "Side",
+     "sort": 1,
+     "min": 1,
+     "max": 1,
+     "choices": [
+      {
+       "menu_item_id": "fries",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": null,
+       "size_surcharges": []
+      }
+     ]
+    },
+    {
+     "id": "s-drink",
+     "name": "Drink",
+     "sort": 2,
+     "min": 1,
+     "max": 1,
+     "choices": [
+      {
+       "menu_item_id": "latte",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": "Regular",
+       "size_surcharges": []
+      }
+     ]
+    }
+   ],
+   "windows": []
+  },
+  "lunch_weekday_lunchtime": {
+   "id": "lunch_weekday_lunchtime",
+   "price": 15000,
+   "is_active": true,
+   "slots": [
+    {
+     "id": "s-main",
+     "name": "Main",
+     "sort": 0,
+     "min": 1,
+     "max": 1,
+     "choices": [
+      {
+       "menu_item_id": "burger",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": null,
+       "size_surcharges": []
+      }
+     ]
+    },
+    {
+     "id": "s-side",
+     "name": "Side",
+     "sort": 1,
+     "min": 1,
+     "max": 1,
+     "choices": [
+      {
+       "menu_item_id": "fries",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": null,
+       "size_surcharges": []
+      }
+     ]
+    },
+    {
+     "id": "s-drink",
+     "name": "Drink",
+     "sort": 2,
+     "min": 1,
+     "max": 1,
+     "choices": [
+      {
+       "menu_item_id": "latte",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": "Regular",
+       "size_surcharges": []
+      }
+     ]
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": 62,
+     "starts_at": "12:00",
+     "ends_at": "16:00"
+    }
+   ]
+  },
+  "coffee_and_cake": {
+   "id": "coffee_and_cake",
+   "price": 7000,
+   "is_active": true,
+   "slots": [
+    {
+     "id": "s-coffee",
+     "name": "",
+     "sort": 0,
+     "min": 1,
+     "max": 1,
+     "choices": [
+      {
+       "menu_item_id": "latte",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": null,
+       "size_surcharges": []
+      }
+     ]
+    },
+    {
+     "id": "s-cake",
+     "name": "",
+     "sort": 1,
+     "min": 1,
+     "max": 1,
+     "choices": [
+      {
+       "menu_item_id": "cake",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": null,
+       "size_surcharges": []
+      }
+     ]
+    }
+   ],
+   "windows": []
+  },
+  "tea_and_cake": {
+   "id": "tea_and_cake",
+   "price": 6000,
+   "is_active": true,
+   "slots": [
+    {
+     "id": "s-tea",
+     "name": "",
+     "sort": 0,
+     "min": 1,
+     "max": 1,
+     "choices": [
+      {
+       "menu_item_id": "tea",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": null,
+       "size_surcharges": []
+      }
+     ]
+    },
+    {
+     "id": "s-cake",
+     "name": "",
+     "sort": 1,
+     "min": 1,
+     "max": 1,
+     "choices": [
+      {
+       "menu_item_id": "cake",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": null,
+       "size_surcharges": []
+      }
+     ]
+    }
+   ],
+   "windows": []
+  },
+  "meal_any_drink": {
+   "id": "meal_any_drink",
+   "price": 10000,
+   "is_active": true,
+   "slots": [
+    {
+     "id": "s-main",
+     "name": "",
+     "sort": 0,
+     "min": 1,
+     "max": 1,
+     "choices": [
+      {
+       "menu_item_id": "burger",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": null,
+       "size_surcharges": []
+      }
+     ]
+    },
+    {
+     "id": "s-drink",
+     "name": "",
+     "sort": 1,
+     "min": 1,
+     "max": 1,
+     "choices": [
+      {
+       "menu_item_id": null,
+       "category_id": "cat-cold",
+       "surcharge": 0,
+       "included_size_label": null,
+       "size_surcharges": []
+      },
+      {
+       "menu_item_id": "juice",
+       "category_id": null,
+       "surcharge": 500,
+       "included_size_label": null,
+       "size_surcharges": []
+      }
+     ]
+    }
+   ],
+   "windows": []
+  },
+  "sauces_pack": {
+   "id": "sauces_pack",
+   "price": 900,
+   "is_active": true,
+   "slots": [
+    {
+     "id": "s-sauce",
+     "name": "",
+     "sort": 0,
+     "min": 3,
+     "max": 3,
+     "choices": [
+      {
+       "menu_item_id": "sauce_a",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": null,
+       "size_surcharges": []
+      },
+      {
+       "menu_item_id": "sauce_b",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": null,
+       "size_surcharges": []
+      }
+     ]
+    }
+   ],
+   "windows": []
+  },
+  "two_burgers": {
+   "id": "two_burgers",
+   "price": 25000,
+   "is_active": true,
+   "slots": [
+    {
+     "id": "s-main",
+     "name": "",
+     "sort": 0,
+     "min": 2,
+     "max": 2,
+     "choices": [
+      {
+       "menu_item_id": "burger",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": null,
+       "size_surcharges": []
+      }
+     ]
+    },
+    {
+     "id": "s-side",
+     "name": "",
+     "sort": 1,
+     "min": 1,
+     "max": 1,
+     "choices": [
+      {
+       "menu_item_id": "fries",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": null,
+       "size_surcharges": []
+      }
+     ]
+    }
+   ],
+   "windows": []
+  },
+  "two_burgers_premium": {
+   "id": "two_burgers_premium",
+   "price": 25000,
+   "is_active": true,
+   "slots": [
+    {
+     "id": "s-main",
+     "name": "",
+     "sort": 0,
+     "min": 2,
+     "max": 2,
+     "choices": [
+      {
+       "menu_item_id": "burger",
+       "category_id": null,
+       "surcharge": 200,
+       "included_size_label": null,
+       "size_surcharges": []
+      }
+     ]
+    },
+    {
+     "id": "s-side",
+     "name": "",
+     "sort": 1,
+     "min": 1,
+     "max": 1,
+     "choices": [
+      {
+       "menu_item_id": "fries",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": null,
+       "size_surcharges": []
+      }
+     ]
+    }
+   ],
+   "windows": []
+  },
+  "retired_combo": {
+   "id": "retired_combo",
+   "price": 1000,
+   "is_active": true,
+   "slots": [
+    {
+     "id": "s-x",
+     "name": "",
+     "sort": 0,
+     "min": 1,
+     "max": 1,
+     "choices": [
+      {
+       "menu_item_id": "retired",
+       "category_id": null,
+       "surcharge": 0,
+       "included_size_label": null,
+       "size_surcharges": []
+      }
+     ]
+    }
+   ],
+   "windows": []
+  }
+ },
+ "cases": [
+  {
+   "name": "lunch_large_latte",
+   "why": "weights 12000/4000/5000 (W 21000): uptos round(15000*12000/21000)=8571, round(15000*16000/21000)=11429, 15000 -> 8571/2858/3571. Large over Regular = 1000. unit_total 15000+1000+1500=17500; list 12000+4000+6000+1500=23500; saving 6000.",
+   "combo": "lunch",
+   "picks": [
+    {
+     "slot_id": "s-main",
+     "item": "burger",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-side",
+     "item": "fries",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-drink",
+     "item": "latte",
+     "selection": {
+      "size_label": "Large",
+      "options": [
+       {
+        "id": "opt-oat",
+        "quantity": 1
+       }
+      ],
+      "optionals": []
+     },
+     "quantity": 1
+    }
+   ],
+   "n": 1,
+   "expected": {
+    "quote": {
+     "price": 15000,
+     "quantity": 1,
+     "unit_total": 17500,
+     "list_unit": 23500,
+     "saving_unit": 6000,
+     "parts": [
+      {
+       "pick_index": 0,
+       "slot_id": "s-main",
+       "menu_item_id": "burger",
+       "size_label": "one_size",
+       "included_size_label": "one_size",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 12000,
+       "share_unit": 8571,
+       "surcharge_unit": 0,
+       "combo_share": 8571,
+       "combo_surcharge": 0,
+       "line_total": 8571,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      },
+      {
+       "pick_index": 1,
+       "slot_id": "s-side",
+       "menu_item_id": "fries",
+       "size_label": "one_size",
+       "included_size_label": "one_size",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 4000,
+       "share_unit": 2858,
+       "surcharge_unit": 0,
+       "combo_share": 2858,
+       "combo_surcharge": 0,
+       "line_total": 2858,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      },
+      {
+       "pick_index": 2,
+       "slot_id": "s-drink",
+       "menu_item_id": "latte",
+       "size_label": "Large",
+       "included_size_label": "Regular",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 6000,
+       "share_unit": 3571,
+       "surcharge_unit": 1000,
+       "combo_share": 3571,
+       "combo_surcharge": 1000,
+       "line_total": 4571,
+       "options": {
+        "options": [
+         {
+          "id": "opt-oat",
+          "quantity": 1,
+          "unit_price": 1500,
+          "is_swap": false,
+          "is_base": false,
+          "has_ingredients": false,
+          "target": null,
+          "base_ingredient": null,
+          "replacement": null,
+          "over": null
+         }
+        ],
+        "optionals": [],
+        "option_total": 1500,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 1500,
+       "addons_total": 1500
+      }
+     ]
+    }
+   },
+   "is_fixed": true
+  },
+  {
+   "name": "lunch_large_latte_n2",
+   "why": "every whole-line figure doubles: 17142 / 5716 / 7142+2000=9142, add-ons 3000.",
+   "combo": "lunch",
+   "picks": [
+    {
+     "slot_id": "s-main",
+     "item": "burger",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-side",
+     "item": "fries",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-drink",
+     "item": "latte",
+     "selection": {
+      "size_label": "Large",
+      "options": [
+       {
+        "id": "opt-oat",
+        "quantity": 1
+       }
+      ],
+      "optionals": []
+     },
+     "quantity": 1
+    }
+   ],
+   "n": 2,
+   "expected": {
+    "quote": {
+     "price": 15000,
+     "quantity": 2,
+     "unit_total": 17500,
+     "list_unit": 23500,
+     "saving_unit": 6000,
+     "parts": [
+      {
+       "pick_index": 0,
+       "slot_id": "s-main",
+       "menu_item_id": "burger",
+       "size_label": "one_size",
+       "included_size_label": "one_size",
+       "pick_quantity": 1,
+       "quantity": 2,
+       "unit_price": 12000,
+       "share_unit": 8571,
+       "surcharge_unit": 0,
+       "combo_share": 17142,
+       "combo_surcharge": 0,
+       "line_total": 17142,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      },
+      {
+       "pick_index": 1,
+       "slot_id": "s-side",
+       "menu_item_id": "fries",
+       "size_label": "one_size",
+       "included_size_label": "one_size",
+       "pick_quantity": 1,
+       "quantity": 2,
+       "unit_price": 4000,
+       "share_unit": 2858,
+       "surcharge_unit": 0,
+       "combo_share": 5716,
+       "combo_surcharge": 0,
+       "line_total": 5716,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      },
+      {
+       "pick_index": 2,
+       "slot_id": "s-drink",
+       "menu_item_id": "latte",
+       "size_label": "Large",
+       "included_size_label": "Regular",
+       "pick_quantity": 1,
+       "quantity": 2,
+       "unit_price": 6000,
+       "share_unit": 3571,
+       "surcharge_unit": 1000,
+       "combo_share": 7142,
+       "combo_surcharge": 2000,
+       "line_total": 9142,
+       "options": {
+        "options": [
+         {
+          "id": "opt-oat",
+          "quantity": 1,
+          "unit_price": 1500,
+          "is_swap": false,
+          "is_base": false,
+          "has_ingredients": false,
+          "target": null,
+          "base_ingredient": null,
+          "replacement": null,
+          "over": null
+         }
+        ],
+        "optionals": [],
+        "option_total": 1500,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 1500,
+       "addons_total": 3000
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "picks_out_of_order_are_ordered_by_slot",
+   "why": "parts follow slot sort, the split follows the parts: same 8571/2858/3571; list 21000; saving 6000.",
+   "combo": "lunch",
+   "picks": [
+    {
+     "slot_id": "s-drink",
+     "item": "latte",
+     "selection": {
+      "size_label": "Regular",
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-main",
+     "item": "burger",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-side",
+     "item": "fries",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    }
+   ],
+   "n": 1,
+   "expected": {
+    "quote": {
+     "price": 15000,
+     "quantity": 1,
+     "unit_total": 15000,
+     "list_unit": 21000,
+     "saving_unit": 6000,
+     "parts": [
+      {
+       "pick_index": 1,
+       "slot_id": "s-main",
+       "menu_item_id": "burger",
+       "size_label": "one_size",
+       "included_size_label": "one_size",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 12000,
+       "share_unit": 8571,
+       "surcharge_unit": 0,
+       "combo_share": 8571,
+       "combo_surcharge": 0,
+       "line_total": 8571,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      },
+      {
+       "pick_index": 2,
+       "slot_id": "s-side",
+       "menu_item_id": "fries",
+       "size_label": "one_size",
+       "included_size_label": "one_size",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 4000,
+       "share_unit": 2858,
+       "surcharge_unit": 0,
+       "combo_share": 2858,
+       "combo_surcharge": 0,
+       "line_total": 2858,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      },
+      {
+       "pick_index": 0,
+       "slot_id": "s-drink",
+       "menu_item_id": "latte",
+       "size_label": "Regular",
+       "included_size_label": "Regular",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 5000,
+       "share_unit": 3571,
+       "surcharge_unit": 0,
+       "combo_share": 3571,
+       "combo_surcharge": 0,
+       "line_total": 3571,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "owner_size_surcharge_beats_the_difference",
+   "why": "the owner's Large surcharge is 500 (the difference would be 1000). unit_total 15500; list 22000; saving 6500.",
+   "combo": "lunch_owner_surcharge",
+   "picks": [
+    {
+     "slot_id": "s-main",
+     "item": "burger",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-side",
+     "item": "fries",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-drink",
+     "item": "latte",
+     "selection": {
+      "size_label": "Large",
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    }
+   ],
+   "n": 1,
+   "expected": {
+    "quote": {
+     "price": 15000,
+     "quantity": 1,
+     "unit_total": 15500,
+     "list_unit": 22000,
+     "saving_unit": 6500,
+     "parts": [
+      {
+       "pick_index": 0,
+       "slot_id": "s-main",
+       "menu_item_id": "burger",
+       "size_label": "one_size",
+       "included_size_label": "one_size",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 12000,
+       "share_unit": 8571,
+       "surcharge_unit": 0,
+       "combo_share": 8571,
+       "combo_surcharge": 0,
+       "line_total": 8571,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      },
+      {
+       "pick_index": 1,
+       "slot_id": "s-side",
+       "menu_item_id": "fries",
+       "size_label": "one_size",
+       "included_size_label": "one_size",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 4000,
+       "share_unit": 2858,
+       "surcharge_unit": 0,
+       "combo_share": 2858,
+       "combo_surcharge": 0,
+       "line_total": 2858,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      },
+      {
+       "pick_index": 2,
+       "slot_id": "s-drink",
+       "menu_item_id": "latte",
+       "size_label": "Large",
+       "included_size_label": "Regular",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 6000,
+       "share_unit": 3571,
+       "surcharge_unit": 500,
+       "combo_share": 3571,
+       "combo_surcharge": 500,
+       "line_total": 4071,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "a_smaller_size_than_included_costs_nothing_extra",
+   "why": "weights by the INCLUDED size: 12000/4000/6000 (W 22000): round(15000*12000/22000)=8182, round(15000*16000/22000)=10909 -> 8182/2727/4091. extra = max(0, 5000-6000) = 0. list 21000.",
+   "combo": "lunch_large_included",
+   "picks": [
+    {
+     "slot_id": "s-main",
+     "item": "burger",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-side",
+     "item": "fries",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-drink",
+     "item": "latte",
+     "selection": {
+      "size_label": "Regular",
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    }
+   ],
+   "n": 1,
+   "expected": {
+    "quote": {
+     "price": 15000,
+     "quantity": 1,
+     "unit_total": 15000,
+     "list_unit": 21000,
+     "saving_unit": 6000,
+     "parts": [
+      {
+       "pick_index": 0,
+       "slot_id": "s-main",
+       "menu_item_id": "burger",
+       "size_label": "one_size",
+       "included_size_label": "one_size",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 12000,
+       "share_unit": 8182,
+       "surcharge_unit": 0,
+       "combo_share": 8182,
+       "combo_surcharge": 0,
+       "line_total": 8182,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      },
+      {
+       "pick_index": 1,
+       "slot_id": "s-side",
+       "menu_item_id": "fries",
+       "size_label": "one_size",
+       "included_size_label": "one_size",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 4000,
+       "share_unit": 2727,
+       "surcharge_unit": 0,
+       "combo_share": 2727,
+       "combo_surcharge": 0,
+       "line_total": 2727,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      },
+      {
+       "pick_index": 2,
+       "slot_id": "s-drink",
+       "menu_item_id": "latte",
+       "size_label": "Regular",
+       "included_size_label": "Large",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 5000,
+       "share_unit": 4091,
+       "surcharge_unit": 0,
+       "combo_share": 4091,
+       "combo_surcharge": 0,
+       "line_total": 4091,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "branch_size_prices",
+   "why": "branch Regular 4800, Large 6500: weights 12000/4000/4800 (W 20800): round(15000*12000/20800)=8654 (8653.85), round(15000*16000/20800)=11538 (11538.46) -> 8654/2884/3462; extra 6500-4800=1700. unit_total 16700; list 22500; saving 5800.",
+   "combo": "lunch",
+   "picks": [
+    {
+     "slot_id": "s-main",
+     "item": "burger",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-side",
+     "item": "fries",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-drink",
+     "item": "latte_at_branch",
+     "selection": {
+      "size_label": "Large",
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    }
+   ],
+   "n": 1,
+   "expected": {
+    "quote": {
+     "price": 15000,
+     "quantity": 1,
+     "unit_total": 16700,
+     "list_unit": 22500,
+     "saving_unit": 5800,
+     "parts": [
+      {
+       "pick_index": 0,
+       "slot_id": "s-main",
+       "menu_item_id": "burger",
+       "size_label": "one_size",
+       "included_size_label": "one_size",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 12000,
+       "share_unit": 8654,
+       "surcharge_unit": 0,
+       "combo_share": 8654,
+       "combo_surcharge": 0,
+       "line_total": 8654,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      },
+      {
+       "pick_index": 1,
+       "slot_id": "s-side",
+       "menu_item_id": "fries",
+       "size_label": "one_size",
+       "included_size_label": "one_size",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 4000,
+       "share_unit": 2884,
+       "surcharge_unit": 0,
+       "combo_share": 2884,
+       "combo_surcharge": 0,
+       "line_total": 2884,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      },
+      {
+       "pick_index": 2,
+       "slot_id": "s-drink",
+       "menu_item_id": "latte",
+       "size_label": "Large",
+       "included_size_label": "Regular",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 6500,
+       "share_unit": 3462,
+       "surcharge_unit": 1700,
+       "combo_share": 3462,
+       "combo_surcharge": 1700,
+       "line_total": 5162,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "fixed_bundle_no_size_takes_the_cheapest",
+   "why": "no included size and no picked size: the cheapest active (Regular 5000). weights 5000/3500 (W 8500): round(7000*5000/8500)=4118 (4117.65) -> 4118/2882. list 8500; saving 1500.",
+   "combo": "coffee_and_cake",
+   "picks": [
+    {
+     "slot_id": "s-coffee",
+     "item": "latte",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-cake",
+     "item": "cake",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    }
+   ],
+   "n": 1,
+   "expected": {
+    "quote": {
+     "price": 7000,
+     "quantity": 1,
+     "unit_total": 7000,
+     "list_unit": 8500,
+     "saving_unit": 1500,
+     "parts": [
+      {
+       "pick_index": 0,
+       "slot_id": "s-coffee",
+       "menu_item_id": "latte",
+       "size_label": "Regular",
+       "included_size_label": "Regular",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 5000,
+       "share_unit": 4118,
+       "surcharge_unit": 0,
+       "combo_share": 4118,
+       "combo_surcharge": 0,
+       "line_total": 4118,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      },
+      {
+       "pick_index": 1,
+       "slot_id": "s-cake",
+       "menu_item_id": "cake",
+       "size_label": "one_size",
+       "included_size_label": "one_size",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 3500,
+       "share_unit": 2882,
+       "surcharge_unit": 0,
+       "combo_share": 2882,
+       "combo_surcharge": 0,
+       "line_total": 2882,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      }
+     ]
+    }
+   },
+   "is_fixed": true
+  },
+  {
+   "name": "included_is_the_cheapest_effective_price",
+   "why": "Small is 3000 in the catalogue but 3600 at the branch, so Medium (3500) is the cheapest; 6000 over 3500/3500 = 3000/3000. list 7000.",
+   "combo": "tea_and_cake",
+   "picks": [
+    {
+     "slot_id": "s-tea",
+     "item": "tea",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-cake",
+     "item": "cake",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    }
+   ],
+   "n": 1,
+   "expected": {
+    "quote": {
+     "price": 6000,
+     "quantity": 1,
+     "unit_total": 6000,
+     "list_unit": 7000,
+     "saving_unit": 1000,
+     "parts": [
+      {
+       "pick_index": 0,
+       "slot_id": "s-tea",
+       "menu_item_id": "tea",
+       "size_label": "Medium",
+       "included_size_label": "Medium",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 3500,
+       "share_unit": 3000,
+       "surcharge_unit": 0,
+       "combo_share": 3000,
+       "combo_surcharge": 0,
+       "line_total": 3000,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      },
+      {
+       "pick_index": 1,
+       "slot_id": "s-cake",
+       "menu_item_id": "cake",
+       "size_label": "one_size",
+       "included_size_label": "one_size",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 3500,
+       "share_unit": 3000,
+       "surcharge_unit": 0,
+       "combo_share": 3000,
+       "combo_surcharge": 0,
+       "line_total": 3000,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      }
+     ]
+    }
+   },
+   "is_fixed": true
+  },
+  {
+   "name": "a_bigger_effective_size_costs_the_difference",
+   "why": "Small 3600 (branch) over Medium 3500 = 100. unit_total 6100; list 7100.",
+   "combo": "tea_and_cake",
+   "picks": [
+    {
+     "slot_id": "s-tea",
+     "item": "tea",
+     "selection": {
+      "size_label": "Small",
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-cake",
+     "item": "cake",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    }
+   ],
+   "n": 1,
+   "expected": {
+    "quote": {
+     "price": 6000,
+     "quantity": 1,
+     "unit_total": 6100,
+     "list_unit": 7100,
+     "saving_unit": 1000,
+     "parts": [
+      {
+       "pick_index": 0,
+       "slot_id": "s-tea",
+       "menu_item_id": "tea",
+       "size_label": "Small",
+       "included_size_label": "Medium",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 3600,
+       "share_unit": 3000,
+       "surcharge_unit": 100,
+       "combo_share": 3000,
+       "combo_surcharge": 100,
+       "line_total": 3100,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      },
+      {
+       "pick_index": 1,
+       "slot_id": "s-cake",
+       "menu_item_id": "cake",
+       "size_label": "one_size",
+       "included_size_label": "one_size",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 3500,
+       "share_unit": 3000,
+       "surcharge_unit": 0,
+       "combo_share": 3000,
+       "combo_surcharge": 0,
+       "line_total": 3000,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "category_choice",
+   "why": "cola is admitted by the category choice. weights 12000/2500 (W 14500): round(10000*12000/14500)=8276 (8275.86) -> 8276/1724. list 14500.",
+   "combo": "meal_any_drink",
+   "picks": [
+    {
+     "slot_id": "s-main",
+     "item": "burger",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-drink",
+     "item": "cola",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1,
+     "category_id": "cat-cold"
+    }
+   ],
+   "n": 1,
+   "expected": {
+    "quote": {
+     "price": 10000,
+     "quantity": 1,
+     "unit_total": 10000,
+     "list_unit": 14500,
+     "saving_unit": 4500,
+     "parts": [
+      {
+       "pick_index": 0,
+       "slot_id": "s-main",
+       "menu_item_id": "burger",
+       "size_label": "one_size",
+       "included_size_label": "one_size",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 12000,
+       "share_unit": 8276,
+       "surcharge_unit": 0,
+       "combo_share": 8276,
+       "combo_surcharge": 0,
+       "line_total": 8276,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      },
+      {
+       "pick_index": 1,
+       "slot_id": "s-drink",
+       "menu_item_id": "cola",
+       "size_label": "one_size",
+       "included_size_label": "one_size",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 2500,
+       "share_unit": 1724,
+       "surcharge_unit": 0,
+       "combo_share": 1724,
+       "combo_surcharge": 0,
+       "line_total": 1724,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "the_item_choice_wins_over_its_category",
+   "why": "juice has its own choice (surcharge 500) as well as its category. weights 12000/3000: 8000/2000. unit_total 10500; list 15000.",
+   "combo": "meal_any_drink",
+   "picks": [
+    {
+     "slot_id": "s-main",
+     "item": "burger",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-drink",
+     "item": "juice",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1,
+     "category_id": "cat-cold"
+    }
+   ],
+   "n": 1,
+   "expected": {
+    "quote": {
+     "price": 10000,
+     "quantity": 1,
+     "unit_total": 10500,
+     "list_unit": 15000,
+     "saving_unit": 4500,
+     "parts": [
+      {
+       "pick_index": 0,
+       "slot_id": "s-main",
+       "menu_item_id": "burger",
+       "size_label": "one_size",
+       "included_size_label": "one_size",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 12000,
+       "share_unit": 8000,
+       "surcharge_unit": 0,
+       "combo_share": 8000,
+       "combo_surcharge": 0,
+       "line_total": 8000,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      },
+      {
+       "pick_index": 1,
+       "slot_id": "s-drink",
+       "menu_item_id": "juice",
+       "size_label": "one_size",
+       "included_size_label": "one_size",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 3000,
+       "share_unit": 2000,
+       "surcharge_unit": 500,
+       "combo_share": 2000,
+       "combo_surcharge": 500,
+       "line_total": 2500,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "min_zero_slot_left_empty",
+   "why": "the dessert slot is optional; nothing changes.",
+   "combo": "lunch_optional_dessert",
+   "picks": [
+    {
+     "slot_id": "s-main",
+     "item": "burger",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-side",
+     "item": "fries",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-drink",
+     "item": "latte",
+     "selection": {
+      "size_label": "Regular",
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    }
+   ],
+   "n": 1,
+   "expected": {
+    "quote": {
+     "price": 15000,
+     "quantity": 1,
+     "unit_total": 15000,
+     "list_unit": 21000,
+     "saving_unit": 6000,
+     "parts": [
+      {
+       "pick_index": 0,
+       "slot_id": "s-main",
+       "menu_item_id": "burger",
+       "size_label": "one_size",
+       "included_size_label": "one_size",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 12000,
+       "share_unit": 8571,
+       "surcharge_unit": 0,
+       "combo_share": 8571,
+       "combo_surcharge": 0,
+       "line_total": 8571,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      },
+      {
+       "pick_index": 1,
+       "slot_id": "s-side",
+       "menu_item_id": "fries",
+       "size_label": "one_size",
+       "included_size_label": "one_size",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 4000,
+       "share_unit": 2858,
+       "surcharge_unit": 0,
+       "combo_share": 2858,
+       "combo_surcharge": 0,
+       "line_total": 2858,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      },
+      {
+       "pick_index": 2,
+       "slot_id": "s-drink",
+       "menu_item_id": "latte",
+       "size_label": "Regular",
+       "included_size_label": "Regular",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 5000,
+       "share_unit": 3571,
+       "surcharge_unit": 0,
+       "combo_share": 3571,
+       "combo_surcharge": 0,
+       "line_total": 3571,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "all_free_picks_split_equally",
+   "why": "every weight 0 -> equal per PART: 900 over 1/1 = 450/450. list 0, so the saving is -900.",
+   "combo": "sauces_pack",
+   "picks": [
+    {
+     "slot_id": "s-sauce",
+     "item": "sauce_a",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 2
+    },
+    {
+     "slot_id": "s-sauce",
+     "item": "sauce_b",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    }
+   ],
+   "n": 1,
+   "expected": {
+    "quote": {
+     "price": 900,
+     "quantity": 1,
+     "unit_total": 900,
+     "list_unit": 0,
+     "saving_unit": -900,
+     "parts": [
+      {
+       "pick_index": 0,
+       "slot_id": "s-sauce",
+       "menu_item_id": "sauce_a",
+       "size_label": "one_size",
+       "included_size_label": "one_size",
+       "pick_quantity": 2,
+       "quantity": 2,
+       "unit_price": 0,
+       "share_unit": 450,
+       "surcharge_unit": 0,
+       "combo_share": 450,
+       "combo_surcharge": 0,
+       "line_total": 450,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      },
+      {
+       "pick_index": 1,
+       "slot_id": "s-sauce",
+       "menu_item_id": "sauce_b",
+       "size_label": "one_size",
+       "included_size_label": "one_size",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 0,
+       "share_unit": 450,
+       "surcharge_unit": 0,
+       "combo_share": 450,
+       "combo_surcharge": 0,
+       "line_total": 450,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "two_of_one_slot",
+   "why": "weights 24000/4000 (W 28000): round(25000*24000/28000)=21429 (21428.57) -> 21429/3571. list 28000; saving 3000.",
+   "combo": "two_burgers",
+   "picks": [
+    {
+     "slot_id": "s-main",
+     "item": "burger",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 2
+    },
+    {
+     "slot_id": "s-side",
+     "item": "fries",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    }
+   ],
+   "n": 1,
+   "expected": {
+    "quote": {
+     "price": 25000,
+     "quantity": 1,
+     "unit_total": 25000,
+     "list_unit": 28000,
+     "saving_unit": 3000,
+     "parts": [
+      {
+       "pick_index": 0,
+       "slot_id": "s-main",
+       "menu_item_id": "burger",
+       "size_label": "one_size",
+       "included_size_label": "one_size",
+       "pick_quantity": 2,
+       "quantity": 2,
+       "unit_price": 12000,
+       "share_unit": 21429,
+       "surcharge_unit": 0,
+       "combo_share": 21429,
+       "combo_surcharge": 0,
+       "line_total": 21429,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      },
+      {
+       "pick_index": 1,
+       "slot_id": "s-side",
+       "menu_item_id": "fries",
+       "size_label": "one_size",
+       "included_size_label": "one_size",
+       "pick_quantity": 1,
+       "quantity": 1,
+       "unit_price": 4000,
+       "share_unit": 3571,
+       "surcharge_unit": 0,
+       "combo_share": 3571,
+       "combo_surcharge": 0,
+       "line_total": 3571,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "two_of_one_slot_with_a_choice_surcharge_n3",
+   "why": "surcharge 200 per burger: whole line 3*2*200=1200; burger line 64287+1200=65487, qty 6; fries 10713, qty 3. unit_total 25000+2*200=25400.",
+   "combo": "two_burgers_premium",
+   "picks": [
+    {
+     "slot_id": "s-main",
+     "item": "burger",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 2
+    },
+    {
+     "slot_id": "s-side",
+     "item": "fries",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    }
+   ],
+   "n": 3,
+   "expected": {
+    "quote": {
+     "price": 25000,
+     "quantity": 3,
+     "unit_total": 25400,
+     "list_unit": 28000,
+     "saving_unit": 2600,
+     "parts": [
+      {
+       "pick_index": 0,
+       "slot_id": "s-main",
+       "menu_item_id": "burger",
+       "size_label": "one_size",
+       "included_size_label": "one_size",
+       "pick_quantity": 2,
+       "quantity": 6,
+       "unit_price": 12000,
+       "share_unit": 21429,
+       "surcharge_unit": 200,
+       "combo_share": 64287,
+       "combo_surcharge": 1200,
+       "line_total": 65487,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      },
+      {
+       "pick_index": 1,
+       "slot_id": "s-side",
+       "menu_item_id": "fries",
+       "size_label": "one_size",
+       "included_size_label": "one_size",
+       "pick_quantity": 1,
+       "quantity": 3,
+       "unit_price": 4000,
+       "share_unit": 3571,
+       "surcharge_unit": 0,
+       "combo_share": 10713,
+       "combo_surcharge": 0,
+       "line_total": 10713,
+       "options": {
+        "options": [],
+        "optionals": [],
+        "option_total": 0,
+        "optional_total": 0,
+        "notes": []
+       },
+       "extras_unit": 0,
+       "addons_total": 0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "too_few",
+   "why": "the drink slot needs 1.",
+   "combo": "lunch",
+   "picks": [
+    {
+     "slot_id": "s-main",
+     "item": "burger",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-side",
+     "item": "fries",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    }
+   ],
+   "n": 1,
+   "expected": {
+    "refusal": {
+     "refusal": "too_few",
+     "slot_id": "s-drink",
+     "min": 1,
+     "got": 0
+    }
+   }
+  },
+  {
+   "name": "too_many",
+   "why": "two drinks in a max-1 slot.",
+   "combo": "lunch",
+   "picks": [
+    {
+     "slot_id": "s-main",
+     "item": "burger",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-side",
+     "item": "fries",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-drink",
+     "item": "latte",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-drink",
+     "item": "latte",
+     "selection": {
+      "size_label": "Large",
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    }
+   ],
+   "n": 1,
+   "expected": {
+    "refusal": {
+     "refusal": "too_many",
+     "slot_id": "s-drink",
+     "max": 1,
+     "got": 2
+    }
+   }
+  },
+  {
+   "name": "too_many_by_quantity",
+   "why": "a pick's quantity counts.",
+   "combo": "lunch",
+   "picks": [
+    {
+     "slot_id": "s-main",
+     "item": "burger",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 2
+    },
+    {
+     "slot_id": "s-side",
+     "item": "fries",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-drink",
+     "item": "latte",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    }
+   ],
+   "n": 1,
+   "expected": {
+    "refusal": {
+     "refusal": "too_many",
+     "slot_id": "s-main",
+     "max": 1,
+     "got": 2
+    }
+   }
+  },
+  {
+   "name": "not_allowed",
+   "why": "the lunch drink is a latte only.",
+   "combo": "lunch",
+   "picks": [
+    {
+     "slot_id": "s-main",
+     "item": "burger",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-side",
+     "item": "fries",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-drink",
+     "item": "cola",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1,
+     "category_id": "cat-cold"
+    }
+   ],
+   "n": 1,
+   "expected": {
+    "refusal": {
+     "refusal": "not_allowed",
+     "slot_id": "s-drink",
+     "menu_item_id": "cola"
+    }
+   }
+  },
+  {
+   "name": "unknown_slot",
+   "why": "no such slot.",
+   "combo": "lunch",
+   "picks": [
+    {
+     "slot_id": "s-main",
+     "item": "burger",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-side",
+     "item": "fries",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-nope",
+     "item": "latte",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    }
+   ],
+   "n": 1,
+   "expected": {
+    "refusal": {
+     "refusal": "unknown_slot",
+     "slot_id": "s-nope"
+    }
+   }
+  },
+  {
+   "name": "bad_quantity",
+   "why": "a pick of 0.",
+   "combo": "lunch",
+   "picks": [
+    {
+     "slot_id": "s-main",
+     "item": "burger",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 0
+    },
+    {
+     "slot_id": "s-side",
+     "item": "fries",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-drink",
+     "item": "latte",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    }
+   ],
+   "n": 1,
+   "expected": {
+    "refusal": {
+     "refusal": "bad_quantity",
+     "slot_id": "s-main"
+    }
+   }
+  },
+  {
+   "name": "unknown_option",
+   "why": "the add-on is not in the catalogue.",
+   "combo": "lunch",
+   "picks": [
+    {
+     "slot_id": "s-main",
+     "item": "burger",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-side",
+     "item": "fries",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    },
+    {
+     "slot_id": "s-drink",
+     "item": "latte",
+     "selection": {
+      "size_label": null,
+      "options": [
+       {
+        "id": "opt-nope",
+        "quantity": 1
+       }
+      ],
+      "optionals": []
+     },
+     "quantity": 1
+    }
+   ],
+   "n": 1,
+   "expected": {
+    "refusal": {
+     "refusal": "price",
+     "menu_item_id": "latte",
+     "error": {
+      "error": "unknown_option",
+      "id": "opt-nope"
+     }
+    }
+   }
+  },
+  {
+   "name": "no_priced_size",
+   "why": "the item sells no active size.",
+   "combo": "retired_combo",
+   "picks": [
+    {
+     "slot_id": "s-x",
+     "item": "retired",
+     "selection": {
+      "size_label": null,
+      "options": [],
+      "optionals": []
+     },
+     "quantity": 1
+    }
+   ],
+   "n": 1,
+   "expected": {
+    "refusal": {
+     "refusal": "price",
+     "menu_item_id": "retired",
+     "error": {
+      "error": "no_priced_size"
+     }
+    }
+   }
+  }
+ ],
+ "availability": [
+  {
+   "name": "on_sale",
+   "combo": "lunch",
+   "channel": "pos",
+   "sell": {
+    "pos": true,
+    "qr": true,
+    "online": true,
+    "delivery": true
+   },
+   "branch_enabled": true,
+   "branch_id": null,
+   "now": {
+    "date": "2026-10-01",
+    "time": "13:00"
+   },
+   "unavailable_items": [],
+   "empty_categories": [],
+   "expected": null
+  },
+  {
+   "name": "inactive",
+   "combo": "lunch_off",
+   "channel": "pos",
+   "sell": {
+    "pos": true,
+    "qr": true,
+    "online": true,
+    "delivery": true
+   },
+   "branch_enabled": true,
+   "branch_id": null,
+   "now": {
+    "date": "2026-10-01",
+    "time": "13:00"
+   },
+   "unavailable_items": [],
+   "empty_categories": [],
+   "expected": {
+    "reason": "inactive"
+   }
+  },
+  {
+   "name": "inactive_comes_first",
+   "combo": "lunch_off",
+   "channel": "qr",
+   "sell": {
+    "pos": true,
+    "qr": false,
+    "online": true,
+    "delivery": true
+   },
+   "branch_enabled": false,
+   "branch_id": null,
+   "now": {
+    "date": "2026-10-01",
+    "time": "13:00"
+   },
+   "unavailable_items": [],
+   "empty_categories": [],
+   "expected": {
+    "reason": "inactive"
+   }
+  },
+  {
+   "name": "switched_off_at_the_branch",
+   "combo": "lunch",
+   "channel": "pos",
+   "sell": {
+    "pos": true,
+    "qr": true,
+    "online": true,
+    "delivery": true
+   },
+   "branch_enabled": false,
+   "branch_id": null,
+   "now": {
+    "date": "2026-10-01",
+    "time": "13:00"
+   },
+   "unavailable_items": [],
+   "empty_categories": [],
+   "expected": {
+    "reason": "branch"
+   }
+  },
+  {
+   "name": "channel_off",
+   "combo": "lunch",
+   "channel": "qr",
+   "sell": {
+    "pos": true,
+    "qr": false,
+    "online": true,
+    "delivery": true
+   },
+   "branch_enabled": true,
+   "branch_id": null,
+   "now": {
+    "date": "2026-10-01",
+    "time": "13:00"
+   },
+   "unavailable_items": [],
+   "empty_categories": [],
+   "expected": {
+    "reason": "channel"
+   }
+  },
+  {
+   "name": "another_channel_off_does_not_matter",
+   "combo": "lunch",
+   "channel": "online",
+   "sell": {
+    "pos": true,
+    "qr": false,
+    "online": true,
+    "delivery": false
+   },
+   "branch_enabled": true,
+   "branch_id": null,
+   "now": {
+    "date": "2026-10-01",
+    "time": "13:00"
+   },
+   "unavailable_items": [],
+   "empty_categories": [],
+   "expected": null
+  },
+  {
+   "name": "inside_the_window",
+   "combo": "lunch_weekday_lunchtime",
+   "channel": "pos",
+   "sell": {
+    "pos": true,
+    "qr": true,
+    "online": true,
+    "delivery": true
+   },
+   "branch_enabled": true,
+   "branch_id": null,
+   "now": {
+    "date": "2026-10-01",
+    "time": "13:00"
+   },
+   "unavailable_items": [],
+   "empty_categories": [],
+   "expected": null
+  },
+  {
+   "name": "outside_the_window",
+   "combo": "lunch_weekday_lunchtime",
+   "channel": "pos",
+   "sell": {
+    "pos": true,
+    "qr": true,
+    "online": true,
+    "delivery": true
+   },
+   "branch_enabled": true,
+   "branch_id": null,
+   "now": {
+    "date": "2026-10-03",
+    "time": "13:00"
+   },
+   "unavailable_items": [],
+   "empty_categories": [],
+   "expected": {
+    "reason": "window"
+   }
+  },
+  {
+   "name": "a_required_slot_with_nothing_left",
+   "combo": "lunch",
+   "channel": "pos",
+   "sell": {
+    "pos": true,
+    "qr": true,
+    "online": true,
+    "delivery": true
+   },
+   "branch_enabled": true,
+   "branch_id": null,
+   "now": {
+    "date": "2026-10-01",
+    "time": "13:00"
+   },
+   "unavailable_items": [
+    "latte"
+   ],
+   "empty_categories": [],
+   "expected": {
+    "reason": "slot_empty",
+    "slot_id": "s-drink"
+   }
+  },
+  {
+   "name": "an_optional_slot_with_nothing_left",
+   "combo": "lunch_optional_dessert",
+   "channel": "pos",
+   "sell": {
+    "pos": true,
+    "qr": true,
+    "online": true,
+    "delivery": true
+   },
+   "branch_enabled": true,
+   "branch_id": null,
+   "now": {
+    "date": "2026-10-01",
+    "time": "13:00"
+   },
+   "unavailable_items": [
+    "cake"
+   ],
+   "empty_categories": [],
+   "expected": null
+  },
+  {
+   "name": "category_empty_but_the_item_choice_left",
+   "combo": "meal_any_drink",
+   "channel": "pos",
+   "sell": {
+    "pos": true,
+    "qr": true,
+    "online": true,
+    "delivery": true
+   },
+   "branch_enabled": true,
+   "branch_id": null,
+   "now": {
+    "date": "2026-10-01",
+    "time": "13:00"
+   },
+   "unavailable_items": [],
+   "empty_categories": [
+    "cat-cold"
+   ],
+   "expected": null
+  },
+  {
+   "name": "category_empty_and_the_item_off",
+   "combo": "meal_any_drink",
+   "channel": "pos",
+   "sell": {
+    "pos": true,
+    "qr": true,
+    "online": true,
+    "delivery": true
+   },
+   "branch_enabled": true,
+   "branch_id": null,
+   "now": {
+    "date": "2026-10-01",
+    "time": "13:00"
+   },
+   "unavailable_items": [
+    "juice"
+   ],
+   "empty_categories": [
+    "cat-cold"
+   ],
+   "expected": {
+    "reason": "slot_empty",
+    "slot_id": "s-drink"
+   }
+  }
+ ],
+ "sell": [
+  {
+   "name": "no_override",
+   "org": {
+    "pos": true,
+    "qr": true,
+    "online": false,
+    "delivery": true
+   },
+   "branch": null,
+   "expected": {
+    "pos": true,
+    "qr": true,
+    "online": false,
+    "delivery": true
+   }
+  },
+  {
+   "name": "override_turns_off",
+   "org": {
+    "pos": true,
+    "qr": true,
+    "online": true,
+    "delivery": true
+   },
+   "branch": {
+    "qr": false
+   },
+   "expected": {
+    "pos": true,
+    "qr": false,
+    "online": true,
+    "delivery": true
+   }
+  },
+  {
+   "name": "override_turns_on",
+   "org": {
+    "pos": true,
+    "qr": true,
+    "online": false,
+    "delivery": false
+   },
+   "branch": {
+    "online": true,
+    "delivery": null
+   },
+   "expected": {
+    "pos": true,
+    "qr": true,
+    "online": true,
+    "delivery": false
+   }
+  }
+ ],
+ "is_fixed": [
+  {
+   "combo": "lunch",
+   "is_fixed": true
+  },
+  {
+   "combo": "coffee_and_cake",
+   "is_fixed": true
+  },
+  {
+   "combo": "meal_any_drink",
+   "is_fixed": false
+  },
+  {
+   "combo": "lunch_optional_dessert",
+   "is_fixed": false
+  },
+  {
+   "combo": "two_burgers",
+   "is_fixed": true
+  },
+  {
+   "combo": "sauces_pack",
+   "is_fixed": false
+  }
+ ]
+}

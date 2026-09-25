@@ -15,4 +15,4 @@ serde = { version = "1", features = ["derive"] }
 # The feed readers (`feed`) take the wire rows as JSON values.
 serde_json = "1"
 # The staff comp's input types (`staff`) are madar-money's (one copy, same tag).
-madar-money = { path = "../madar-money", version = "0.4.0" }
+madar-money = { path = "../madar-money", version = "0.5.0" }

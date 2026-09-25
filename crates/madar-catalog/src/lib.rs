@@ -24,11 +24,24 @@
 //! - [`staff`]: the staff comp's input built from the same view (the sizes
 //!   and required groups a staff drink's base is judged on).
 //!
+//! - [`combo`] (v0.5): a combo line — the slots, the picks, the split of the
+//!   combo's price over its parts ([`combo::quote`]), availability on a
+//!   channel at a branch, and the org/branch channel switches.
+//! - [`deal`] (v0.5): deal rules (N for a price, buy X get Y) over a cart —
+//!   the till's suggestions, the server's QR/online auto-apply, and the
+//!   pricing of an application both sides run.
+//! - [`sale_window`] (v0.5): the optional weekday / time / date windows of a
+//!   combo or a deal.
+//!
 //! Pinned by `vectors/catalog_vectors.json`, generated from the server's
-//! behaviour (MadarRust `tests/catalog_pricing_tests.rs`).
+//! behaviour (MadarRust `tests/catalog_pricing_tests.rs`); the combo, deal
+//! and window rules by hand-computed `vectors/{combo,deal,sale_window}_vectors.json`.
 
+pub mod combo;
+pub mod deal;
 pub mod feed;
 pub mod price;
+pub mod sale_window;
 pub mod staff;
 pub mod vectors;
 pub mod view;

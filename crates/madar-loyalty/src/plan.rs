@@ -30,6 +30,14 @@ pub struct Line {
     /// Put on the staff pool (the till only; see the module doc).
     #[serde(default)]
     pub is_staff_drink: bool,
+    /// A combo's header or part (v0.5, C7): never a reward. Left out of the
+    /// JSON when false, so every earlier vector keeps its bytes.
+    #[serde(default, skip_serializing_if = "is_false")]
+    pub in_combo: bool,
+}
+
+fn is_false(b: &bool) -> bool {
+    !*b
 }
 
 /// A catalogue reward: the item and what one unit costs.
@@ -100,6 +108,8 @@ pub enum Trim {
     /// An ask named a line that is not a reward (a line with no menu item, a
     /// staff drink, an item not on offer, an unpriced reward).
     NotOnOffer,
+    /// An ask named a line of a combo (v0.5).
+    InCombo,
     /// An ask wanted more units than the line holds.
     LineShrank,
     /// The shop's per-order ceiling.
@@ -126,6 +136,9 @@ pub enum Refusal {
     /// removed on 2026-09-25 this was `Bundle`: combo lines were the lines
     /// without one.)
     NoMenuItem,
+    /// The line is a combo's header or part (v0.5, `REWARD_IN_COMBO`): a
+    /// reward is never taken inside a combo (C7).
+    InCombo,
     /// The item is not a reward at this branch.
     NotOnOffer,
     /// The catalogue prices this reward at nothing.
@@ -170,7 +183,7 @@ fn listed_cost(item: &str, programme: &Programme) -> Option<i64> {
 /// What one unit of `line` costs, if the TILL may offer it as a reward: not a
 /// line without a menu item, not a staff drink, on offer, priced above zero.
 pub fn unit_cost(line: &Line, programme: &Programme) -> Option<i64> {
-    if line.is_staff_drink {
+    if line.is_staff_drink || line.in_combo {
         return None;
     }
     let item = line.menu_item_id.as_deref()?;
@@ -226,6 +239,9 @@ fn plan_strict(lines: &[Line], programme: &Programme, asks: &[Ask]) -> Result<Pl
                 asked: units,
             });
         }
+        if line.in_combo {
+            return Err(Refusal::InCombo);
+        }
         let item = line.menu_item_id.as_deref().ok_or(Refusal::NoMenuItem)?;
         let unit = listed_cost(item, programme).ok_or(Refusal::NotOnOffer)?;
         if unit <= 0 {
@@ -276,6 +292,10 @@ fn plan_trimmed(lines: &[Line], programme: &Programme, asks: &[Ask]) -> Plan {
         if out.iter().any(|p| p.line == index) {
             continue;
         }
+        if line.in_combo {
+            trimmed.get_or_insert(Trim::InCombo);
+            continue;
+        }
         let Some(unit) = unit_cost(line, programme) else {
             trimmed.get_or_insert(Trim::NotOnOffer);
             continue;
@@ -321,7 +341,7 @@ fn plan_trimmed(lines: &[Line], programme: &Programme, asks: &[Ask]) -> Plan {
 /// The lines a REPLAYED sale covered when the strict plan refused it: the
 /// sale already happened, so what the till took off stands, as far as it can
 /// be priced at all. An ask naming no line, a line past the end, a line with
-/// no menu item or a line already covered is dropped; units are clamped to the line and an
+/// no menu item, a combo's line or a line already covered is dropped; units are clamped to the line and an
 /// ask left with none is dropped. No cost: no points move.
 pub fn replay_lines(lines: &[Line], asks: &[Ask]) -> Vec<Planned> {
     let mut out: Vec<Planned> = Vec::new();
@@ -333,6 +353,10 @@ pub fn replay_lines(lines: &[Line], asks: &[Ask]) -> Vec<Planned> {
         let Some(item) = line.menu_item_id.as_deref() else {
             continue;
         };
+        // A reward inside a combo is dropped (the server flags it).
+        if line.in_combo {
+            continue;
+        }
         if out.iter().any(|p| p.line == index) {
             continue;
         }
@@ -389,6 +413,7 @@ pub mod vectors {
             menu_item_id: Some(id.into()),
             quantity,
             is_staff_drink: false,
+            in_combo: false,
         }
     }
 
@@ -397,6 +422,7 @@ pub mod vectors {
             menu_item_id: None,
             quantity,
             is_staff_drink: false,
+            in_combo: false,
         }
     }
 
@@ -616,6 +642,20 @@ pub mod vectors {
             ),
             case("empty", cart.clone(), catalogue(0), vec![]),
             case("empty_cart", vec![], catalogue(10), vec![ask(0, 1)]),
+            // v0.5 (C7): a combo's part is never a reward. The server refuses
+            // (REWARD_IN_COMBO), the till trims it, the replay drops it.
+            case(
+                "a_combo_part",
+                vec![
+                    Line {
+                        in_combo: true,
+                        ..item(LATTE, 1)
+                    },
+                    item(MUFFIN, 1),
+                ],
+                catalogue(100),
+                vec![ask(0, 1), ask(1, 1)],
+            ),
         ]
     }
 

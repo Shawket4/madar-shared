@@ -20,6 +20,16 @@ pub const CATALOG: &str = include_str!("../vectors/catalog_vectors.json");
 /// `staff_input_vectors.json`: `staff::vectors::StaffInputVector`s.
 pub const STAFF_INPUT: &str = include_str!("../vectors/staff_input_vectors.json");
 
+/// `combo_vectors.json` (hand-computed): [`crate::combo::quote`],
+/// [`crate::combo::available`], [`crate::combo::resolve_sell`].
+pub const COMBO: &str = include_str!("../vectors/combo_vectors.json");
+
+/// `deal_vectors.json` (hand-computed): [`crate::deal`].
+pub const DEAL: &str = include_str!("../vectors/deal_vectors.json");
+
+/// `sale_window_vectors.json` (hand-authored): [`crate::sale_window`].
+pub const SALE_WINDOW: &str = include_str!("../vectors/sale_window_vectors.json");
+
 /// The vector file.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct Vectors {

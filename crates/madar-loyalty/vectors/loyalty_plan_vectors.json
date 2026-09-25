@@ -2232,5 +2232,79 @@
       }
     },
     "replay": []
+  },
+  {
+    "name": "a_combo_part",
+    "lines": [
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+        "quantity": 1,
+        "is_staff_drink": false,
+        "in_combo": true
+      },
+      {
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "quantity": 1,
+        "is_staff_drink": false
+      }
+    ],
+    "programme": {
+      "rewards": [
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 5
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "cost": 3
+        },
+        {
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "cost": 1
+        }
+      ],
+      "any_item": false,
+      "any_item_cost": 0,
+      "max_per_order": null,
+      "balance": 100
+    },
+    "asks": [
+      {
+        "line": 0,
+        "units": 1
+      },
+      {
+        "line": 1,
+        "units": 1
+      }
+    ],
+    "till": {
+      "lines": [
+        {
+          "line": 1,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+          "units": 1,
+          "unit_cost": 3,
+          "cost": 3
+        }
+      ],
+      "cost": 3,
+      "units": 1,
+      "trimmed": "in_combo"
+    },
+    "server": {
+      "Err": {
+        "refusal": "in_combo"
+      }
+    },
+    "replay": [
+      {
+        "line": 1,
+        "menu_item_id": "00000000-0000-4000-8000-0000000000a2",
+        "units": 1,
+        "unit_cost": 0,
+        "cost": 0
+      }
+    ]
   }
 ]
