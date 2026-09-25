@@ -32,6 +32,16 @@ New crate `madar-loyalty`; new pieces in `madar-money`, `madar-catalog`,
 - **madar-dawam**: the offline stamp derives its OpenAPI schema behind the
   new `utoipa` feature (the backend's schema `OfflineStamp`, now with a
   description).
+- **madar-dawam** (Dawam, DW1/DW3/DW6): `shift::instants` / `wall_instant` —
+  a shift's wall-clock times placed as the server's roster SQL places them
+  (`(date + time) AT TIME ZONE zone`: a time that happens twice is the later
+  one, a time in the spring gap is read at the offset before the jump, the
+  end on the next date when it does not come after the start), pinned by
+  `shift_vectors.json` (104 shifts on Cairo, Beirut, Berlin, Riyadh and UTC
+  DST days, each checked against Postgres); `pay::percent_of_salary` — the
+  server's `salary × percent ÷ 100`, half away from zero, pinned by
+  `percent_vectors.json` (108 cases, each checked against Postgres's
+  `round(numeric)`); `presence::LOW_BATTERY` (15).
 - **Docs**: madar-till's fold and carryover picker are what the backend runs.
 
 **The backend (a move; its results did not change):** the order path's bill
@@ -43,10 +53,22 @@ intake) is `price_bill_on` / `price_subtotal` / `rule_of`, a line's extras
 `madar_loyalty::plan` (strict); a staff line's comp input is
 `madar_catalog::staff::comp_input` over the order's loaded catalogue, whose
 feed `pricing` now carries the item's groups; `OfflineStamp` is madar-dawam's.
+The Dawam salary percentages (two Rust copies), the roster week and the
+low-battery line are madar-dawam's / madar-time's; the SQL twins
+(`dawam_advance_cap`, an adjustment's value, the roster's shift placement) are
+pinned to the crate by `tests/dawam_shared_rules_tests.rs`.
 Pinned by the till vectors (the SQL's own answers), the bill vectors rung
 through `POST /orders`, new order-path tests (service charge, reward, staff
 drink, discount, split tender and change), the staff input vectors (the SQL
 builder's answers) and the backend's whole suite.
+
+**What changes on the server (DW1, deliberate):** the roster suggester
+placed its slots with chrono's `.earliest()` while the roster itself (SQL)
+placed the same shift as Postgres does; it runs `shift::instants` now. On
+Cairo's spring-forward day (2026-04-24) a shift starting 00:30 is now
+suggested at 2026-04-23T22:30Z (it had no slot at all); on the fall-back
+night (2026-10-29) a shift starting 23:30 sits at 21:30Z (was 20:30Z, an hour
+early) — where the roster puts it.
 
 **What changes on a till built against v0.4.0** (the server's inputs, where
 the till read its mirror its own way; a tablet in the field keeps its old
