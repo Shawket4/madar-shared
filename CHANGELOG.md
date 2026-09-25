@@ -85,6 +85,16 @@ reading until it updates):
 - The reward board, the table bill's preview and the rest are the same
   rules run from one copy: no figure changes.
 
+**What changes in the staff app's core built against v0.4.0 (DW3,
+deliberate):** a percent-of-base bonus or deduction the server sent no amount
+for is priced with `pay::percent_of_salary` (the POS staff screen's
+`adjustment_view`, the last f64 copy): 33.3 % of a 1500 salary is 500 (was
+499), a negative percentage 0. The Dawam app itself already showed the
+server's `value_piastres` only. Its shift placement (`dawam.rs`) now calls
+`shift::instants` (the same Postgres rule it had copied: no figure changes),
+its low-battery line is `presence::low_battery`, and its manager tabs are
+decided by `madar_authz::Cap` values (DW6), not strings.
+
 ## v0.3.0 — C, catalogue pricing (2026-09-24)
 
 New crate `madar-catalog`: how a sale line is priced from the catalogue.
