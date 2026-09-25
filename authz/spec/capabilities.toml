@@ -2161,13 +2161,13 @@ key = "orders.staff_drink.record"
 group = "selling"
 tier = "configurable"
 risk = "money"
-defaults = "om"
+defaults = "omt"
 approval = true
 pos = true
 en = "Record a staff drink"
 ar = "تسجيل مشروب موظفين"
-hint_en = "Off for tellers by default. Turn it on to let the till put a drink on the branch's daily staff pool. A note saying who it is for is always required."
-hint_ar = "مقفول للكاشير في الأصل. افتحه عشان الكاشير يحسب المشروب على رصيد الموظفين اليومي بتاع الفرع. لازم دايمًا يكتب ملاحظة بالمشروب ده لمين."
+hint_en = "On for tellers by default: the till can put a drink on the branch's daily staff pool. A note saying who it is for is always required. Turn it off to have a manager approve each one."
+hint_ar = "مفتوح للكاشير في الأصل: الكاشير يقدر يحسب المشروب على رصيد الموظفين اليومي بتاع الفرع. لازم دايمًا يكتب ملاحظة بالمشروب ده لمين. اقفله لو عايز المدير يوافق على كل مشروب."
 
 # ── one customer (CUSTOMERS_UNIFICATION_DESIGN.md §7) ───────────────────────
 # Split from customers.edit (211) 2026-09-20: a merge moves loyalty balances and
