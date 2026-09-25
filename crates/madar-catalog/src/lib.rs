@@ -17,7 +17,7 @@
 //!
 //! - [`view`]: what the rule reads ([`CatalogView`]); the server builds it
 //!   from SQL, the core from its menu mirror ([`feed`]).
-//! - [`price`]: [`price_line`], [`price_options`] (a bundle component),
+//! - [`price`]: [`price_line`], [`price_options`] (a line's options alone),
 //!   [`unit_price`], the display helpers [`option_charge`] and
 //!   [`is_recipe_choice`], and the pieces the server's stock deduction shares
 //!   ([`swap_target`], [`merge_sized_lines`]).

@@ -73,8 +73,7 @@ impl PricedLine {
     }
 }
 
-/// A line's options and optional fields, priced. A bundle component is
-/// charged only this (its size price is inside the bundle's).
+/// A line's options and optional fields, priced.
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
 pub struct PricedOptions {
     /// The options as charged: one of each swap family (the last pick), in
@@ -339,8 +338,7 @@ pub fn price_line(view: &CatalogView, selection: &Selection) -> Result<PricedLin
     })
 }
 
-/// The options and optional fields of a line (a bundle component is charged
-/// exactly this).
+/// The options and optional fields of a line, priced without its size.
 pub fn price_options(
     view: &CatalogView,
     selection: &Selection,

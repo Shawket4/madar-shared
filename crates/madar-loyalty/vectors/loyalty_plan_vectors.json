@@ -1077,7 +1077,7 @@
     ]
   },
   {
-    "name": "a_bundle",
+    "name": "a_line_with_no_menu_item",
     "lines": [
       {
         "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
@@ -1134,7 +1134,7 @@
     },
     "server": {
       "Err": {
-        "refusal": "bundle"
+        "refusal": "no_menu_item"
       }
     },
     "replay": []

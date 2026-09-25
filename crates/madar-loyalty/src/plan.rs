@@ -7,7 +7,7 @@
 //! side's own, written once:
 //!
 //! - a line is named by its index; one reward per line;
-//! - a bundle (a line with no menu item) is never a reward; on the till a
+//! - a line with no menu item is never a reward; on the till a
 //!   staff drink is not either (the server refuses that pairing in the order
 //!   path, with its own message, so its planner does not judge it);
 //! - the unit cost is the programme's first catalogue entry for the item,
@@ -23,7 +23,7 @@ use serde::{Deserialize, Serialize};
 /// One line of the sale, as the planner reads it.
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Line {
-    /// The line's menu item; `None` for a bundle.
+    /// The line's menu item; `None` for a line without one.
     #[serde(default)]
     pub menu_item_id: Option<String>,
     pub quantity: i64,
@@ -97,8 +97,8 @@ pub struct Planned {
 pub enum Trim {
     /// An ask named a line that is not in the sale.
     LineGone,
-    /// An ask named a line that is not a reward (a bundle, a staff drink, an
-    /// item not on offer, an unpriced reward).
+    /// An ask named a line that is not a reward (a line with no menu item, a
+    /// staff drink, an item not on offer, an unpriced reward).
     NotOnOffer,
     /// An ask wanted more units than the line holds.
     LineShrank,
@@ -122,8 +122,10 @@ pub enum Refusal {
     BelowOneUnit,
     /// An ask for more units than the line holds.
     MoreUnitsThanLine { have: i64, asked: i64 },
-    /// A bundle.
-    Bundle,
+    /// The line has no menu item to be a reward of. (Until combos were
+    /// removed on 2026-09-25 this was `Bundle`: combo lines were the lines
+    /// without one.)
+    NoMenuItem,
     /// The item is not a reward at this branch.
     NotOnOffer,
     /// The catalogue prices this reward at nothing.
@@ -166,7 +168,7 @@ fn listed_cost(item: &str, programme: &Programme) -> Option<i64> {
 }
 
 /// What one unit of `line` costs, if the TILL may offer it as a reward: not a
-/// bundle, not a staff drink, on offer, priced above zero.
+/// line without a menu item, not a staff drink, on offer, priced above zero.
 pub fn unit_cost(line: &Line, programme: &Programme) -> Option<i64> {
     if line.is_staff_drink {
         return None;
@@ -183,7 +185,7 @@ fn cap_of(programme: &Programme) -> Option<i64> {
 ///
 /// [`Mode::Server`] returns the first [`Refusal`], in the server's order: each
 /// ask in turn (named line, the line itself, one per line, at least one unit,
-/// no more than the line, not a bundle, on offer, priced), then the ceiling,
+/// no more than the line, a menu item, on offer, priced), then the ceiling,
 /// then the balance. [`Mode::Till`] never refuses: asks are honoured in the
 /// order given and trimmed to what may be taken.
 pub fn plan(
@@ -224,7 +226,7 @@ fn plan_strict(lines: &[Line], programme: &Programme, asks: &[Ask]) -> Result<Pl
                 asked: units,
             });
         }
-        let item = line.menu_item_id.as_deref().ok_or(Refusal::Bundle)?;
+        let item = line.menu_item_id.as_deref().ok_or(Refusal::NoMenuItem)?;
         let unit = listed_cost(item, programme).ok_or(Refusal::NotOnOffer)?;
         if unit <= 0 {
             return Err(Refusal::NoPrice);
@@ -318,8 +320,8 @@ fn plan_trimmed(lines: &[Line], programme: &Programme, asks: &[Ask]) -> Plan {
 
 /// The lines a REPLAYED sale covered when the strict plan refused it: the
 /// sale already happened, so what the till took off stands, as far as it can
-/// be priced at all. An ask naming no line, a line past the end, a bundle or
-/// a line already covered is dropped; units are clamped to the line and an
+/// be priced at all. An ask naming no line, a line past the end, a line with
+/// no menu item or a line already covered is dropped; units are clamped to the line and an
 /// ask left with none is dropped. No cost: no points move.
 pub fn replay_lines(lines: &[Line], asks: &[Ask]) -> Vec<Planned> {
     let mut out: Vec<Planned> = Vec::new();
@@ -390,7 +392,7 @@ pub mod vectors {
         }
     }
 
-    fn bundle(quantity: i64) -> Line {
+    fn no_item(quantity: i64) -> Line {
         Line {
             menu_item_id: None,
             quantity,
@@ -449,7 +451,7 @@ pub mod vectors {
     }
 
     pub fn generate() -> Vec<PlanVector> {
-        let cart = vec![item(LATTE, 3), item(MUFFIN, 2), item(TEA, 1), bundle(1)];
+        let cart = vec![item(LATTE, 3), item(MUFFIN, 2), item(TEA, 1), no_item(1)];
         let any = |balance: i64, cost: i64| Programme {
             any_item: true,
             any_item_cost: cost,
@@ -534,7 +536,12 @@ pub mod vectors {
                 catalogue(100),
                 vec![ask(0, 1), ask(0, 2)],
             ),
-            case("a_bundle", cart.clone(), catalogue(100), vec![ask(3, 1)]),
+            case(
+                "a_line_with_no_menu_item",
+                cart.clone(),
+                catalogue(100),
+                vec![ask(3, 1)],
+            ),
             case(
                 "not_on_offer",
                 cart.clone(),

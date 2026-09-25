@@ -11,7 +11,7 @@
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 
-use crate::price::{PriceError, PricedLine, PricedOptions, Selection};
+use crate::price::{PriceError, PricedLine, Selection};
 use crate::view::{CatalogView, ItemView, OptionView};
 
 /// `catalog_vectors.json`.
@@ -47,8 +47,9 @@ pub struct Case {
     pub name: String,
     /// [`ItemFixture::key`].
     pub item: String,
-    /// `line` = [`crate::price_line`]; `component` = [`crate::price_options`]
-    /// (a bundle component: its size price is inside the bundle's).
+    /// `line` = [`crate::price_line`], the only part since combos were removed
+    /// (2026-09-25; `component` priced a combo's component with
+    /// [`crate::price_options`]). The field stays so no case's shape moves.
     pub part: String,
     pub selection: Selection,
     pub expected: Expected,
@@ -59,7 +60,6 @@ pub struct Case {
 #[serde(rename_all = "snake_case")]
 pub enum Expected {
     Line(PricedLine),
-    Component(PricedOptions),
     Error(PriceError),
 }
 
@@ -86,11 +86,9 @@ impl Vectors {
 
 /// What the rule answers for `case` over `view`, in the vector's shape.
 pub fn run(view: &CatalogView, case: &Case) -> Expected {
-    let out = match case.part.as_str() {
-        "component" => crate::price_options(view, &case.selection).map(Expected::Component),
-        _ => crate::price_line(view, &case.selection).map(Expected::Line),
-    };
-    out.unwrap_or_else(Expected::Error)
+    crate::price_line(view, &case.selection)
+        .map(Expected::Line)
+        .unwrap_or_else(Expected::Error)
 }
 
 #[cfg(test)]

@@ -18,6 +18,11 @@ pub mod replay;
 
 /// Every wire type the server serves and a POS syncs (a LAN peer may hand
 /// over any of them too). The order is the server's response order.
+///
+/// `bundle` is a stub: combos were removed on 2026-09-25 and the server
+/// answers it with an empty set, because tills from before ask for it (and
+/// v0.8 counts a full snapshot complete only when it is answered). It leaves
+/// once no such till is in the field.
 pub const ALL_TYPES: &[&str] = &[
     "category",
     "menu_item",
@@ -50,11 +55,11 @@ pub const ALL_TYPES: &[&str] = &[
 /// device's cursor): the contract's original set. A type added later
 /// (`addon_item`, `customer`, `staff_drink`) is applied when a server sends
 /// it, but a server that predates it still completes — a till never waits on
-/// the customer list to open.
+/// the customer list to open. `bundle` left this list with combos
+/// (2026-09-25): a till no longer waits on it either.
 pub const REQUIRED_TYPES: &[&str] = &[
     "category",
     "menu_item",
-    "bundle",
     "ingredient",
     "payment_method",
     "payment_availability",

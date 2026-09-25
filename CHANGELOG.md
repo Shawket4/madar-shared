@@ -3,6 +3,27 @@
 Every tag both consumers pin. A release that changes a result on either side
 says so here; everything else is a move.
 
+## Unreleased — combos removed (branch `chore/remove-combos`, not tagged)
+
+The owner removed the combos (bundles) module on 2026-09-25; a new one will
+be designed from scratch. Both consumers drop their combo code with the tag
+that carries this (MadarRust / madar branch `chore/remove-combos`).
+
+- **madar-money `line`**: `LineShape` loses `is_bundle` and
+  `bundle_components`; `BundleComponent` and `component_surcharge` are gone;
+  `charged_subtotal(per_unit, quantity)` loses its surcharge argument. The
+  bundle cases leave `line_total_vectors.json`; every other case is
+  unchanged. `bill_vectors.json` is unchanged.
+- **madar-loyalty**: `Refusal::Bundle` is `Refusal::NoMenuItem` (token
+  `no_menu_item`): a line with no menu item is still never a reward. The
+  vector case `a_bundle` is `a_line_with_no_menu_item`.
+- **madar-catalog**: the four `component_*` cases leave
+  `catalog_vectors.json` and `Expected::Component` goes; `price_options`
+  stays (it is `price_line`'s own). The backend's
+  `catalog_pricing_tests` drops the same cases when it bumps.
+- **madar-sync**: `bundle` stays in `ALL_TYPES` (the server answers it,
+  empty, for tills from before) and leaves `REQUIRED_TYPES`.
+
 ## v0.4.0 — every deferred item: the server calls the crates (2026-09-25)
 
 New crate `madar-loyalty`; new pieces in `madar-money`, `madar-catalog`,

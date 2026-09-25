@@ -12,7 +12,7 @@
 //!   input builders).
 //! - [`loyalty`]: what a reward covers on a line.
 //! - [`metrics`]: POS metrics `average_ticket` and the report's constants.
-//! - [`line`] (v2): what a sale line comes to, bundle components included.
+//! - [`line`] (v2): what a sale line comes to.
 //! - [`bill`] (v2): bill assembly (staff comp → reward → discount → tax), a
 //!   table bill's preview, and the tender / change / split rules.
 //! - [`discount`] (v2): the discount act a sale asks for, its capability and

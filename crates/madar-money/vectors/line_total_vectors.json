@@ -4,10 +4,8 @@
     "line": {
       "quantity": 0,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 0
   },
@@ -16,12 +14,10 @@
     "line": {
       "quantity": 0,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -30,14 +26,12 @@
     "line": {
       "quantity": 0,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -46,15 +40,13 @@
     "line": {
       "quantity": 0,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 0
   },
@@ -63,7 +55,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -72,8 +63,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -82,7 +72,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -93,8 +82,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -103,7 +91,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -114,8 +101,7 @@
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 0
   },
@@ -124,7 +110,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -137,8 +122,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -147,7 +131,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -162,8 +145,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -172,15 +154,13 @@
     "line": {
       "quantity": 0,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
           "quantity": 3
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 0
   },
@@ -189,7 +169,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -198,8 +177,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -208,7 +186,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -219,8 +196,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -229,15 +205,13 @@
     "line": {
       "quantity": 0,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 0
   },
@@ -246,7 +220,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -255,8 +228,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -265,7 +237,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -276,8 +247,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -286,10 +256,8 @@
     "line": {
       "quantity": 0,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 0
   },
@@ -298,12 +266,10 @@
     "line": {
       "quantity": 0,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -312,14 +278,12 @@
     "line": {
       "quantity": 0,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -328,15 +292,13 @@
     "line": {
       "quantity": 0,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 0
   },
@@ -345,7 +307,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -354,8 +315,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -364,7 +324,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -375,8 +334,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -385,7 +343,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -396,8 +353,7 @@
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 0
   },
@@ -406,7 +362,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -419,8 +374,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -429,7 +383,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -444,8 +397,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -454,15 +406,13 @@
     "line": {
       "quantity": 0,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
           "quantity": 3
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 0
   },
@@ -471,7 +421,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -480,8 +429,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -490,7 +438,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -501,8 +448,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -511,15 +457,13 @@
     "line": {
       "quantity": 0,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 0
   },
@@ -528,7 +472,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -537,8 +480,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -547,7 +489,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -558,8 +499,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -568,10 +508,8 @@
     "line": {
       "quantity": 0,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 0
   },
@@ -580,12 +518,10 @@
     "line": {
       "quantity": 0,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -594,14 +530,12 @@
     "line": {
       "quantity": 0,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -610,15 +544,13 @@
     "line": {
       "quantity": 0,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 0
   },
@@ -627,7 +559,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -636,8 +567,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -646,7 +576,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -657,8 +586,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -667,7 +595,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -678,8 +605,7 @@
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 0
   },
@@ -688,7 +614,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -701,8 +626,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -711,7 +635,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -726,8 +649,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -736,15 +658,13 @@
     "line": {
       "quantity": 0,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
           "quantity": 3
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 0
   },
@@ -753,7 +673,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -762,8 +681,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -772,7 +690,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -783,8 +700,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -793,15 +709,13 @@
     "line": {
       "quantity": 0,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 0
   },
@@ -810,7 +724,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -819,8 +732,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -829,7 +741,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -840,8 +751,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -850,10 +760,8 @@
     "line": {
       "quantity": 0,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 0
   },
@@ -862,12 +770,10 @@
     "line": {
       "quantity": 0,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -876,14 +782,12 @@
     "line": {
       "quantity": 0,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -892,15 +796,13 @@
     "line": {
       "quantity": 0,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 0
   },
@@ -909,7 +811,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -918,8 +819,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -928,7 +828,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -939,8 +838,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -949,7 +847,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -960,8 +857,7 @@
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 0
   },
@@ -970,7 +866,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -983,8 +878,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -993,7 +887,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -1008,8 +901,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -1018,15 +910,13 @@
     "line": {
       "quantity": 0,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
           "quantity": 3
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 0
   },
@@ -1035,7 +925,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -1044,8 +933,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -1054,7 +942,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -1065,8 +952,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -1075,15 +961,13 @@
     "line": {
       "quantity": 0,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 0
   },
@@ -1092,7 +976,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -1101,8 +984,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -1111,7 +993,6 @@
     "line": {
       "quantity": 0,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -1122,8 +1003,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 0
   },
@@ -1132,10 +1012,8 @@
     "line": {
       "quantity": 1,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 0
   },
@@ -1144,12 +1022,10 @@
     "line": {
       "quantity": 1,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 300
   },
@@ -1158,14 +1034,12 @@
     "line": {
       "quantity": 1,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 195
   },
@@ -1174,15 +1048,13 @@
     "line": {
       "quantity": 1,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 500
   },
@@ -1191,7 +1063,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -1200,8 +1071,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 800
   },
@@ -1210,7 +1080,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -1221,8 +1090,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 695
   },
@@ -1231,7 +1099,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -1242,8 +1109,7 @@
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 1500
   },
@@ -1252,7 +1118,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -1265,8 +1130,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 1800
   },
@@ -1275,7 +1139,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -1290,8 +1153,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 1695
   },
@@ -1300,15 +1162,13 @@
     "line": {
       "quantity": 1,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
           "quantity": 3
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 0
   },
@@ -1317,7 +1177,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -1326,8 +1185,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 300
   },
@@ -1336,7 +1194,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -1347,8 +1204,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 195
   },
@@ -1357,15 +1213,13 @@
     "line": {
       "quantity": 1,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": -700
   },
@@ -1374,7 +1228,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -1383,8 +1236,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": -400
   },
@@ -1393,7 +1245,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -1404,8 +1255,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": -505
   },
@@ -1414,10 +1264,8 @@
     "line": {
       "quantity": 1,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 1
   },
@@ -1426,12 +1274,10 @@
     "line": {
       "quantity": 1,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 301
   },
@@ -1440,14 +1286,12 @@
     "line": {
       "quantity": 1,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 196
   },
@@ -1456,15 +1300,13 @@
     "line": {
       "quantity": 1,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 501
   },
@@ -1473,7 +1315,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -1482,8 +1323,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 801
   },
@@ -1492,7 +1332,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -1503,8 +1342,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 696
   },
@@ -1513,7 +1351,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -1524,8 +1361,7 @@
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 1501
   },
@@ -1534,7 +1370,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -1547,8 +1382,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 1801
   },
@@ -1557,7 +1391,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -1572,8 +1405,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 1696
   },
@@ -1582,15 +1414,13 @@
     "line": {
       "quantity": 1,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
           "quantity": 3
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 1
   },
@@ -1599,7 +1429,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -1608,8 +1437,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 301
   },
@@ -1618,7 +1446,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -1629,8 +1456,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 196
   },
@@ -1639,15 +1465,13 @@
     "line": {
       "quantity": 1,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": -699
   },
@@ -1656,7 +1480,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -1665,8 +1488,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": -399
   },
@@ -1675,7 +1497,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -1686,8 +1507,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": -504
   },
@@ -1696,10 +1516,8 @@
     "line": {
       "quantity": 1,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 2500
   },
@@ -1708,12 +1526,10 @@
     "line": {
       "quantity": 1,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 2800
   },
@@ -1722,14 +1538,12 @@
     "line": {
       "quantity": 1,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 2695
   },
@@ -1738,15 +1552,13 @@
     "line": {
       "quantity": 1,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 3000
   },
@@ -1755,7 +1567,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -1764,8 +1575,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 3300
   },
@@ -1774,7 +1584,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -1785,8 +1594,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 3195
   },
@@ -1795,7 +1603,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -1806,8 +1613,7 @@
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 4000
   },
@@ -1816,7 +1622,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -1829,8 +1634,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 4300
   },
@@ -1839,7 +1643,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -1854,8 +1657,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 4195
   },
@@ -1864,15 +1666,13 @@
     "line": {
       "quantity": 1,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
           "quantity": 3
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 2500
   },
@@ -1881,7 +1681,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -1890,8 +1689,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 2800
   },
@@ -1900,7 +1698,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -1911,8 +1708,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 2695
   },
@@ -1921,15 +1717,13 @@
     "line": {
       "quantity": 1,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 1800
   },
@@ -1938,7 +1732,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -1947,8 +1740,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 2100
   },
@@ -1957,7 +1749,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -1968,8 +1759,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 1995
   },
@@ -1978,10 +1768,8 @@
     "line": {
       "quantity": 1,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 5000
   },
@@ -1990,12 +1778,10 @@
     "line": {
       "quantity": 1,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 5300
   },
@@ -2004,14 +1790,12 @@
     "line": {
       "quantity": 1,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 5195
   },
@@ -2020,15 +1804,13 @@
     "line": {
       "quantity": 1,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 5500
   },
@@ -2037,7 +1819,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -2046,8 +1827,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 5800
   },
@@ -2056,7 +1836,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -2067,8 +1846,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 5695
   },
@@ -2077,7 +1855,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -2088,8 +1865,7 @@
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 6500
   },
@@ -2098,7 +1874,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -2111,8 +1886,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 6800
   },
@@ -2121,7 +1895,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -2136,8 +1909,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 6695
   },
@@ -2146,15 +1918,13 @@
     "line": {
       "quantity": 1,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
           "quantity": 3
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 5000
   },
@@ -2163,7 +1933,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -2172,8 +1941,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 5300
   },
@@ -2182,7 +1950,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -2193,8 +1960,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 5195
   },
@@ -2203,15 +1969,13 @@
     "line": {
       "quantity": 1,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 4300
   },
@@ -2220,7 +1984,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -2229,8 +1992,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 4600
   },
@@ -2239,7 +2001,6 @@
     "line": {
       "quantity": 1,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -2250,8 +2011,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 4495
   },
@@ -2260,10 +2020,8 @@
     "line": {
       "quantity": 2,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 0
   },
@@ -2272,12 +2030,10 @@
     "line": {
       "quantity": 2,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 600
   },
@@ -2286,14 +2042,12 @@
     "line": {
       "quantity": 2,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 390
   },
@@ -2302,15 +2056,13 @@
     "line": {
       "quantity": 2,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 1000
   },
@@ -2319,7 +2071,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -2328,8 +2079,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 1600
   },
@@ -2338,7 +2088,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -2349,8 +2098,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 1390
   },
@@ -2359,7 +2107,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -2370,8 +2117,7 @@
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 3000
   },
@@ -2380,7 +2126,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -2393,8 +2138,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 3600
   },
@@ -2403,7 +2147,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -2418,8 +2161,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 3390
   },
@@ -2428,15 +2170,13 @@
     "line": {
       "quantity": 2,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
           "quantity": 3
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 0
   },
@@ -2445,7 +2185,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -2454,8 +2193,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 600
   },
@@ -2464,7 +2202,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -2475,8 +2212,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 390
   },
@@ -2485,15 +2221,13 @@
     "line": {
       "quantity": 2,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": -1400
   },
@@ -2502,7 +2236,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -2511,8 +2244,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": -800
   },
@@ -2521,7 +2253,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -2532,8 +2263,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": -1010
   },
@@ -2542,10 +2272,8 @@
     "line": {
       "quantity": 2,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 2
   },
@@ -2554,12 +2282,10 @@
     "line": {
       "quantity": 2,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 602
   },
@@ -2568,14 +2294,12 @@
     "line": {
       "quantity": 2,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 392
   },
@@ -2584,15 +2308,13 @@
     "line": {
       "quantity": 2,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 1002
   },
@@ -2601,7 +2323,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -2610,8 +2331,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 1602
   },
@@ -2620,7 +2340,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -2631,8 +2350,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 1392
   },
@@ -2641,7 +2359,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -2652,8 +2369,7 @@
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 3002
   },
@@ -2662,7 +2378,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -2675,8 +2390,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 3602
   },
@@ -2685,7 +2399,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -2700,8 +2413,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 3392
   },
@@ -2710,15 +2422,13 @@
     "line": {
       "quantity": 2,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
           "quantity": 3
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 2
   },
@@ -2727,7 +2437,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -2736,8 +2445,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 602
   },
@@ -2746,7 +2454,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -2757,8 +2464,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 392
   },
@@ -2767,15 +2473,13 @@
     "line": {
       "quantity": 2,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": -1398
   },
@@ -2784,7 +2488,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -2793,8 +2496,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": -798
   },
@@ -2803,7 +2505,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -2814,8 +2515,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": -1008
   },
@@ -2824,10 +2524,8 @@
     "line": {
       "quantity": 2,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 5000
   },
@@ -2836,12 +2534,10 @@
     "line": {
       "quantity": 2,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 5600
   },
@@ -2850,14 +2546,12 @@
     "line": {
       "quantity": 2,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 5390
   },
@@ -2866,15 +2560,13 @@
     "line": {
       "quantity": 2,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 6000
   },
@@ -2883,7 +2575,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -2892,8 +2583,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 6600
   },
@@ -2902,7 +2592,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -2913,8 +2602,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 6390
   },
@@ -2923,7 +2611,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -2934,8 +2621,7 @@
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 8000
   },
@@ -2944,7 +2630,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -2957,8 +2642,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 8600
   },
@@ -2967,7 +2651,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -2982,8 +2665,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 8390
   },
@@ -2992,15 +2674,13 @@
     "line": {
       "quantity": 2,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
           "quantity": 3
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 5000
   },
@@ -3009,7 +2689,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -3018,8 +2697,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 5600
   },
@@ -3028,7 +2706,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -3039,8 +2716,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 5390
   },
@@ -3049,15 +2725,13 @@
     "line": {
       "quantity": 2,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 3600
   },
@@ -3066,7 +2740,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -3075,8 +2748,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 4200
   },
@@ -3085,7 +2757,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -3096,8 +2767,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 3990
   },
@@ -3106,10 +2776,8 @@
     "line": {
       "quantity": 2,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 10000
   },
@@ -3118,12 +2786,10 @@
     "line": {
       "quantity": 2,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 10600
   },
@@ -3132,14 +2798,12 @@
     "line": {
       "quantity": 2,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 10390
   },
@@ -3148,15 +2812,13 @@
     "line": {
       "quantity": 2,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 11000
   },
@@ -3165,7 +2827,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -3174,8 +2835,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 11600
   },
@@ -3184,7 +2844,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -3195,8 +2854,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 11390
   },
@@ -3205,7 +2863,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -3216,8 +2873,7 @@
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 13000
   },
@@ -3226,7 +2882,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -3239,8 +2894,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 13600
   },
@@ -3249,7 +2903,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -3264,8 +2917,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 13390
   },
@@ -3274,15 +2926,13 @@
     "line": {
       "quantity": 2,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
           "quantity": 3
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 10000
   },
@@ -3291,7 +2941,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -3300,8 +2949,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 10600
   },
@@ -3310,7 +2958,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -3321,8 +2968,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 10390
   },
@@ -3331,15 +2977,13 @@
     "line": {
       "quantity": 2,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 8600
   },
@@ -3348,7 +2992,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -3357,8 +3000,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 9200
   },
@@ -3367,7 +3009,6 @@
     "line": {
       "quantity": 2,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -3378,8 +3019,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 8990
   },
@@ -3388,10 +3028,8 @@
     "line": {
       "quantity": 7,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 0
   },
@@ -3400,12 +3038,10 @@
     "line": {
       "quantity": 7,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 2100
   },
@@ -3414,14 +3050,12 @@
     "line": {
       "quantity": 7,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 1365
   },
@@ -3430,15 +3064,13 @@
     "line": {
       "quantity": 7,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 3500
   },
@@ -3447,7 +3079,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -3456,8 +3087,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 5600
   },
@@ -3466,7 +3096,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -3477,8 +3106,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 4865
   },
@@ -3487,7 +3115,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -3498,8 +3125,7 @@
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 10500
   },
@@ -3508,7 +3134,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -3521,8 +3146,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 12600
   },
@@ -3531,7 +3155,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -3546,8 +3169,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 11865
   },
@@ -3556,15 +3178,13 @@
     "line": {
       "quantity": 7,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
           "quantity": 3
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 0
   },
@@ -3573,7 +3193,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -3582,8 +3201,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 2100
   },
@@ -3592,7 +3210,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -3603,8 +3220,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 1365
   },
@@ -3613,15 +3229,13 @@
     "line": {
       "quantity": 7,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": -4900
   },
@@ -3630,7 +3244,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -3639,8 +3252,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": -2800
   },
@@ -3649,7 +3261,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 0,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -3660,8 +3271,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": -3535
   },
@@ -3670,10 +3280,8 @@
     "line": {
       "quantity": 7,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 7
   },
@@ -3682,12 +3290,10 @@
     "line": {
       "quantity": 7,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 2107
   },
@@ -3696,14 +3302,12 @@
     "line": {
       "quantity": 7,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 1372
   },
@@ -3712,15 +3316,13 @@
     "line": {
       "quantity": 7,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 3507
   },
@@ -3729,7 +3331,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -3738,8 +3339,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 5607
   },
@@ -3748,7 +3348,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -3759,8 +3358,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 4872
   },
@@ -3769,7 +3367,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -3780,8 +3377,7 @@
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 10507
   },
@@ -3790,7 +3386,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -3803,8 +3398,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 12607
   },
@@ -3813,7 +3407,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -3828,8 +3421,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 11872
   },
@@ -3838,15 +3430,13 @@
     "line": {
       "quantity": 7,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
           "quantity": 3
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 7
   },
@@ -3855,7 +3445,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -3864,8 +3453,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 2107
   },
@@ -3874,7 +3462,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -3885,8 +3472,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 1372
   },
@@ -3895,15 +3481,13 @@
     "line": {
       "quantity": 7,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": -4893
   },
@@ -3912,7 +3496,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -3921,8 +3504,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": -2793
   },
@@ -3931,7 +3513,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 1,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -3942,8 +3523,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": -3528
   },
@@ -3952,10 +3532,8 @@
     "line": {
       "quantity": 7,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 17500
   },
@@ -3964,12 +3542,10 @@
     "line": {
       "quantity": 7,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 19600
   },
@@ -3978,14 +3554,12 @@
     "line": {
       "quantity": 7,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 18865
   },
@@ -3994,15 +3568,13 @@
     "line": {
       "quantity": 7,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 21000
   },
@@ -4011,7 +3583,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -4020,8 +3591,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 23100
   },
@@ -4030,7 +3600,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -4041,8 +3610,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 22365
   },
@@ -4051,7 +3619,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -4062,8 +3629,7 @@
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 28000
   },
@@ -4072,7 +3638,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -4085,8 +3650,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 30100
   },
@@ -4095,7 +3659,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -4110,8 +3673,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 29365
   },
@@ -4120,15 +3682,13 @@
     "line": {
       "quantity": 7,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
           "quantity": 3
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 17500
   },
@@ -4137,7 +3697,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -4146,8 +3705,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 19600
   },
@@ -4156,7 +3714,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -4167,8 +3724,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 18865
   },
@@ -4177,15 +3733,13 @@
     "line": {
       "quantity": 7,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 12600
   },
@@ -4194,7 +3748,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -4203,8 +3756,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 14700
   },
@@ -4213,7 +3765,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 2500,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -4224,8 +3775,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 13965
   },
@@ -4234,10 +3784,8 @@
     "line": {
       "quantity": 7,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 35000
   },
@@ -4246,12 +3794,10 @@
     "line": {
       "quantity": 7,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 37100
   },
@@ -4260,14 +3806,12 @@
     "line": {
       "quantity": 7,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [],
       "optionals": [
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 36365
   },
@@ -4276,15 +3820,13 @@
     "line": {
       "quantity": 7,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 38500
   },
@@ -4293,7 +3835,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -4302,8 +3843,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 40600
   },
@@ -4312,7 +3852,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 500,
@@ -4323,8 +3862,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 39865
   },
@@ -4333,7 +3871,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -4344,8 +3881,7 @@
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 45500
   },
@@ -4354,7 +3890,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -4367,8 +3902,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 47600
   },
@@ -4377,7 +3911,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 250,
@@ -4392,8 +3925,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 46865
   },
@@ -4402,15 +3934,13 @@
     "line": {
       "quantity": 7,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
           "quantity": 3
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 35000
   },
@@ -4419,7 +3949,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -4428,8 +3957,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 37100
   },
@@ -4438,7 +3966,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": 0,
@@ -4449,8 +3976,7 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 36365
   },
@@ -4459,15 +3985,13 @@
     "line": {
       "quantity": 7,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
           "quantity": 1
         }
       ],
-      "optionals": [],
-      "bundle_components": []
+      "optionals": []
     },
     "total": 30100
   },
@@ -4476,7 +4000,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -4485,8 +4008,7 @@
       ],
       "optionals": [
         300
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 32200
   },
@@ -4495,7 +4017,6 @@
     "line": {
       "quantity": 7,
       "unit_price": 5000,
-      "is_bundle": false,
       "addons": [
         {
           "price_modifier": -700,
@@ -4506,1448 +4027,8 @@
         150,
         0,
         45
-      ],
-      "bundle_components": []
+      ]
     },
     "total": 31465
-  },
-  {
-    "name": "bundle q0 u4000 c0",
-    "line": {
-      "quantity": 0,
-      "unit_price": 4000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": []
-    },
-    "total": 0
-  },
-  {
-    "name": "bundle q0 u4000 c1",
-    "line": {
-      "quantity": 0,
-      "unit_price": 4000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 1,
-          "addons": [],
-          "optionals": []
-        }
-      ]
-    },
-    "total": 0
-  },
-  {
-    "name": "bundle q0 u4000 c2",
-    "line": {
-      "quantity": 0,
-      "unit_price": 4000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 2,
-          "addons": [
-            {
-              "price_modifier": 500,
-              "quantity": 1
-            }
-          ],
-          "optionals": []
-        }
-      ]
-    },
-    "total": 0
-  },
-  {
-    "name": "bundle q0 u4000 c3",
-    "line": {
-      "quantity": 0,
-      "unit_price": 4000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 1,
-          "addons": [
-            {
-              "price_modifier": 200,
-              "quantity": 1
-            }
-          ],
-          "optionals": [
-            150
-          ]
-        },
-        {
-          "quantity": 3,
-          "addons": [
-            {
-              "price_modifier": 250,
-              "quantity": 2
-            }
-          ],
-          "optionals": [
-            100
-          ]
-        }
-      ]
-    },
-    "total": 0
-  },
-  {
-    "name": "bundle q0 u5000 c0",
-    "line": {
-      "quantity": 0,
-      "unit_price": 5000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": []
-    },
-    "total": 0
-  },
-  {
-    "name": "bundle q0 u5000 c1",
-    "line": {
-      "quantity": 0,
-      "unit_price": 5000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 1,
-          "addons": [],
-          "optionals": []
-        }
-      ]
-    },
-    "total": 0
-  },
-  {
-    "name": "bundle q0 u5000 c2",
-    "line": {
-      "quantity": 0,
-      "unit_price": 5000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 2,
-          "addons": [
-            {
-              "price_modifier": 500,
-              "quantity": 1
-            }
-          ],
-          "optionals": []
-        }
-      ]
-    },
-    "total": 0
-  },
-  {
-    "name": "bundle q0 u5000 c3",
-    "line": {
-      "quantity": 0,
-      "unit_price": 5000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 1,
-          "addons": [
-            {
-              "price_modifier": 200,
-              "quantity": 1
-            }
-          ],
-          "optionals": [
-            150
-          ]
-        },
-        {
-          "quantity": 3,
-          "addons": [
-            {
-              "price_modifier": 250,
-              "quantity": 2
-            }
-          ],
-          "optionals": [
-            100
-          ]
-        }
-      ]
-    },
-    "total": 0
-  },
-  {
-    "name": "bundle q0 u12000 c0",
-    "line": {
-      "quantity": 0,
-      "unit_price": 12000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": []
-    },
-    "total": 0
-  },
-  {
-    "name": "bundle q0 u12000 c1",
-    "line": {
-      "quantity": 0,
-      "unit_price": 12000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 1,
-          "addons": [],
-          "optionals": []
-        }
-      ]
-    },
-    "total": 0
-  },
-  {
-    "name": "bundle q0 u12000 c2",
-    "line": {
-      "quantity": 0,
-      "unit_price": 12000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 2,
-          "addons": [
-            {
-              "price_modifier": 500,
-              "quantity": 1
-            }
-          ],
-          "optionals": []
-        }
-      ]
-    },
-    "total": 0
-  },
-  {
-    "name": "bundle q0 u12000 c3",
-    "line": {
-      "quantity": 0,
-      "unit_price": 12000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 1,
-          "addons": [
-            {
-              "price_modifier": 200,
-              "quantity": 1
-            }
-          ],
-          "optionals": [
-            150
-          ]
-        },
-        {
-          "quantity": 3,
-          "addons": [
-            {
-              "price_modifier": 250,
-              "quantity": 2
-            }
-          ],
-          "optionals": [
-            100
-          ]
-        }
-      ]
-    },
-    "total": 0
-  },
-  {
-    "name": "bundle q1 u4000 c0",
-    "line": {
-      "quantity": 1,
-      "unit_price": 4000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": []
-    },
-    "total": 4000
-  },
-  {
-    "name": "bundle q1 u4000 c1",
-    "line": {
-      "quantity": 1,
-      "unit_price": 4000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 1,
-          "addons": [],
-          "optionals": []
-        }
-      ]
-    },
-    "total": 4000
-  },
-  {
-    "name": "bundle q1 u4000 c2",
-    "line": {
-      "quantity": 1,
-      "unit_price": 4000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 2,
-          "addons": [
-            {
-              "price_modifier": 500,
-              "quantity": 1
-            }
-          ],
-          "optionals": []
-        }
-      ]
-    },
-    "total": 5000
-  },
-  {
-    "name": "bundle q1 u4000 c3",
-    "line": {
-      "quantity": 1,
-      "unit_price": 4000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 1,
-          "addons": [
-            {
-              "price_modifier": 200,
-              "quantity": 1
-            }
-          ],
-          "optionals": [
-            150
-          ]
-        },
-        {
-          "quantity": 3,
-          "addons": [
-            {
-              "price_modifier": 250,
-              "quantity": 2
-            }
-          ],
-          "optionals": [
-            100
-          ]
-        }
-      ]
-    },
-    "total": 6150
-  },
-  {
-    "name": "bundle q1 u5000 c0",
-    "line": {
-      "quantity": 1,
-      "unit_price": 5000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": []
-    },
-    "total": 5000
-  },
-  {
-    "name": "bundle q1 u5000 c1",
-    "line": {
-      "quantity": 1,
-      "unit_price": 5000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 1,
-          "addons": [],
-          "optionals": []
-        }
-      ]
-    },
-    "total": 5000
-  },
-  {
-    "name": "bundle q1 u5000 c2",
-    "line": {
-      "quantity": 1,
-      "unit_price": 5000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 2,
-          "addons": [
-            {
-              "price_modifier": 500,
-              "quantity": 1
-            }
-          ],
-          "optionals": []
-        }
-      ]
-    },
-    "total": 6000
-  },
-  {
-    "name": "bundle q1 u5000 c3",
-    "line": {
-      "quantity": 1,
-      "unit_price": 5000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 1,
-          "addons": [
-            {
-              "price_modifier": 200,
-              "quantity": 1
-            }
-          ],
-          "optionals": [
-            150
-          ]
-        },
-        {
-          "quantity": 3,
-          "addons": [
-            {
-              "price_modifier": 250,
-              "quantity": 2
-            }
-          ],
-          "optionals": [
-            100
-          ]
-        }
-      ]
-    },
-    "total": 7150
-  },
-  {
-    "name": "bundle q1 u12000 c0",
-    "line": {
-      "quantity": 1,
-      "unit_price": 12000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": []
-    },
-    "total": 12000
-  },
-  {
-    "name": "bundle q1 u12000 c1",
-    "line": {
-      "quantity": 1,
-      "unit_price": 12000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 1,
-          "addons": [],
-          "optionals": []
-        }
-      ]
-    },
-    "total": 12000
-  },
-  {
-    "name": "bundle q1 u12000 c2",
-    "line": {
-      "quantity": 1,
-      "unit_price": 12000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 2,
-          "addons": [
-            {
-              "price_modifier": 500,
-              "quantity": 1
-            }
-          ],
-          "optionals": []
-        }
-      ]
-    },
-    "total": 13000
-  },
-  {
-    "name": "bundle q1 u12000 c3",
-    "line": {
-      "quantity": 1,
-      "unit_price": 12000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 1,
-          "addons": [
-            {
-              "price_modifier": 200,
-              "quantity": 1
-            }
-          ],
-          "optionals": [
-            150
-          ]
-        },
-        {
-          "quantity": 3,
-          "addons": [
-            {
-              "price_modifier": 250,
-              "quantity": 2
-            }
-          ],
-          "optionals": [
-            100
-          ]
-        }
-      ]
-    },
-    "total": 14150
-  },
-  {
-    "name": "bundle q2 u4000 c0",
-    "line": {
-      "quantity": 2,
-      "unit_price": 4000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": []
-    },
-    "total": 8000
-  },
-  {
-    "name": "bundle q2 u4000 c1",
-    "line": {
-      "quantity": 2,
-      "unit_price": 4000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 1,
-          "addons": [],
-          "optionals": []
-        }
-      ]
-    },
-    "total": 8000
-  },
-  {
-    "name": "bundle q2 u4000 c2",
-    "line": {
-      "quantity": 2,
-      "unit_price": 4000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 2,
-          "addons": [
-            {
-              "price_modifier": 500,
-              "quantity": 1
-            }
-          ],
-          "optionals": []
-        }
-      ]
-    },
-    "total": 10000
-  },
-  {
-    "name": "bundle q2 u4000 c3",
-    "line": {
-      "quantity": 2,
-      "unit_price": 4000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 1,
-          "addons": [
-            {
-              "price_modifier": 200,
-              "quantity": 1
-            }
-          ],
-          "optionals": [
-            150
-          ]
-        },
-        {
-          "quantity": 3,
-          "addons": [
-            {
-              "price_modifier": 250,
-              "quantity": 2
-            }
-          ],
-          "optionals": [
-            100
-          ]
-        }
-      ]
-    },
-    "total": 12300
-  },
-  {
-    "name": "bundle q2 u5000 c0",
-    "line": {
-      "quantity": 2,
-      "unit_price": 5000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": []
-    },
-    "total": 10000
-  },
-  {
-    "name": "bundle q2 u5000 c1",
-    "line": {
-      "quantity": 2,
-      "unit_price": 5000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 1,
-          "addons": [],
-          "optionals": []
-        }
-      ]
-    },
-    "total": 10000
-  },
-  {
-    "name": "bundle q2 u5000 c2",
-    "line": {
-      "quantity": 2,
-      "unit_price": 5000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 2,
-          "addons": [
-            {
-              "price_modifier": 500,
-              "quantity": 1
-            }
-          ],
-          "optionals": []
-        }
-      ]
-    },
-    "total": 12000
-  },
-  {
-    "name": "bundle q2 u5000 c3",
-    "line": {
-      "quantity": 2,
-      "unit_price": 5000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 1,
-          "addons": [
-            {
-              "price_modifier": 200,
-              "quantity": 1
-            }
-          ],
-          "optionals": [
-            150
-          ]
-        },
-        {
-          "quantity": 3,
-          "addons": [
-            {
-              "price_modifier": 250,
-              "quantity": 2
-            }
-          ],
-          "optionals": [
-            100
-          ]
-        }
-      ]
-    },
-    "total": 14300
-  },
-  {
-    "name": "bundle q2 u12000 c0",
-    "line": {
-      "quantity": 2,
-      "unit_price": 12000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": []
-    },
-    "total": 24000
-  },
-  {
-    "name": "bundle q2 u12000 c1",
-    "line": {
-      "quantity": 2,
-      "unit_price": 12000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 1,
-          "addons": [],
-          "optionals": []
-        }
-      ]
-    },
-    "total": 24000
-  },
-  {
-    "name": "bundle q2 u12000 c2",
-    "line": {
-      "quantity": 2,
-      "unit_price": 12000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 2,
-          "addons": [
-            {
-              "price_modifier": 500,
-              "quantity": 1
-            }
-          ],
-          "optionals": []
-        }
-      ]
-    },
-    "total": 26000
-  },
-  {
-    "name": "bundle q2 u12000 c3",
-    "line": {
-      "quantity": 2,
-      "unit_price": 12000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 1,
-          "addons": [
-            {
-              "price_modifier": 200,
-              "quantity": 1
-            }
-          ],
-          "optionals": [
-            150
-          ]
-        },
-        {
-          "quantity": 3,
-          "addons": [
-            {
-              "price_modifier": 250,
-              "quantity": 2
-            }
-          ],
-          "optionals": [
-            100
-          ]
-        }
-      ]
-    },
-    "total": 28300
-  },
-  {
-    "name": "bundle q3 u4000 c0",
-    "line": {
-      "quantity": 3,
-      "unit_price": 4000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": []
-    },
-    "total": 12000
-  },
-  {
-    "name": "bundle q3 u4000 c1",
-    "line": {
-      "quantity": 3,
-      "unit_price": 4000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 1,
-          "addons": [],
-          "optionals": []
-        }
-      ]
-    },
-    "total": 12000
-  },
-  {
-    "name": "bundle q3 u4000 c2",
-    "line": {
-      "quantity": 3,
-      "unit_price": 4000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 2,
-          "addons": [
-            {
-              "price_modifier": 500,
-              "quantity": 1
-            }
-          ],
-          "optionals": []
-        }
-      ]
-    },
-    "total": 15000
-  },
-  {
-    "name": "bundle q3 u4000 c3",
-    "line": {
-      "quantity": 3,
-      "unit_price": 4000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 1,
-          "addons": [
-            {
-              "price_modifier": 200,
-              "quantity": 1
-            }
-          ],
-          "optionals": [
-            150
-          ]
-        },
-        {
-          "quantity": 3,
-          "addons": [
-            {
-              "price_modifier": 250,
-              "quantity": 2
-            }
-          ],
-          "optionals": [
-            100
-          ]
-        }
-      ]
-    },
-    "total": 18450
-  },
-  {
-    "name": "bundle q3 u5000 c0",
-    "line": {
-      "quantity": 3,
-      "unit_price": 5000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": []
-    },
-    "total": 15000
-  },
-  {
-    "name": "bundle q3 u5000 c1",
-    "line": {
-      "quantity": 3,
-      "unit_price": 5000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 1,
-          "addons": [],
-          "optionals": []
-        }
-      ]
-    },
-    "total": 15000
-  },
-  {
-    "name": "bundle q3 u5000 c2",
-    "line": {
-      "quantity": 3,
-      "unit_price": 5000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 2,
-          "addons": [
-            {
-              "price_modifier": 500,
-              "quantity": 1
-            }
-          ],
-          "optionals": []
-        }
-      ]
-    },
-    "total": 18000
-  },
-  {
-    "name": "bundle q3 u5000 c3",
-    "line": {
-      "quantity": 3,
-      "unit_price": 5000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 1,
-          "addons": [
-            {
-              "price_modifier": 200,
-              "quantity": 1
-            }
-          ],
-          "optionals": [
-            150
-          ]
-        },
-        {
-          "quantity": 3,
-          "addons": [
-            {
-              "price_modifier": 250,
-              "quantity": 2
-            }
-          ],
-          "optionals": [
-            100
-          ]
-        }
-      ]
-    },
-    "total": 21450
-  },
-  {
-    "name": "bundle q3 u12000 c0",
-    "line": {
-      "quantity": 3,
-      "unit_price": 12000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": []
-    },
-    "total": 36000
-  },
-  {
-    "name": "bundle q3 u12000 c1",
-    "line": {
-      "quantity": 3,
-      "unit_price": 12000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 1,
-          "addons": [],
-          "optionals": []
-        }
-      ]
-    },
-    "total": 36000
-  },
-  {
-    "name": "bundle q3 u12000 c2",
-    "line": {
-      "quantity": 3,
-      "unit_price": 12000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 2,
-          "addons": [
-            {
-              "price_modifier": 500,
-              "quantity": 1
-            }
-          ],
-          "optionals": []
-        }
-      ]
-    },
-    "total": 39000
-  },
-  {
-    "name": "bundle q3 u12000 c3",
-    "line": {
-      "quantity": 3,
-      "unit_price": 12000,
-      "is_bundle": true,
-      "addons": [
-        {
-          "price_modifier": 9999,
-          "quantity": 5
-        }
-      ],
-      "optionals": [
-        8888
-      ],
-      "bundle_components": [
-        {
-          "quantity": 1,
-          "addons": [
-            {
-              "price_modifier": 200,
-              "quantity": 1
-            }
-          ],
-          "optionals": [
-            150
-          ]
-        },
-        {
-          "quantity": 3,
-          "addons": [
-            {
-              "price_modifier": 250,
-              "quantity": 2
-            }
-          ],
-          "optionals": [
-            100
-          ]
-        }
-      ]
-    },
-    "total": 42450
-  },
-  {
-    "name": "M3: bundle 5000, component x2 with +500",
-    "line": {
-      "quantity": 1,
-      "unit_price": 5000,
-      "is_bundle": true,
-      "addons": [],
-      "optionals": [],
-      "bundle_components": [
-        {
-          "quantity": 2,
-          "addons": [
-            {
-              "price_modifier": 500,
-              "quantity": 1
-            }
-          ],
-          "optionals": []
-        }
-      ]
-    },
-    "total": 6000
   }
 ]

@@ -40,8 +40,7 @@ pub struct BillLine {
     /// The line as charged, before any reward ([`crate::line::line_total`]).
     pub charged: Minor,
     /// What ONE unit is charged, modifiers included (the reward covers whole
-    /// units at this price). For a bundle, the server's `charged_per_unit`
-    /// (the bundle price without its component surcharge).
+    /// units at this price).
     pub per_unit: Minor,
     /// Units a loyalty reward covers.
     pub reward_units: Minor,
@@ -418,8 +417,8 @@ pub mod vectors {
             // Both on one line (a replay only): comp first, then the reward
             // covers what is left.
             vec![line(3000, 1500, 1, 2000)],
-            // A bundle line: per unit is the bundle price, the surcharge rides
-            // the charged total.
+            // A line charged more than per unit × quantity (once a combo line's
+            // component surcharge; kept as plain arithmetic).
             vec![line(6000, 5000, 0, 0)],
             // A line below zero, and a zero line.
             vec![line(-200, -200, 0, 0), line(1000, 1000, 0, 0)],
