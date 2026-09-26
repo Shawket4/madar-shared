@@ -3,6 +3,18 @@
 Every tag both consumers pin. A release that changes a result on either side
 says so here; everything else is a move.
 
+## v0.5.1 — tellers record staff drinks by default (2026-09-26; MadarRust v1.6.1, POS 0.10.0)
+
+**What changes on a till or the server:** a teller now holds `orders.staff_drink.record` (223) by default,
+so the till offers the staff-drink action without a manager. Owners and managers had it already. Existing
+orgs were granted it on prod the same night (teller system roles, `source = template`), so this tag only
+changes what a NEW org is provisioned with and the role editor's hint.
+
+- `authz/spec/capabilities.toml`: `orders.staff_drink.record` defaults `om` → `omt`; the EN/AR hint now
+  reads "On for tellers by default… turn it off to have a manager approve each one."
+- `SPEC_HASH` 6c952ec193f4d94b → 24c0f2b2c6520bbe. The backend, the POS (`capabilities.dart`) and the
+  dashboard (`capabilities.ts`) regenerate from this spec in the same release.
+
 ## v0.5.0 — combos and deals (tagged 2026-09-25; MadarRust v1.6.0, POS 0.9.0)
 
 The new combos module (`COMBOS_CONTRACT.md`, owner answers §11). It sits on
