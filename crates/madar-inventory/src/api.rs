@@ -108,7 +108,7 @@ pub struct CloseTransferRequest {
 /// One line as it arrived.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[cfg_attr(feature = "utoipa", derive(utoipa::ToSchema))]
-pub struct ReceiveLineInput {
+pub struct ReceiveTransferLine {
     pub line_id: Uuid,
     /// 0 or more. More than sent needs `note`.
     pub qty_received: f64,
@@ -120,7 +120,7 @@ pub struct ReceiveLineInput {
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[cfg_attr(feature = "utoipa", derive(utoipa::ToSchema))]
 pub struct ReceiveTransferRequest {
-    pub lines: Vec<ReceiveLineInput>,
+    pub lines: Vec<ReceiveTransferLine>,
     #[serde(default)]
     pub note: Option<String>,
 }
