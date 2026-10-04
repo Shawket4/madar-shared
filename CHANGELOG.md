@@ -3,6 +3,20 @@
 Every tag both consumers pin. A release that changes a result on either side
 says so here; everything else is a move.
 
+## v0.6.0 — warehouses (unreleased; MadarRust + dashboard)
+
+**What changes on a till or the server: nothing for existing results.** One new crate; every
+earlier vector file is unchanged.
+
+- **madar-inventory** (new): `transfer::step(status, action)` — the one lifecycle table
+  (requested → draft → dispatched → received, cancelled), the side (source/destination) and the
+  capability each action needs (moving nothing or answering a request: `inventory.transfers.create`;
+  receiving: `.edit`; cancelling stock in transit: `.delete`); `transfer::check_receive_line`
+  (short / exact / over; over needs a note; whole thousandths); `replenish::suggest` (need to reach
+  `par_max` from at-or-under `par_min`, less in transit and open inbound, capped by what the
+  warehouse has that no draft claims); `api` — `BranchKind` and the transfer/replenishment/
+  differences bodies, OpenAPI schemas behind `utoipa`. Pinned by `inventory_vectors.json`.
+
 ## v0.5.3 — POS metrics vectors catch up with the feed (2026-10-07)
 
 **What changes on a till or the server: nothing.** `pos_metrics_vectors.json` is regenerated from

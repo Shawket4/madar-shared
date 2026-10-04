@@ -1,0 +1,22 @@
+# madar-inventory: warehouse and stock-transfer rules the backend and the
+# dashboard's core must agree on (WAREHOUSE_DESIGN.md in MadarRust).
+[package]
+name = "madar-inventory"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+# Which capability each transfer action needs.
+madar-authz = { path = "../madar-authz" }
+uuid = { version = "1", default-features = false, features = ["serde"] }
+chrono = { version = "0.4", default-features = false, features = ["std", "serde"] }
+# The API contract's OpenAPI schemas, for the backend's spec (off by default).
+utoipa = { version = "5", optional = true, default-features = false, features = ["macros", "chrono", "uuid"] }
+
+[features]
+utoipa = ["dep:utoipa"]
