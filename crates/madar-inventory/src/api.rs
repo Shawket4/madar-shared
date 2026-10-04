@@ -1,6 +1,7 @@
 //! The request and response bodies of the warehouse and transfer endpoints
 //! (WAREHOUSE_DESIGN.md §7). Quantities are in the ingredient's base stock
-//! unit; costs are piastres per unit, `None` = unknown (never 0).
+//! unit; costs are piastres per base unit — fractional, as a gram of coffee
+//! costs less than a piastre — and `None` = unknown (never 0).
 //!
 //! With the `utoipa` feature each type is also the backend's OpenAPI schema.
 
@@ -18,6 +19,35 @@ pub enum BranchKind {
     #[default]
     Branch,
     Warehouse,
+}
+
+impl BranchKind {
+    /// The Postgres `branch_kind` label.
+    pub fn as_str(self) -> &'static str {
+        match self {
+            BranchKind::Branch => "branch",
+            BranchKind::Warehouse => "warehouse",
+        }
+    }
+}
+
+impl std::str::FromStr for BranchKind {
+    type Err = String;
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        match s {
+            "branch" => Ok(BranchKind::Branch),
+            "warehouse" => Ok(BranchKind::Warehouse),
+            other => Err(format!("unknown branch kind '{other}'")),
+        }
+    }
+}
+
+/// So a backend can read the `branch_kind` column as text.
+impl TryFrom<String> for BranchKind {
+    type Error = String;
+    fn try_from(s: String) -> Result<Self, Self::Error> {
+        s.parse()
+    }
 }
 
 /// One ingredient and how much of it.
@@ -107,7 +137,7 @@ pub struct StockTransferLine {
     /// `None` until received.
     pub qty_received: Option<f64>,
     /// Frozen at dispatch from the source's cost; `None` before dispatch or unknown.
-    pub unit_cost: Option<i64>,
+    pub unit_cost: Option<f64>,
     pub note: Option<String>,
 }
 
@@ -181,8 +211,22 @@ pub struct TransferDifferenceRow {
     pub qty_received: f64,
     /// received − sent; negative = transit loss.
     pub difference: f64,
-    pub unit_cost: Option<i64>,
+    pub unit_cost: Option<f64>,
     /// `difference × unit_cost`, piastres; `None` when the cost is unknown.
     pub value_difference: Option<i64>,
     pub note: Option<String>,
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn branch_kind_round_trips_its_label() {
+        for k in [BranchKind::Branch, BranchKind::Warehouse] {
+            assert_eq!(BranchKind::try_from(k.as_str().to_string()), Ok(k));
+            assert_eq!(serde_json::to_value(k).unwrap(), k.as_str());
+        }
+        assert!("shop".parse::<BranchKind>().is_err());
+    }
 }
