@@ -16,3 +16,5 @@ serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 # The staff comp's input types (`staff`) are madar-money's (one copy, same tag).
 madar-money = { path = "../madar-money", version = "0.5.0" }
+# The follow-the-drink rule converts an add-on's quantity (`follow`).
+madar-units = { path = "../madar-units", version = "0.5.0" }

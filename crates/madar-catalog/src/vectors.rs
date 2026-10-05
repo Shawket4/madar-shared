@@ -30,6 +30,21 @@ pub const DEAL: &str = include_str!("../vectors/deal_vectors.json");
 /// `sale_window_vectors.json` (hand-authored): [`crate::sale_window`].
 pub const SALE_WINDOW: &str = include_str!("../vectors/sale_window_vectors.json");
 
+/// `follow_vectors.json` (hand-computed; its first case is the server's
+/// capture of `latte_shot_follows_decaf`): [`crate::follow`].
+pub const FOLLOW: &str = include_str!("../vectors/follow_vectors.json");
+
+/// One case of `follow_vectors.json`.
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub struct FollowVector {
+    pub name: String,
+    pub about: String,
+    pub lines: Vec<crate::follow::DrinkLine>,
+    pub families: Vec<String>,
+    pub expect_lines: Vec<crate::follow::DrinkLine>,
+    pub expect_followed: Vec<crate::follow::Followed>,
+}
+
 /// The vector file.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct Vectors {

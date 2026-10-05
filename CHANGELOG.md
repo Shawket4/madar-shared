@@ -3,6 +3,22 @@
 Every tag both consumers pin. A release that changes a result on either side
 says so here; everything else is a move.
 
+## v0.5.2 — an add-on line follows the drink's choice (2026-10-05)
+
+**What changes on a till or the server: nothing the server computes.** A move: the "follow the drink's
+choice" pass (MadarRust `orders/component_resolve.rs`) now lives here, and the server runs it from here
+with identical results (its `catalog_pricing_tests` capture, incl. `latte_shot_follows_decaf`, is
+unchanged). The POS core runs the same function for its recipe preview and recipe card, which had shown an
+extra shot on a swapped coffee as the catalogue's bean.
+
+- **madar-catalog `follow`** (new): `families(&PricedOptions)` — milk and coffee, then every swap choice
+  made on the line — and `follow_the_drink(&mut [DrinkLine], &families)`: an additive line of a following
+  family takes the drink's first non-additive line of that category (matched by ingredient id), its
+  quantity converted with `madar_units::convert`; across unit families it is left and reported
+  (`Followed::Unconvertible`). Pinned by `follow_vectors.json` (hand-computed; case 1 is the server's
+  capture).
+- madar-catalog now depends on madar-units (same tag).
+
 ## v0.5.1 — tellers record staff drinks by default (2026-09-26; MadarRust v1.6.1, POS 0.10.0)
 
 **What changes on a till or the server:** a teller now holds `orders.staff_drink.record` (223) by default,

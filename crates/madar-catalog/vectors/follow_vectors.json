@@ -1,0 +1,543 @@
+[
+  {
+    "name": "latte_shot_follows_decaf",
+    "about": "The server's capture (MadarRust catalog_pricing_tests): Decaf swapped in for the espresso bean, an extra shot authored as espresso becomes 18 g of the decaf bean.",
+    "lines": [
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000027",
+        "name": "Decaf bean",
+        "unit": "g",
+        "quantity": 36.0,
+        "category": "coffee_bean",
+        "additive": false
+      },
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000020",
+        "name": "Whole milk",
+        "unit": "ml",
+        "quantity": 400.0,
+        "category": "milk",
+        "additive": false
+      },
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000026",
+        "name": "Espresso bean",
+        "unit": "g",
+        "quantity": 18.0,
+        "category": "coffee_bean",
+        "additive": true
+      }
+    ],
+    "families": [
+      "milk",
+      "coffee_bean"
+    ],
+    "expect_lines": [
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000027",
+        "name": "Decaf bean",
+        "unit": "g",
+        "quantity": 36.0,
+        "category": "coffee_bean",
+        "additive": false
+      },
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000020",
+        "name": "Whole milk",
+        "unit": "ml",
+        "quantity": 400.0,
+        "category": "milk",
+        "additive": false
+      },
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000027",
+        "name": "Decaf bean",
+        "unit": "g",
+        "quantity": 18.0,
+        "category": "coffee_bean",
+        "additive": true
+      }
+    ],
+    "expect_followed": [
+      {
+        "kind": "followed",
+        "line": 2,
+        "from": "Espresso bean",
+        "to": "Decaf bean"
+      }
+    ]
+  },
+  {
+    "name": "shot_on_the_recipes_own_bean_is_left_alone",
+    "about": "No swap: the shot already names the drink's bean (same id), nothing changes.",
+    "lines": [
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000026",
+        "name": "Espresso bean",
+        "unit": "g",
+        "quantity": 36.0,
+        "category": "coffee_bean",
+        "additive": false
+      },
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000026",
+        "name": "Espresso bean",
+        "unit": "g",
+        "quantity": 18.0,
+        "category": "coffee_bean",
+        "additive": true
+      }
+    ],
+    "families": [
+      "milk",
+      "coffee_bean"
+    ],
+    "expect_lines": [
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000026",
+        "name": "Espresso bean",
+        "unit": "g",
+        "quantity": 36.0,
+        "category": "coffee_bean",
+        "additive": false
+      },
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000026",
+        "name": "Espresso bean",
+        "unit": "g",
+        "quantity": 18.0,
+        "category": "coffee_bean",
+        "additive": true
+      }
+    ],
+    "expect_followed": []
+  },
+  {
+    "name": "extra_milk_follows_oat_and_converts_its_unit",
+    "about": "Oat swapped in for whole milk; an extra milk authored as 0.05 l of whole milk becomes 50 ml of oat (the chosen line's unit).",
+    "lines": [
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000021",
+        "name": "Oat milk",
+        "unit": "ml",
+        "quantity": 200.0,
+        "category": "milk",
+        "additive": false
+      },
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000020",
+        "name": "Whole milk",
+        "unit": "l",
+        "quantity": 0.05,
+        "category": "milk",
+        "additive": true
+      }
+    ],
+    "families": [
+      "milk",
+      "coffee_bean"
+    ],
+    "expect_lines": [
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000021",
+        "name": "Oat milk",
+        "unit": "ml",
+        "quantity": 200.0,
+        "category": "milk",
+        "additive": false
+      },
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000021",
+        "name": "Oat milk",
+        "unit": "ml",
+        "quantity": 50.0,
+        "category": "milk",
+        "additive": true
+      }
+    ],
+    "expect_followed": [
+      {
+        "kind": "followed",
+        "line": 1,
+        "from": "Whole milk",
+        "to": "Oat milk"
+      }
+    ]
+  },
+  {
+    "name": "across_unit_families_is_left_as_authored",
+    "about": "A pod counted in pieces cannot become grams of the decaf bean: left as authored, reported.",
+    "lines": [
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000027",
+        "name": "Decaf bean",
+        "unit": "g",
+        "quantity": 18.0,
+        "category": "coffee_bean",
+        "additive": false
+      },
+      {
+        "ingredient_id": "pod",
+        "name": "Espresso pod",
+        "unit": "pcs",
+        "quantity": 1.0,
+        "category": "coffee_bean",
+        "additive": true
+      }
+    ],
+    "families": [
+      "milk",
+      "coffee_bean"
+    ],
+    "expect_lines": [
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000027",
+        "name": "Decaf bean",
+        "unit": "g",
+        "quantity": 18.0,
+        "category": "coffee_bean",
+        "additive": false
+      },
+      {
+        "ingredient_id": "pod",
+        "name": "Espresso pod",
+        "unit": "pcs",
+        "quantity": 1.0,
+        "category": "coffee_bean",
+        "additive": true
+      }
+    ],
+    "expect_followed": [
+      {
+        "kind": "unconvertible",
+        "line": 1,
+        "to_name": "Decaf bean",
+        "to_unit": "g"
+      }
+    ]
+  },
+  {
+    "name": "a_custom_family_does_not_follow_unless_chosen_on_the_line",
+    "about": "syrup_base is no family of its own: with only milk and coffee following, the extra caramel stays caramel.",
+    "lines": [
+      {
+        "ingredient_id": "vanilla",
+        "name": "Vanilla base",
+        "unit": "ml",
+        "quantity": 10.0,
+        "category": "syrup_base",
+        "additive": false
+      },
+      {
+        "ingredient_id": "caramel",
+        "name": "Caramel base",
+        "unit": "ml",
+        "quantity": 5.0,
+        "category": "syrup_base",
+        "additive": true
+      }
+    ],
+    "families": [
+      "milk",
+      "coffee_bean"
+    ],
+    "expect_lines": [
+      {
+        "ingredient_id": "vanilla",
+        "name": "Vanilla base",
+        "unit": "ml",
+        "quantity": 10.0,
+        "category": "syrup_base",
+        "additive": false
+      },
+      {
+        "ingredient_id": "caramel",
+        "name": "Caramel base",
+        "unit": "ml",
+        "quantity": 5.0,
+        "category": "syrup_base",
+        "additive": true
+      }
+    ],
+    "expect_followed": []
+  },
+  {
+    "name": "a_custom_family_chosen_on_the_line_follows",
+    "about": "A syrup_base choice was made on the line (families carries it): the extra base follows it.",
+    "lines": [
+      {
+        "ingredient_id": "vanilla",
+        "name": "Vanilla base",
+        "unit": "ml",
+        "quantity": 10.0,
+        "category": "syrup_base",
+        "additive": false
+      },
+      {
+        "ingredient_id": "caramel",
+        "name": "Caramel base",
+        "unit": "ml",
+        "quantity": 5.0,
+        "category": "syrup_base",
+        "additive": true
+      }
+    ],
+    "families": [
+      "milk",
+      "coffee_bean",
+      "syrup_base"
+    ],
+    "expect_lines": [
+      {
+        "ingredient_id": "vanilla",
+        "name": "Vanilla base",
+        "unit": "ml",
+        "quantity": 10.0,
+        "category": "syrup_base",
+        "additive": false
+      },
+      {
+        "ingredient_id": "vanilla",
+        "name": "Vanilla base",
+        "unit": "ml",
+        "quantity": 5.0,
+        "category": "syrup_base",
+        "additive": true
+      }
+    ],
+    "expect_followed": [
+      {
+        "kind": "followed",
+        "line": 1,
+        "from": "Caramel base",
+        "to": "Vanilla base"
+      }
+    ]
+  },
+  {
+    "name": "general_lines_never_follow",
+    "about": "A general add-on (a cup, a syrup with no family) is never touched, even beside a swap.",
+    "lines": [
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000027",
+        "name": "Decaf bean",
+        "unit": "g",
+        "quantity": 18.0,
+        "category": "coffee_bean",
+        "additive": false
+      },
+      {
+        "ingredient_id": "cup",
+        "name": "Cup",
+        "unit": "pcs",
+        "quantity": 1.0,
+        "category": "general",
+        "additive": true
+      }
+    ],
+    "families": [
+      "milk",
+      "coffee_bean"
+    ],
+    "expect_lines": [
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000027",
+        "name": "Decaf bean",
+        "unit": "g",
+        "quantity": 18.0,
+        "category": "coffee_bean",
+        "additive": false
+      },
+      {
+        "ingredient_id": "cup",
+        "name": "Cup",
+        "unit": "pcs",
+        "quantity": 1.0,
+        "category": "general",
+        "additive": true
+      }
+    ],
+    "expect_followed": []
+  },
+  {
+    "name": "no_drink_line_of_the_family_changes_nothing",
+    "about": "Extra milk on a drink with no milk line: nothing to follow.",
+    "lines": [
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000026",
+        "name": "Espresso bean",
+        "unit": "g",
+        "quantity": 18.0,
+        "category": "coffee_bean",
+        "additive": false
+      },
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000020",
+        "name": "Whole milk",
+        "unit": "ml",
+        "quantity": 50.0,
+        "category": "milk",
+        "additive": true
+      }
+    ],
+    "families": [
+      "milk",
+      "coffee_bean"
+    ],
+    "expect_lines": [
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000026",
+        "name": "Espresso bean",
+        "unit": "g",
+        "quantity": 18.0,
+        "category": "coffee_bean",
+        "additive": false
+      },
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000020",
+        "name": "Whole milk",
+        "unit": "ml",
+        "quantity": 50.0,
+        "category": "milk",
+        "additive": true
+      }
+    ],
+    "expect_followed": []
+  },
+  {
+    "name": "matching_is_by_ingredient_id_only",
+    "about": "The server matches by id: a shot with no id follows the chosen bean and takes its id; an additive line whose id equals the chosen line's is left even with another name.",
+    "lines": [
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000027",
+        "name": "Decaf bean",
+        "unit": "g",
+        "quantity": 18.0,
+        "category": "coffee_bean",
+        "additive": false
+      },
+      {
+        "ingredient_id": null,
+        "name": "Espresso bean",
+        "unit": "g",
+        "quantity": 9.0,
+        "category": "coffee_bean",
+        "additive": true
+      },
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000027",
+        "name": "Decaf (old name)",
+        "unit": "g",
+        "quantity": 9.0,
+        "category": "coffee_bean",
+        "additive": true
+      }
+    ],
+    "families": [
+      "milk",
+      "coffee_bean"
+    ],
+    "expect_lines": [
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000027",
+        "name": "Decaf bean",
+        "unit": "g",
+        "quantity": 18.0,
+        "category": "coffee_bean",
+        "additive": false
+      },
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000027",
+        "name": "Decaf bean",
+        "unit": "g",
+        "quantity": 9.0,
+        "category": "coffee_bean",
+        "additive": true
+      },
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000027",
+        "name": "Decaf (old name)",
+        "unit": "g",
+        "quantity": 9.0,
+        "category": "coffee_bean",
+        "additive": true
+      }
+    ],
+    "expect_followed": [
+      {
+        "kind": "followed",
+        "line": 1,
+        "from": "Espresso bean",
+        "to": "Decaf bean"
+      }
+    ]
+  },
+  {
+    "name": "the_first_drink_line_of_the_family_is_the_choice",
+    "about": "Two recipe lines of one family: the first (in the caller's order) is the drink's choice.",
+    "lines": [
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000021",
+        "name": "Oat milk",
+        "unit": "ml",
+        "quantity": 150.0,
+        "category": "milk",
+        "additive": false
+      },
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000020",
+        "name": "Whole milk",
+        "unit": "ml",
+        "quantity": 50.0,
+        "category": "milk",
+        "additive": false
+      },
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000020",
+        "name": "Whole milk",
+        "unit": "ml",
+        "quantity": 30.0,
+        "category": "milk",
+        "additive": true
+      }
+    ],
+    "families": [
+      "milk",
+      "coffee_bean"
+    ],
+    "expect_lines": [
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000021",
+        "name": "Oat milk",
+        "unit": "ml",
+        "quantity": 150.0,
+        "category": "milk",
+        "additive": false
+      },
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000020",
+        "name": "Whole milk",
+        "unit": "ml",
+        "quantity": 50.0,
+        "category": "milk",
+        "additive": false
+      },
+      {
+        "ingredient_id": "c0de0000-0000-4000-8000-000000000021",
+        "name": "Oat milk",
+        "unit": "ml",
+        "quantity": 30.0,
+        "category": "milk",
+        "additive": true
+      }
+    ],
+    "expect_followed": [
+      {
+        "kind": "followed",
+        "line": 2,
+        "from": "Whole milk",
+        "to": "Oat milk"
+      }
+    ]
+  }
+]

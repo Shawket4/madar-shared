@@ -23,6 +23,8 @@
 //!   ([`swap_target`], [`merge_sized_lines`]).
 //! - [`staff`]: the staff comp's input built from the same view (the sizes
 //!   and required groups a staff drink's base is judged on).
+//! - [`follow`] (v0.5.2): an additive option's line follows the drink's own
+//!   choice — an extra shot on a decaf latte is a decaf shot ([`follow::follow_the_drink`]).
 //!
 //! - [`combo`] (v0.5): a combo line — the slots, the picks, the split of the
 //!   combo's price over its parts ([`combo::quote`]), availability on a
@@ -40,6 +42,7 @@
 pub mod combo;
 pub mod deal;
 pub mod feed;
+pub mod follow;
 pub mod price;
 pub mod sale_window;
 pub mod staff;
