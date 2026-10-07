@@ -3,6 +3,13 @@
 Every tag both consumers pin. A release that changes a result on either side
 says so here; everything else is a move.
 
+## v0.5.3 — POS metrics vectors catch up with the feed (2026-10-07)
+
+**What changes on a till or the server: nothing.** `pos_metrics_vectors.json` is regenerated from
+MadarRust: since MadarRust v1.8.0 every sold line in the `order` projection carries
+`combo_slot_name_translations` (the combo slot's Arabic name), and the committed rows predated it, so the
+server's `pos_metrics_vectors` test failed. The expected figures are unchanged.
+
 ## v0.5.2 — an add-on line follows the drink's choice (2026-10-05)
 
 **What changes on a till or the server: nothing the server computes.** A move: the "follow the drink's
