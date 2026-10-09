@@ -1,0 +1,122 @@
+[
+  {
+    "date": "2026-09-12",
+    "weekday": "Sat",
+    "week_start": "2026-09-12"
+  },
+  {
+    "date": "2026-09-13",
+    "weekday": "Sun",
+    "week_start": "2026-09-12"
+  },
+  {
+    "date": "2026-09-14",
+    "weekday": "Mon",
+    "week_start": "2026-09-12"
+  },
+  {
+    "date": "2026-09-15",
+    "weekday": "Tue",
+    "week_start": "2026-09-12"
+  },
+  {
+    "date": "2026-09-16",
+    "weekday": "Wed",
+    "week_start": "2026-09-12"
+  },
+  {
+    "date": "2026-09-17",
+    "weekday": "Thu",
+    "week_start": "2026-09-12"
+  },
+  {
+    "date": "2026-09-18",
+    "weekday": "Fri",
+    "week_start": "2026-09-12"
+  },
+  {
+    "date": "2026-09-30",
+    "weekday": "Wed",
+    "week_start": "2026-09-26"
+  },
+  {
+    "date": "2026-10-01",
+    "weekday": "Thu",
+    "week_start": "2026-09-26"
+  },
+  {
+    "date": "2026-10-03",
+    "weekday": "Sat",
+    "week_start": "2026-10-03"
+  },
+  {
+    "date": "2025-12-31",
+    "weekday": "Wed",
+    "week_start": "2025-12-27"
+  },
+  {
+    "date": "2026-01-01",
+    "weekday": "Thu",
+    "week_start": "2025-12-27"
+  },
+  {
+    "date": "2026-12-31",
+    "weekday": "Thu",
+    "week_start": "2026-12-26"
+  },
+  {
+    "date": "2027-01-01",
+    "weekday": "Fri",
+    "week_start": "2026-12-26"
+  },
+  {
+    "date": "2027-01-02",
+    "weekday": "Sat",
+    "week_start": "2027-01-02"
+  },
+  {
+    "date": "2028-01-01",
+    "weekday": "Sat",
+    "week_start": "2028-01-01"
+  },
+  {
+    "date": "2024-02-29",
+    "weekday": "Thu",
+    "week_start": "2024-02-24"
+  },
+  {
+    "date": "2024-03-01",
+    "weekday": "Fri",
+    "week_start": "2024-02-24"
+  },
+  {
+    "date": "2028-02-29",
+    "weekday": "Tue",
+    "week_start": "2028-02-26"
+  },
+  {
+    "date": "2028-03-03",
+    "weekday": "Fri",
+    "week_start": "2028-02-26"
+  },
+  {
+    "date": "2028-03-04",
+    "weekday": "Sat",
+    "week_start": "2028-03-04"
+  },
+  {
+    "date": "2000-02-29",
+    "weekday": "Tue",
+    "week_start": "2000-02-26"
+  },
+  {
+    "date": "2100-02-28",
+    "weekday": "Sun",
+    "week_start": "2100-02-27"
+  },
+  {
+    "date": "2100-03-01",
+    "weekday": "Mon",
+    "week_start": "2100-02-27"
+  }
+]

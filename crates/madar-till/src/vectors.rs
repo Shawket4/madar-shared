@@ -11,3 +11,5 @@ pub const TILL_REPORT: &str = include_str!("../vectors/till_report_vectors.json"
 pub const TILL_EDGE: &str = include_str!("../vectors/till_edge_vectors.json");
 /// `carryover::vectors`: the drawer's last declared close.
 pub const CARRYOVER: &str = include_str!("../vectors/carryover_vectors.json");
+/// `reconcile::vectors`: the live close check (`plan_lines`) and its codes.
+pub const RECONCILE: &str = include_str!("../vectors/reconcile_vectors.json");
