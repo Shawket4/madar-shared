@@ -1,0 +1,691 @@
+{
+  "steps": [
+    {
+      "status": "requested",
+      "action": "edit",
+      "side": "destination",
+      "cap": "inventory.transfers.create",
+      "next": "requested"
+    },
+    {
+      "status": "requested",
+      "action": "accept",
+      "side": "source",
+      "cap": "inventory.transfers.create",
+      "next": "draft"
+    },
+    {
+      "status": "requested",
+      "action": "decline",
+      "side": "source",
+      "cap": "inventory.transfers.create",
+      "next": "cancelled"
+    },
+    {
+      "status": "requested",
+      "action": "dispatch",
+      "side": null,
+      "cap": null,
+      "next": null
+    },
+    {
+      "status": "requested",
+      "action": "receive",
+      "side": null,
+      "cap": null,
+      "next": null
+    },
+    {
+      "status": "requested",
+      "action": "cancel",
+      "side": "destination",
+      "cap": "inventory.transfers.create",
+      "next": "cancelled"
+    },
+    {
+      "status": "draft",
+      "action": "edit",
+      "side": "source",
+      "cap": "inventory.transfers.create",
+      "next": "draft"
+    },
+    {
+      "status": "draft",
+      "action": "accept",
+      "side": null,
+      "cap": null,
+      "next": null
+    },
+    {
+      "status": "draft",
+      "action": "decline",
+      "side": null,
+      "cap": null,
+      "next": null
+    },
+    {
+      "status": "draft",
+      "action": "dispatch",
+      "side": "source",
+      "cap": "inventory.transfers.create",
+      "next": "dispatched"
+    },
+    {
+      "status": "draft",
+      "action": "receive",
+      "side": null,
+      "cap": null,
+      "next": null
+    },
+    {
+      "status": "draft",
+      "action": "cancel",
+      "side": "source",
+      "cap": "inventory.transfers.create",
+      "next": "cancelled"
+    },
+    {
+      "status": "dispatched",
+      "action": "edit",
+      "side": null,
+      "cap": null,
+      "next": null
+    },
+    {
+      "status": "dispatched",
+      "action": "accept",
+      "side": null,
+      "cap": null,
+      "next": null
+    },
+    {
+      "status": "dispatched",
+      "action": "decline",
+      "side": null,
+      "cap": null,
+      "next": null
+    },
+    {
+      "status": "dispatched",
+      "action": "dispatch",
+      "side": null,
+      "cap": null,
+      "next": null
+    },
+    {
+      "status": "dispatched",
+      "action": "receive",
+      "side": "destination",
+      "cap": "inventory.transfers.edit",
+      "next": "received"
+    },
+    {
+      "status": "dispatched",
+      "action": "cancel",
+      "side": "source",
+      "cap": "inventory.transfers.delete",
+      "next": "cancelled"
+    },
+    {
+      "status": "received",
+      "action": "edit",
+      "side": null,
+      "cap": null,
+      "next": null
+    },
+    {
+      "status": "received",
+      "action": "accept",
+      "side": null,
+      "cap": null,
+      "next": null
+    },
+    {
+      "status": "received",
+      "action": "decline",
+      "side": null,
+      "cap": null,
+      "next": null
+    },
+    {
+      "status": "received",
+      "action": "dispatch",
+      "side": null,
+      "cap": null,
+      "next": null
+    },
+    {
+      "status": "received",
+      "action": "receive",
+      "side": null,
+      "cap": null,
+      "next": null
+    },
+    {
+      "status": "received",
+      "action": "cancel",
+      "side": null,
+      "cap": null,
+      "next": null
+    },
+    {
+      "status": "cancelled",
+      "action": "edit",
+      "side": null,
+      "cap": null,
+      "next": null
+    },
+    {
+      "status": "cancelled",
+      "action": "accept",
+      "side": null,
+      "cap": null,
+      "next": null
+    },
+    {
+      "status": "cancelled",
+      "action": "decline",
+      "side": null,
+      "cap": null,
+      "next": null
+    },
+    {
+      "status": "cancelled",
+      "action": "dispatch",
+      "side": null,
+      "cap": null,
+      "next": null
+    },
+    {
+      "status": "cancelled",
+      "action": "receive",
+      "side": null,
+      "cap": null,
+      "next": null
+    },
+    {
+      "status": "cancelled",
+      "action": "cancel",
+      "side": null,
+      "cap": null,
+      "next": null
+    }
+  ],
+  "receives": [
+    {
+      "qty_sent": 10.0,
+      "qty_received": 10.0,
+      "note": null,
+      "ok": {
+        "arrival": "exact",
+        "difference": 0.0
+      },
+      "refused": null
+    },
+    {
+      "qty_sent": 10.0,
+      "qty_received": 10.0,
+      "note": "  ",
+      "ok": {
+        "arrival": "exact",
+        "difference": 0.0
+      },
+      "refused": null
+    },
+    {
+      "qty_sent": 10.0,
+      "qty_received": 10.0,
+      "note": "miscounted at dispatch",
+      "ok": {
+        "arrival": "exact",
+        "difference": 0.0
+      },
+      "refused": null
+    },
+    {
+      "qty_sent": 10.0,
+      "qty_received": 7.25,
+      "note": null,
+      "ok": {
+        "arrival": "short",
+        "difference": -2.75
+      },
+      "refused": null
+    },
+    {
+      "qty_sent": 10.0,
+      "qty_received": 7.25,
+      "note": "  ",
+      "ok": {
+        "arrival": "short",
+        "difference": -2.75
+      },
+      "refused": null
+    },
+    {
+      "qty_sent": 10.0,
+      "qty_received": 7.25,
+      "note": "miscounted at dispatch",
+      "ok": {
+        "arrival": "short",
+        "difference": -2.75
+      },
+      "refused": null
+    },
+    {
+      "qty_sent": 10.0,
+      "qty_received": 0.0,
+      "note": null,
+      "ok": {
+        "arrival": "short",
+        "difference": -10.0
+      },
+      "refused": null
+    },
+    {
+      "qty_sent": 10.0,
+      "qty_received": 0.0,
+      "note": "  ",
+      "ok": {
+        "arrival": "short",
+        "difference": -10.0
+      },
+      "refused": null
+    },
+    {
+      "qty_sent": 10.0,
+      "qty_received": 0.0,
+      "note": "miscounted at dispatch",
+      "ok": {
+        "arrival": "short",
+        "difference": -10.0
+      },
+      "refused": null
+    },
+    {
+      "qty_sent": 10.0,
+      "qty_received": 12.0,
+      "note": null,
+      "ok": null,
+      "refused": "over_needs_note"
+    },
+    {
+      "qty_sent": 10.0,
+      "qty_received": 12.0,
+      "note": "  ",
+      "ok": null,
+      "refused": "over_needs_note"
+    },
+    {
+      "qty_sent": 10.0,
+      "qty_received": 12.0,
+      "note": "miscounted at dispatch",
+      "ok": {
+        "arrival": "over",
+        "difference": 2.0
+      },
+      "refused": null
+    },
+    {
+      "qty_sent": 0.3,
+      "qty_received": 0.30000000000000004,
+      "note": null,
+      "ok": {
+        "arrival": "exact",
+        "difference": 0.0
+      },
+      "refused": null
+    },
+    {
+      "qty_sent": 0.3,
+      "qty_received": 0.30000000000000004,
+      "note": "  ",
+      "ok": {
+        "arrival": "exact",
+        "difference": 0.0
+      },
+      "refused": null
+    },
+    {
+      "qty_sent": 0.3,
+      "qty_received": 0.30000000000000004,
+      "note": "miscounted at dispatch",
+      "ok": {
+        "arrival": "exact",
+        "difference": 0.0
+      },
+      "refused": null
+    },
+    {
+      "qty_sent": 1.0,
+      "qty_received": 1.0004,
+      "note": null,
+      "ok": {
+        "arrival": "exact",
+        "difference": 0.0
+      },
+      "refused": null
+    },
+    {
+      "qty_sent": 1.0,
+      "qty_received": 1.0004,
+      "note": "  ",
+      "ok": {
+        "arrival": "exact",
+        "difference": 0.0
+      },
+      "refused": null
+    },
+    {
+      "qty_sent": 1.0,
+      "qty_received": 1.0004,
+      "note": "miscounted at dispatch",
+      "ok": {
+        "arrival": "exact",
+        "difference": 0.0
+      },
+      "refused": null
+    },
+    {
+      "qty_sent": 1.0,
+      "qty_received": 1.0006,
+      "note": null,
+      "ok": null,
+      "refused": "over_needs_note"
+    },
+    {
+      "qty_sent": 1.0,
+      "qty_received": 1.0006,
+      "note": "  ",
+      "ok": null,
+      "refused": "over_needs_note"
+    },
+    {
+      "qty_sent": 1.0,
+      "qty_received": 1.0006,
+      "note": "miscounted at dispatch",
+      "ok": {
+        "arrival": "over",
+        "difference": 0.001
+      },
+      "refused": null
+    },
+    {
+      "qty_sent": 1.0,
+      "qty_received": -0.001,
+      "note": null,
+      "ok": null,
+      "refused": "negative"
+    },
+    {
+      "qty_sent": 1.0,
+      "qty_received": -0.001,
+      "note": "  ",
+      "ok": null,
+      "refused": "negative"
+    },
+    {
+      "qty_sent": 1.0,
+      "qty_received": -0.001,
+      "note": "miscounted at dispatch",
+      "ok": null,
+      "refused": "negative"
+    },
+    {
+      "qty_sent": 2.5,
+      "qty_received": 2.4995,
+      "note": null,
+      "ok": {
+        "arrival": "exact",
+        "difference": 0.0
+      },
+      "refused": null
+    },
+    {
+      "qty_sent": 2.5,
+      "qty_received": 2.4995,
+      "note": "  ",
+      "ok": {
+        "arrival": "exact",
+        "difference": 0.0
+      },
+      "refused": null
+    },
+    {
+      "qty_sent": 2.5,
+      "qty_received": 2.4995,
+      "note": "miscounted at dispatch",
+      "ok": {
+        "arrival": "exact",
+        "difference": 0.0
+      },
+      "refused": null
+    }
+  ],
+  "replenish": [
+    {
+      "input": {
+        "on_hand": 2.0,
+        "par_min": 5.0,
+        "par_max": 20.0,
+        "in_transit": 0.0,
+        "open_inbound": 0.0,
+        "warehouse_on_hand": 100.0,
+        "warehouse_drafted_out": 0.0
+      },
+      "out": {
+        "need": 18.0,
+        "available": 100.0,
+        "suggested": 18.0
+      }
+    },
+    {
+      "input": {
+        "on_hand": 2.0,
+        "par_min": 5.0,
+        "par_max": null,
+        "in_transit": 0.0,
+        "open_inbound": 0.0,
+        "warehouse_on_hand": 100.0,
+        "warehouse_drafted_out": 0.0
+      },
+      "out": {
+        "need": 3.0,
+        "available": 100.0,
+        "suggested": 3.0
+      }
+    },
+    {
+      "input": {
+        "on_hand": 2.0,
+        "par_min": 5.0,
+        "par_max": 3.0,
+        "in_transit": 0.0,
+        "open_inbound": 0.0,
+        "warehouse_on_hand": 100.0,
+        "warehouse_drafted_out": 0.0
+      },
+      "out": {
+        "need": 3.0,
+        "available": 100.0,
+        "suggested": 3.0
+      }
+    },
+    {
+      "input": {
+        "on_hand": 5.0,
+        "par_min": 5.0,
+        "par_max": 20.0,
+        "in_transit": 0.0,
+        "open_inbound": 0.0,
+        "warehouse_on_hand": 100.0,
+        "warehouse_drafted_out": 0.0
+      },
+      "out": {
+        "need": 15.0,
+        "available": 100.0,
+        "suggested": 15.0
+      }
+    },
+    {
+      "input": {
+        "on_hand": 5.001,
+        "par_min": 5.0,
+        "par_max": 20.0,
+        "in_transit": 0.0,
+        "open_inbound": 0.0,
+        "warehouse_on_hand": 100.0,
+        "warehouse_drafted_out": 0.0
+      },
+      "out": {
+        "need": 0.0,
+        "available": 100.0,
+        "suggested": 0.0
+      }
+    },
+    {
+      "input": {
+        "on_hand": -4.5,
+        "par_min": 5.0,
+        "par_max": 20.0,
+        "in_transit": 0.0,
+        "open_inbound": 0.0,
+        "warehouse_on_hand": 100.0,
+        "warehouse_drafted_out": 0.0
+      },
+      "out": {
+        "need": 24.5,
+        "available": 100.0,
+        "suggested": 24.5
+      }
+    },
+    {
+      "input": {
+        "on_hand": -4.5,
+        "par_min": 0.0,
+        "par_max": 20.0,
+        "in_transit": 0.0,
+        "open_inbound": 0.0,
+        "warehouse_on_hand": 100.0,
+        "warehouse_drafted_out": 0.0
+      },
+      "out": {
+        "need": 0.0,
+        "available": 100.0,
+        "suggested": 0.0
+      }
+    },
+    {
+      "input": {
+        "on_hand": 2.0,
+        "par_min": 5.0,
+        "par_max": 20.0,
+        "in_transit": 10.0,
+        "open_inbound": 0.0,
+        "warehouse_on_hand": 100.0,
+        "warehouse_drafted_out": 0.0
+      },
+      "out": {
+        "need": 8.0,
+        "available": 100.0,
+        "suggested": 8.0
+      }
+    },
+    {
+      "input": {
+        "on_hand": 2.0,
+        "par_min": 5.0,
+        "par_max": 20.0,
+        "in_transit": 10.0,
+        "open_inbound": 9.0,
+        "warehouse_on_hand": 100.0,
+        "warehouse_drafted_out": 0.0
+      },
+      "out": {
+        "need": 0.0,
+        "available": 100.0,
+        "suggested": 0.0
+      }
+    },
+    {
+      "input": {
+        "on_hand": 2.0,
+        "par_min": 5.0,
+        "par_max": 20.0,
+        "in_transit": 0.0,
+        "open_inbound": 0.0,
+        "warehouse_on_hand": 7.5,
+        "warehouse_drafted_out": 0.0
+      },
+      "out": {
+        "need": 18.0,
+        "available": 7.5,
+        "suggested": 7.5
+      }
+    },
+    {
+      "input": {
+        "on_hand": 2.0,
+        "par_min": 5.0,
+        "par_max": 20.0,
+        "in_transit": 0.0,
+        "open_inbound": 0.0,
+        "warehouse_on_hand": 100.0,
+        "warehouse_drafted_out": 95.0
+      },
+      "out": {
+        "need": 18.0,
+        "available": 5.0,
+        "suggested": 5.0
+      }
+    },
+    {
+      "input": {
+        "on_hand": 2.0,
+        "par_min": 5.0,
+        "par_max": 20.0,
+        "in_transit": 0.0,
+        "open_inbound": 0.0,
+        "warehouse_on_hand": 100.0,
+        "warehouse_drafted_out": 120.0
+      },
+      "out": {
+        "need": 18.0,
+        "available": 0.0,
+        "suggested": 0.0
+      }
+    },
+    {
+      "input": {
+        "on_hand": 2.0,
+        "par_min": 5.0,
+        "par_max": 20.0,
+        "in_transit": 0.0,
+        "open_inbound": 0.0,
+        "warehouse_on_hand": -2.0,
+        "warehouse_drafted_out": 0.0
+      },
+      "out": {
+        "need": 18.0,
+        "available": 0.0,
+        "suggested": 0.0
+      }
+    },
+    {
+      "input": {
+        "on_hand": 0.30000000000000004,
+        "par_min": 0.3,
+        "par_max": 1.2,
+        "in_transit": 0.0,
+        "open_inbound": 0.0,
+        "warehouse_on_hand": 100.0,
+        "warehouse_drafted_out": 0.0
+      },
+      "out": {
+        "need": 0.9,
+        "available": 100.0,
+        "suggested": 0.9
+      }
+    }
+  ]
+}
