@@ -1,0 +1,933 @@
+[
+  {
+    "name": "matching: cash counted equal, card checked",
+    "totals": [
+      {
+        "method": "cash",
+        "payment_method_id": null,
+        "is_cash": true,
+        "system_total": 50000,
+        "order_count": 5
+      },
+      {
+        "method": "card",
+        "payment_method_id": null,
+        "is_cash": false,
+        "system_total": 30000,
+        "order_count": 2
+      }
+    ],
+    "closing_cash_declared": 50000,
+    "closing_cash_system": 50000,
+    "cash_note": null,
+    "inputs": [
+      {
+        "method": "card",
+        "status": "checked",
+        "declared_amount": null,
+        "note": null
+      }
+    ],
+    "expected": {
+      "Ok": [
+        {
+          "method": "cash",
+          "payment_method_id": null,
+          "is_cash": true,
+          "system_total": 50000,
+          "order_count": 5,
+          "status": "checked",
+          "declared_amount": 50000,
+          "note": null
+        },
+        {
+          "method": "card",
+          "payment_method_id": null,
+          "is_cash": false,
+          "system_total": 30000,
+          "order_count": 2,
+          "status": "checked",
+          "declared_amount": null,
+          "note": null
+        }
+      ]
+    }
+  },
+  {
+    "name": "cash short: the cash line disagrees and keeps its note",
+    "totals": [
+      {
+        "method": "cash",
+        "payment_method_id": null,
+        "is_cash": true,
+        "system_total": 50000,
+        "order_count": 5
+      },
+      {
+        "method": "card",
+        "payment_method_id": null,
+        "is_cash": false,
+        "system_total": 30000,
+        "order_count": 2
+      }
+    ],
+    "closing_cash_declared": 49500,
+    "closing_cash_system": 50000,
+    "cash_note": "  5 EGP short  ",
+    "inputs": [
+      {
+        "method": "card",
+        "status": "checked",
+        "declared_amount": null,
+        "note": null
+      }
+    ],
+    "expected": {
+      "Ok": [
+        {
+          "method": "cash",
+          "payment_method_id": null,
+          "is_cash": true,
+          "system_total": 50000,
+          "order_count": 5,
+          "status": "disagreed",
+          "declared_amount": 49500,
+          "note": "5 EGP short"
+        },
+        {
+          "method": "card",
+          "payment_method_id": null,
+          "is_cash": false,
+          "system_total": 30000,
+          "order_count": 2,
+          "status": "checked",
+          "declared_amount": null,
+          "note": null
+        }
+      ]
+    }
+  },
+  {
+    "name": "cash over without a note: the cash line is never refused",
+    "totals": [
+      {
+        "method": "cash",
+        "payment_method_id": null,
+        "is_cash": true,
+        "system_total": 50000,
+        "order_count": 5
+      },
+      {
+        "method": "card",
+        "payment_method_id": null,
+        "is_cash": false,
+        "system_total": 30000,
+        "order_count": 2
+      }
+    ],
+    "closing_cash_declared": 50700,
+    "closing_cash_system": 50000,
+    "cash_note": "   ",
+    "inputs": [
+      {
+        "method": "card",
+        "status": "checked",
+        "declared_amount": null,
+        "note": null
+      }
+    ],
+    "expected": {
+      "Ok": [
+        {
+          "method": "cash",
+          "payment_method_id": null,
+          "is_cash": true,
+          "system_total": 50000,
+          "order_count": 5,
+          "status": "disagreed",
+          "declared_amount": 50700,
+          "note": null
+        },
+        {
+          "method": "card",
+          "payment_method_id": null,
+          "is_cash": false,
+          "system_total": 30000,
+          "order_count": 2,
+          "status": "checked",
+          "declared_amount": null,
+          "note": null
+        }
+      ]
+    }
+  },
+  {
+    "name": "card short: disagreed with the amount seen and a note",
+    "totals": [
+      {
+        "method": "cash",
+        "payment_method_id": null,
+        "is_cash": true,
+        "system_total": 50000,
+        "order_count": 5
+      },
+      {
+        "method": "card",
+        "payment_method_id": null,
+        "is_cash": false,
+        "system_total": 30000,
+        "order_count": 2
+      }
+    ],
+    "closing_cash_declared": 50000,
+    "closing_cash_system": 50000,
+    "cash_note": null,
+    "inputs": [
+      {
+        "method": "card",
+        "status": "disagreed",
+        "declared_amount": 29000,
+        "note": "one slip missing"
+      }
+    ],
+    "expected": {
+      "Ok": [
+        {
+          "method": "cash",
+          "payment_method_id": null,
+          "is_cash": true,
+          "system_total": 50000,
+          "order_count": 5,
+          "status": "checked",
+          "declared_amount": 50000,
+          "note": null
+        },
+        {
+          "method": "card",
+          "payment_method_id": null,
+          "is_cash": false,
+          "system_total": 30000,
+          "order_count": 2,
+          "status": "disagreed",
+          "declared_amount": 29000,
+          "note": "one slip missing"
+        }
+      ]
+    }
+  },
+  {
+    "name": "card over: disagreed with the amount seen and a note",
+    "totals": [
+      {
+        "method": "cash",
+        "payment_method_id": null,
+        "is_cash": true,
+        "system_total": 50000,
+        "order_count": 5
+      },
+      {
+        "method": "card",
+        "payment_method_id": null,
+        "is_cash": false,
+        "system_total": 30000,
+        "order_count": 2
+      }
+    ],
+    "closing_cash_declared": 50000,
+    "closing_cash_system": 50000,
+    "cash_note": null,
+    "inputs": [
+      {
+        "method": "card",
+        "status": "disagreed",
+        "declared_amount": 31000,
+        "note": "double swipe"
+      }
+    ],
+    "expected": {
+      "Ok": [
+        {
+          "method": "cash",
+          "payment_method_id": null,
+          "is_cash": true,
+          "system_total": 50000,
+          "order_count": 5,
+          "status": "checked",
+          "declared_amount": 50000,
+          "note": null
+        },
+        {
+          "method": "card",
+          "payment_method_id": null,
+          "is_cash": false,
+          "system_total": 30000,
+          "order_count": 2,
+          "status": "disagreed",
+          "declared_amount": 31000,
+          "note": "double swipe"
+        }
+      ]
+    }
+  },
+  {
+    "name": "missing amount: RECONCILIATION_AMOUNT_REQUIRED",
+    "totals": [
+      {
+        "method": "cash",
+        "payment_method_id": null,
+        "is_cash": true,
+        "system_total": 50000,
+        "order_count": 5
+      },
+      {
+        "method": "card",
+        "payment_method_id": null,
+        "is_cash": false,
+        "system_total": 30000,
+        "order_count": 2
+      }
+    ],
+    "closing_cash_declared": 50000,
+    "closing_cash_system": 50000,
+    "cash_note": null,
+    "inputs": [
+      {
+        "method": "card",
+        "status": "disagreed",
+        "declared_amount": null,
+        "note": "terminal down"
+      }
+    ],
+    "expected": {
+      "Err": {
+        "code": "RECONCILIATION_AMOUNT_REQUIRED",
+        "method": "card"
+      }
+    }
+  },
+  {
+    "name": "missing note: RECONCILIATION_NOTE_REQUIRED",
+    "totals": [
+      {
+        "method": "cash",
+        "payment_method_id": null,
+        "is_cash": true,
+        "system_total": 50000,
+        "order_count": 5
+      },
+      {
+        "method": "card",
+        "payment_method_id": null,
+        "is_cash": false,
+        "system_total": 30000,
+        "order_count": 2
+      }
+    ],
+    "closing_cash_declared": 50000,
+    "closing_cash_system": 50000,
+    "cash_note": null,
+    "inputs": [
+      {
+        "method": "card",
+        "status": "disagreed",
+        "declared_amount": 29000,
+        "note": null
+      }
+    ],
+    "expected": {
+      "Err": {
+        "code": "RECONCILIATION_NOTE_REQUIRED",
+        "method": "card"
+      }
+    }
+  },
+  {
+    "name": "whitespace note is no note: RECONCILIATION_NOTE_REQUIRED",
+    "totals": [
+      {
+        "method": "cash",
+        "payment_method_id": null,
+        "is_cash": true,
+        "system_total": 50000,
+        "order_count": 5
+      },
+      {
+        "method": "card",
+        "payment_method_id": null,
+        "is_cash": false,
+        "system_total": 30000,
+        "order_count": 2
+      }
+    ],
+    "closing_cash_declared": 50000,
+    "closing_cash_system": 50000,
+    "cash_note": null,
+    "inputs": [
+      {
+        "method": "card",
+        "status": "disagreed",
+        "declared_amount": 29000,
+        "note": " \t\n "
+      }
+    ],
+    "expected": {
+      "Err": {
+        "code": "RECONCILIATION_NOTE_REQUIRED",
+        "method": "card"
+      }
+    }
+  },
+  {
+    "name": "missing both: the amount is checked first",
+    "totals": [
+      {
+        "method": "cash",
+        "payment_method_id": null,
+        "is_cash": true,
+        "system_total": 50000,
+        "order_count": 5
+      },
+      {
+        "method": "card",
+        "payment_method_id": null,
+        "is_cash": false,
+        "system_total": 30000,
+        "order_count": 2
+      }
+    ],
+    "closing_cash_declared": 50000,
+    "closing_cash_system": 50000,
+    "cash_note": null,
+    "inputs": [
+      {
+        "method": "card",
+        "status": "disagreed",
+        "declared_amount": null,
+        "note": null
+      }
+    ],
+    "expected": {
+      "Err": {
+        "code": "RECONCILIATION_AMOUNT_REQUIRED",
+        "method": "card"
+      }
+    }
+  },
+  {
+    "name": "the note is stored trimmed",
+    "totals": [
+      {
+        "method": "cash",
+        "payment_method_id": null,
+        "is_cash": true,
+        "system_total": 50000,
+        "order_count": 5
+      },
+      {
+        "method": "card",
+        "payment_method_id": null,
+        "is_cash": false,
+        "system_total": 30000,
+        "order_count": 2
+      }
+    ],
+    "closing_cash_declared": 50000,
+    "closing_cash_system": 50000,
+    "cash_note": null,
+    "inputs": [
+      {
+        "method": "card",
+        "status": "disagreed",
+        "declared_amount": 29000,
+        "note": "  terminal down  "
+      }
+    ],
+    "expected": {
+      "Ok": [
+        {
+          "method": "cash",
+          "payment_method_id": null,
+          "is_cash": true,
+          "system_total": 50000,
+          "order_count": 5,
+          "status": "checked",
+          "declared_amount": 50000,
+          "note": null
+        },
+        {
+          "method": "card",
+          "payment_method_id": null,
+          "is_cash": false,
+          "system_total": 30000,
+          "order_count": 2,
+          "status": "disagreed",
+          "declared_amount": 29000,
+          "note": "terminal down"
+        }
+      ]
+    }
+  },
+  {
+    "name": "an amount of 0 is an amount",
+    "totals": [
+      {
+        "method": "cash",
+        "payment_method_id": null,
+        "is_cash": true,
+        "system_total": 50000,
+        "order_count": 5
+      },
+      {
+        "method": "card",
+        "payment_method_id": null,
+        "is_cash": false,
+        "system_total": 30000,
+        "order_count": 2
+      }
+    ],
+    "closing_cash_declared": 50000,
+    "closing_cash_system": 50000,
+    "cash_note": null,
+    "inputs": [
+      {
+        "method": "card",
+        "status": "disagreed",
+        "declared_amount": 0,
+        "note": "terminal never settled"
+      }
+    ],
+    "expected": {
+      "Ok": [
+        {
+          "method": "cash",
+          "payment_method_id": null,
+          "is_cash": true,
+          "system_total": 50000,
+          "order_count": 5,
+          "status": "checked",
+          "declared_amount": 50000,
+          "note": null
+        },
+        {
+          "method": "card",
+          "payment_method_id": null,
+          "is_cash": false,
+          "system_total": 30000,
+          "order_count": 2,
+          "status": "disagreed",
+          "declared_amount": 0,
+          "note": "terminal never settled"
+        }
+      ]
+    }
+  },
+  {
+    "name": "disagreed at the system's own amount stays disagreed",
+    "totals": [
+      {
+        "method": "cash",
+        "payment_method_id": null,
+        "is_cash": true,
+        "system_total": 50000,
+        "order_count": 5
+      },
+      {
+        "method": "card",
+        "payment_method_id": null,
+        "is_cash": false,
+        "system_total": 30000,
+        "order_count": 2
+      }
+    ],
+    "closing_cash_declared": 50000,
+    "closing_cash_system": 50000,
+    "cash_note": null,
+    "inputs": [
+      {
+        "method": "card",
+        "status": "disagreed",
+        "declared_amount": 30000,
+        "note": "checked twice"
+      }
+    ],
+    "expected": {
+      "Ok": [
+        {
+          "method": "cash",
+          "payment_method_id": null,
+          "is_cash": true,
+          "system_total": 50000,
+          "order_count": 5,
+          "status": "checked",
+          "declared_amount": 50000,
+          "note": null
+        },
+        {
+          "method": "card",
+          "payment_method_id": null,
+          "is_cash": false,
+          "system_total": 30000,
+          "order_count": 2,
+          "status": "disagreed",
+          "declared_amount": 30000,
+          "note": "checked twice"
+        }
+      ]
+    }
+  },
+  {
+    "name": "no input for a method: unreviewed",
+    "totals": [
+      {
+        "method": "cash",
+        "payment_method_id": null,
+        "is_cash": true,
+        "system_total": 50000,
+        "order_count": 5
+      },
+      {
+        "method": "card",
+        "payment_method_id": null,
+        "is_cash": false,
+        "system_total": 30000,
+        "order_count": 2
+      }
+    ],
+    "closing_cash_declared": 50000,
+    "closing_cash_system": 50000,
+    "cash_note": null,
+    "inputs": [],
+    "expected": {
+      "Ok": [
+        {
+          "method": "cash",
+          "payment_method_id": null,
+          "is_cash": true,
+          "system_total": 50000,
+          "order_count": 5,
+          "status": "checked",
+          "declared_amount": 50000,
+          "note": null
+        },
+        {
+          "method": "card",
+          "payment_method_id": null,
+          "is_cash": false,
+          "system_total": 30000,
+          "order_count": 2,
+          "status": "unreviewed",
+          "declared_amount": null,
+          "note": null
+        }
+      ]
+    }
+  },
+  {
+    "name": "status neither checked nor disagreed: refused with no code",
+    "totals": [
+      {
+        "method": "cash",
+        "payment_method_id": null,
+        "is_cash": true,
+        "system_total": 50000,
+        "order_count": 5
+      },
+      {
+        "method": "card",
+        "payment_method_id": null,
+        "is_cash": false,
+        "system_total": 30000,
+        "order_count": 2
+      }
+    ],
+    "closing_cash_declared": 50000,
+    "closing_cash_system": 50000,
+    "cash_note": null,
+    "inputs": [
+      {
+        "method": "card",
+        "status": "Checked",
+        "declared_amount": null,
+        "note": null
+      }
+    ],
+    "expected": {
+      "Err": {
+        "code": null,
+        "method": "card"
+      }
+    }
+  },
+  {
+    "name": "several methods: cash first, then the till's order, then methods not used on it",
+    "totals": [
+      {
+        "method": "Cash",
+        "payment_method_id": "pm-cash",
+        "is_cash": true,
+        "system_total": 80000,
+        "order_count": 9
+      },
+      {
+        "method": "card",
+        "payment_method_id": "pm-card",
+        "is_cash": false,
+        "system_total": 30000,
+        "order_count": 2
+      },
+      {
+        "method": "instapay",
+        "payment_method_id": "pm-instapay",
+        "is_cash": false,
+        "system_total": 12500,
+        "order_count": 1
+      },
+      {
+        "method": "talabat",
+        "payment_method_id": "pm-talabat",
+        "is_cash": false,
+        "system_total": 7000,
+        "order_count": 1
+      }
+    ],
+    "closing_cash_declared": 80000,
+    "closing_cash_system": 80000,
+    "cash_note": null,
+    "inputs": [
+      {
+        "method": "voucher",
+        "status": "disagreed",
+        "declared_amount": 1000,
+        "note": "paper voucher"
+      },
+      {
+        "method": " talabat ",
+        "status": "checked",
+        "declared_amount": null,
+        "note": "  "
+      },
+      {
+        "method": "instapay",
+        "status": "disagreed",
+        "declared_amount": 12000,
+        "note": "refund pending"
+      },
+      {
+        "method": "card",
+        "status": "checked",
+        "declared_amount": null,
+        "note": "ok"
+      },
+      {
+        "method": "",
+        "status": "disagreed",
+        "declared_amount": null,
+        "note": null
+      },
+      {
+        "method": "Cash",
+        "status": "disagreed",
+        "declared_amount": null,
+        "note": null
+      },
+      {
+        "method": "card",
+        "status": "disagreed",
+        "declared_amount": null,
+        "note": null
+      }
+    ],
+    "expected": {
+      "Ok": [
+        {
+          "method": "Cash",
+          "payment_method_id": "pm-cash",
+          "is_cash": true,
+          "system_total": 80000,
+          "order_count": 9,
+          "status": "checked",
+          "declared_amount": 80000,
+          "note": null
+        },
+        {
+          "method": "card",
+          "payment_method_id": "pm-card",
+          "is_cash": false,
+          "system_total": 30000,
+          "order_count": 2,
+          "status": "checked",
+          "declared_amount": null,
+          "note": "ok"
+        },
+        {
+          "method": "instapay",
+          "payment_method_id": "pm-instapay",
+          "is_cash": false,
+          "system_total": 12500,
+          "order_count": 1,
+          "status": "disagreed",
+          "declared_amount": 12000,
+          "note": "refund pending"
+        },
+        {
+          "method": "talabat",
+          "payment_method_id": "pm-talabat",
+          "is_cash": false,
+          "system_total": 7000,
+          "order_count": 1,
+          "status": "checked",
+          "declared_amount": null,
+          "note": null
+        },
+        {
+          "method": "voucher",
+          "payment_method_id": null,
+          "is_cash": false,
+          "system_total": 0,
+          "order_count": 0,
+          "status": "disagreed",
+          "declared_amount": 1000,
+          "note": "paper voucher"
+        }
+      ]
+    }
+  },
+  {
+    "name": "several methods: the first refusal in line order, not input order",
+    "totals": [
+      {
+        "method": "cash",
+        "payment_method_id": null,
+        "is_cash": true,
+        "system_total": 50000,
+        "order_count": 5
+      },
+      {
+        "method": "card",
+        "payment_method_id": null,
+        "is_cash": false,
+        "system_total": 30000,
+        "order_count": 2
+      },
+      {
+        "method": "instapay",
+        "payment_method_id": null,
+        "is_cash": false,
+        "system_total": 12500,
+        "order_count": 1
+      }
+    ],
+    "closing_cash_declared": 50000,
+    "closing_cash_system": 50000,
+    "cash_note": null,
+    "inputs": [
+      {
+        "method": "instapay",
+        "status": "disagreed",
+        "declared_amount": null,
+        "note": "missing"
+      },
+      {
+        "method": "card",
+        "status": "disagreed",
+        "declared_amount": 29000,
+        "note": null
+      }
+    ],
+    "expected": {
+      "Err": {
+        "code": "RECONCILIATION_NOTE_REQUIRED",
+        "method": "card"
+      }
+    }
+  },
+  {
+    "name": "a method not used on the till is refused like any other",
+    "totals": [
+      {
+        "method": "cash",
+        "payment_method_id": null,
+        "is_cash": true,
+        "system_total": 50000,
+        "order_count": 5
+      },
+      {
+        "method": "card",
+        "payment_method_id": null,
+        "is_cash": false,
+        "system_total": 30000,
+        "order_count": 2
+      }
+    ],
+    "closing_cash_declared": 50000,
+    "closing_cash_system": 50000,
+    "cash_note": null,
+    "inputs": [
+      {
+        "method": "card",
+        "status": "checked",
+        "declared_amount": null,
+        "note": null
+      },
+      {
+        "method": "voucher",
+        "status": "disagreed",
+        "declared_amount": 1000,
+        "note": null
+      }
+    ],
+    "expected": {
+      "Err": {
+        "code": "RECONCILIATION_NOTE_REQUIRED",
+        "method": "voucher"
+      }
+    }
+  },
+  {
+    "name": "no cash taken: the cash line is still first, named cash",
+    "totals": [
+      {
+        "method": "card",
+        "payment_method_id": null,
+        "is_cash": false,
+        "system_total": 30000,
+        "order_count": 2
+      }
+    ],
+    "closing_cash_declared": 0,
+    "closing_cash_system": 0,
+    "cash_note": null,
+    "inputs": [
+      {
+        "method": "card",
+        "status": "checked",
+        "declared_amount": null,
+        "note": null
+      }
+    ],
+    "expected": {
+      "Ok": [
+        {
+          "method": "cash",
+          "payment_method_id": null,
+          "is_cash": true,
+          "system_total": 0,
+          "order_count": 0,
+          "status": "checked",
+          "declared_amount": 0,
+          "note": null
+        },
+        {
+          "method": "card",
+          "payment_method_id": null,
+          "is_cash": false,
+          "system_total": 30000,
+          "order_count": 2,
+          "status": "checked",
+          "declared_amount": null,
+          "note": null
+        }
+      ]
+    }
+  }
+]

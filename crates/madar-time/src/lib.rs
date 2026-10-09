@@ -6,8 +6,10 @@
 //!
 //! - [`WEEK_START`] / [`week_start`]: weeks start on SATURDAY (owner rule,
 //!   2026-09-17). The dashboard (`lib/week.ts`) and the backend's SQL helper
-//!   (`tz::week_start_sql`) carry the same rule.
-//! - [`business_date_of`]: the branch-local date of an instant.
+//!   (`tz::week_start_sql`) carry the same rule. Pinned by
+//!   `vectors/week_vectors.json`.
+//! - [`business_date_of`]: the branch-local date of an instant. Pinned by
+//!   `vectors/business_date_vectors.json`.
 //! - [`yymmdd`] / [`yymmdd_in`]: the `YYMMDD` segment of order, ticket and
 //!   delivery refs.
 //! - [`day_bounds`]: a branch-local calendar day as UTC bounds, with the DST
