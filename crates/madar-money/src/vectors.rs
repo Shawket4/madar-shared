@@ -31,3 +31,5 @@ pub const DISCOUNT: &str = include_str!("../vectors/discount_vectors.json");
 pub const WASTE: &str = include_str!("../vectors/waste_vectors.json");
 /// `alloc`: the proportional split (hand-computed).
 pub const ALLOC: &str = include_str!("../vectors/alloc_vectors.json");
+/// `cost`: line cost, recipe total, margin, food-cost band (hand-computed).
+pub const COST: &str = include_str!("../vectors/cost_vectors.json");

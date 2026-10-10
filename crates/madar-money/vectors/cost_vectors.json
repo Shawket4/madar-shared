@@ -1,0 +1,56 @@
+{
+  "about": "madar_money::cost — hand-computed. Inputs are read as the decimal they print as (0.35 is 0.35, not 0.3499999…), multiplied exactly and rounded half away from zero to whole piastres (MadarRust costing::service::round_piastres). A recipe sums its known lines exactly and rounds once; a cost of 0 is known, a null cost makes it incomplete. margin = (price − cost) / price over the rounded cost, null unless price > 0. food_cost_band: good when cost×100 < 30×price, fair when ≤ 40×price, else poor; null unless price > 0.",
+  "line_cost": [
+    {"name": "espresso_18g_at_0_4", "qty": 18, "cost_per_unit": 0.4, "expected": 7},
+    {"name": "cost_zero_is_free", "qty": 18, "cost_per_unit": 0, "expected": 0},
+    {"name": "qty_zero", "qty": 0, "cost_per_unit": 125, "expected": 0},
+    {"name": "whole_piastres", "qty": 2, "cost_per_unit": 1250, "expected": 2500},
+    {"name": "half_piastre_rounds_away_from_zero_not_to_even", "qty": 1, "cost_per_unit": 2.5, "expected": 3},
+    {"name": "half_piastre_from_half_a_unit", "qty": 0.5, "cost_per_unit": 1, "expected": 1},
+    {"name": "negative_half_rounds_away_from_zero", "qty": -0.5, "cost_per_unit": 1, "expected": -1},
+    {"name": "decimal_not_binary_expansion", "qty": 0.35, "cost_per_unit": 10, "expected": 4, "why": "0.35 × 10 = 3.5 → 4; the binary 0.34999999999999997779 × 10 would give 3"},
+    {"name": "f64_product_would_round_down", "qty": 1.015, "cost_per_unit": 100, "expected": 102, "why": "1.015 × 100 = 101.5 → 102; in f64 it is 101.49999999999999 → 101"},
+    {"name": "milk_250ml_at_0_35", "qty": 250, "cost_per_unit": 0.35, "expected": 88},
+    {"name": "sub_piastre_rounds_to_zero", "qty": 1, "cost_per_unit": 0.4, "expected": 0},
+    {"name": "cheap_per_gram_large_qty", "qty": 12000, "cost_per_unit": 0.123456, "expected": 1481, "why": "1481.472"}
+  ],
+  "recipe_cost": [
+    {"name": "no_lines", "lines": [], "expected": {"piastres": 0, "complete": true}},
+    {"name": "d2_cost_zero_is_known", "lines": [{"qty": 1, "cost_per_unit": 0}], "expected": {"piastres": 0, "complete": true}},
+    {"name": "d2_a_free_line_among_costed_ones", "lines": [{"qty": 18, "cost_per_unit": 0}, {"qty": 200, "cost_per_unit": 0.35}], "expected": {"piastres": 70, "complete": true}},
+    {"name": "missing_cost_partial_sum", "lines": [{"qty": 18, "cost_per_unit": 0.4}, {"qty": 200, "cost_per_unit": null}], "expected": {"piastres": 7, "complete": false}, "why": "7.2 known; the milk is unknown"},
+    {"name": "nothing_costed", "lines": [{"qty": 18, "cost_per_unit": null}], "expected": {"piastres": 0, "complete": false}, "why": "the server's figure is null here"},
+    {"name": "d4_price_1000_lines_400_4", "lines": [{"qty": 18, "cost_per_unit": 12.8}, {"qty": 170, "cost_per_unit": 1}], "expected": {"piastres": 400, "complete": true}, "why": "230.4 + 170 = 400.4 → 400; margin over 1000 is then 0.6"},
+    {"name": "rounded_once_not_per_line", "lines": [{"qty": 1, "cost_per_unit": 0.4}, {"qty": 1, "cost_per_unit": 0.4}, {"qty": 1, "cost_per_unit": 0.4}], "expected": {"piastres": 1, "complete": true}, "why": "1.2 → 1; per line it would be 0 + 0 + 0"},
+    {"name": "halves_sum_before_rounding", "lines": [{"qty": 1, "cost_per_unit": 0.5}, {"qty": 1, "cost_per_unit": 0.5}], "expected": {"piastres": 1, "complete": true}, "why": "1.0; per line it would be 1 + 1"},
+    {"name": "half_piastre_total_rounds_away_from_zero", "lines": [{"qty": 1, "cost_per_unit": 0.25}, {"qty": 1, "cost_per_unit": 0.25}], "expected": {"piastres": 1, "complete": true}},
+    {"name": "latte", "lines": [{"qty": 18, "cost_per_unit": 0.4}, {"qty": 200, "cost_per_unit": 0.35}, {"qty": 1, "cost_per_unit": 150}], "expected": {"piastres": 227, "complete": true}, "why": "7.2 + 70 + 150 = 227.2"}
+  ],
+  "margin": [
+    {"name": "d4_server_basis", "price": 1000, "cost": 400, "expected": 0.6},
+    {"name": "d5_food_cost_35", "price": 1000, "cost": 350, "expected": 0.65},
+    {"name": "break_even", "price": 1000, "cost": 1000, "expected": 0.0},
+    {"name": "loss", "price": 1000, "cost": 1200, "expected": -0.2},
+    {"name": "free_cost", "price": 1000, "cost": 0, "expected": 1.0},
+    {"name": "two_thirds", "price": 3, "cost": 1, "expected": 0.6666666666666666},
+    {"name": "zero_price", "price": 0, "cost": 100, "expected": null},
+    {"name": "negative_price", "price": -500, "cost": 100, "expected": null}
+  ],
+  "food_cost_band": [
+    {"name": "cost_zero", "cost": 0, "price": 1000, "expected": "good"},
+    {"name": "just_under_30", "cost": 299, "price": 1000, "expected": "good"},
+    {"name": "fraction_under_30", "cost": 2999, "price": 10000, "expected": "good"},
+    {"name": "exactly_30_is_fair", "cost": 300, "price": 1000, "expected": "fair"},
+    {"name": "exactly_30_small_price", "cost": 3, "price": 10, "expected": "fair"},
+    {"name": "a_third", "cost": 1, "price": 3, "expected": "fair"},
+    {"name": "d5_food_cost_35", "cost": 350, "price": 1000, "expected": "fair"},
+    {"name": "d4_exactly_40_is_fair", "cost": 400, "price": 1000, "expected": "fair"},
+    {"name": "just_over_40", "cost": 401, "price": 1000, "expected": "poor"},
+    {"name": "fraction_over_40", "cost": 4001, "price": 10000, "expected": "poor"},
+    {"name": "cost_over_price", "cost": 1500, "price": 1000, "expected": "poor"},
+    {"name": "negative_cost", "cost": -5, "price": 1000, "expected": "good"},
+    {"name": "i64_max_needs_i128", "cost": 9223372036854775807, "price": 9223372036854775807, "expected": "poor"},
+    {"name": "zero_price", "cost": 100, "price": 0, "expected": null},
+    {"name": "negative_price", "cost": 100, "price": -1, "expected": null}
+  ]
+}
