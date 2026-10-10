@@ -1,0 +1,127 @@
+[
+  {
+    "name": "included_size_by_null",
+    "why": "no size is the included one: surcharge 0 + 0",
+    "choice": {
+      "menu_item_id": "latte",
+      "name": "Latte",
+      "base_price": 3000,
+      "included_size_label": "Small",
+      "surcharge": 0,
+      "available": true,
+      "sizes": [
+        { "label": "Small", "price": 3000, "extra": 0 },
+        { "label": "Medium", "price": 3500, "extra": 300 },
+        { "label": "Large", "price": 4200, "extra": 1200 }
+      ]
+    },
+    "size_label": null,
+    "expected": 0
+  },
+  {
+    "name": "included_size_by_name",
+    "why": "the included size's extra is 0: 0 + 0",
+    "choice": {
+      "surcharge": 0,
+      "sizes": [
+        { "label": "Small", "price": 3000, "extra": 0 },
+        { "label": "Medium", "price": 3500, "extra": 300 },
+        { "label": "Large", "price": 4200, "extra": 1200 }
+      ]
+    },
+    "size_label": "Small",
+    "expected": 0
+  },
+  {
+    "name": "bigger_size_at_the_owner_price",
+    "why": "Medium has an owner's size surcharge of 300 (not its 500 difference): 0 + 300",
+    "choice": {
+      "surcharge": 0,
+      "sizes": [
+        { "label": "Small", "price": 3000, "extra": 0 },
+        { "label": "Medium", "price": 3500, "extra": 300 },
+        { "label": "Large", "price": 4200, "extra": 1200 }
+      ]
+    },
+    "size_label": "Medium",
+    "expected": 300
+  },
+  {
+    "name": "bigger_size_at_the_difference",
+    "why": "Large has no owner row: 4200 − 3000 = 1200; 0 + 1200",
+    "choice": {
+      "surcharge": 0,
+      "sizes": [
+        { "label": "Small", "price": 3000, "extra": 0 },
+        { "label": "Medium", "price": 3500, "extra": 300 },
+        { "label": "Large", "price": 4200, "extra": 1200 }
+      ]
+    },
+    "size_label": "Large",
+    "expected": 1200
+  },
+  {
+    "name": "premium_choice_at_its_included_size",
+    "why": "the choice's own surcharge: 500 + 0",
+    "choice": {
+      "surcharge": 500,
+      "sizes": [
+        { "label": "Regular", "price": 2500, "extra": 0 },
+        { "label": "Large", "price": 3100, "extra": 600 }
+      ]
+    },
+    "size_label": null,
+    "expected": 500
+  },
+  {
+    "name": "premium_choice_bigger_size",
+    "why": "500 + 600",
+    "choice": {
+      "surcharge": 500,
+      "sizes": [
+        { "label": "Regular", "price": 2500, "extra": 0 },
+        { "label": "Large", "price": 3100, "extra": 600 }
+      ]
+    },
+    "size_label": "Large",
+    "expected": 1100
+  },
+  {
+    "name": "storefront_soft_serve_large",
+    "why": "the storefront's own case (utils.test.ts): 0 + 1000",
+    "choice": {
+      "surcharge": 0,
+      "sizes": [
+        { "label": "regular", "price": 1500, "extra": 0 },
+        { "label": "large", "price": 2500, "extra": 1000 }
+      ]
+    },
+    "size_label": "large",
+    "expected": 1000
+  },
+  {
+    "name": "a_size_the_menu_does_not_list",
+    "why": "adds nothing: 500 + 0 (the picker never sends one; the server would price it at the item's fallback price)",
+    "choice": {
+      "surcharge": 500,
+      "sizes": [
+        { "label": "Regular", "price": 2500, "extra": 0 },
+        { "label": "Large", "price": 3100, "extra": 600 }
+      ]
+    },
+    "size_label": "XL",
+    "expected": 500
+  },
+  {
+    "name": "greyed_choice_without_sizes",
+    "why": "an unavailable choice comes with no sizes: 200 + 0",
+    "choice": {
+      "menu_item_id": "mocha",
+      "surcharge": 200,
+      "available": false,
+      "sizes": []
+    },
+    "size_label": null,
+    "expected": 200
+  }
+]

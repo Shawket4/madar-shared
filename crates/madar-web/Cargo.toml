@@ -18,6 +18,8 @@ crate-type = ["cdylib", "rlib"]
 public = [
     "dep:madar-catalog",
     "dep:madar-money",
+    "madar-money/tsify",
+    "dep:madar-loyalty",
     "dep:madar-ids",
     "dep:rust_decimal",
     "dep:madar-time",
@@ -27,7 +29,6 @@ public = [
 # The web dashboard: every rule it computes. A superset of `public`.
 full = [
     "public",
-    "madar-money/tsify",
     "dep:madar-dawam",
     "dep:madar-units",
     "dep:madar-inventory",
@@ -44,6 +45,7 @@ tsify = { version = "0.5", default-features = false, features = ["js"] }
 madar-catalog = { path = "../madar-catalog", features = ["tsify"], optional = true }
 madar-money = { path = "../madar-money", optional = true }
 madar-ids = { path = "../madar-ids", optional = true }
+madar-loyalty = { path = "../madar-loyalty", optional = true }
 madar-time = { path = "../madar-time", optional = true }
 madar-dawam = { path = "../madar-dawam", optional = true }
 madar-units = { path = "../madar-units", optional = true }

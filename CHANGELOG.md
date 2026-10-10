@@ -3,7 +3,35 @@
 Every tag both consumers pin. A release that changes a result on either side
 says so here; everything else is a move.
 
-## Unreleased
+## v0.7.1 — the storefront cart and the loyalty card in the browser (unreleased)
+
+**What changes on a till or the server: nothing.** New functions, three new hand-computed vector
+files and new exports; every earlier function and vector file is byte-identical. The customer
+pages' last TypeScript copies of a rule can now call the Rust.
+
+- **madar-money `line`**: `CartLineShape` (`{ item: LineShape }` or `{ combo: ComboShape }`),
+  `PickShape` (a combo pick's `quantity`, `surcharge_unit`, `extras_unit`), `combo_extras`,
+  `cart_line_unit`, `cart_line_total`, `cart_subtotal`: what the server charges at intake (MadarRust
+  `delivery::snapshot::resolve_cart_as`: an item is `line_total`, a combo is quantity ×
+  `ComboQuote::unit_total`, the subtotal before deals is `CartQuote::items_total`).
+  `cart_vectors.json`; every `line_total_vectors.json` case through `cart_line_total`, and every
+  quoted case of `combo_vectors.json` through `cart_line_unit`/`cart_line_total`, agree.
+  `LineShape` and `Addon` derive `tsify` behind the off-by-default feature.
+- **madar-catalog `combo::choice_extra`**: what one unit of a pick adds to a combo's price from the
+  public menu's choice (`MenuChoice`: its surcharge plus its size's `extra`; no size is the included
+  one, a size the menu does not list adds nothing). `combo_menu_vectors.json`.
+- **madar-loyalty `card`** (new): the server's `loyalty::model::earned_and_progress` and
+  `MemberRow::view` ported as they are — `card(balance, cost)` → `rewards_ready`,
+  `progress_to_next`, `points_to_next_reward` (the full cost on an exact multiple), `can_redeem` —
+  and the pass's stamp row (`stamps`: filled steps clamped to the row, none past `MAX_STEPS` = 12).
+  `loyalty_card_vectors.json`. The join page's TypeScript counted what is left from the balance,
+  not the progress (6 of 5: 0 to go; the server says 4), and let a negative balance through.
+- **madar-web `public` and `full`**: `cart_line_unit`, `cart_line_total`, `cart_subtotal`,
+  `combo_extras`, `combo_choice_extra`, `loyalty_card`, `loyalty_stamps`, run through the wasm
+  against the three new files (and the quoted combos). `public` now builds madar-money's `tsify`
+  types and depends on madar-loyalty. Brotli, wasm + glue: `public` 71 → 76 KB, `full` 161 → 165 KB.
+
+## v0.7.0 — the rules in the browser (2026-10-10)
 
 **Three more exports for the web dashboard (`full` only); nothing existing changes.** Every
 earlier function and vector file is byte-identical.

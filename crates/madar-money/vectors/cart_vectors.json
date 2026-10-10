@@ -1,0 +1,372 @@
+{
+  "about": "Hand-computed. madar-money line::cart_line_unit, cart_line_total, cart_subtotal and combo_extras: what the storefront cart estimates, which is what the server charges at intake (MadarRust delivery/snapshot.rs resolve_cart_as: an item line is (unit_price + Σ add-on price × qty + Σ optional price) × quantity; a combo line is Σ its parts' charged_subtotal = quantity × ComboQuote::unit_total; the subtotal before deals is CartQuote::items_total). Never regenerated: a change is a deliberate edit, with the working in the case's why.",
+  "lines": [
+    {
+      "name": "item_plain",
+      "why": "no extras: 2500 × 1",
+      "line": {
+        "item": {
+          "quantity": 1,
+          "unit_price": 2500,
+          "addons": [],
+          "optionals": []
+        }
+      },
+      "unit": 2500,
+      "total": 2500
+    },
+    {
+      "name": "item_addons_and_optional_times_three",
+      "why": "1500 + 500×1 + 250×2 + 300 = 2800; × 3 = 8400",
+      "line": {
+        "item": {
+          "quantity": 3,
+          "unit_price": 1500,
+          "addons": [
+            {
+              "price_modifier": 500,
+              "quantity": 1
+            },
+            {
+              "price_modifier": 250,
+              "quantity": 2
+            }
+          ],
+          "optionals": [
+            300
+          ]
+        }
+      },
+      "unit": 2800,
+      "total": 8400
+    },
+    {
+      "name": "item_swap_charged_zero",
+      "why": "a swap priced as the recipe's own is charged 0: 3000 + 0×1 = 3000; × 2 = 6000",
+      "line": {
+        "item": {
+          "quantity": 2,
+          "unit_price": 3000,
+          "addons": [
+            {
+              "price_modifier": 0,
+              "quantity": 1
+            }
+          ],
+          "optionals": []
+        }
+      },
+      "unit": 3000,
+      "total": 6000
+    },
+    {
+      "name": "item_free_optional_and_paid_one",
+      "why": "1800 + 0 + 450 = 2250; × 2 = 4500",
+      "line": {
+        "item": {
+          "quantity": 2,
+          "unit_price": 1800,
+          "addons": [],
+          "optionals": [
+            0,
+            450
+          ]
+        }
+      },
+      "unit": 2250,
+      "total": 4500
+    },
+    {
+      "name": "item_storefront_plain_small",
+      "why": "the storefront's own plain-line case (utils.test.ts): 5000 × 1",
+      "line": {
+        "item": {
+          "quantity": 1,
+          "unit_price": 5000,
+          "addons": [],
+          "optionals": []
+        }
+      },
+      "unit": 5000,
+      "total": 5000
+    },
+    {
+      "name": "item_quantity_zero",
+      "why": "plain arithmetic, as line_total: 2500 + 500 = 3000 a unit; × 0 = 0 (the server refuses a quantity below 1 before pricing)",
+      "line": {
+        "item": {
+          "quantity": 0,
+          "unit_price": 2500,
+          "addons": [
+            {
+              "price_modifier": 500,
+              "quantity": 1
+            }
+          ],
+          "optionals": []
+        }
+      },
+      "unit": 3000,
+      "total": 0
+    },
+    {
+      "name": "combo_storefront_two_soft_serves_large",
+      "why": "the storefront's own combo case (utils.test.ts): P 20000 + latte 1 × 0 + vanilla 2 × 1000 = 22000; × 2 = 44000",
+      "line": {
+        "combo": {
+          "quantity": 2,
+          "price": 20000,
+          "picks": [
+            {
+              "quantity": 1,
+              "surcharge_unit": 0
+            },
+            {
+              "quantity": 2,
+              "surcharge_unit": 1000
+            }
+          ]
+        }
+      },
+      "unit": 22000,
+      "total": 44000
+    },
+    {
+      "name": "combo_no_surcharge",
+      "why": "every pick at its included size, no surcharge: P alone, 4500 × 1",
+      "line": {
+        "combo": {
+          "quantity": 1,
+          "price": 4500,
+          "picks": [
+            {
+              "quantity": 1,
+              "surcharge_unit": 0
+            },
+            {
+              "quantity": 1,
+              "surcharge_unit": 0
+            }
+          ]
+        }
+      },
+      "unit": 4500,
+      "total": 4500
+    },
+    {
+      "name": "combo_bigger_size_and_premium_choice",
+      "why": "6000 + 1 × 500 (a bigger size) + 1 × 300 (a premium choice) = 6800; × 2 = 13600",
+      "line": {
+        "combo": {
+          "quantity": 2,
+          "price": 6000,
+          "picks": [
+            {
+              "quantity": 1,
+              "surcharge_unit": 500
+            },
+            {
+              "quantity": 1,
+              "surcharge_unit": 300
+            }
+          ]
+        }
+      },
+      "unit": 6800,
+      "total": 13600
+    },
+    {
+      "name": "combo_pick_with_addons",
+      "why": "C10: a pick's add-ons are extra at their price. 5000 + 1 × (400 + 150) + 2 × (0 + 50) = 5650; × 2 = 11300",
+      "line": {
+        "combo": {
+          "quantity": 2,
+          "price": 5000,
+          "picks": [
+            {
+              "quantity": 1,
+              "surcharge_unit": 400,
+              "extras_unit": 150
+            },
+            {
+              "quantity": 2,
+              "surcharge_unit": 0,
+              "extras_unit": 50
+            }
+          ]
+        }
+      },
+      "unit": 5650,
+      "total": 11300
+    },
+    {
+      "name": "combo_one_pick_three_times",
+      "why": "9000 + 3 × 250 = 9750; × 3 = 29250",
+      "line": {
+        "combo": {
+          "quantity": 3,
+          "price": 9000,
+          "picks": [
+            {
+              "quantity": 3,
+              "surcharge_unit": 250
+            }
+          ]
+        }
+      },
+      "unit": 9750,
+      "total": 29250
+    }
+  ],
+  "carts": [
+    {
+      "name": "empty",
+      "why": "nothing in it: 0",
+      "lines": [],
+      "subtotal": 0
+    },
+    {
+      "name": "one_item",
+      "why": "2500",
+      "lines": [
+        {
+          "item": {
+            "quantity": 1,
+            "unit_price": 2500,
+            "addons": [],
+            "optionals": []
+          }
+        }
+      ],
+      "subtotal": 2500
+    },
+    {
+      "name": "items_and_combos",
+      "why": "8400 (item_addons_and_optional_times_three) + 44000 (combo_storefront_two_soft_serves_large) + 6000 (item_swap_charged_zero) + 11300 (combo_pick_with_addons) = 69700",
+      "lines": [
+        {
+          "item": {
+            "quantity": 3,
+            "unit_price": 1500,
+            "addons": [
+              {
+                "price_modifier": 500,
+                "quantity": 1
+              },
+              {
+                "price_modifier": 250,
+                "quantity": 2
+              }
+            ],
+            "optionals": [
+              300
+            ]
+          }
+        },
+        {
+          "combo": {
+            "quantity": 2,
+            "price": 20000,
+            "picks": [
+              {
+                "quantity": 1,
+                "surcharge_unit": 0
+              },
+              {
+                "quantity": 2,
+                "surcharge_unit": 1000
+              }
+            ]
+          }
+        },
+        {
+          "item": {
+            "quantity": 2,
+            "unit_price": 3000,
+            "addons": [
+              {
+                "price_modifier": 0,
+                "quantity": 1
+              }
+            ],
+            "optionals": []
+          }
+        },
+        {
+          "combo": {
+            "quantity": 2,
+            "price": 5000,
+            "picks": [
+              {
+                "quantity": 1,
+                "surcharge_unit": 400,
+                "extras_unit": 150
+              },
+              {
+                "quantity": 2,
+                "surcharge_unit": 0,
+                "extras_unit": 50
+              }
+            ]
+          }
+        }
+      ],
+      "subtotal": 69700
+    }
+  ],
+  "combo_extras": [
+    {
+      "name": "no_picks",
+      "why": "0",
+      "picks": [],
+      "expected": 0
+    },
+    {
+      "name": "surcharges_times_quantity",
+      "why": "2 × 250 + 1 × 500 = 1000",
+      "picks": [
+        {
+          "quantity": 2,
+          "surcharge_unit": 250
+        },
+        {
+          "quantity": 1,
+          "surcharge_unit": 500
+        }
+      ],
+      "expected": 1000
+    },
+    {
+      "name": "with_extras",
+      "why": "1 × (400 + 150) + 2 × (0 + 50) = 650",
+      "picks": [
+        {
+          "quantity": 1,
+          "surcharge_unit": 400,
+          "extras_unit": 150
+        },
+        {
+          "quantity": 2,
+          "surcharge_unit": 0,
+          "extras_unit": 50
+        }
+      ],
+      "expected": 650
+    },
+    {
+      "name": "storefront_two_soft_serves",
+      "why": "1 × 0 + 2 × 1000 = 2000",
+      "picks": [
+        {
+          "quantity": 1,
+          "surcharge_unit": 0
+        },
+        {
+          "quantity": 2,
+          "surcharge_unit": 1000
+        }
+      ],
+      "expected": 2000
+    }
+  ]
+}

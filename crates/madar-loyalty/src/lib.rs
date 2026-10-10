@@ -26,7 +26,12 @@
 //! What a reward takes off a line in money is `madar_money::loyalty::
 //! covered_minor`; this crate only decides units and cost. Nothing here does
 //! I/O. Pinned by `vectors/loyalty_plan_vectors.json`.
+//!
+//! [`card`] is what a member's card shows for a balance: rewards earned,
+//! progress to the next, what it still needs, the stamps (the server's
+//! `loyalty::model` rule). Pinned by `vectors/loyalty_card_vectors.json`.
 
+pub mod card;
 pub mod plan;
 pub mod vectors;
 

@@ -33,3 +33,6 @@ pub const WASTE: &str = include_str!("../vectors/waste_vectors.json");
 pub const ALLOC: &str = include_str!("../vectors/alloc_vectors.json");
 /// `cost`: line cost, recipe total, margin, food-cost band (hand-computed).
 pub const COST: &str = include_str!("../vectors/cost_vectors.json");
+/// `line::cart_vectors`: a cart's lines and subtotal, a combo's extras
+/// (hand-computed).
+pub const CART: &str = include_str!("../vectors/cart_vectors.json");

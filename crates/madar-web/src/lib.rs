@@ -80,8 +80,10 @@ fn instant(ms: f64) -> Result<chrono::DateTime<chrono::Utc>, JsError> {
 }
 
 mod public {
-    use madar_catalog::combo::{ComboView, PickIn};
+    use madar_catalog::combo::{ComboView, MenuChoice, PickIn};
     use madar_catalog::{CatalogView, ItemView, Selection};
+    use madar_money::line::{CartLineShape, PickShape};
+    use tsify::Tsify;
 
     use super::*;
 
@@ -169,6 +171,79 @@ mod public {
             .map_err(|_| JsError::new("expected a decimal string"))?;
         let rule = rule_of(discount_type.as_deref(), value);
         Ok(discount_on(int(subtotal)?, BillDiscount::Rule(rule)) as f64)
+    }
+
+    // ── the storefront cart (madar-money `line`, madar-catalog `combo`) ──
+
+    /// One unit of a cart line: an item's unit price and its extras, or a
+    /// combo's price and what its picks add.
+    #[wasm_bindgen]
+    pub fn cart_line_unit(line: Ts<CartLineShape>) -> Result<f64, JsError> {
+        Ok(madar_money::line::cart_line_unit(&line.to_rust()?) as f64)
+    }
+
+    /// What a cart line is charged: one unit × its quantity.
+    #[wasm_bindgen]
+    pub fn cart_line_total(line: Ts<CartLineShape>) -> Result<f64, JsError> {
+        Ok(madar_money::line::cart_line_total(&line.to_rust()?) as f64)
+    }
+
+    /// A cart's items total, before any deal, discount, tax or fee (the
+    /// cart quote's `items_total`).
+    #[wasm_bindgen]
+    pub fn cart_subtotal(lines: Vec<Ts<CartLineShape>>) -> Result<f64, JsError> {
+        Ok(madar_money::line::cart_subtotal(&each(lines)?) as f64)
+    }
+
+    /// What a combo's picks add to ONE combo unit.
+    #[wasm_bindgen]
+    pub fn combo_extras(picks: Vec<Ts<PickShape>>) -> Result<f64, JsError> {
+        Ok(madar_money::line::combo_extras(&each(picks)?) as f64)
+    }
+
+    /// What one unit of a pick adds to the combo's price, from the public
+    /// menu's choice (its surcharge plus its size's extra); `null` is the
+    /// included size.
+    #[wasm_bindgen]
+    pub fn combo_choice_extra(
+        choice: Ts<MenuChoice>,
+        size_label: Option<String>,
+    ) -> Result<f64, JsError> {
+        Ok(madar_catalog::combo::choice_extra(&choice.to_rust()?, size_label.as_deref()) as f64)
+    }
+
+    // ── the loyalty card (madar-loyalty `card`) ──
+
+    /// A member's card for a balance against the next reward's cost.
+    #[derive(Serialize, Tsify)]
+    pub struct LoyaltyCard {
+        /// Rewards the balance has already earned.
+        pub rewards_ready: i32,
+        /// Progress towards the next reward, the earned ones set aside.
+        pub progress_to_next: i32,
+        /// What the next reward still needs: the full cost on an exact multiple.
+        pub points_to_next_reward: i32,
+        /// At least one reward is earned.
+        pub can_redeem: bool,
+    }
+
+    /// The card for `balance` against `next_reward_cost`.
+    #[wasm_bindgen(unchecked_return_type = "LoyaltyCard")]
+    pub fn loyalty_card(balance: f64, next_reward_cost: f64) -> Result<JsValue, JsError> {
+        let c = madar_loyalty::card::card(int(balance)?, int(next_reward_cost)?);
+        out(&LoyaltyCard {
+            rewards_ready: c.rewards_ready,
+            progress_to_next: c.progress_to_next,
+            points_to_next_reward: c.points_to_next_reward,
+            can_redeem: c.can_redeem,
+        })
+    }
+
+    /// How many steps of a `cost`-step stamp row `earned` fills; `null` when
+    /// the card has no row (a cost of 0 or less, or above 12).
+    #[wasm_bindgen(unchecked_return_type = "number | null")]
+    pub fn loyalty_stamps(earned: f64, cost: f64) -> Result<JsValue, JsError> {
+        out(&madar_loyalty::card::stamps(int(earned)?, int(cost)?))
     }
 
     /// The canonical phone (E.164 digits, no `+`), or `null` when `raw` is

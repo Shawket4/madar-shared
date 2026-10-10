@@ -3,8 +3,8 @@
 // boundary (serde-wasm-bindgen, epoch-ms instants, refusals returned).
 //
 // Build first (scripts/build-wasm.sh), then: node --test node/
-// Each package runs every file its exports cover; `full` covers all twenty
-// files the web uses, `public` the customer pages' five.
+// Each package runs every file its exports cover; `full` covers all
+// twenty-three files the web uses, `public` the customer pages' eight.
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -46,6 +46,9 @@ const combo = vectors("madar-catalog/vectors/combo_vectors.json");
 const bill = vectors("madar-money/vectors/bill_vectors.json");
 const phone = vectors("madar-ids/vectors/phone_vectors.json");
 const businessDates = vectors("madar-time/vectors/business_date_vectors.json");
+const cart = vectors("madar-money/vectors/cart_vectors.json");
+const comboMenu = vectors("madar-catalog/vectors/combo_menu_vectors.json");
+const loyaltyCard = vectors("madar-loyalty/vectors/loyalty_card_vectors.json");
 // `public` bundles scripts/tz-filter.txt's zones (Cairo, MENA, the US, UTC); a
 // case in another zone (Europe/London) must throw there. `full` bundles every zone.
 const bundled = new RegExp(`^${readFileSync(join(root, "scripts/tz-filter.txt"), "utf8").trim()}$`);
@@ -74,6 +77,26 @@ function publicFiles(pkg, w) {
       c.picks.map((p) => ({ ...p, view: combo.items[p.item], item: undefined })), c.n),
     (c) => c.expected.quote ?? c.expected.refusal);
 
+  // The storefront cart: an item line, a combo line, the subtotal.
+  cases(pkg, "cart_vectors", "cart_line_unit", cart.lines, (c) => w.cart_line_unit(c.line), (c) => c.unit);
+  cases(pkg, "cart_vectors", "cart_line_total", cart.lines, (c) => w.cart_line_total(c.line), (c) => c.total);
+  cases(pkg, "cart_vectors", "cart_subtotal", cart.carts, (c) => w.cart_subtotal(c.lines), (c) => c.subtotal);
+  cases(pkg, "cart_vectors", "combo_extras", cart.combo_extras, (c) => w.combo_extras(c.picks), (c) => c.expected);
+  // A quoted combo's line, estimated from its parts, is what the quote charges.
+  const quoted = combo.cases.filter((c) => c.expected.quote);
+  const comboLine = (q) => ({ combo: { quantity: q.quantity, price: q.price,
+    picks: q.parts.map((p) => ({ quantity: p.pick_quantity, surcharge_unit: p.surcharge_unit, extras_unit: p.extras_unit })) } });
+  cases(pkg, "combo_vectors", "cart_line_total (a quoted combo)", quoted,
+    (c) => [w.cart_line_unit(comboLine(c.expected.quote)), w.cart_line_total(comboLine(c.expected.quote))],
+    (c) => [c.expected.quote.unit_total, c.expected.quote.quantity * c.expected.quote.unit_total]);
+  cases(pkg, "combo_menu_vectors", "combo_choice_extra", comboMenu,
+    (c) => w.combo_choice_extra(c.choice, c.size_label), (c) => c.expected);
+
+  cases(pkg, "loyalty_card_vectors", "loyalty_card", loyaltyCard.cards,
+    (c) => w.loyalty_card(c.balance, c.next_reward_cost), (c) => c.expected);
+  cases(pkg, "loyalty_card_vectors", "loyalty_stamps", loyaltyCard.stamps,
+    (c) => w.loyalty_stamps(c.earned, c.cost), (c) => c.expected);
+
   const rules = [...bill.bills, ...bill.open_bills].filter((b) => b.discount.kind !== "stated");
   cases(pkg, "bill_vectors", "bill_discount", rules,
     (b) => w.bill_discount(b.subtotal, b.discount.kind, b.discount.value),
@@ -98,6 +121,9 @@ function publicFiles(pkg, w) {
     assert.throws(() => w.unit_price({ sizes: "none" }, null), Error);
     assert.throws(() => w.bill_discount(100.5, "fixed", "10"), /whole number/);
     assert.throws(() => w.bill_discount(100, "fixed", "ten"), /decimal/);
+    assert.throws(() => w.cart_line_total({ item: { quantity: 1.5, unit_price: 100, addons: [], optionals: [] } }), Error);
+    assert.throws(() => w.cart_subtotal([{ kind: "item", quantity: 1, unit_price: 100, addons: [], optionals: [] }]), Error);
+    assert.throws(() => w.loyalty_card(2.5, 5), /whole number/);
   });
 }
 
