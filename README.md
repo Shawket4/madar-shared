@@ -15,16 +15,16 @@ copy, its vectors are its own tests, and both consumers pin the same tag.
 | Crate | What it holds |
 |---|---|
 | `madar-authz` | The permission decision library: the capability registry (generated from `authz/spec/capabilities.toml`), `resolve`, `decide`, the anti-escalation guard, the signed-snapshot binding; the void facts (`acts::void_facts`: own = the order's teller, age in whole minutes) and the offline PIN verify (`pin`, argon2id, with one shared PHC test string). |
-| `madar-money` | Money: the tax engine and the sale-channel rule, the refund tax/service split, the staff pool decision, the staff-comp rule, the loyalty reward cover, POS-metrics `average_ticket`; a line's total (`line`); bill assembly — staff comp, reward, discount, tax — over the lines or a subtotal a till stated (`price_bill`, `price_bill_on`, `price_subtotal`), a stored discount rule (`rule_of`), a table bill's preview, the tender / change / split rules (`bill`); the discount act a sale asks for, its basis points and figures (`discount`); a waste's value and which waste inputs may be recorded (`waste`); recipe cost — a line's cost, a recipe's total (complete or partial), the margin and the food-cost band (`cost`, pinned by `cost_vectors.json`); the one proportional allocator, whose shares sum to the amount exactly (`alloc::split`: a combo's price over its parts, a deal's discount over a chunk's units). |
+| `madar-money` | Money: the tax engine and the sale-channel rule, the refund tax/service split, the staff pool decision, the staff-comp rule, the loyalty reward cover, POS-metrics `average_ticket`; a line's total, and the storefront cart's lines and subtotal (`line`, `cart_vectors.json`); bill assembly — staff comp, reward, discount, tax — over the lines or a subtotal a till stated (`price_bill`, `price_bill_on`, `price_subtotal`), a stored discount rule (`rule_of`), a table bill's preview, the tender / change / split rules (`bill`); the discount act a sale asks for, its basis points and figures (`discount`); a waste's value and which waste inputs may be recorded (`waste`); recipe cost — a line's cost, a recipe's total (complete or partial), the margin and the food-cost band (`cost`, pinned by `cost_vectors.json`); the one proportional allocator, whose shares sum to the amount exactly (`alloc::split`: a combo's price over its parts, a deal's discount over a chunk's units). |
 | `madar-till` | A till's drawer and Z report as a fold over rows (`report`), the drawer carryover picker (`carryover`), close reconciliation — `plan_lines`, `rollup_status`, the codes (`reconcile`). Both sides run the fold over rows they load (the backend since v0.4.0), pinned by the till vectors. |
 | `madar-units` | Inventory units (`g`, `kg`, `ml`, `l`, `pcs`), their families and conversion, with the density bridge; a recipe line's stored quantity (yield and density, `recipe_base_qty`) and the usable amount it stands for (`usable_qty`), pinned by `recipe_qty_vectors.json`; the recipe editors' size scaling (`scale_qty`), pinned by `scale_vectors.json`. |
 | `madar-ids` | The canonical phone (also pinned for the backend's SQL `phone_canonical`), order-ref formats and reading a device code back out of one, the member card token. |
 | `madar-time` | Business-day rules: week start, business date of an instant, the `YYMMDD` stamp, local day bounds (with the DST-gap rule). |
 | `madar-sync` | `/sync/pull` type lists and ledger classification, the R-checksum, the kitchen UUIDv5 ids; the `/sync/replay` envelopes (`replay`) and the current release's envelope fixture. |
-| `madar-catalog` | How a sale line is priced from the catalogue — the size price (a size's branch price, else its catalogue price while active, else the branch's item price, else the lowest active size), each option (a swap charged as the difference over the recipe's own choice, floored at 0, one per swap family; an add-on at its price) and the optional fields offered on the size — and, since v0.5.2, how an additive option's line follows the drink's own choice (an extra shot on a decaf latte is a decaf shot; `follow`, pinned by the hand-computed `follow_vectors.json`) — over a `CatalogView` the backend loads from SQL and the POS core builds from the feed rows' `pricing` (`feed`). The server's rule; pinned by `catalog_vectors.json`, which the backend generates. Also the staff comp's input built from the same view — the sizes and the required non-swap groups a staff drink's base is judged on (`staff`, pinned by `staff_input_vectors.json`). Since v0.5, the combos module: a combo line's parts and the split of its price (`combo::quote`), its availability on a channel at a branch and the org/branch channel switches (`combo`); deal rules over a cart — the till's suggestions, QR/online auto-apply and the pricing of an application (`deal`); and the optional weekday/time/date windows of both (`sale_window`). Pinned by the hand-computed `combo_vectors.json`, `deal_vectors.json` and `sale_window_vectors.json`. |
+| `madar-catalog` | How a sale line is priced from the catalogue — the size price (a size's branch price, else its catalogue price while active, else the branch's item price, else the lowest active size), each option (a swap charged as the difference over the recipe's own choice, floored at 0, one per swap family; an add-on at its price) and the optional fields offered on the size — and, since v0.5.2, how an additive option's line follows the drink's own choice (an extra shot on a decaf latte is a decaf shot; `follow`, pinned by the hand-computed `follow_vectors.json`) — over a `CatalogView` the backend loads from SQL and the POS core builds from the feed rows' `pricing` (`feed`). The server's rule; pinned by `catalog_vectors.json`, which the backend generates. Also the staff comp's input built from the same view — the sizes and the required non-swap groups a staff drink's base is judged on (`staff`, pinned by `staff_input_vectors.json`). Since v0.5, the combos module: a combo line's parts and the split of its price (`combo::quote`), its availability on a channel at a branch and the org/branch channel switches (`combo`); deal rules over a cart — the till's suggestions, QR/online auto-apply and the pricing of an application (`deal`); and the optional weekday/time/date windows of both (`sale_window`); what a pick adds to a combo from the public menu's choice (`combo::choice_extra`, `combo_menu_vectors.json`). Pinned by the hand-computed `combo_vectors.json`, `deal_vectors.json` and `sale_window_vectors.json`. |
 | `madar-dawam` | Dawam (staff attendance): the geofence (distance, effective radius), the pay-period window, the offline stamp's type (with its OpenAPI schema behind the `utoipa` feature) and the signed anchor's format (the HMAC stays on the server). |
 | `madar-inventory` | Warehouses and stock transfers (MadarRust `WAREHOUSE_DESIGN.md`): the transfer lifecycle — which side takes which action in which status, the capability it needs, the status it leads to (`transfer::step`) — the receive check for one line (short / exact / over, an over-receive needs a note), how much a warehouse should send a branch (`replenish::suggest`), and the API bodies (`api`, OpenAPI schemas behind `utoipa`). Quantities compared in whole thousandths. Pinned by `inventory_vectors.json`. Purchase-order money — line and unit costs, a delivery's cost pro rata, the order estimate (`purchase`, `purchase_vectors.json`) — and the stock-count variance flag (`count`, `count_vectors.json`). |
-| `madar-loyalty` | Which rewards a sale may take: `plan` — strict on the server (the first refusal), trimming on the till (the first trim named) — and the lines a refused replay keeps (`replay_lines`). Pinned by `loyalty_plan_vectors.json`. |
+| `madar-loyalty` | Which rewards a sale may take: `plan` — strict on the server (the first refusal), trimming on the till (the first trim named) — and the lines a refused replay keeps (`replay_lines`). Pinned by `loyalty_plan_vectors.json`. What a member's card shows for a balance — rewards earned, progress to the next, what it still needs, the stamps (`card`, the server's rule, `loyalty_card_vectors.json`). |
 | `madar-web` | No rule of its own: the crates above built to WebAssembly for the browser, as two packages (`full` for the web dashboard, `public` for the customer pages). See [The browser packages](#the-browser-packages-webassembly). |
 
 Plus `authz/gen` (`authz-gen`), the generator for the permission registry.
@@ -84,12 +84,12 @@ crate above.
 
 | Package | For | Exports |
 |---|---|---|
-| `public` | the customer pages: ordering, menu, loyalty, reservations | catalog `unit_price`, `price_options`, `price_line`, `option_charge`, `combo_quote`; money `bill_discount`; ids `phone_canonical`; time `business_date` |
+| `public` | the customer pages: ordering, menu, loyalty, reservations | catalog `unit_price`, `price_options`, `price_line`, `option_charge`, `combo_quote`, `combo_choice_extra`; money `bill_discount`, `cart_line_unit`, `cart_line_total`, `cart_subtotal`, `combo_extras`; loyalty `loyalty_card`, `loyalty_stamps`; ids `phone_canonical`; time `business_date` |
 | `full` | the web dashboard | everything in `public`, and: time `day_bounds`, `week_start`, `local_parts`, `local_instant`; Dawam `pay_period`, `rates`, `first_pay`, `select_late_tier`, `late_deduction_piastres`, `absence_deduction_piastres`; units `unit_spec`, `units_of`, `convert`, `convert_with_density`, `recipe_base_qty`, `usable_qty`, `scale_qty`; money `average_ticket`, `line_cost`, `recipe_cost`, `margin`, `food_cost_band`; till `till_plan_lines`; inventory `transfer_step`, `check_receive_line`, `replenish_suggest`, `quantity_dec`, `quantity_milli`, `delivery_cost`, `estimate_line_total`, `unit_cost_from_total`, `is_variance_flagged`; catalog `combo_choice_for` |
 
-The customer pages compute no loyalty or sale-window rule today (the server
-answers those), so `public` carries none; the manage-booking page needs the
-business date.
+The customer pages compute no sale-window rule (the server answers it), so
+`public` carries none; the loyalty pages get the card's figures and stamps, the
+manage-booking page the business date.
 
 **The boundary.** Each package's `madar_web.d.ts` types every call; its
 interfaces are generated from the crates' own structs (`tsify`, behind each
@@ -122,13 +122,13 @@ and `-Cpanic=immediate-abort`; the `wasm` profile (opt-level `z`, fat LTO, one
 codegen unit; native builds never use it); chrono-tz cut to the zone filter in `public` only;
 `wasm-bindgen --target web` (CLI 0.2.129, the crate's exact pin); `wasm-opt -Oz
 --converge --strip-debug --strip-producers`. Brotli, wasm + glue: `public`
-about 72 KB, `full` about 156 KB (every time zone). The crate also builds on stable (`cargo build
+about 76 KB, `full` about 165 KB (every time zone). The crate also builds on stable (`cargo build
 -p madar-web --features full --profile wasm --target wasm32-unknown-unknown`,
 about 10–17 % larger) should the nightly ever be unavailable.
 
 **Testing.** `node --test node/vectors.test.mjs` (after the build) runs the
-vector files the web uses through both packages: the twenty files the
-dashboard computes from (`full`) and the five the customer pages do
+vector files the web uses through both packages: the twenty-three files the
+dashboard computes from (`full`) and the eight the customer pages do
 (`public`). CI's `wasm` job builds, runs them and typechecks the `.d.ts`.
 
 **Consuming.** On each `v*` tag CI attaches `madar-web-public.tar.gz`,
@@ -210,7 +210,10 @@ reads them through `madar_money::vectors::ALLOC` and
 the dashboards' copies of the same rules: `madar-money/vectors/cost_vectors.json`
 (`madar_money::vectors::COST`), `madar-units/vectors/recipe_qty_vectors.json`
 (`madar_units::vectors::RECIPE_QTY`), `madar-inventory/vectors/{purchase,count}_vectors.json`
-(`madar_inventory::vectors::{PURCHASE, COUNT}`).
+(`madar_inventory::vectors::{PURCHASE, COUNT}`). And for the customer pages' copies:
+`madar-money/vectors/cart_vectors.json` (`madar_money::vectors::CART`),
+`madar-catalog/vectors/combo_menu_vectors.json` (`madar_catalog::vectors::COMBO_MENU`),
+`madar-loyalty/vectors/loyalty_card_vectors.json` (`madar_loyalty::vectors::CARD`).
 
 `madar-ids/vectors/phone_vectors.json` is hand-authored; the dashboard keeps an
 identical copy (`src/lib/phone_vectors.json`) for its TypeScript rule, pinned

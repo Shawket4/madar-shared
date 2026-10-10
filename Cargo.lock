@@ -417,6 +417,7 @@ dependencies = [
  "madar-dawam",
  "madar-ids",
  "madar-inventory",
+ "madar-loyalty",
  "madar-money",
  "madar-till",
  "madar-time",
