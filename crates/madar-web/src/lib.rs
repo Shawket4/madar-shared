@@ -186,6 +186,8 @@ mod full {
     use madar_inventory::replenish::Input as ReplenishInput;
     use madar_inventory::transfer::{Action, Side, TransferStatus};
     use madar_money::cost::CostLine;
+    use rust_decimal::prelude::FromPrimitive;
+    use rust_decimal::Decimal;
     use serde::Deserialize;
     use tsify::Tsify;
 
@@ -219,6 +221,34 @@ mod full {
         Ok(ymd(madar_time::week_start(self::date(date)?)))
     }
 
+    /// An instant (epoch ms) on a zone's wall clock.
+    #[derive(Serialize, Tsify)]
+    pub struct LocalParts {
+        pub date: String,
+        pub hour: u32,
+        pub minute: u32,
+    }
+
+    /// An instant (epoch ms) read on `tz`'s wall clock.
+    #[wasm_bindgen(unchecked_return_type = "LocalParts")]
+    pub fn local_parts(tz: &str, at_ms: f64) -> Result<JsValue, JsError> {
+        let p = madar_time::local_parts(zone(tz)?, instant(at_ms)?);
+        out(&LocalParts {
+            date: ymd(p.date),
+            hour: p.hour,
+            minute: p.minute,
+        })
+    }
+
+    /// `date` at `hour`:`minute` on `tz`'s wall clock, in epoch ms: a time
+    /// that happens twice is the earliest, one in a DST gap moves forward by
+    /// the gap, an hour or minute past its range rolls over.
+    #[wasm_bindgen]
+    pub fn local_instant(tz: &str, date: &str, hour: f64, minute: f64) -> Result<f64, JsError> {
+        let at = madar_time::local_instant(zone(tz)?, self::date(date)?, int(hour)?, int(minute)?);
+        Ok(at.timestamp_millis() as f64)
+    }
+
     // ── Dawam pay (madar-dawam) ──────────────────────────────────────────
 
     /// The pay window `[start, end]` (inclusive dates) holding `day`;
@@ -227,6 +257,159 @@ mod full {
     pub fn pay_period(day: &str, start_day: f64) -> Result<JsValue, JsError> {
         let (a, b) = madar_dawam::pay::period_window(date(day)?, int(start_day)?);
         out(&(ymd(a), ymd(b)))
+    }
+
+    /// A decimal the dashboard holds as a JS number, read as the decimal it
+    /// prints as (`0.35` is 0.35); a non-finite number throws.
+    fn decimal(x: f64) -> Result<Decimal, JsError> {
+        Decimal::from_f64(x).ok_or_else(|| JsError::new("expected a finite number"))
+    }
+
+    /// The one rate the salary calculator was typed with, in piastres.
+    #[derive(Deserialize, Tsify)]
+    #[serde(rename_all = "snake_case")]
+    pub enum TypedRate {
+        Monthly(i64),
+        Daily(i64),
+        Hourly(i64),
+    }
+
+    /// A salary as a month, a day and an hour, in piastres.
+    #[derive(Serialize, Tsify)]
+    pub struct SalaryRates {
+        pub monthly: i64,
+        pub daily: i64,
+        pub hourly: i64,
+    }
+
+    /// The three rates from whichever one was typed (madar-dawam
+    /// `salary::rates`); `working_days` may be a fraction.
+    #[wasm_bindgen(unchecked_return_type = "SalaryRates")]
+    pub fn rates(
+        typed: Ts<TypedRate>,
+        working_days: f64,
+        day_minutes: f64,
+    ) -> Result<JsValue, JsError> {
+        use madar_dawam::salary::Typed;
+        let typed = match typed.to_rust()? {
+            TypedRate::Monthly(p) => Typed::Monthly(p),
+            TypedRate::Daily(p) => Typed::Daily(p),
+            TypedRate::Hourly(p) => Typed::Hourly(p),
+        };
+        let r = madar_dawam::salary::rates(typed, decimal(working_days)?, int(day_minutes)?);
+        out(&SalaryRates {
+            monthly: r.monthly,
+            daily: r.daily,
+            hourly: r.hourly,
+        })
+    }
+
+    /// What someone hired on a day earns in their first pay period.
+    #[derive(Serialize, Tsify)]
+    pub struct FirstPay {
+        /// The hire date.
+        pub from: String,
+        /// The period's last day.
+        pub to: String,
+        pub days: i64,
+        pub period_days: i64,
+        pub piastres: i64,
+    }
+
+    /// The first pay of someone hired on `hire_date` at `monthly`, periods
+    /// opening on `start_day` (madar-dawam `salary::first_pay`).
+    #[wasm_bindgen(unchecked_return_type = "FirstPay")]
+    pub fn first_pay(monthly: f64, hire_date: &str, start_day: f64) -> Result<JsValue, JsError> {
+        let f = madar_dawam::salary::first_pay(int(monthly)?, date(hire_date)?, int(start_day)?);
+        out(&FirstPay {
+            from: ymd(f.from),
+            to: ymd(f.to),
+            days: f.days,
+            period_days: f.period_days,
+            piastres: f.piastres,
+        })
+    }
+
+    /// One rung of the late ladder as the Rules page holds it: inclusive at
+    /// both ends, `to_minutes` `null` for the open top rung.
+    #[derive(Deserialize, Tsify)]
+    #[tsify(missing_as_null)]
+    pub struct LateTier {
+        pub from_minutes: i32,
+        pub to_minutes: Option<i32>,
+        #[tsify(type = "\"minutes\" | \"piastres\" | \"day_fraction\"")]
+        pub kind: madar_dawam::ladder::LateDeductionKind,
+        pub value: f64,
+    }
+
+    fn tier(t: LateTier) -> Result<madar_dawam::ladder::LateTier, JsError> {
+        Ok(madar_dawam::ladder::LateTier {
+            from_minutes: t.from_minutes,
+            to_minutes: t.to_minutes,
+            kind: t.kind,
+            value: decimal(t.value)?,
+        })
+    }
+
+    fn pay_rates(
+        salary: f64,
+        working_days: f64,
+        day_minutes: f64,
+    ) -> Result<madar_dawam::salary::PayRates, JsError> {
+        Ok(madar_dawam::salary::PayRates::from_base(
+            int(salary)?,
+            decimal(working_days)?,
+            int(day_minutes)?,
+        ))
+    }
+
+    /// The index of the FIRST rung `late_minutes` falls on, or `null` (on
+    /// time, or past a ladder that stops).
+    #[wasm_bindgen(unchecked_return_type = "number | null")]
+    pub fn select_late_tier(
+        tiers: Vec<Ts<LateTier>>,
+        late_minutes: f64,
+    ) -> Result<JsValue, JsError> {
+        let tiers = each(tiers)?
+            .into_iter()
+            .map(tier)
+            .collect::<Result<Vec<_>, _>>()?;
+        let hit = madar_dawam::ladder::select_late_tier(&tiers, int(late_minutes)?);
+        out(&hit.and_then(|t| tiers.iter().position(|x| core::ptr::eq(x, t))))
+    }
+
+    /// What a rung costs in piastres for a monthly `salary`, `working_days` a
+    /// month and the day's `day_minutes` (madar-dawam
+    /// `ladder::late_deduction_piastres`).
+    #[wasm_bindgen]
+    pub fn late_deduction_piastres(
+        tier: Ts<LateTier>,
+        salary: f64,
+        working_days: f64,
+        day_minutes: f64,
+    ) -> Result<f64, JsError> {
+        let rates = pay_rates(salary, working_days, day_minutes)?;
+        Ok(
+            madar_dawam::ladder::late_deduction_piastres(&self::tier(tier.to_rust()?)?, &rates)
+                as f64,
+        )
+    }
+
+    /// What `days_absent` absent days cost at `deduction_days` docked each,
+    /// for a monthly `salary` over `working_days` (madar-dawam
+    /// `ladder::absence_deduction_piastres`; the day's minutes do not enter).
+    #[wasm_bindgen]
+    pub fn absence_deduction_piastres(
+        salary: f64,
+        working_days: f64,
+        days_absent: f64,
+        deduction_days: f64,
+    ) -> Result<f64, JsError> {
+        Ok(madar_dawam::ladder::absence_deduction_piastres(
+            &pay_rates(salary, working_days, 0.0)?,
+            decimal(days_absent)?,
+            decimal(deduction_days)?,
+        ) as f64)
     }
 
     // ── units (madar-units) ──────────────────────────────────────────────

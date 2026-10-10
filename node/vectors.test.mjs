@@ -3,7 +3,7 @@
 // boundary (serde-wasm-bindgen, epoch-ms instants, refusals returned).
 //
 // Build first (scripts/build-wasm.sh), then: node --test node/
-// Each package runs every file its exports cover; `full` covers all seventeen
+// Each package runs every file its exports cover; `full` covers all twenty
 // files the web uses, `public` the customer pages' five.
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
@@ -113,6 +113,33 @@ function fullFiles(pkg, w) {
   cases(pkg, "dawam_vectors", "pay_period", vectors("madar-dawam/vectors/dawam_vectors.json").periods,
     (c) => w.pay_period(c.day, c.start_day), (c) => [c.start, c.end]);
 
+  const wall = vectors("madar-time/vectors/wallclock_vectors.json");
+  cases(pkg, "wallclock_vectors", "local_parts", wall.parts,
+    (c) => w.local_parts(c.tz, Date.parse(c.at)), (c) => ({ date: c.date, hour: c.hour, minute: c.minute }));
+  cases(pkg, "wallclock_vectors", "local_instant", wall.instants,
+    (c) => w.local_instant(c.tz, c.date, c.hour, c.minute), (c) => Date.parse(c.at));
+
+  // Decimals (working days, a rung's value) are JS numbers on the dashboard.
+  const salary = vectors("madar-dawam/vectors/salary_vectors.json");
+  cases(pkg, "salary_vectors", "rates", salary.rates,
+    (c) => w.rates({ [c.typed]: c.value }, Number(c.working_days), c.day_minutes),
+    (c) => ({ monthly: c.monthly, daily: c.daily, hourly: c.hourly }));
+  cases(pkg, "salary_vectors", "first_pay", salary.first_pay,
+    (c) => w.first_pay(c.monthly, c.hire_date, c.start_day),
+    (c) => ({ from: c.from, to: c.to, days: c.days, period_days: c.period_days, piastres: c.piastres }));
+  skipped.push(`full: ${salary.prorated.length} salary_vectors prorated cases (prorated_base is not exported: the web does not compute it)`);
+  const ladder = vectors("madar-dawam/vectors/ladder_vectors.json");
+  const rungs = ladder.ladder.map((t) => ({ ...t, value: Number(t.value) }));
+  cases(pkg, "ladder_vectors", "select_late_tier", ladder.select,
+    (c) => w.select_late_tier(rungs, c.late_minutes), (c) => c.tier);
+  cases(pkg, "ladder_vectors", "late_deduction_piastres", ladder.deductions,
+    (c) => w.late_deduction_piastres({ from_minutes: 0, to_minutes: null, kind: c.kind, value: Number(c.value) },
+      c.salary, Number(c.working_days), c.day_minutes),
+    (c) => c.piastres);
+  cases(pkg, "ladder_vectors", "absence_deduction_piastres", ladder.absences,
+    (c) => w.absence_deduction_piastres(c.salary, Number(c.working_days), Number(c.days_absent), Number(c.deduction_days)),
+    (c) => c.piastres);
+
   const units = vectors("madar-units/vectors/unit_vectors.json");
   cases(pkg, "unit_vectors", "convert_with_density", units,
     (c) => w.convert_with_density(c.qty, c.from, c.to, c.density),
@@ -194,6 +221,9 @@ function fullFiles(pkg, w) {
     assert.throws(() => w.week_start("2026-02-30"), /YYYY-MM-DD/);
     assert.throws(() => w.business_date("Africa/Cairo", 1.5), /whole number/);
     assert.throws(() => w.delivery_cost(1, 10.5, null, 0, 1), /whole number/);
+    assert.throws(() => w.rates({ monthly: 100 }, NaN, 480), /finite/);
+    assert.throws(() => w.late_deduction_piastres({ from_minutes: 0, to_minutes: null, kind: "hours", value: 1 }, 100, 26, 480), Error);
+    assert.throws(() => w.local_instant("Africa/Cairo", "2026-01-01", -1, 0), /whole number/);
   });
 }
 

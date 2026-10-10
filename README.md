@@ -85,7 +85,7 @@ crate above.
 | Package | For | Exports |
 |---|---|---|
 | `public` | the customer pages: ordering, menu, loyalty, reservations | catalog `unit_price`, `price_options`, `price_line`, `option_charge`, `combo_quote`; money `bill_discount`; ids `phone_canonical`; time `business_date` |
-| `full` | the web dashboard | everything in `public`, and: time `day_bounds`, `week_start`; Dawam `pay_period`; units `unit_spec`, `units_of`, `convert`, `convert_with_density`, `recipe_base_qty`, `usable_qty`, `scale_qty`; money `average_ticket`, `line_cost`, `recipe_cost`, `margin`, `food_cost_band`; till `till_plan_lines`; inventory `transfer_step`, `check_receive_line`, `replenish_suggest`, `quantity_dec`, `quantity_milli`, `delivery_cost`, `estimate_line_total`, `unit_cost_from_total`, `is_variance_flagged`; catalog `combo_choice_for` |
+| `full` | the web dashboard | everything in `public`, and: time `day_bounds`, `week_start`, `local_parts`, `local_instant`; Dawam `pay_period`, `rates`, `first_pay`, `select_late_tier`, `late_deduction_piastres`, `absence_deduction_piastres`; units `unit_spec`, `units_of`, `convert`, `convert_with_density`, `recipe_base_qty`, `usable_qty`, `scale_qty`; money `average_ticket`, `line_cost`, `recipe_cost`, `margin`, `food_cost_band`; till `till_plan_lines`; inventory `transfer_step`, `check_receive_line`, `replenish_suggest`, `quantity_dec`, `quantity_milli`, `delivery_cost`, `estimate_line_total`, `unit_cost_from_total`, `is_variance_flagged`; catalog `combo_choice_for` |
 
 The customer pages compute no loyalty or sale-window rule today (the server
 answers those), so `public` carries none; the manage-booking page needs the
@@ -104,6 +104,8 @@ crate's off-by-default `tsify` feature).
   Input that is not what the type says (a wrong shape, `12.5` piastres, an
   unknown time zone, a malformed date) **throws** an `Error`.
 - Piastres and counts are JS numbers and must be whole (and within 2^53).
+- Decimals the dashboard holds as numbers (working days, a rung's value) are
+  read as the decimal they print as (`0.35` is 0.35); a non-finite one throws.
 - Instants are epoch milliseconds (`Date.now()`, `Date.parse(iso)`), never
   text; `day_bounds` answers `[startMs, endMs]`. Calendar dates are
   `YYYY-MM-DD` strings.
@@ -125,7 +127,7 @@ about 72 KB, `full` about 156 KB (every time zone). The crate also builds on sta
 about 10–17 % larger) should the nightly ever be unavailable.
 
 **Testing.** `node --test node/vectors.test.mjs` (after the build) runs the
-vector files the web uses through both packages: the seventeen files the
+vector files the web uses through both packages: the twenty files the
 dashboard computes from (`full`) and the five the customer pages do
 (`public`). CI's `wasm` job builds, runs them and typechecks the `.d.ts`.
 
