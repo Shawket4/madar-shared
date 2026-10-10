@@ -17,7 +17,7 @@ copy, its vectors are its own tests, and both consumers pin the same tag.
 | `madar-authz` | The permission decision library: the capability registry (generated from `authz/spec/capabilities.toml`), `resolve`, `decide`, the anti-escalation guard, the signed-snapshot binding; the void facts (`acts::void_facts`: own = the order's teller, age in whole minutes) and the offline PIN verify (`pin`, argon2id, with one shared PHC test string). |
 | `madar-money` | Money: the tax engine and the sale-channel rule, the refund tax/service split, the staff pool decision, the staff-comp rule, the loyalty reward cover, POS-metrics `average_ticket`; a line's total (`line`); bill assembly — staff comp, reward, discount, tax — over the lines or a subtotal a till stated (`price_bill`, `price_bill_on`, `price_subtotal`), a stored discount rule (`rule_of`), a table bill's preview, the tender / change / split rules (`bill`); the discount act a sale asks for, its basis points and figures (`discount`); a waste's value and which waste inputs may be recorded (`waste`); recipe cost — a line's cost, a recipe's total (complete or partial), the margin and the food-cost band (`cost`, pinned by `cost_vectors.json`); the one proportional allocator, whose shares sum to the amount exactly (`alloc::split`: a combo's price over its parts, a deal's discount over a chunk's units). |
 | `madar-till` | A till's drawer and Z report as a fold over rows (`report`), the drawer carryover picker (`carryover`), close reconciliation — `plan_lines`, `rollup_status`, the codes (`reconcile`). Both sides run the fold over rows they load (the backend since v0.4.0), pinned by the till vectors. |
-| `madar-units` | Inventory units (`g`, `kg`, `ml`, `l`, `pcs`), their families and conversion, with the density bridge; a recipe line's stored quantity (yield and density, `recipe_base_qty`) and the usable amount it stands for (`usable_qty`), pinned by `recipe_qty_vectors.json`. |
+| `madar-units` | Inventory units (`g`, `kg`, `ml`, `l`, `pcs`), their families and conversion, with the density bridge; a recipe line's stored quantity (yield and density, `recipe_base_qty`) and the usable amount it stands for (`usable_qty`), pinned by `recipe_qty_vectors.json`; the recipe editors' size scaling (`scale_qty`), pinned by `scale_vectors.json`. |
 | `madar-ids` | The canonical phone (also pinned for the backend's SQL `phone_canonical`), order-ref formats and reading a device code back out of one, the member card token. |
 | `madar-time` | Business-day rules: week start, business date of an instant, the `YYMMDD` stamp, local day bounds (with the DST-gap rule). |
 | `madar-sync` | `/sync/pull` type lists and ledger classification, the R-checksum, the kitchen UUIDv5 ids; the `/sync/replay` envelopes (`replay`) and the current release's envelope fixture. |
@@ -85,7 +85,7 @@ crate above.
 | Package | For | Exports |
 |---|---|---|
 | `public` | the customer pages: ordering, menu, loyalty, reservations | catalog `unit_price`, `price_options`, `price_line`, `option_charge`, `combo_quote`; money `bill_discount`; ids `phone_canonical` |
-| `full` | the web dashboard | everything in `public`, and: time `business_date`, `day_bounds`, `week_start`; Dawam `pay_period`; units `unit_spec`, `units_of`, `convert`, `convert_with_density`, `recipe_base_qty`, `usable_qty`; money `average_ticket`, `line_cost`, `recipe_cost`, `margin`, `food_cost_band`; till `till_plan_lines`; inventory `transfer_step`, `check_receive_line`, `replenish_suggest`, `quantity_dec`, `estimate_line_total`, `unit_cost_from_total`, `is_variance_flagged`; catalog `combo_choice_for` |
+| `full` | the web dashboard | everything in `public`, and: time `business_date`, `day_bounds`, `week_start`; Dawam `pay_period`; units `unit_spec`, `units_of`, `convert`, `convert_with_density`, `recipe_base_qty`, `usable_qty`, `scale_qty`; money `average_ticket`, `line_cost`, `recipe_cost`, `margin`, `food_cost_band`; till `till_plan_lines`; inventory `transfer_step`, `check_receive_line`, `replenish_suggest`, `quantity_dec`, `quantity_milli`, `delivery_cost`, `estimate_line_total`, `unit_cost_from_total`, `is_variance_flagged`; catalog `combo_choice_for` |
 
 The customer pages compute no loyalty, business-date or sale-window rule
 today (the server answers those), so `public` carries none.
@@ -123,7 +123,7 @@ about 53 KB, `full` about 105 KB. The crate also builds on stable (`cargo build
 about 10–17 % larger) should the nightly ever be unavailable.
 
 **Testing.** `node --test node/vectors.test.mjs` (after the build) runs the
-vector files the web uses through both packages: the sixteen files the
+vector files the web uses through both packages: the seventeen files the
 dashboard computes from (`full`) and the four the customer pages do
 (`public`). CI's `wasm` job builds, runs them and typechecks the `.d.ts`.
 

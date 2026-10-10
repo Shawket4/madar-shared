@@ -3,7 +3,7 @@
 // boundary (serde-wasm-bindgen, epoch-ms instants, refusals returned).
 //
 // Build first (scripts/build-wasm.sh), then: node --test node/
-// Each package runs every file its exports cover; `full` covers all sixteen
+// Each package runs every file its exports cover; `full` covers all seventeen
 // files the web uses, `public` the customer pages' four.
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
@@ -131,6 +131,8 @@ function fullFiles(pkg, w) {
       return [stored, usable, usable === c.typed_in_base];
     },
     (c) => [c.stored, c.usable, c.round_trips]);
+  cases(pkg, "scale_vectors", "scale_qty", vectors("madar-units/vectors/scale_vectors.json").cases,
+    (c) => w.scale_qty(c.qty, c.factor), (c) => c.expected);
 
   const inventory = vectors("madar-inventory/vectors/inventory_vectors.json");
   cases(pkg, "inventory_vectors", "transfer_step", inventory.steps,
@@ -144,6 +146,11 @@ function fullFiles(pkg, w) {
   const purchase = vectors("madar-inventory/vectors/purchase_vectors.json");
   cases(pkg, "purchase_vectors", "quantity_dec", purchase.quantity,
     (c) => w.quantity_dec(c.q), (c) => Number(c.quantity_dec));
+  cases(pkg, "purchase_vectors", "quantity_milli", purchase.quantity,
+    (c) => w.quantity_milli(c.q), (c) => c.milli);
+  cases(pkg, "purchase_vectors", "delivery_cost", purchase.delivery_cost,
+    (c) => w.delivery_cost(c.quantity_received, c.line_cost, c.unit_cost, c.ordered_line_cost, Number(c.quantity_ordered)),
+    (c) => (c.error == null ? Number(c.expected) : { error: c.error }));
   cases(pkg, "purchase_vectors", "estimate_line_total", purchase.estimate_line_total,
     (c) => w.estimate_line_total(c.cost_per_stock_unit, c.qty, c.purchase_unit, c.stock_unit), (c) => c.expected);
   cases(pkg, "purchase_vectors", "unit_cost_from_total", purchase.unit_cost_from_total,
@@ -181,6 +188,7 @@ function fullFiles(pkg, w) {
     assert.throws(() => w.business_date("Mars/Olympus", 0), /time zone/);
     assert.throws(() => w.week_start("2026-02-30"), /YYYY-MM-DD/);
     assert.throws(() => w.business_date("Africa/Cairo", 1.5), /whole number/);
+    assert.throws(() => w.delivery_cost(1, 10.5, null, 0, 1), /whole number/);
   });
 }
 

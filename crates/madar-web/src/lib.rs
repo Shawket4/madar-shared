@@ -302,6 +302,13 @@ mod full {
         madar_units::usable_qty(stored, yield_pct)
     }
 
+    /// A recipe quantity copied to another size × `factor`, 3 dp, half away
+    /// from zero.
+    #[wasm_bindgen]
+    pub fn scale_qty(qty: f64, factor: f64) -> f64 {
+        madar_units::scale_qty(qty, factor)
+    }
+
     // ── money (madar-money) ──────────────────────────────────────────────
 
     /// Net sales over orders, rounded half up; 0 with no orders.
@@ -506,6 +513,48 @@ mod full {
         madar_inventory::purchase::quantity_dec(q)
             .to_f64()
             .unwrap_or(0.0)
+    }
+
+    /// A quantity in whole thousandths, as `numeric(12,3)` stores it (half
+    /// away from zero; non-finite is 0).
+    #[wasm_bindgen]
+    pub fn quantity_milli(q: f64) -> f64 {
+        madar_inventory::purchase::milli(q) as f64
+    }
+
+    /// The server's 400 message for a purchase cost it refuses.
+    #[derive(Serialize, Tsify)]
+    pub struct PurchaseRefusal {
+        pub error: String,
+    }
+
+    /// Piastres one delivery cost, not rounded: the invoice total if given,
+    /// else the per-unit price × the quantity, else the ordered line total
+    /// pro rata to the quantity received (the receive dialog's hint).
+    /// `quantity_ordered` is the stored column.
+    #[wasm_bindgen(unchecked_return_type = "number | PurchaseRefusal")]
+    pub fn delivery_cost(
+        quantity_received: f64,
+        line_cost: Option<f64>,
+        unit_cost: Option<f64>,
+        ordered_line_cost: f64,
+        quantity_ordered: f64,
+    ) -> Result<JsValue, JsError> {
+        use madar_inventory::purchase::quantity_dec;
+        use rust_decimal::prelude::ToPrimitive;
+        either(
+            madar_inventory::purchase::delivery_cost(
+                quantity_received,
+                line_cost.map(int).transpose()?,
+                unit_cost.map(int).transpose()?,
+                int(ordered_line_cost)?,
+                quantity_dec(quantity_ordered),
+            )
+            .map(|d| d.to_f64().unwrap_or(0.0))
+            .map_err(|e| PurchaseRefusal {
+                error: e.to_string(),
+            }),
+        )
     }
 
     /// The order dialog's line estimate in piastres; `null` without a cost,
