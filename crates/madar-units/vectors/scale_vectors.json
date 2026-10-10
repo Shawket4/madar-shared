@@ -1,0 +1,31 @@
+{
+  "about": "madar_units::scale_qty — hand-computed. The recipe editors' \"copy a size's recipe to another size × factor\": round3(qty × factor), round3 being (x × 1000).round() / 1000 in f64, half away from zero. The web's grid-model.ts scaleQty (Math.round) and the Flutter dashboard's grid_model.dart scaleQty (floor(x + 0.5)) round a negative half up instead (-0.0005 → 0); the Flutter one also misrounds above 2^52 thousandths. A blank or non-numeric cell is the editors' to keep as typed.",
+  "cases": [
+    {"name": "copy_as_is", "qty": 18, "factor": 1, "expected": 18},
+    {"name": "one_and_a_half", "qty": 18, "factor": 1.5, "expected": 27},
+    {"name": "half", "qty": 18, "factor": 0.5, "expected": 9},
+    {"name": "fraction_kept", "qty": 7, "factor": 1.5, "expected": 10.5},
+    {"name": "three_dp_factor", "qty": 10, "factor": 0.333, "expected": 3.33},
+    {"name": "a_third", "qty": 10, "factor": 0.3333333333333333, "expected": 3.333},
+    {"name": "a_third_back_to_whole", "qty": 12, "factor": 0.3333333333333333, "expected": 4},
+    {"name": "float_noise", "qty": 0.1, "factor": 3, "expected": 0.3, "why": "0.30000000000000004"},
+    {"name": "float_noise_small", "qty": 0.1, "factor": 0.2, "expected": 0.02, "why": "0.020000000000000004"},
+    {"name": "float_noise_whole", "qty": 2.5, "factor": 0.4, "expected": 1},
+    {"name": "product_rounded_to_3dp", "qty": 33.3, "factor": 1.1, "expected": 36.63},
+    {"name": "float_noise_under", "qty": 0.7, "factor": 3, "expected": 2.1, "why": "2.0999999999999996"},
+    {"name": "half_up_through_noise", "qty": 12.345, "factor": 1.5, "expected": 18.518, "why": "18.517500000000002"},
+    {"name": "many_decimals", "qty": 1234.5678, "factor": 1, "expected": 1234.568},
+    {"name": "density_like_factor", "qty": 250, "factor": 0.92, "expected": 230},
+    {"name": "half_a_thousandth_up", "qty": 0.0625, "factor": 1, "expected": 0.063},
+    {"name": "half_after_scaling", "qty": 0.125, "factor": 0.5, "expected": 0.063, "why": "0.0625"},
+    {"name": "half_not_to_even", "qty": 0.0025, "factor": 1, "expected": 0.003},
+    {"name": "smallest_half", "qty": 0.0005, "factor": 1, "expected": 0.001},
+    {"name": "under_half_a_thousandth", "qty": 0.0004, "factor": 1, "expected": 0},
+    {"name": "doubled_half", "qty": 1.0005, "factor": 2, "expected": 2.001},
+    {"name": "zero_qty", "qty": 0, "factor": 2, "expected": 0},
+    {"name": "zero_factor", "qty": 5, "factor": 0, "expected": 0},
+    {"name": "negative", "qty": -1.25, "factor": 2, "expected": -2.5},
+    {"name": "negative_half_away_from_zero", "qty": -0.0005, "factor": 1, "expected": -0.001, "why": "the web and Flutter scaleQty give 0"},
+    {"name": "beyond_2_52_thousandths", "qty": 4503599627370.497, "factor": 1, "expected": 4503599627370.497, "why": "Flutter's floor(x + 0.5) gives 4503599627370.498"}
+  ]
+}

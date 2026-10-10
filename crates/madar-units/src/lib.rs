@@ -12,12 +12,13 @@
 //!
 //! Pinned by `vectors/unit_vectors.json`. A recipe line's stored and usable
 //! quantity ([`recipe_base_qty`], [`usable_qty`]) by
-//! `vectors/recipe_qty_vectors.json`.
+//! `vectors/recipe_qty_vectors.json`; the recipe editors' size scaling
+//! ([`scale_qty`]) by `vectors/scale_vectors.json`.
 
 use core::fmt;
 
 mod recipe;
-pub use recipe::{recipe_base_qty, usable_qty};
+pub use recipe::{recipe_base_qty, scale_qty, usable_qty};
 
 /// `(family, factor to the family's canonical unit)`. Canonical per family:
 /// grams for mass, millilitres for volume, pcs for count. Case and
@@ -177,6 +178,8 @@ pub mod vectors {
     pub const UNITS: &str = include_str!("../vectors/unit_vectors.json");
     /// `recipe_base_qty` and `usable_qty` (hand-computed).
     pub const RECIPE_QTY: &str = include_str!("../vectors/recipe_qty_vectors.json");
+    /// `scale_qty` (hand-computed).
+    pub const SCALE: &str = include_str!("../vectors/scale_vectors.json");
 
     #[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
     pub struct UnitVector {
