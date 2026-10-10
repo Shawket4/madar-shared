@@ -10,9 +10,14 @@
 //! without the density bridge. The error messages are the server's, word for
 //! word (it returns them as a 400).
 //!
-//! Pinned by `vectors/unit_vectors.json`.
+//! Pinned by `vectors/unit_vectors.json`. A recipe line's stored and usable
+//! quantity ([`recipe_base_qty`], [`usable_qty`]) by
+//! `vectors/recipe_qty_vectors.json`.
 
 use core::fmt;
+
+mod recipe;
+pub use recipe::{recipe_base_qty, usable_qty};
 
 /// `(family, factor to the family's canonical unit)`. Canonical per family:
 /// grams for mass, millilitres for volume, pcs for count. Case and
@@ -170,6 +175,8 @@ pub mod vectors {
 
     /// The file, for consumer tests.
     pub const UNITS: &str = include_str!("../vectors/unit_vectors.json");
+    /// `recipe_base_qty` and `usable_qty` (hand-computed).
+    pub const RECIPE_QTY: &str = include_str!("../vectors/recipe_qty_vectors.json");
 
     #[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
     pub struct UnitVector {

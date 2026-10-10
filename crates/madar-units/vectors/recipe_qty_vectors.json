@@ -1,0 +1,47 @@
+{
+  "about": "madar_units::recipe_base_qty and usable_qty — hand-computed. recipe_base_qty = round3(convert_with_density(qty, unit, base_unit, density) / (yield_pct / 100)), a missing or non-positive yield being 100 % (MadarRust recipes/handlers.rs normalize_recipe_unit, float for float). usable_qty = round3(stored × yield_pct / 100): the amount typed, in the base unit. round3 is (x × 1000).round() / 1000 in f64. An error is the server's message.",
+  "recipe_base_qty": [
+    {"name": "identity", "qty": 18, "unit": "g", "base_unit": "g", "density": null, "yield_pct": null, "expected": 18, "error": null},
+    {"name": "yield_100", "qty": 18, "unit": "g", "base_unit": "g", "density": null, "yield_pct": 100, "expected": 18, "error": null},
+    {"name": "yield_zero_is_100", "qty": 18, "unit": "g", "base_unit": "g", "density": null, "yield_pct": 0, "expected": 18, "error": null},
+    {"name": "yield_negative_is_100", "qty": 18, "unit": "g", "base_unit": "g", "density": null, "yield_pct": -5, "expected": 18, "error": null},
+    {"name": "d3_100g_at_80_stores_125", "qty": 100, "unit": "g", "base_unit": "g", "density": null, "yield_pct": 80, "expected": 125, "error": null},
+    {"name": "yield_12_5", "qty": 1, "unit": "g", "base_unit": "g", "density": null, "yield_pct": 12.5, "expected": 8, "error": null},
+    {"name": "yield_30_rounds_to_3dp", "qty": 1, "unit": "g", "base_unit": "g", "density": null, "yield_pct": 30, "expected": 3.333, "error": null},
+    {"name": "yield_above_100", "qty": 1, "unit": "g", "base_unit": "g", "density": null, "yield_pct": 300, "expected": 0.333, "error": null},
+    {"name": "kg_to_g", "qty": 1, "unit": "kg", "base_unit": "g", "density": null, "yield_pct": null, "expected": 1000, "error": null},
+    {"name": "g_to_kg", "qty": 250, "unit": "g", "base_unit": "kg", "density": null, "yield_pct": null, "expected": 0.25, "error": null},
+    {"name": "kg_to_g_at_70", "qty": 0.5, "unit": "kg", "base_unit": "g", "density": null, "yield_pct": 70, "expected": 714.286, "error": null, "why": "500 / 0.7 = 714.2857…"},
+    {"name": "ml_to_g_with_density", "qty": 250, "unit": "ml", "base_unit": "g", "density": 1.03, "yield_pct": null, "expected": 257.5, "error": null},
+    {"name": "ml_to_g_with_density_at_80", "qty": 250, "unit": "ml", "base_unit": "g", "density": 1.03, "yield_pct": 80, "expected": 321.875, "error": null},
+    {"name": "l_to_kg_with_density", "qty": 1, "unit": "l", "base_unit": "kg", "density": 0.92, "yield_pct": null, "expected": 0.92, "error": null},
+    {"name": "converted_then_rounded_then_grossed_up", "qty": 1.5, "unit": "g", "base_unit": "kg", "density": null, "yield_pct": 60, "expected": 0.003, "error": null, "why": "1.5 g = 0.0015 kg → 0.002 (3 dp, half away) → / 0.6 = 0.00333… → 0.003"},
+    {"name": "too_small_rounds_to_0_returned", "qty": 0.4, "unit": "g", "base_unit": "kg", "density": null, "yield_pct": null, "expected": 0, "error": null, "why": "the server refuses it (V22); the rule returns 0"},
+    {"name": "too_small_yield_does_not_rescue", "qty": 0.4, "unit": "g", "base_unit": "kg", "density": null, "yield_pct": 50, "expected": 0, "error": null, "why": "the conversion rounds to 0 before the yield"},
+    {"name": "needs_density", "qty": 250, "unit": "ml", "base_unit": "g", "density": null, "yield_pct": 80, "expected": null, "error": "Cannot convert 'ml' to 'g': set a density (g/ml) on the ingredient to convert between weight and volume."},
+    {"name": "zero_density_needs_density", "qty": 250, "unit": "ml", "base_unit": "g", "density": 0, "yield_pct": null, "expected": null, "error": "Cannot convert 'ml' to 'g': set a density (g/ml) on the ingredient to convert between weight and volume."},
+    {"name": "count_never_bridges", "qty": 2, "unit": "pcs", "base_unit": "g", "density": 1, "yield_pct": null, "expected": null, "error": "Cannot convert 'pcs' to 'g': only weight↔volume is bridged by density."},
+    {"name": "unknown_unit", "qty": 1, "unit": "cups", "base_unit": "g", "density": null, "yield_pct": null, "expected": null, "error": "Unknown unit 'cups'"}
+  ],
+  "usable_qty": [
+    {"name": "d3_125_at_80", "stored": 125, "yield_pct": 80, "expected": 100},
+    {"name": "no_yield", "stored": 18, "yield_pct": null, "expected": 18},
+    {"name": "yield_zero_is_100", "stored": 10, "yield_pct": 0, "expected": 10},
+    {"name": "zero", "stored": 0, "yield_pct": 80, "expected": 0},
+    {"name": "3_333_at_30_rounds_back_to_1", "stored": 3.333, "yield_pct": 30, "expected": 1, "why": "0.9999 → 1.000"},
+    {"name": "0_333_at_300", "stored": 0.333, "yield_pct": 300, "expected": 0.999},
+    {"name": "0_003_at_60", "stored": 0.003, "yield_pct": 60, "expected": 0.002, "why": "0.0018"},
+    {"name": "321_875_at_80", "stored": 321.875, "yield_pct": 80, "expected": 257.5}
+  ],
+  "round_trips": [
+    {"name": "d3_100g_at_80", "qty": 100, "unit": "g", "base_unit": "g", "density": null, "yield_pct": 80, "typed_in_base": 100, "stored": 125, "usable": 100, "round_trips": true},
+    {"name": "1g_at_30", "qty": 1, "unit": "g", "base_unit": "g", "density": null, "yield_pct": 30, "typed_in_base": 1, "stored": 3.333, "usable": 1, "round_trips": true},
+    {"name": "1g_at_12_5", "qty": 1, "unit": "g", "base_unit": "g", "density": null, "yield_pct": 12.5, "typed_in_base": 1, "stored": 8, "usable": 1, "round_trips": true},
+    {"name": "7_777g_at_99", "qty": 7.777, "unit": "g", "base_unit": "g", "density": null, "yield_pct": 99, "typed_in_base": 7.777, "stored": 7.856, "usable": 7.777, "round_trips": true, "why": "7.856 × 0.99 = 7.77744"},
+    {"name": "0_5kg_into_g_at_70", "qty": 0.5, "unit": "kg", "base_unit": "g", "density": null, "yield_pct": 70, "typed_in_base": 500, "stored": 714.286, "usable": 500, "round_trips": true, "why": "714.286 × 0.7 = 500.0002"},
+    {"name": "250ml_into_g_density_at_80", "qty": 250, "unit": "ml", "base_unit": "g", "density": 1.03, "yield_pct": 80, "typed_in_base": 257.5, "stored": 321.875, "usable": 257.5, "round_trips": true, "why": "usable is in the base unit: 257.5 g is the 250 ml typed"},
+    {"name": "yield_above_100_does_not", "qty": 1, "unit": "g", "base_unit": "g", "density": null, "yield_pct": 300, "typed_in_base": 1, "stored": 0.333, "usable": 0.999, "round_trips": false, "why": "above 100 % the 3 dp step of the stored quantity is magnified past half a thousandth"},
+    {"name": "finer_than_a_thousandth_does_not", "qty": 1.5, "unit": "g", "base_unit": "kg", "density": null, "yield_pct": 60, "typed_in_base": 0.0015, "stored": 0.003, "usable": 0.002, "round_trips": false, "why": "1.5 g is 0.0015 kg, finer than the kg ingredient's 3 dp"},
+    {"name": "too_small_does_not", "qty": 0.4, "unit": "g", "base_unit": "kg", "density": null, "yield_pct": null, "typed_in_base": 0.0004, "stored": 0, "usable": 0, "round_trips": false, "why": "the server refuses this line"}
+  ]
+}
