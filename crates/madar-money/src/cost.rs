@@ -48,6 +48,7 @@ pub fn line_cost(qty: f64, cost_per_unit: f64) -> i64 {
 /// base unit in piastres, `None` when the ingredient has no cost (or the line
 /// links no ingredient).
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct CostLine {
     pub qty: f64,
     pub cost_per_unit: Option<f64>,
@@ -55,6 +56,7 @@ pub struct CostLine {
 
 /// A recipe's cost: the known lines' exact sum, rounded once.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct RecipeCost {
     pub piastres: i64,
     /// `false` when any line has no cost: `piastres` is then a partial sum,
@@ -86,6 +88,7 @@ pub fn margin(price: i64, cost: i64) -> Option<f64> {
 /// Where a food cost (cost ÷ price) sits; the margin badge uses the same
 /// cut-offs.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 #[serde(rename_all = "snake_case")]
 pub enum Band {
     /// Under 30 %.

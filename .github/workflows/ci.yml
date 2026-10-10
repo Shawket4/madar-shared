@@ -46,6 +46,8 @@ jobs:
         run: |
           cargo clippy --workspace --all-targets --all-features --locked -- -D warnings
           cargo test --workspace --all-features --locked
+          # madar-web's public build alone (the line above lints it with full).
+          cargo clippy -p madar-web --all-targets --features public --locked -- -D warnings
 
       # The permission registry (crates/madar-authz/src/generated.rs) is
       # generated from authz/spec/capabilities.toml. Fail when it is stale.
@@ -68,3 +70,63 @@ jobs:
           key: msrv
       - name: build
         run: cargo build --workspace --all-features --locked
+
+  wasm:
+    # The browser packages (crates/madar-web): built with the pinned recipe and
+    # proven by the same vector files the crates pass, through the wasm.
+    name: wasm packages + vectors through them
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # The pin lives in scripts/build-wasm.sh (PINNED, checked by commit).
+      - name: pinned nightly
+        run: |
+          tc=$(sed -n 's/^PINNED=\([^ ]*\).*/\1/p' scripts/build-wasm.sh)
+          rustup toolchain install "$tc" --profile minimal --component rust-src --target wasm32-unknown-unknown
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: wasm-bindgen@0.2.129
+      - name: binaryen (wasm-opt) 133
+        run: |
+          curl -sSfL https://github.com/WebAssembly/binaryen/releases/download/version_133/binaryen-version_133-x86_64-linux.tar.gz | tar xz
+          echo "$PWD/binaryen-version_133/bin" >> "$GITHUB_PATH"
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: wasm
+      - name: build
+        run: scripts/build-wasm.sh
+      - name: vectors through the wasm
+        run: node --test node/vectors.test.mjs
+      - name: the .d.ts files typecheck
+        run: npx --yes -p typescript@6.0.3 tsc --noEmit --strict --target es2022 --module es2022 --lib es2022,dom dist/public/madar_web.d.ts dist/full/madar_web.d.ts
+      - uses: actions/upload-artifact@v4
+        with:
+          name: madar-web-dist
+          path: dist/
+
+  release-wasm:
+    # On a tag: the same build, attached to the tag's GitHub release. Consumers
+    # pin the tag and a tarball's sha256 (README "The browser packages").
+    name: attach the wasm packages to the release
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: [check, msrv, wasm]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: madar-web-dist
+          path: dist
+      - name: package and attach
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          for pkg in public full; do
+            tar --sort=name --mtime=@0 --owner=0 --group=0 --numeric-owner -C dist -cf - "$pkg" | gzip -n >"madar-web-$pkg.tar.gz"
+          done
+          { cat dist/SHA256SUMS; sha256sum madar-web-public.tar.gz madar-web-full.tar.gz; } >SHA256SUMS
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 \
+            || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --title "$TAG" --notes "See CHANGELOG.md."
+          gh release upload "$TAG" -R "$GITHUB_REPOSITORY" --clobber madar-web-public.tar.gz madar-web-full.tar.gz SHA256SUMS

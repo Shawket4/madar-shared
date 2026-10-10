@@ -18,3 +18,10 @@ serde_json = "1"
 madar-money = { path = "../madar-money", version = "0.6.0" }
 # The follow-the-drink rule converts an add-on's quantity (`follow`).
 madar-units = { path = "../madar-units", version = "0.6.0" }
+# TypeScript declarations of the types the browser build (madar-web) passes
+# across, for its .d.ts (off by default: no consumer but madar-web builds it).
+tsify = { version = "0.5", optional = true, default-features = false, features = ["js"] }
+wasm-bindgen = { version = "0.2", optional = true }
+
+[features]
+tsify = ["dep:tsify", "dep:wasm-bindgen"]

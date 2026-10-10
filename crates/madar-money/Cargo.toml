@@ -22,7 +22,14 @@ chrono-tz = "0.10"
 madar-time = { path = "../madar-time", version = "0.6.0" }
 # The discount act is judged by madar-authz (one copy, same tag).
 madar-authz = { path = "../madar-authz", version = "0.6.0" }
+# TypeScript declarations of the types the browser build (madar-web) passes
+# across, for its .d.ts (off by default: no consumer but madar-web builds it).
+tsify = { version = "0.5", optional = true, default-features = false, features = ["js"] }
+wasm-bindgen = { version = "0.2", optional = true }
 
 [dev-dependencies]
 rust_decimal_macros = "1"
 serde_json = "1"
+
+[features]
+tsify = ["dep:tsify", "dep:wasm-bindgen"]

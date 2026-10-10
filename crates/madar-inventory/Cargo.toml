@@ -23,5 +23,11 @@ chrono = { version = "0.4", default-features = false, features = ["std", "serde"
 # The API contract's OpenAPI schemas, for the backend's spec (off by default).
 utoipa = { version = "5", optional = true, default-features = false, features = ["macros", "chrono", "uuid"] }
 
+# TypeScript declarations of the types the browser build (madar-web) passes
+# across, for its .d.ts (off by default: no consumer but madar-web builds it).
+tsify = { version = "0.5", optional = true, default-features = false, features = ["js"] }
+wasm-bindgen = { version = "0.2", optional = true }
+
 [features]
 utoipa = ["dep:utoipa"]
+tsify = ["dep:tsify", "dep:wasm-bindgen"]

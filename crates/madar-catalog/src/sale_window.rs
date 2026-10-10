@@ -20,6 +20,7 @@ use serde::{Deserialize, Serialize};
 
 /// One window, as the `sale_windows` row and the feed carry it.
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct Window {
     /// `None` = every branch.
     #[serde(default)]
