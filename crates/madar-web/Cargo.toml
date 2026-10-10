@@ -1,0 +1,52 @@
+[package]
+name = "madar-web"
+description = "The madar-shared rules for the browser (WebAssembly): thin wasm-bindgen bindings, no rule of its own."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+repository.workspace = true
+
+# Built by scripts/build-wasm.sh into dist/full and dist/public. Natively it is
+# an rlib that the workspace's fmt, clippy and test runs check like any crate.
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+# The customer pages (ordering, menu, loyalty): what they compute.
+public = ["dep:madar-catalog", "dep:madar-money", "dep:madar-ids", "dep:rust_decimal"]
+# The web dashboard: every rule it computes. A superset of `public`.
+full = [
+    "public",
+    "madar-money/tsify",
+    "dep:madar-time",
+    "dep:madar-dawam",
+    "dep:madar-units",
+    "dep:madar-inventory",
+    "dep:madar-till",
+    "dep:chrono",
+    "dep:chrono-tz",
+]
+
+[dependencies]
+# Exactly the wasm-bindgen CLI's version: the glue it writes must match.
+wasm-bindgen = "=0.2.129"
+serde = { version = "1", features = ["derive"] }
+serde-wasm-bindgen = "0.6"
+tsify = { version = "0.5", default-features = false, features = ["js"] }
+
+madar-catalog = { path = "../madar-catalog", features = ["tsify"], optional = true }
+madar-money = { path = "../madar-money", optional = true }
+madar-ids = { path = "../madar-ids", optional = true }
+madar-time = { path = "../madar-time", optional = true }
+madar-dawam = { path = "../madar-dawam", optional = true }
+madar-units = { path = "../madar-units", optional = true }
+madar-inventory = { path = "../madar-inventory", features = ["tsify"], optional = true }
+madar-till = { path = "../madar-till", optional = true }
+
+rust_decimal = { version = "1", default-features = false, optional = true }
+chrono = { version = "0.4", default-features = false, features = ["std"], optional = true }
+# `filter-by-regex`: the build keeps only the zones in scripts/tz-filter.txt
+# (CHRONO_TZ_TIMEZONE_FILTER). Without that variable every zone is kept.
+chrono-tz = { version = "0.10", features = ["filter-by-regex"], optional = true }

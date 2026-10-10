@@ -14,6 +14,11 @@ use crate::{from_milli, milli};
 
 /// One ingredient, one branch, one warehouse. All in the base stock unit.
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(
+    feature = "tsify",
+    derive(tsify::Tsify),
+    tsify(missing_as_null, rename = "ReplenishInput")
+)]
 pub struct Input {
     pub on_hand: f64,
     pub par_min: f64,
@@ -29,6 +34,11 @@ pub struct Input {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(
+    feature = "tsify",
+    derive(tsify::Tsify),
+    tsify(missing_as_null, rename = "ReplenishSuggestion")
+)]
 pub struct Suggestion {
     /// What the branch is short of after what is already coming.
     pub need: f64,

@@ -25,6 +25,7 @@ copy, its vectors are its own tests, and both consumers pin the same tag.
 | `madar-dawam` | Dawam (staff attendance): the geofence (distance, effective radius), the pay-period window, the offline stamp's type (with its OpenAPI schema behind the `utoipa` feature) and the signed anchor's format (the HMAC stays on the server). |
 | `madar-inventory` | Warehouses and stock transfers (MadarRust `WAREHOUSE_DESIGN.md`): the transfer lifecycle — which side takes which action in which status, the capability it needs, the status it leads to (`transfer::step`) — the receive check for one line (short / exact / over, an over-receive needs a note), how much a warehouse should send a branch (`replenish::suggest`), and the API bodies (`api`, OpenAPI schemas behind `utoipa`). Quantities compared in whole thousandths. Pinned by `inventory_vectors.json`. Purchase-order money — line and unit costs, a delivery's cost pro rata, the order estimate (`purchase`, `purchase_vectors.json`) — and the stock-count variance flag (`count`, `count_vectors.json`). |
 | `madar-loyalty` | Which rewards a sale may take: `plan` — strict on the server (the first refusal), trimming on the till (the first trim named) — and the lines a refused replay keeps (`replay_lines`). Pinned by `loyalty_plan_vectors.json`. |
+| `madar-web` | No rule of its own: the crates above built to WebAssembly for the browser, as two packages (`full` for the web dashboard, `public` for the customer pages). See [The browser packages](#the-browser-packages-webassembly). |
 
 Plus `authz/gen` (`authz-gen`), the generator for the permission registry.
 
@@ -73,6 +74,78 @@ All crates share one version and are released together under one tag.
 
 A rule change that changes results is a deliberate, versioned event: the tag
 bump is where both sides adopt it together.
+
+## The browser packages (WebAssembly)
+
+`crates/madar-web` builds the rules for the browser, so the web dashboard and
+the customer pages run the same Rust as the backend and the POS core instead of
+TypeScript copies. It is thin bindings only: each export is one call into a
+crate above.
+
+| Package | For | Exports |
+|---|---|---|
+| `public` | the customer pages: ordering, menu, loyalty, reservations | catalog `unit_price`, `price_options`, `price_line`, `option_charge`, `combo_quote`; money `bill_discount`; ids `phone_canonical` |
+| `full` | the web dashboard | everything in `public`, and: time `business_date`, `day_bounds`, `week_start`; Dawam `pay_period`; units `unit_spec`, `units_of`, `convert`, `convert_with_density`, `recipe_base_qty`, `usable_qty`; money `average_ticket`, `line_cost`, `recipe_cost`, `margin`, `food_cost_band`; till `till_plan_lines`; inventory `transfer_step`, `check_receive_line`, `replenish_suggest`, `quantity_dec`, `estimate_line_total`, `unit_cost_from_total`, `is_variance_flagged`; catalog `combo_choice_for` |
+
+The customer pages compute no loyalty, business-date or sale-window rule
+today (the server answers those), so `public` carries none.
+
+**The boundary.** Each package's `madar_web.d.ts` types every call; its
+interfaces are generated from the crates' own structs (`tsify`, behind each
+crate's off-by-default `tsify` feature).
+
+- Objects cross as plain JS objects (serde-wasm-bindgen), in the API's JSON
+  shape: field names as the crates serialise them, a missing value `null`.
+- A refusal the crate models is **returned**, so the result is a union:
+  `unit_price(item, size)` is `number | PriceError` (`{ error: "no_priced_size" }`),
+  `combo_quote` is `ComboQuote | ComboRefusal` (`{ refusal: … }`),
+  `convert` is `number | UnitRefusal` (`{ error: <the server's message> }`).
+  Input that is not what the type says (a wrong shape, `12.5` piastres, an
+  unknown time zone, a malformed date) **throws** an `Error`.
+- Piastres and counts are JS numbers and must be whole (and within 2^53).
+- Instants are epoch milliseconds (`Date.now()`, `Date.parse(iso)`), never
+  text; `day_bounds` answers `[startMs, endMs]`. Calendar dates are
+  `YYYY-MM-DD` strings.
+- Time zones: Cairo, MENA and the US, plus UTC (`scripts/tz-filter.txt`,
+  owner's choice); any other zone throws.
+
+**Building.** `scripts/build-wasm.sh` writes `dist/public/` and `dist/full/`
+(`madar_web_bg.wasm`, the `--target web` glue `madar_web.js`, `madar_web.d.ts`)
+and `dist/SHA256SUMS`. The recipe, each step measured (SHARED_RULES_PLAN.md
+Step 3): the pinned nightly (`nightly-2026-06-16`, rustc `01dfd7924`, checked by
+commit) with `-Z build-std=std,panic_abort -Z build-std-features=optimize_for_size`
+and `-Cpanic=immediate-abort`; the `wasm` profile (opt-level `z`, fat LTO, one
+codegen unit; native builds never use it); chrono-tz cut to the zone filter;
+`wasm-bindgen --target web` (CLI 0.2.129, the crate's exact pin); `wasm-opt -Oz
+--converge --strip-debug --strip-producers`. Brotli, wasm + glue: `public`
+about 53 KB, `full` about 105 KB. The crate also builds on stable (`cargo build
+-p madar-web --features full --profile wasm --target wasm32-unknown-unknown`,
+about 10–17 % larger) should the nightly ever be unavailable.
+
+**Testing.** `node --test node/vectors.test.mjs` (after the build) runs the
+vector files the web uses through both packages: the sixteen files the
+dashboard computes from (`full`) and the four the customer pages do
+(`public`). CI's `wasm` job builds, runs them and typechecks the `.d.ts`.
+
+**Consuming.** On each `v*` tag CI attaches `madar-web-public.tar.gz`,
+`madar-web-full.tar.gz` and `SHA256SUMS` (both tarballs and every file in
+them) to the GitHub release. A consumer pins the tag and the tarball's
+sha256, as it pins a vector file:
+
+```sh
+tag=v0.7.0
+curl -sSfLO https://github.com/Shawket4/madar-shared/releases/download/$tag/madar-web-full.tar.gz
+echo "<sha256 recorded with the tag>  madar-web-full.tar.gz" | shasum -a 256 -c
+tar xzf madar-web-full.tar.gz -C src/generated/madar-web    # → full/madar_web.js, …
+```
+
+```ts
+import init, { unit_price } from "@/generated/madar-web/full/madar_web.js";
+import wasmUrl from "@/generated/madar-web/full/madar_web_bg.wasm?url"; // Vite
+
+await init({ module_or_path: wasmUrl }); // once, before the first call
+const price = unit_price(item, "Large"); // number | PriceError
+```
 
 ## The permission registry
 

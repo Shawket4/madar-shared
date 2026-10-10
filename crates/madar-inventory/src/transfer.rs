@@ -17,6 +17,7 @@ use serde::{Deserialize, Serialize};
 use crate::milli;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 #[cfg_attr(feature = "utoipa", derive(utoipa::ToSchema))]
 #[serde(rename_all = "snake_case")]
 pub enum TransferStatus {
@@ -33,6 +34,7 @@ pub enum TransferStatus {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 #[serde(rename_all = "snake_case")]
 pub enum Action {
     /// Change lines or quantities (the side that owns the current step).
@@ -51,6 +53,7 @@ pub enum Action {
 
 /// Whose location the caller must work at to take an action.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 #[serde(rename_all = "snake_case")]
 pub enum Side {
     Source,
@@ -92,6 +95,7 @@ pub fn step(status: TransferStatus, action: Action) -> Option<Step> {
 
 /// How one line arrived.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 #[serde(rename_all = "snake_case")]
 pub enum Arrival {
     Exact,
@@ -102,6 +106,7 @@ pub enum Arrival {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 #[serde(rename_all = "snake_case")]
 pub enum ReceiveRefusal {
     /// `qty_received` below zero.
@@ -113,6 +118,7 @@ pub enum ReceiveRefusal {
 /// A received line, judged. `difference` = received − sent (negative when
 /// short), in the unit, to the thousandth.
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct LineCheck {
     pub arrival: Arrival,
     pub difference: f64,

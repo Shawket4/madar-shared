@@ -13,6 +13,7 @@ use crate::view::{CatalogView, IngredientLine, ItemView, OptionView};
 
 /// A line as the till or the order payload states it.
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct Selection {
     #[serde(default)]
     pub size_label: Option<String>,
@@ -27,6 +28,7 @@ pub struct Selection {
 
 /// One picked option.
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct Pick {
     pub id: String,
     #[serde(default = "one")]
@@ -40,6 +42,7 @@ fn one() -> i64 {
 /// Why a line cannot be priced. The server answers the first with a 400 and
 /// the second with a 404; the till drops an unknown option before it asks.
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 #[serde(tag = "error", rename_all = "snake_case")]
 pub enum PriceError {
     /// The item has no active size with a price.
@@ -59,6 +62,7 @@ impl core::fmt::Display for PriceError {
 
 /// A priced line.
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct PricedLine {
     /// One unit of the item at its size, before any option.
     pub unit_price: i64,
@@ -75,6 +79,7 @@ impl PricedLine {
 
 /// A line's options and optional fields, priced.
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct PricedOptions {
     /// The options as charged: one of each swap family (the last pick), in
     /// the order they were picked.
@@ -91,6 +96,7 @@ pub struct PricedOptions {
 
 /// One option as charged.
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct PricedOption {
     pub id: String,
     /// The quantity charged (at least 1; a swap-family pick beside another
@@ -121,6 +127,7 @@ pub struct PricedOption {
 
 /// The ingredient a swap puts in the cup.
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct Replacement {
     pub id: Option<String>,
     pub name: String,
@@ -129,6 +136,7 @@ pub struct Replacement {
 
 /// The option a swap is charged over.
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct Over {
     pub id: String,
     pub name: String,
@@ -137,6 +145,7 @@ pub struct Over {
 
 /// One optional field as charged.
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct PricedOptional {
     pub id: String,
     pub price: i64,
@@ -144,6 +153,7 @@ pub struct PricedOptional {
 
 /// Something the rule set aside.
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 #[serde(tag = "note", rename_all = "snake_case")]
 pub enum Note {
     /// Two picks of one swap family: the last was kept, at quantity 1.
@@ -156,6 +166,7 @@ pub enum Note {
 
 /// How one option relates to the drink's recipe.
 #[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct SwapTarget {
     /// Ingredient category slug of the recipe line the choice replaces.
     pub slug: String,

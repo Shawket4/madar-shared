@@ -119,6 +119,7 @@ fn one() -> i64 {
 
 /// A combo as a branch sells it.
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct ComboView {
     pub id: String,
     /// P: the combo's `one_size` price, branch-effective.
@@ -133,6 +134,7 @@ pub struct ComboView {
 
 /// One slot: what a customer picks `min..=max` of.
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct SlotView {
     pub id: String,
     #[serde(default)]
@@ -150,6 +152,7 @@ pub struct SlotView {
 
 /// What a slot admits: one item, or every `kind = 'item'` item of a category.
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct ChoiceView {
     #[serde(default)]
     pub id: Option<String>,
@@ -172,6 +175,7 @@ pub struct ChoiceView {
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct SizeSurcharge {
     pub size_label: String,
     pub surcharge: i64,
@@ -179,6 +183,7 @@ pub struct SizeSurcharge {
 
 /// One pick, with its item's view (branch-priced) and its category.
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct PickIn {
     pub slot_id: String,
     pub view: CatalogView,
@@ -195,6 +200,7 @@ pub struct PickIn {
 
 /// Why a combo line cannot be priced. [`ComboRefusal::code`] is the API's.
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 #[serde(tag = "refusal", rename_all = "snake_case")]
 pub enum ComboRefusal {
     /// A pick names a slot the combo does not have.
@@ -367,6 +373,7 @@ pub fn validate(combo: &ComboView, picks: &[PickIn]) -> Result<(), ComboRefusal>
 
 /// A priced combo line.
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct ComboQuote {
     /// P, per combo unit.
     pub price: i64,
@@ -392,6 +399,7 @@ impl ComboQuote {
 /// One part line of a combo line. The `unit`/per-pick figures are for ONE
 /// combo unit; the rest are for the whole line (n combo units).
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct PartQuote {
     /// Index into the input picks.
     pub pick_index: usize,

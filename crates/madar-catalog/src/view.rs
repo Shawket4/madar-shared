@@ -17,6 +17,7 @@ use serde::{Deserialize, Serialize};
 
 /// A menu item and the options a line of it may pick.
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct CatalogView {
     pub item: ItemView,
     /// The options (add-on items) a selection may name. Extra entries are
@@ -34,6 +35,7 @@ impl CatalogView {
 
 /// One menu item, priced for one branch.
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct ItemView {
     pub id: String,
     /// The branch's item-level price override (`branch_menu_overrides`):
@@ -77,6 +79,7 @@ pub struct ItemView {
 /// A choice group attached to an item (`menu_item_modifier_groups` over an
 /// active `modifier_groups` row), with the attachment's overrides resolved.
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct GroupView {
     pub id: String,
     /// `COALESCE(min_override, min_selections)`.
@@ -100,6 +103,7 @@ pub struct GroupView {
 
 /// One option of a choice group, priced for the branch.
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct GroupOption {
     pub id: String,
     /// The catalogue price (`addon_items.default_price`).
@@ -116,6 +120,7 @@ pub struct GroupOption {
 
 /// A size and what it costs at the branch.
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct SizeView {
     pub label: String,
     /// The catalogue price (`menu_item_sizes.price`); `None` when only a
@@ -131,6 +136,7 @@ pub struct SizeView {
 
 /// One recipe line, as far as the swap rule reads it.
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct RecipeLine {
     pub size_label: String,
     /// The ingredient's category slug (`milk`, `coffee_bean`, …); `None`
@@ -143,6 +149,7 @@ pub struct RecipeLine {
 
 /// The options carrying one recipe ingredient, in the server's order.
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct BaseCandidates {
     pub ingredient_id: String,
     #[serde(default)]
@@ -151,6 +158,7 @@ pub struct BaseCandidates {
 
 /// An option a swap may be charged over.
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct BaseCandidate {
     pub option_id: String,
     pub name: String,
@@ -167,6 +175,7 @@ pub struct BaseCandidate {
 
 /// An option (add-on item) as the rule reads it.
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct OptionView {
     pub id: String,
     pub name: String,
@@ -197,6 +206,7 @@ pub struct OptionView {
 
 /// An ingredient an option names.
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct IngredientRef {
     pub id: String,
     pub name: String,
@@ -205,6 +215,7 @@ pub struct IngredientRef {
 
 /// One ingredient line of an option (`addon_item_ingredients`).
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct IngredientLine {
     #[serde(default)]
     pub id: Option<String>,
@@ -214,6 +225,7 @@ pub struct IngredientLine {
 
 /// One per-size ingredient line of an option (`recipe_lines`).
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct SizedLine {
     pub size_label: String,
     pub id: String,
@@ -223,6 +235,7 @@ pub struct SizedLine {
 
 /// An optional field of the item.
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
 pub struct OptionalView {
     pub id: String,
     pub price: i64,
