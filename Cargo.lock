@@ -321,6 +321,8 @@ version = "0.6.0"
 dependencies = [
  "chrono",
  "madar-authz",
+ "madar-units",
+ "rust_decimal",
  "serde",
  "serde_json",
  "utoipa",

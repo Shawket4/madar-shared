@@ -13,6 +13,11 @@ serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 # Which capability each transfer action needs.
 madar-authz = { path = "../madar-authz" }
+# Purchase costs are exact decimals. Default features off: the POS core builds
+# rust_decimal without `std` (as madar-money does).
+rust_decimal = { version = "1", default-features = false }
+# A purchase estimate converts the purchase unit to the stock unit.
+madar-units = { path = "../madar-units" }
 uuid = { version = "1", default-features = false, features = ["serde"] }
 chrono = { version = "0.4", default-features = false, features = ["std", "serde"] }
 # The API contract's OpenAPI schemas, for the backend's spec (off by default).

@@ -1,0 +1,29 @@
+{
+  "about": "madar_inventory::count::is_variance_flagged — hand-computed. b = milli(book), c = milli(counted) (thousandths, half away from zero), p = round(pct × 1000) (thousandths of a percent). Book 0: flagged iff c ≠ 0. Else flagged iff |c − b| × 100000 ≥ |b| × p, in integers. D1: MadarRust's finalize compared floats, so 1 → 0.9 at 10 % (9.999…%) was not flagged.",
+  "cases": [
+    {"name": "d1_1_to_0_9_at_10", "book": 1, "counted": 0.9, "pct": 10, "expected": true},
+    {"name": "d1_3_to_3_3_at_10", "book": 3, "counted": 3.3, "pct": 10, "expected": true},
+    {"name": "d1_6_to_6_6_at_10", "book": 6, "counted": 6.6, "pct": 10, "expected": true},
+    {"name": "d1_0_02_to_0_022_at_10", "book": 0.02, "counted": 0.022, "pct": 10, "expected": true},
+    {"name": "just_inside_below", "book": 1, "counted": 0.901, "pct": 10, "expected": false},
+    {"name": "up_exactly_10", "book": 1, "counted": 1.1, "pct": 10, "expected": true},
+    {"name": "just_inside_above", "book": 1, "counted": 1.099, "pct": 10, "expected": false},
+    {"name": "exact_count", "book": 5, "counted": 5, "pct": 10, "expected": false},
+    {"name": "threshold_zero_flags_an_exact_count", "book": 5, "counted": 5, "pct": 0, "expected": true},
+    {"name": "threshold_zero_book_zero_counted_zero", "book": 0, "counted": 0, "pct": 0, "expected": false},
+    {"name": "book_zero_counted_zero", "book": 0, "counted": 0, "pct": 10, "expected": false},
+    {"name": "book_zero_counted_a_thousandth", "book": 0, "counted": 0.001, "pct": 10, "expected": true},
+    {"name": "book_zero_counted_under_half_a_thousandth", "book": 0, "counted": 0.0004, "pct": 10, "expected": false, "why": "0 at 3 dp; the float rule (> 1e-9) flagged it"},
+    {"name": "book_zero_counted_negative", "book": 0, "counted": -0.5, "pct": 10, "expected": true},
+    {"name": "book_rounding_to_zero_is_zero", "book": 0.0004, "counted": 0, "pct": 10, "expected": false},
+    {"name": "negative_book_10_percent", "book": -2, "counted": -1.8, "pct": 10, "expected": true},
+    {"name": "negative_book_5_percent", "book": -2, "counted": -1.9, "pct": 10, "expected": false},
+    {"name": "negative_book_counted_zero", "book": -2, "counted": 0, "pct": 10, "expected": true},
+    {"name": "fractional_threshold_at", "book": 100, "counted": 97.5, "pct": 2.5, "expected": true},
+    {"name": "fractional_threshold_inside", "book": 100, "counted": 97.6, "pct": 2.5, "expected": false},
+    {"name": "threshold_rounded_to_thousandths_inside", "book": 100, "counted": 112.345, "pct": 12.3456, "expected": false, "why": "p = 12346: 12345 × 100000 < 100000 × 12346"},
+    {"name": "threshold_rounded_to_thousandths_at", "book": 100, "counted": 112.346, "pct": 12.3456, "expected": true},
+    {"name": "all_gone_at_100", "book": 10, "counted": 0, "pct": 100, "expected": true},
+    {"name": "almost_all_gone_at_100", "book": 10, "counted": 0.001, "pct": 100, "expected": false}
+  ]
+}
