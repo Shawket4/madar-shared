@@ -34,6 +34,9 @@ pub const SALE_WINDOW: &str = include_str!("../vectors/sale_window_vectors.json"
 /// capture of `latte_shot_follows_decaf`): [`crate::follow`].
 pub const FOLLOW: &str = include_str!("../vectors/follow_vectors.json");
 
+/// `combo_menu_vectors.json` (hand-computed): [`crate::combo::choice_extra`].
+pub const COMBO_MENU: &str = include_str!("../vectors/combo_menu_vectors.json");
+
 /// One case of `follow_vectors.json`.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct FollowVector {

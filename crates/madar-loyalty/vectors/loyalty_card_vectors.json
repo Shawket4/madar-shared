@@ -1,0 +1,233 @@
+{
+  "about": "Hand-computed. madar-loyalty card::card and card::stamps: the server's rule (MadarRust loyalty/model.rs earned_and_progress and MemberRow::view, the card page's and the passes' figures; wallet/google.rs stepper, MAX_STEPS = 12, for the stamp row). Never regenerated: a change is a deliberate edit, with the working in the case's why.",
+  "cards": [
+    {
+      "name": "fresh_member",
+      "why": "a fresh card: none earned, 0 of 5, 5 to go",
+      "balance": 0,
+      "next_reward_cost": 5,
+      "expected": {
+        "rewards_ready": 0,
+        "progress_to_next": 0,
+        "points_to_next_reward": 5,
+        "can_redeem": false
+      }
+    },
+    {
+      "name": "below_the_cost",
+      "why": "3 of 5: none earned, 2 to go",
+      "balance": 3,
+      "next_reward_cost": 5,
+      "expected": {
+        "rewards_ready": 0,
+        "progress_to_next": 3,
+        "points_to_next_reward": 2,
+        "can_redeem": false
+      }
+    },
+    {
+      "name": "exactly_one_reward",
+      "why": "5 / 5 = 1 earned, 5 % 5 = 0 on the next card, 5 − 0 = 5 to go (a fresh card on an exact multiple)",
+      "balance": 5,
+      "next_reward_cost": 5,
+      "expected": {
+        "rewards_ready": 1,
+        "progress_to_next": 0,
+        "points_to_next_reward": 5,
+        "can_redeem": true
+      }
+    },
+    {
+      "name": "six_against_five",
+      "why": "the server's own test: the sixth order did not vanish. 6 / 5 = 1, 6 % 5 = 1, 5 − 1 = 4",
+      "balance": 6,
+      "next_reward_cost": 5,
+      "expected": {
+        "rewards_ready": 1,
+        "progress_to_next": 1,
+        "points_to_next_reward": 4,
+        "can_redeem": true
+      }
+    },
+    {
+      "name": "eleven_against_five",
+      "why": "11 / 5 = 2 earned, 11 % 5 = 1, 4 to go",
+      "balance": 11,
+      "next_reward_cost": 5,
+      "expected": {
+        "rewards_ready": 2,
+        "progress_to_next": 1,
+        "points_to_next_reward": 4,
+        "can_redeem": true
+      }
+    },
+    {
+      "name": "an_exact_multiple",
+      "why": "10 / 5 = 2, 10 % 5 = 0, a fresh card: 5 to go",
+      "balance": 10,
+      "next_reward_cost": 5,
+      "expected": {
+        "rewards_ready": 2,
+        "progress_to_next": 0,
+        "points_to_next_reward": 5,
+        "can_redeem": true
+      }
+    },
+    {
+      "name": "points_past_one_reward",
+      "why": "points: 150 / 100 = 1, 50 on the next, 50 to go",
+      "balance": 150,
+      "next_reward_cost": 100,
+      "expected": {
+        "rewards_ready": 1,
+        "progress_to_next": 50,
+        "points_to_next_reward": 50,
+        "can_redeem": true
+      }
+    },
+    {
+      "name": "points_below_the_cost",
+      "why": "points: 40 of 100, 60 to go",
+      "balance": 40,
+      "next_reward_cost": 100,
+      "expected": {
+        "rewards_ready": 0,
+        "progress_to_next": 40,
+        "points_to_next_reward": 60,
+        "can_redeem": false
+      }
+    },
+    {
+      "name": "one_step_reward",
+      "why": "a one-step card: 4 earned, 0 on the next, 1 to go",
+      "balance": 4,
+      "next_reward_cost": 1,
+      "expected": {
+        "rewards_ready": 4,
+        "progress_to_next": 0,
+        "points_to_next_reward": 1,
+        "can_redeem": true
+      }
+    },
+    {
+      "name": "no_cost",
+      "why": "no cost: none earned, the balance is the progress, max(0 − 7, 0) = 0 to go",
+      "balance": 7,
+      "next_reward_cost": 0,
+      "expected": {
+        "rewards_ready": 0,
+        "progress_to_next": 7,
+        "points_to_next_reward": 0,
+        "can_redeem": false
+      }
+    },
+    {
+      "name": "negative_cost",
+      "why": "a cost below 0 is no cost: none earned, progress 7, max(−5 − 7, 0) = 0",
+      "balance": 7,
+      "next_reward_cost": -5,
+      "expected": {
+        "rewards_ready": 0,
+        "progress_to_next": 7,
+        "points_to_next_reward": 0,
+        "can_redeem": false
+      }
+    },
+    {
+      "name": "negative_balance",
+      "why": "a balance below 0: none earned, progress max(−3, 0) = 0, 5 to go",
+      "balance": -3,
+      "next_reward_cost": 5,
+      "expected": {
+        "rewards_ready": 0,
+        "progress_to_next": 0,
+        "points_to_next_reward": 5,
+        "can_redeem": false
+      }
+    },
+    {
+      "name": "negative_balance_no_cost",
+      "why": "both below or at 0: none, 0, 0",
+      "balance": -3,
+      "next_reward_cost": 0,
+      "expected": {
+        "rewards_ready": 0,
+        "progress_to_next": 0,
+        "points_to_next_reward": 0,
+        "can_redeem": false
+      }
+    }
+  ],
+  "stamps": [
+    {
+      "name": "empty_row",
+      "why": "an empty row of 5",
+      "earned": 0,
+      "cost": 5,
+      "expected": 0
+    },
+    {
+      "name": "partial_row",
+      "why": "3 of 5 filled",
+      "earned": 3,
+      "cost": 5,
+      "expected": 3
+    },
+    {
+      "name": "full_row",
+      "why": "a full row (an earned reward's row)",
+      "earned": 5,
+      "cost": 5,
+      "expected": 5
+    },
+    {
+      "name": "over_the_row",
+      "why": "more than the row holds is clamped to it",
+      "earned": 7,
+      "cost": 5,
+      "expected": 5
+    },
+    {
+      "name": "below_zero",
+      "why": "below 0 is clamped to 0",
+      "earned": -2,
+      "cost": 5,
+      "expected": 0
+    },
+    {
+      "name": "one_step",
+      "why": "a one-step row",
+      "earned": 1,
+      "cost": 1,
+      "expected": 1
+    },
+    {
+      "name": "at_the_cap",
+      "why": "12 steps is the cap: still a row",
+      "earned": 4,
+      "cost": 12,
+      "expected": 4
+    },
+    {
+      "name": "past_the_cap",
+      "why": "past 12 steps: figures, no row",
+      "earned": 4,
+      "cost": 13,
+      "expected": null
+    },
+    {
+      "name": "no_cost",
+      "why": "no cost: no row",
+      "earned": 0,
+      "cost": 0,
+      "expected": null
+    },
+    {
+      "name": "negative_cost",
+      "why": "a cost below 0: no row",
+      "earned": 1,
+      "cost": -1,
+      "expected": null
+    }
+  ]
+}

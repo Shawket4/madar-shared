@@ -627,6 +627,37 @@ pub fn available(
     Ok(())
 }
 
+/// A combo choice as the public menu offers it (the server's
+/// `PublicComboChoice`): its surcharge and what each of its sizes adds over
+/// the included one, which the server works out as [`quote`] does (0 at the
+/// included size, the owner's price for a bigger one, else the difference,
+/// floored at 0).
+#[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify))]
+pub struct MenuChoice {
+    pub surcharge: i64,
+    pub sizes: Vec<MenuSize>,
+}
+
+/// One size of a [`MenuChoice`].
+#[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify))]
+pub struct MenuSize {
+    pub label: String,
+    pub extra: i64,
+}
+
+/// What one unit of a pick adds to the combo's price, from the public menu:
+/// the choice's surcharge plus its size's extra ([`PartQuote::surcharge_unit`]).
+/// No size is the included one; a size the menu does not list adds nothing
+/// (the picker never sends one).
+pub fn choice_extra(choice: &MenuChoice, size_label: Option<&str>) -> i64 {
+    let extra = size_label
+        .and_then(|l| choice.sizes.iter().find(|s| s.label == l))
+        .map_or(0, |s| s.extra);
+    choice.surcharge + extra
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -787,6 +818,61 @@ mod tests {
         }
         for c in &v.is_fixed {
             assert_eq!(is_fixed(&v.combos[&c.combo]), c.is_fixed, "{}", c.combo);
+        }
+    }
+
+    /// The storefront's cart estimate of a combo line (madar-money
+    /// `cart_line_unit` / `cart_line_total` over the parts' surcharges and
+    /// extras) is the line [`quote`] charges.
+    #[test]
+    fn the_cart_estimate_is_the_quote() {
+        use madar_money::line::{
+            cart_line_total, cart_line_unit, CartLineShape, ComboShape, PickShape,
+        };
+        let v = load();
+        let mut quoted = 0;
+        for c in &v.cases {
+            let Expected::Quote(q) = &c.expected else {
+                continue;
+            };
+            let line = CartLineShape::Combo(ComboShape {
+                quantity: q.quantity,
+                price: q.price,
+                picks: q
+                    .parts
+                    .iter()
+                    .map(|p| PickShape {
+                        quantity: p.pick_quantity,
+                        surcharge_unit: p.surcharge_unit,
+                        extras_unit: p.extras_unit,
+                    })
+                    .collect(),
+            });
+            assert_eq!(cart_line_unit(&line), q.unit_total, "{}", c.name);
+            assert_eq!(cart_line_total(&line), q.line_total(), "{}", c.name);
+            quoted += 1;
+        }
+        assert!(quoted >= 10);
+    }
+
+    #[test]
+    fn choice_extra_vectors() {
+        #[derive(Deserialize)]
+        struct Case {
+            name: String,
+            choice: MenuChoice,
+            size_label: Option<String>,
+            expected: i64,
+        }
+        let cases: Vec<Case> = serde_json::from_str(crate::vectors::COMBO_MENU).unwrap();
+        assert!(cases.len() >= 5);
+        for c in &cases {
+            assert_eq!(
+                choice_extra(&c.choice, c.size_label.as_deref()),
+                c.expected,
+                "{}",
+                c.name
+            );
         }
     }
 

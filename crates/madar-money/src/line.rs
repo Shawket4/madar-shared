@@ -18,6 +18,7 @@ use crate::tax::Minor;
 /// A selected add-on: its CHARGED delta per unit (already resolved at
 /// selection time — swap families clamp upstream) and how many.
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify))]
 pub struct Addon {
     pub price_modifier: Minor,
     pub quantity: Minor,
@@ -25,6 +26,7 @@ pub struct Addon {
 
 /// A sale line as both sides state it.
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify))]
 pub struct LineShape {
     pub quantity: Minor,
     /// The size-resolved unit price.
@@ -57,6 +59,148 @@ pub fn line_total(line: &LineShape) -> Minor {
         line.unit_price + extras_per_unit(&line.addons, &line.optionals),
         line.quantity,
     )
+}
+
+// The TypeScript name of `Minor`, which the declarations below refer to.
+#[cfg(feature = "tsify")]
+#[wasm_bindgen::prelude::wasm_bindgen(typescript_custom_section)]
+const MINOR_TS: &str = "/** Whole piastres. */\nexport type Minor = number;";
+
+/// One pick of a combo line, per ONE combo unit: madar-catalog's
+/// `combo::PartQuote` figures the line is charged by.
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify))]
+pub struct PickShape {
+    /// Units of the pick per combo unit.
+    pub quantity: Minor,
+    /// What one unit of it adds to the combo's price: its choice's surcharge
+    /// plus a bigger size's extra (`PartQuote::surcharge_unit`).
+    pub surcharge_unit: Minor,
+    /// Its add-ons and optional fields, per unit (`PartQuote::extras_unit`);
+    /// 0 for a pick without any.
+    #[serde(default)]
+    pub extras_unit: Minor,
+}
+
+/// A combo line: its price P per combo unit and its picks.
+#[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify))]
+pub struct ComboShape {
+    pub quantity: Minor,
+    /// P: the combo's own price.
+    pub price: Minor,
+    pub picks: Vec<PickShape>,
+}
+
+/// One line of a cart: a menu item (`{ "item": … }`) or a combo
+/// (`{ "combo": … }`).
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "tsify", derive(tsify::Tsify))]
+#[serde(rename_all = "snake_case")]
+pub enum CartLineShape {
+    Item(LineShape),
+    Combo(ComboShape),
+}
+
+/// What a combo's picks add to ONE combo unit: Σ pick quantity × (its
+/// surcharge + its extras). The server's `ComboQuote::unit_total` less P.
+pub fn combo_extras(picks: &[PickShape]) -> Minor {
+    picks
+        .iter()
+        .map(|p| p.quantity * (p.surcharge_unit + p.extras_unit))
+        .sum()
+}
+
+/// One unit of a cart line: an item's unit price and extras
+/// ([`extras_per_unit`]), or a combo's P and [`combo_extras`]
+/// (`ComboQuote::unit_total`).
+pub fn cart_line_unit(line: &CartLineShape) -> Minor {
+    match line {
+        CartLineShape::Item(l) => l.unit_price + extras_per_unit(&l.addons, &l.optionals),
+        CartLineShape::Combo(c) => c.price + combo_extras(&c.picks),
+    }
+}
+
+/// What a cart line is charged: one unit × quantity ([`line_total`] for an
+/// item, `ComboQuote::line_total` for a combo).
+pub fn cart_line_total(line: &CartLineShape) -> Minor {
+    let quantity = match line {
+        CartLineShape::Item(l) => l.quantity,
+        CartLineShape::Combo(c) => c.quantity,
+    };
+    charged_subtotal(cart_line_unit(line), quantity)
+}
+
+/// A cart's items total: Σ [`cart_line_total`], before any deal, discount,
+/// tax or fee (the server's `CartQuote::items_total`).
+pub fn cart_subtotal(lines: &[CartLineShape]) -> Minor {
+    lines.iter().map(cart_line_total).sum()
+}
+
+#[cfg(test)]
+mod cart_vectors {
+    //! `cart_vectors.json` (hand-computed): [`cart_line_unit`],
+    //! [`cart_line_total`], [`cart_subtotal`] and [`combo_extras`]. Never
+    //! regenerated; a change is a deliberate edit with its working in `why`.
+
+    use serde::Deserialize;
+
+    use super::*;
+
+    #[derive(Deserialize)]
+    struct Vectors {
+        lines: Vec<LineCase>,
+        carts: Vec<CartCase>,
+        combo_extras: Vec<ExtrasCase>,
+    }
+
+    #[derive(Deserialize)]
+    struct LineCase {
+        name: String,
+        line: CartLineShape,
+        unit: Minor,
+        total: Minor,
+    }
+
+    #[derive(Deserialize)]
+    struct CartCase {
+        name: String,
+        lines: Vec<CartLineShape>,
+        subtotal: Minor,
+    }
+
+    #[derive(Deserialize)]
+    struct ExtrasCase {
+        name: String,
+        picks: Vec<PickShape>,
+        expected: Minor,
+    }
+
+    #[test]
+    fn cart_vectors() {
+        let v: Vectors = serde_json::from_str(crate::vectors::CART).unwrap();
+        assert!(v.lines.len() >= 10 && !v.carts.is_empty() && !v.combo_extras.is_empty());
+        for c in &v.lines {
+            assert_eq!(cart_line_unit(&c.line), c.unit, "{}: unit", c.name);
+            assert_eq!(cart_line_total(&c.line), c.total, "{}: total", c.name);
+        }
+        for c in &v.carts {
+            assert_eq!(cart_subtotal(&c.lines), c.subtotal, "{}", c.name);
+        }
+        for c in &v.combo_extras {
+            assert_eq!(combo_extras(&c.picks), c.expected, "{}", c.name);
+        }
+    }
+
+    #[test]
+    fn an_item_line_is_line_total() {
+        let lines: Vec<vectors::LineVector> =
+            serde_json::from_str(crate::vectors::LINE_TOTAL).unwrap();
+        for v in lines {
+            let item = CartLineShape::Item(v.line.clone());
+            assert_eq!(cart_line_total(&item), v.total, "{}", v.name);
+        }
+    }
 }
 
 pub mod vectors {
