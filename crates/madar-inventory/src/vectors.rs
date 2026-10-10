@@ -11,6 +11,10 @@ use crate::transfer::{self, Action, ReceiveRefusal, Side, TransferStatus};
 
 /// The file, for consumer tests.
 pub const INVENTORY: &str = include_str!("../vectors/inventory_vectors.json");
+/// `purchase` (hand-computed).
+pub const PURCHASE: &str = include_str!("../vectors/purchase_vectors.json");
+/// `count` (hand-computed).
+pub const COUNT: &str = include_str!("../vectors/count_vectors.json");
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
 pub struct StepVector {

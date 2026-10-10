@@ -9,15 +9,21 @@
 //!   and the receive check for one line (short, exact, over; an over-receive
 //!   needs a note);
 //! - [`replenish`]: how much a warehouse should send a branch;
+//! - [`purchase`]: purchase-order money — a line's cost and unit cost, what a
+//!   delivery cost (pro rata), the order dialog's estimate;
+//! - [`count`]: which stock-count row needs a variance reason;
 //! - [`api`]: the request and response bodies of the transfer and
 //!   replenishment endpoints (OpenAPI schemas behind the `utoipa` feature).
 //!
 //! Quantities travel as JSON numbers in the ingredient's base stock unit and
 //! are stored `numeric(12,3)`. Every comparison here is made in whole
 //! thousandths ([`milli`]) so float noise never decides a refusal.
-//! Pinned by `vectors/inventory_vectors.json`.
+//! Pinned by `vectors/inventory_vectors.json`; purchases by
+//! `vectors/purchase_vectors.json`, counts by `vectors/count_vectors.json`.
 
 pub mod api;
+pub mod count;
+pub mod purchase;
 pub mod replenish;
 pub mod transfer;
 pub mod vectors;
