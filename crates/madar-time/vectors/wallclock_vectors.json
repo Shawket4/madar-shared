@@ -1,0 +1,342 @@
+{
+  "parts": [
+    {
+      "tz": "Africa/Cairo",
+      "at": "2026-01-15T21:59:00Z",
+      "date": "2026-01-15",
+      "hour": 23,
+      "minute": 59,
+      "note": "winter, last minute of the day (+02)"
+    },
+    {
+      "tz": "Africa/Cairo",
+      "at": "2026-01-15T22:00:00Z",
+      "date": "2026-01-16",
+      "hour": 0,
+      "minute": 0,
+      "note": "winter midnight"
+    },
+    {
+      "tz": "Africa/Cairo",
+      "at": "2026-09-19T21:00:00Z",
+      "date": "2026-09-20",
+      "hour": 0,
+      "minute": 0,
+      "note": "summer midnight (+03)"
+    },
+    {
+      "tz": "Africa/Cairo",
+      "at": "2026-04-23T21:59:00Z",
+      "date": "2026-04-23",
+      "hour": 23,
+      "minute": 59,
+      "note": "spring forward: last minute before the jump (23:59 +02)"
+    },
+    {
+      "tz": "Africa/Cairo",
+      "at": "2026-04-23T22:00:00Z",
+      "date": "2026-04-24",
+      "hour": 1,
+      "minute": 0,
+      "note": "spring forward: the day starts at 01:00 +03"
+    },
+    {
+      "tz": "Africa/Cairo",
+      "at": "2026-10-29T20:30:00Z",
+      "date": "2026-10-29",
+      "hour": 23,
+      "minute": 30,
+      "note": "fall back: 23:30 the first time (+03)"
+    },
+    {
+      "tz": "Africa/Cairo",
+      "at": "2026-10-29T21:30:00Z",
+      "date": "2026-10-29",
+      "hour": 23,
+      "minute": 30,
+      "note": "fall back: 23:30 again (+02)"
+    },
+    {
+      "tz": "Africa/Cairo",
+      "at": "2026-10-29T22:00:00Z",
+      "date": "2026-10-30",
+      "hour": 0,
+      "minute": 0,
+      "note": "fall back: midnight after the repeated hour"
+    },
+    {
+      "tz": "Asia/Riyadh",
+      "at": "2026-01-15T09:45:00Z",
+      "date": "2026-01-15",
+      "hour": 12,
+      "minute": 45,
+      "note": "UTC+3 all year"
+    },
+    {
+      "tz": "Asia/Riyadh",
+      "at": "2026-07-01T20:59:00Z",
+      "date": "2026-07-01",
+      "hour": 23,
+      "minute": 59,
+      "note": "last minute of the day"
+    },
+    {
+      "tz": "Asia/Riyadh",
+      "at": "2026-07-01T21:00:00Z",
+      "date": "2026-07-02",
+      "hour": 0,
+      "minute": 0,
+      "note": "midnight"
+    },
+    {
+      "tz": "America/New_York",
+      "at": "2026-01-16T05:00:00Z",
+      "date": "2026-01-16",
+      "hour": 0,
+      "minute": 0,
+      "note": "midnight, behind UTC"
+    },
+    {
+      "tz": "America/New_York",
+      "at": "2026-03-08T06:59:00Z",
+      "date": "2026-03-08",
+      "hour": 1,
+      "minute": 59,
+      "note": "spring forward: 01:59 EST"
+    },
+    {
+      "tz": "America/New_York",
+      "at": "2026-03-08T07:00:00Z",
+      "date": "2026-03-08",
+      "hour": 3,
+      "minute": 0,
+      "note": "spring forward: 03:00 EDT follows"
+    },
+    {
+      "tz": "America/New_York",
+      "at": "2026-11-01T05:30:00Z",
+      "date": "2026-11-01",
+      "hour": 1,
+      "minute": 30,
+      "note": "fall back: 01:30 EDT"
+    },
+    {
+      "tz": "America/New_York",
+      "at": "2026-11-01T06:30:00Z",
+      "date": "2026-11-01",
+      "hour": 1,
+      "minute": 30,
+      "note": "fall back: 01:30 EST, the second time"
+    },
+    {
+      "tz": "UTC",
+      "at": "2026-04-24T00:00:00Z",
+      "date": "2026-04-24",
+      "hour": 0,
+      "minute": 0,
+      "note": "UTC midnight"
+    }
+  ],
+  "instants": [
+    {
+      "tz": "Africa/Cairo",
+      "date": "2026-01-16",
+      "hour": 0,
+      "minute": 0,
+      "at": "2026-01-15T22:00:00Z",
+      "note": "winter midnight"
+    },
+    {
+      "tz": "Africa/Cairo",
+      "date": "2026-09-20",
+      "hour": 9,
+      "minute": 0,
+      "at": "2026-09-20T06:00:00Z",
+      "note": "summer morning"
+    },
+    {
+      "tz": "Africa/Cairo",
+      "date": "2026-09-20",
+      "hour": 23,
+      "minute": 59,
+      "at": "2026-09-20T20:59:00Z",
+      "note": "summer, last minute"
+    },
+    {
+      "tz": "Africa/Cairo",
+      "date": "2026-04-24",
+      "hour": 0,
+      "minute": 0,
+      "at": "2026-04-23T22:00:00Z",
+      "note": "spring gap swallows midnight: local_midnight's 01:00 +03"
+    },
+    {
+      "tz": "Africa/Cairo",
+      "date": "2026-04-24",
+      "hour": 0,
+      "minute": 30,
+      "at": "2026-04-23T22:30:00Z",
+      "note": "in the gap: forward by the gap, 01:30 +03"
+    },
+    {
+      "tz": "Africa/Cairo",
+      "date": "2026-04-24",
+      "hour": 0,
+      "minute": 59,
+      "at": "2026-04-23T22:59:00Z",
+      "note": "in the gap: 01:59 +03"
+    },
+    {
+      "tz": "Africa/Cairo",
+      "date": "2026-04-24",
+      "hour": 1,
+      "minute": 0,
+      "at": "2026-04-23T22:00:00Z",
+      "note": "first real time after the gap: the same instant as 00:00"
+    },
+    {
+      "tz": "Africa/Cairo",
+      "date": "2026-10-29",
+      "hour": 22,
+      "minute": 59,
+      "at": "2026-10-29T19:59:00Z",
+      "note": "fall back: before the repeated hour"
+    },
+    {
+      "tz": "Africa/Cairo",
+      "date": "2026-10-29",
+      "hour": 23,
+      "minute": 0,
+      "at": "2026-10-29T20:00:00Z",
+      "note": "fall back: happens twice, the earliest (+03)"
+    },
+    {
+      "tz": "Africa/Cairo",
+      "date": "2026-10-29",
+      "hour": 23,
+      "minute": 30,
+      "at": "2026-10-29T20:30:00Z",
+      "note": "fall back: the earliest (+03)"
+    },
+    {
+      "tz": "Africa/Cairo",
+      "date": "2026-10-30",
+      "hour": 0,
+      "minute": 0,
+      "at": "2026-10-29T22:00:00Z",
+      "note": "midnight after the repeated hour (+02)"
+    },
+    {
+      "tz": "Africa/Cairo",
+      "date": "2026-01-15",
+      "hour": 24,
+      "minute": 0,
+      "at": "2026-01-15T22:00:00Z",
+      "note": "24:00 rolls over to the next midnight"
+    },
+    {
+      "tz": "Asia/Riyadh",
+      "date": "2026-07-02",
+      "hour": 0,
+      "minute": 0,
+      "at": "2026-07-01T21:00:00Z",
+      "note": "midnight"
+    },
+    {
+      "tz": "Asia/Riyadh",
+      "date": "2026-03-08",
+      "hour": 2,
+      "minute": 30,
+      "at": "2026-03-07T23:30:00Z",
+      "note": "no DST: New York's gap time is ordinary here"
+    },
+    {
+      "tz": "Asia/Riyadh",
+      "date": "2026-11-01",
+      "hour": 1,
+      "minute": 30,
+      "at": "2026-10-31T22:30:00Z",
+      "note": "no DST: New York's repeated time is ordinary here"
+    },
+    {
+      "tz": "America/New_York",
+      "date": "2026-03-08",
+      "hour": 0,
+      "minute": 0,
+      "at": "2026-03-08T05:00:00Z",
+      "note": "midnight of the spring-forward day (EST)"
+    },
+    {
+      "tz": "America/New_York",
+      "date": "2026-03-08",
+      "hour": 1,
+      "minute": 59,
+      "at": "2026-03-08T06:59:00Z",
+      "note": "last minute before the gap"
+    },
+    {
+      "tz": "America/New_York",
+      "date": "2026-03-08",
+      "hour": 2,
+      "minute": 0,
+      "at": "2026-03-08T07:00:00Z",
+      "note": "in the gap: 03:00 EDT"
+    },
+    {
+      "tz": "America/New_York",
+      "date": "2026-03-08",
+      "hour": 2,
+      "minute": 30,
+      "at": "2026-03-08T07:30:00Z",
+      "note": "in the gap: 03:30 EDT"
+    },
+    {
+      "tz": "America/New_York",
+      "date": "2026-03-08",
+      "hour": 3,
+      "minute": 0,
+      "at": "2026-03-08T07:00:00Z",
+      "note": "first real time after the gap"
+    },
+    {
+      "tz": "America/New_York",
+      "date": "2026-11-01",
+      "hour": 0,
+      "minute": 0,
+      "at": "2026-11-01T04:00:00Z",
+      "note": "midnight of the fall-back day (EDT)"
+    },
+    {
+      "tz": "America/New_York",
+      "date": "2026-11-01",
+      "hour": 1,
+      "minute": 0,
+      "at": "2026-11-01T05:00:00Z",
+      "note": "happens twice: the earliest (EDT)"
+    },
+    {
+      "tz": "America/New_York",
+      "date": "2026-11-01",
+      "hour": 1,
+      "minute": 30,
+      "at": "2026-11-01T05:30:00Z",
+      "note": "happens twice: the earliest (EDT)"
+    },
+    {
+      "tz": "America/New_York",
+      "date": "2026-11-01",
+      "hour": 2,
+      "minute": 0,
+      "at": "2026-11-01T07:00:00Z",
+      "note": "after the repeated hour (EST)"
+    },
+    {
+      "tz": "UTC",
+      "date": "2026-04-24",
+      "hour": 0,
+      "minute": 0,
+      "at": "2026-04-24T00:00:00Z",
+      "note": "UTC midnight"
+    }
+  ]
+}

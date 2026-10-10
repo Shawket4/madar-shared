@@ -1,0 +1,284 @@
+{
+  "ladder": [
+    {
+      "from_minutes": 1,
+      "to_minutes": 15,
+      "kind": "minutes",
+      "value": "15"
+    },
+    {
+      "from_minutes": 16,
+      "to_minutes": 30,
+      "kind": "minutes",
+      "value": "60"
+    },
+    {
+      "from_minutes": 31,
+      "to_minutes": 60,
+      "kind": "day_fraction",
+      "value": "0.5"
+    },
+    {
+      "from_minutes": 90,
+      "to_minutes": null,
+      "kind": "piastres",
+      "value": "5000"
+    }
+  ],
+  "select": [
+    {
+      "late_minutes": -5,
+      "tier": null
+    },
+    {
+      "late_minutes": 0,
+      "tier": null
+    },
+    {
+      "late_minutes": 1,
+      "tier": 0
+    },
+    {
+      "late_minutes": 15,
+      "tier": 0
+    },
+    {
+      "late_minutes": 16,
+      "tier": 1
+    },
+    {
+      "late_minutes": 30,
+      "tier": 1
+    },
+    {
+      "late_minutes": 31,
+      "tier": 2
+    },
+    {
+      "late_minutes": 60,
+      "tier": 2
+    },
+    {
+      "late_minutes": 61,
+      "tier": null
+    },
+    {
+      "late_minutes": 75,
+      "tier": null
+    },
+    {
+      "late_minutes": 89,
+      "tier": null
+    },
+    {
+      "late_minutes": 90,
+      "tier": 3
+    },
+    {
+      "late_minutes": 600,
+      "tier": 3
+    }
+  ],
+  "deductions": [
+    {
+      "kind": "minutes",
+      "value": "15",
+      "salary": 600000,
+      "working_days": "26",
+      "day_minutes": 480,
+      "piastres": 721
+    },
+    {
+      "kind": "minutes",
+      "value": "30",
+      "salary": 26000,
+      "working_days": "26",
+      "day_minutes": 480,
+      "piastres": 63
+    },
+    {
+      "kind": "minutes",
+      "value": "7.5",
+      "salary": 1200000,
+      "working_days": "30",
+      "day_minutes": 480,
+      "piastres": 625
+    },
+    {
+      "kind": "minutes",
+      "value": "60",
+      "salary": 1200000,
+      "working_days": "26",
+      "day_minutes": 540,
+      "piastres": 5128
+    },
+    {
+      "kind": "day_fraction",
+      "value": "0.5",
+      "salary": 600000,
+      "working_days": "26",
+      "day_minutes": 480,
+      "piastres": 11538
+    },
+    {
+      "kind": "day_fraction",
+      "value": "0.25",
+      "salary": 1200000,
+      "working_days": "30",
+      "day_minutes": 480,
+      "piastres": 10000
+    },
+    {
+      "kind": "piastres",
+      "value": "2500",
+      "salary": 600000,
+      "working_days": "26",
+      "day_minutes": 480,
+      "piastres": 2500
+    },
+    {
+      "kind": "piastres",
+      "value": "2.5",
+      "salary": 600000,
+      "working_days": "26",
+      "day_minutes": 480,
+      "piastres": 3
+    },
+    {
+      "kind": "day_fraction",
+      "value": "0.35",
+      "salary": 1350000,
+      "working_days": "24",
+      "day_minutes": 480,
+      "piastres": 19688,
+      "client": 19687
+    },
+    {
+      "kind": "day_fraction",
+      "value": "0.35",
+      "salary": 345000,
+      "working_days": "28",
+      "day_minutes": 480,
+      "piastres": 4313,
+      "client": 4312
+    },
+    {
+      "kind": "day_fraction",
+      "value": "0.7",
+      "salary": 345000,
+      "working_days": "24",
+      "day_minutes": 480,
+      "piastres": 10063,
+      "client": 10062
+    },
+    {
+      "kind": "day_fraction",
+      "value": "0.7",
+      "salary": 165000,
+      "working_days": "24",
+      "day_minutes": 480,
+      "piastres": 4813,
+      "client": 4812
+    },
+    {
+      "kind": "minutes",
+      "value": "15",
+      "salary": 600000,
+      "working_days": "0",
+      "day_minutes": 480,
+      "piastres": 0
+    },
+    {
+      "kind": "minutes",
+      "value": "15",
+      "salary": 600000,
+      "working_days": "26",
+      "day_minutes": 0,
+      "piastres": 0
+    },
+    {
+      "kind": "day_fraction",
+      "value": "0.5",
+      "salary": 600000,
+      "working_days": "26",
+      "day_minutes": 0,
+      "piastres": 11538
+    },
+    {
+      "kind": "day_fraction",
+      "value": "0.5",
+      "salary": -600000,
+      "working_days": "26",
+      "day_minutes": 480,
+      "piastres": 0
+    },
+    {
+      "kind": "minutes",
+      "value": "15",
+      "salary": 600000,
+      "working_days": "26.5",
+      "day_minutes": 450,
+      "piastres": 755
+    }
+  ],
+  "absences": [
+    {
+      "salary": 1200000,
+      "working_days": "30",
+      "days_absent": "1",
+      "deduction_days": "1",
+      "piastres": 40000
+    },
+    {
+      "salary": 1200000,
+      "working_days": "26",
+      "days_absent": "1",
+      "deduction_days": "1",
+      "piastres": 46154
+    },
+    {
+      "salary": 1200000,
+      "working_days": "26",
+      "days_absent": "1",
+      "deduction_days": "1.5",
+      "piastres": 69231
+    },
+    {
+      "salary": 1200000,
+      "working_days": "26",
+      "days_absent": "0.5",
+      "deduction_days": "2",
+      "piastres": 46154
+    },
+    {
+      "salary": 1350000,
+      "working_days": "24",
+      "days_absent": "1",
+      "deduction_days": "0.35",
+      "piastres": 19688,
+      "client": 19687
+    },
+    {
+      "salary": 165000,
+      "working_days": "28",
+      "days_absent": "1",
+      "deduction_days": "0.35",
+      "piastres": 2063,
+      "client": 2062
+    },
+    {
+      "salary": 1200000,
+      "working_days": "0",
+      "days_absent": "1",
+      "deduction_days": "1",
+      "piastres": 0
+    },
+    {
+      "salary": -1200000,
+      "working_days": "26",
+      "days_absent": "1",
+      "deduction_days": "1",
+      "piastres": 0
+    }
+  ]
+}

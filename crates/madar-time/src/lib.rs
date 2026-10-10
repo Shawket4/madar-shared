@@ -15,10 +15,13 @@
 //! - [`day_bounds`]: a branch-local calendar day as UTC bounds, with the DST
 //!   gap rule. Pinned by `vectors/day_bounds_vectors.json` (Cairo and Beirut
 //!   gap days, where midnight does not exist).
+//! - [`local_parts`] / [`local_instant`]: the wall clock of a zone, both ways
+//!   (a time field, a booking time, a till's hour). Pinned by
+//!   `vectors/wallclock_vectors.json`.
 //!
 //! Nothing here reads a clock or does I/O.
 
-use chrono::{DateTime, Datelike, Duration, NaiveDate, NaiveTime, TimeZone, Utc};
+use chrono::{DateTime, Datelike, Duration, NaiveDate, NaiveTime, Offset, TimeZone, Timelike, Utc};
 use chrono_tz::Tz;
 
 pub mod vectors;
@@ -81,6 +84,70 @@ pub fn day_bounds(tz: Tz, date: NaiveDate) -> (DateTime<Utc>, DateTime<Utc>) {
         local_midnight(tz, date),
         local_midnight(tz, date + Duration::days(1)),
     )
+}
+
+/// An instant read on a zone's wall clock.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct LocalParts {
+    pub date: NaiveDate,
+    /// 0–23.
+    pub hour: u32,
+    pub minute: u32,
+}
+
+/// `at` on `tz`'s wall clock: its date, hour and minute. The backend reads an
+/// instant the same way (`at.with_timezone(&tz)`: MadarRust
+/// `bookings::whatsapp::format_when`, `bookings::handlers::service_today`);
+/// the dashboard's `localHHMM`, `toZonedInput` and the till report's
+/// `hourOf` / `minutesOfDay` are this.
+pub fn local_parts(tz: Tz, at: DateTime<Utc>) -> LocalParts {
+    let local = at.with_timezone(&tz);
+    LocalParts {
+        date: local.date_naive(),
+        hour: local.hour(),
+        minute: local.minute(),
+    }
+}
+
+/// `date` at `hour`:`minute` on `tz`'s wall clock, as an instant (the
+/// dashboard's `localInstant` and `fromZonedInput`). An hour or minute past
+/// its range rolls over (24:00 is the next midnight), as JavaScript's `Date`
+/// does.
+///
+/// - A time that happens twice (the autumn fall-back) is the EARLIEST.
+/// - A time that never happens (the spring-forward gap) moves forward by the
+///   gap: it is read at the offset in force just before the jump, so Cairo's
+///   00:30 on its gap day is 01:30 +03. At midnight that is exactly
+///   [`local_midnight`] (proved over the day-bound vectors); unlike a
+///   30-minute step it keeps later times later, and it is what the web's
+///   `TZDate` and Postgres (`madar_dawam::shift::wall_instant`) do.
+///
+/// The backend's booking slots (`bookings::availability::slot_starts`)
+/// instead skip a day whose opening time is in a gap or happens twice.
+pub fn local_instant(tz: Tz, date: NaiveDate, hour: u32, minute: u32) -> DateTime<Utc> {
+    let midnight = date.and_time(NaiveTime::MIN);
+    // ponytail: hours past ~2·10⁹ (beyond chrono's calendar) read as the date's midnight.
+    let wall = midnight
+        .checked_add_signed(Duration::minutes(i64::from(hour) * 60 + i64::from(minute)))
+        .unwrap_or(midnight);
+    if let Some(at) = tz.from_local_datetime(&wall).earliest() {
+        return at.with_timezone(&Utc);
+    }
+    // In the gap: the first wall minute after it that exists is the jump.
+    for m in 1..=180 {
+        if let Some(jump) = tz
+            .from_local_datetime(&(wall + Duration::minutes(m)))
+            .earliest()
+        {
+            let before = tz
+                .offset_from_utc_datetime(&(jump.naive_utc() - Duration::seconds(1)))
+                .fix();
+            return Utc.from_utc_datetime(
+                &(wall - Duration::seconds(i64::from(before.local_minus_utc()))),
+            );
+        }
+    }
+    Utc.from_utc_datetime(&wall)
 }
 
 #[cfg(test)]
