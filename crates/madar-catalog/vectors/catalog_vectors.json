@@ -3121,7 +3121,8 @@
             "ingredient_unit": "g",
             "org_ingredient_id": "c0de0000-0000-4000-8000-000000000026",
             "quantity_used": 18.0,
-            "size_label": "Small"
+            "size_label": "Small",
+            "usable_quantity": 18.0
           },
           {
             "category": "milk",
@@ -3129,7 +3130,8 @@
             "ingredient_unit": "ml",
             "org_ingredient_id": "c0de0000-0000-4000-8000-000000000020",
             "quantity_used": 200.0,
-            "size_label": "Small"
+            "size_label": "Small",
+            "usable_quantity": 200.0
           },
           {
             "category": "coffee_bean",
@@ -3137,7 +3139,8 @@
             "ingredient_unit": "g",
             "org_ingredient_id": "c0de0000-0000-4000-8000-000000000026",
             "quantity_used": 18.0,
-            "size_label": "Large"
+            "size_label": "Large",
+            "usable_quantity": 18.0
           },
           {
             "category": "milk",
@@ -3145,7 +3148,8 @@
             "ingredient_unit": "ml",
             "org_ingredient_id": "c0de0000-0000-4000-8000-000000000020",
             "quantity_used": 200.0,
-            "size_label": "Large"
+            "size_label": "Large",
+            "usable_quantity": 200.0
           },
           {
             "category": "coffee_bean",
@@ -3153,7 +3157,8 @@
             "ingredient_unit": "g",
             "org_ingredient_id": "c0de0000-0000-4000-8000-000000000026",
             "quantity_used": 18.0,
-            "size_label": "Medium"
+            "size_label": "Medium",
+            "usable_quantity": 18.0
           },
           {
             "category": "milk",
@@ -3161,7 +3166,8 @@
             "ingredient_unit": "ml",
             "org_ingredient_id": "c0de0000-0000-4000-8000-000000000020",
             "quantity_used": 200.0,
-            "size_label": "Medium"
+            "size_label": "Medium",
+            "usable_quantity": 200.0
           }
         ],
         "sizes": [
@@ -3482,7 +3488,8 @@
             "ingredient_unit": "g",
             "org_ingredient_id": "c0de0000-0000-4000-8000-000000000026",
             "quantity_used": 18.0,
-            "size_label": "Regular"
+            "size_label": "Regular",
+            "usable_quantity": 18.0
           },
           {
             "category": "syrup",
@@ -3490,7 +3497,8 @@
             "ingredient_unit": "ml",
             "org_ingredient_id": "c0de0000-0000-4000-8000-00000000002b",
             "quantity_used": 15.0,
-            "size_label": "Regular"
+            "size_label": "Regular",
+            "usable_quantity": 15.0
           },
           {
             "category": "milk",
@@ -3498,7 +3506,8 @@
             "ingredient_unit": "ml",
             "org_ingredient_id": "c0de0000-0000-4000-8000-000000000020",
             "quantity_used": 200.0,
-            "size_label": "Regular"
+            "size_label": "Regular",
+            "usable_quantity": 200.0
           }
         ],
         "sizes": [
@@ -3739,7 +3748,8 @@
             "ingredient_unit": "g",
             "org_ingredient_id": "c0de0000-0000-4000-8000-000000000028",
             "quantity_used": 3.0,
-            "size_label": "Cup"
+            "size_label": "Cup",
+            "usable_quantity": 3.0
           },
           {
             "category": "general",
@@ -3747,7 +3757,8 @@
             "ingredient_unit": "ml",
             "org_ingredient_id": "c0de0000-0000-4000-8000-00000000002d",
             "quantity_used": 250.0,
-            "size_label": "Cup"
+            "size_label": "Cup",
+            "usable_quantity": 250.0
           },
           {
             "category": "tea",
@@ -3755,7 +3766,8 @@
             "ingredient_unit": "g",
             "org_ingredient_id": "c0de0000-0000-4000-8000-000000000028",
             "quantity_used": 3.0,
-            "size_label": "Pot"
+            "size_label": "Pot",
+            "usable_quantity": 3.0
           },
           {
             "category": "general",
@@ -3763,7 +3775,8 @@
             "ingredient_unit": "ml",
             "org_ingredient_id": "c0de0000-0000-4000-8000-00000000002d",
             "quantity_used": 250.0,
-            "size_label": "Pot"
+            "size_label": "Pot",
+            "usable_quantity": 250.0
           }
         ],
         "sizes": [
@@ -3962,7 +3975,8 @@
             "ingredient_unit": "g",
             "org_ingredient_id": "c0de0000-0000-4000-8000-000000000026",
             "quantity_used": 18.0,
-            "size_label": "Regular"
+            "size_label": "Regular",
+            "usable_quantity": 18.0
           },
           {
             "category": "general",
@@ -3970,7 +3984,8 @@
             "ingredient_unit": "ml",
             "org_ingredient_id": "c0de0000-0000-4000-8000-00000000002d",
             "quantity_used": 200.0,
-            "size_label": "Regular"
+            "size_label": "Regular",
+            "usable_quantity": 200.0
           }
         ],
         "sizes": [
@@ -4114,7 +4129,8 @@
             "ingredient_unit": "g",
             "org_ingredient_id": "c0de0000-0000-4000-8000-00000000002e",
             "quantity_used": 10.0,
-            "size_label": "one_size"
+            "size_label": "one_size",
+            "usable_quantity": 10.0
           }
         ],
         "sizes": []
@@ -4287,7 +4303,8 @@
             "ingredient_unit": "g",
             "org_ingredient_id": "c0de0000-0000-4000-8000-000000000026",
             "quantity_used": 18.0,
-            "size_label": "Small"
+            "size_label": "Small",
+            "usable_quantity": 18.0
           },
           {
             "category": "milk",
@@ -4295,7 +4312,8 @@
             "ingredient_unit": "ml",
             "org_ingredient_id": "c0de0000-0000-4000-8000-000000000020",
             "quantity_used": 120.0,
-            "size_label": "Small"
+            "size_label": "Small",
+            "usable_quantity": 120.0
           }
         ],
         "sizes": [
