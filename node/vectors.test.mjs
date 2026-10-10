@@ -4,7 +4,7 @@
 //
 // Build first (scripts/build-wasm.sh), then: node --test node/
 // Each package runs every file its exports cover; `full` covers all seventeen
-// files the web uses, `public` the customer pages' four.
+// files the web uses, `public` the customer pages' five.
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -45,6 +45,10 @@ const catalog = vectors("madar-catalog/vectors/catalog_vectors.json");
 const combo = vectors("madar-catalog/vectors/combo_vectors.json");
 const bill = vectors("madar-money/vectors/bill_vectors.json");
 const phone = vectors("madar-ids/vectors/phone_vectors.json");
+const businessDates = vectors("madar-time/vectors/business_date_vectors.json");
+// `public` bundles scripts/tz-filter.txt's zones (Cairo, MENA, the US, UTC); a
+// case in another zone (Europe/London) must throw there. `full` bundles every zone.
+const bundled = new RegExp(`^${readFileSync(join(root, "scripts/tz-filter.txt"), "utf8").trim()}$`);
 
 /** The files the customer pages compute; both packages run them. */
 function publicFiles(pkg, w) {
@@ -79,6 +83,17 @@ function publicFiles(pkg, w) {
     [...phone.valid.map(([raw, want]) => ({ raw, want })), ...phone.invalid.map((raw) => ({ raw, want: null }))],
     (c) => w.phone_canonical(c.raw), (c) => c.want);
 
+  const [dates, elsewhere] = pkg === "public" ? split(businessDates, (c) => bundled.test(c.tz)) : [businessDates, []];
+  cases(pkg, "business_date_vectors", "business_date", dates,
+    (c) => w.business_date(c.tz, Date.parse(c.at)), (c) => c.business_date);
+  if (pkg === "public") {
+    test(`a zone the build leaves out throws (${elsewhere.length} cases)`, () => {
+      assert.ok(elsewhere.length > 0);
+      for (const c of elsewhere) assert.throws(() => w.business_date(c.tz, Date.parse(c.at)), /time zone/);
+      skipped.push(`public: ${elsewhere.length} business_date cases outside the bundled zones (${[...new Set(elsewhere.map((c) => c.tz))]})`);
+    });
+  }
+
   test("input that is not what the type says throws", () => {
     assert.throws(() => w.unit_price({ sizes: "none" }, null), Error);
     assert.throws(() => w.bill_discount(100.5, "fixed", "10"), /whole number/);
@@ -87,21 +102,11 @@ function publicFiles(pkg, w) {
 }
 
 function fullFiles(pkg, w) {
-  // The build bundles Cairo, MENA and the US (scripts/tz-filter.txt): a case in
-  // another zone (Europe/London) must throw instead of answering.
-  const bundled = new RegExp(`^${readFileSync(join(root, "scripts/tz-filter.txt"), "utf8").trim()}$`);
-  const [businessDates, businessElsewhere] = split(vectors("madar-time/vectors/business_date_vectors.json"), (c) => bundled.test(c.tz));
-  cases(pkg, "business_date_vectors", "business_date", businessDates,
-    (c) => w.business_date(c.tz, Date.parse(c.at)), (c) => c.business_date);
-  const [dayBounds, boundsElsewhere] = split(vectors("madar-time/vectors/day_bounds_vectors.json"), (c) => bundled.test(c.tz));
+  // Every zone, the ones outside public's filter (Europe/London) included.
+  const dayBounds = vectors("madar-time/vectors/day_bounds_vectors.json");
+  assert.ok(dayBounds.some((c) => !bundled.test(c.tz)) && businessDates.some((c) => !bundled.test(c.tz)));
   cases(pkg, "day_bounds_vectors", "day_bounds", dayBounds,
     (c) => w.day_bounds(c.tz, c.date), (c) => [Date.parse(c.start), Date.parse(c.end)]);
-  test(`a zone the build leaves out throws (${businessElsewhere.length + boundsElsewhere.length} cases)`, () => {
-    assert.ok(businessElsewhere.length + boundsElsewhere.length > 0);
-    for (const c of businessElsewhere) assert.throws(() => w.business_date(c.tz, Date.parse(c.at)), /time zone/);
-    for (const c of boundsElsewhere) assert.throws(() => w.day_bounds(c.tz, c.date), /time zone/);
-    skipped.push(`${businessElsewhere.length + boundsElsewhere.length} time cases outside the bundled zones (${[...new Set([...businessElsewhere, ...boundsElsewhere].map((c) => c.tz))]})`);
-  });
   cases(pkg, "week_vectors", "week_start", vectors("madar-time/vectors/week_vectors.json"),
     (c) => w.week_start(c.date), (c) => c.week_start);
 
@@ -165,7 +170,7 @@ function fullFiles(pkg, w) {
   cases(pkg, "cost_vectors", "margin", cost.margin, (c) => w.margin(c.price, c.cost), (c) => c.expected);
   // A piastre figure beyond 2^53 is not a JS number: the web cannot hold it.
   const [bands, hugeBands] = split(cost.food_cost_band, (c) => Number.isSafeInteger(c.cost) && Number.isSafeInteger(c.price));
-  if (hugeBands.length) skipped.push(`${hugeBands.length} food_cost_band case(s) beyond JS's safe integers (${hugeBands.map((c) => c.name)})`);
+  if (hugeBands.length) skipped.push(`full: ${hugeBands.length} food_cost_band case(s) beyond JS's safe integers (${hugeBands.map((c) => c.name)})`);
   cases(pkg, "cost_vectors", "food_cost_band", bands,
     (c) => w.food_cost_band(c.cost, c.price), (c) => c.expected);
   cases(pkg, "pos_metrics_vectors", "average_ticket", vectors("madar-money/vectors/pos_metrics_vectors.json").expected,
@@ -204,5 +209,5 @@ after(() => {
   const total = (pkg) => runs.filter((r) => r.pkg === pkg).reduce((n, r) => n + r.cases, 0);
   const failed = runs.reduce((n, r) => n + r.failed, 0);
   console.log(`vector cases through wasm: public ${total("public")}, full ${total("full")}, failed ${failed}`);
-  for (const s of skipped) console.log(`not run (full): ${s}`);
+  for (const s of skipped) console.log(`not run: ${s}`);
 });

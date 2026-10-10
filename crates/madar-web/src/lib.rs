@@ -19,8 +19,8 @@
 //! - Whole numbers (piastres, counts) are JS numbers and must be whole.
 //! - Instants are epoch milliseconds, never text. Calendar dates are
 //!   `YYYY-MM-DD`.
-//! - Time zones are IANA names; the build bundles Cairo, MENA and the US
-//!   (scripts/tz-filter.txt). Any other zone throws.
+//! - Time zones are IANA names: `full` bundles every zone, `public` Cairo,
+//!   MENA and the US (scripts/tz-filter.txt). A zone not bundled throws.
 
 #![cfg(feature = "public")]
 
@@ -64,11 +64,35 @@ where
     v.iter().map(|t| Ok(t.to_rust()?)).collect()
 }
 
+fn zone(name: &str) -> Result<chrono_tz::Tz, JsError> {
+    name.parse()
+        .map_err(|_| JsError::new("unknown time zone, or one this build leaves out"))
+}
+
+fn ymd(d: chrono::NaiveDate) -> String {
+    use chrono::Datelike;
+    format!("{:04}-{:02}-{:02}", d.year(), d.month(), d.day())
+}
+
+fn instant(ms: f64) -> Result<chrono::DateTime<chrono::Utc>, JsError> {
+    chrono::DateTime::from_timestamp_millis(int(ms)?)
+        .ok_or_else(|| JsError::new("epoch milliseconds out of range"))
+}
+
 mod public {
     use madar_catalog::combo::{ComboView, PickIn};
     use madar_catalog::{CatalogView, ItemView, Selection};
 
     use super::*;
+
+    /// The branch-local business date of an instant (epoch ms).
+    #[wasm_bindgen]
+    pub fn business_date(tz: &str, at_ms: f64) -> Result<String, JsError> {
+        Ok(ymd(madar_time::business_date_of(
+            zone(tz)?,
+            instant(at_ms)?,
+        )))
+    }
 
     /// One unit of the item at `size_label` before any option (madar-catalog
     /// `unit_price`).
@@ -157,8 +181,7 @@ mod public {
 
 #[cfg(feature = "full")]
 mod full {
-    use chrono::{DateTime, Datelike, NaiveDate, Utc};
-    use chrono_tz::Tz;
+    use chrono::NaiveDate;
     use madar_catalog::combo::SlotView;
     use madar_inventory::replenish::Input as ReplenishInput;
     use madar_inventory::transfer::{Action, Side, TransferStatus};
@@ -167,11 +190,6 @@ mod full {
     use tsify::Tsify;
 
     use super::*;
-
-    fn zone(name: &str) -> Result<Tz, JsError> {
-        name.parse()
-            .map_err(|_| JsError::new("unknown time zone, or one this build leaves out"))
-    }
 
     /// `YYYY-MM-DD`, read by hand: chrono's text parser would add to the
     /// download for one format.
@@ -185,25 +203,7 @@ mod full {
             .ok_or_else(|| JsError::new("expected a YYYY-MM-DD date"))
     }
 
-    fn ymd(d: NaiveDate) -> String {
-        format!("{:04}-{:02}-{:02}", d.year(), d.month(), d.day())
-    }
-
-    fn instant(ms: f64) -> Result<DateTime<Utc>, JsError> {
-        DateTime::from_timestamp_millis(int(ms)?)
-            .ok_or_else(|| JsError::new("epoch milliseconds out of range"))
-    }
-
     // ── time (madar-time) ────────────────────────────────────────────────
-
-    /// The branch-local business date of an instant (epoch ms).
-    #[wasm_bindgen]
-    pub fn business_date(tz: &str, at_ms: f64) -> Result<String, JsError> {
-        Ok(ymd(madar_time::business_date_of(
-            zone(tz)?,
-            instant(at_ms)?,
-        )))
-    }
 
     /// A branch-local calendar day as `[start, end)` in epoch ms (DST days
     /// are 23 or 25 hours).
