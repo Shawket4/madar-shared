@@ -12,14 +12,22 @@
 //! - [`presence`]: the low-battery line (DW6);
 //! - [`stamp`]: the offline stamp a punch recorded offline carries, and the
 //!   signed anchor's format (`v1.<epoch ms>.<64 hex>`). Signing and verifying
-//!   the HMAC stay on the server — only the shape is shared.
+//!   the HMAC stay on the server — only the shape is shared;
+//! - [`salary`]: the server's `PayRates`, the salary calculator's three rates
+//!   and a joiner's first pay (`prorated_base`), pinned by
+//!   `vectors/salary_vectors.json`;
+//! - [`ladder`]: the late-penalty ladder and the absence charge as payroll
+//!   prices them, pinned by `vectors/ladder_vectors.json`.
 //!
-//! Shift pricing, lateness, overtime and payroll are server-only by design:
-//! the phone shows the server's figures. Pinned by `vectors/dawam_vectors.json`.
+//! Pricing a shift and running payroll stay server-only by design: the phone
+//! shows the server's figures (`salary` and `ladder` are the pieces the
+//! dashboards preview). Pinned by `vectors/dawam_vectors.json`.
 
 pub mod geofence;
+pub mod ladder;
 pub mod pay;
 pub mod presence;
+pub mod salary;
 pub mod shift;
 pub mod stamp;
 pub mod vectors;
