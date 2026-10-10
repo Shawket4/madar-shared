@@ -1,7 +1,8 @@
 //! A recipe line's quantity: what it stores (in the ingredient's base unit,
 //! grossed up by yield loss) and the usable amount it stands for.
 //!
-//! Pinned by `vectors/recipe_qty_vectors.json` (hand-computed).
+//! Pinned by `vectors/recipe_qty_vectors.json` (hand-computed); [`scale_qty`]
+//! by `vectors/scale_vectors.json`.
 
 use crate::{convert_with_density, round3, UnitError};
 
@@ -48,6 +49,13 @@ pub fn usable_qty(stored: f64, yield_pct: Option<f64>) -> f64 {
     round3(stored * yield_factor(yield_pct))
 }
 
+/// The recipe editors' "copy a size's recipe to another size × factor":
+/// `qty × factor`, rounded to 3 decimals half away from zero (the web's and
+/// the Flutter dashboard's `scaleQty` round a negative half up instead).
+pub fn scale_qty(qty: f64, factor: f64) -> f64 {
+    round3(qty * factor)
+}
+
 #[cfg(test)]
 mod vectors {
     use serde::Deserialize;
@@ -86,6 +94,27 @@ mod vectors {
         stored: f64,
         usable: f64,
         round_trips: bool,
+    }
+
+    #[derive(Deserialize)]
+    struct ScaleCase {
+        name: String,
+        qty: f64,
+        factor: f64,
+        expected: f64,
+    }
+
+    #[derive(Deserialize)]
+    struct ScaleVectors {
+        cases: Vec<ScaleCase>,
+    }
+
+    #[test]
+    fn scale_vectors() {
+        let v: ScaleVectors = serde_json::from_str(crate::vectors::SCALE).unwrap();
+        for c in &v.cases {
+            assert_eq!(scale_qty(c.qty, c.factor), c.expected, "{}", c.name);
+        }
     }
 
     #[derive(Deserialize)]

@@ -5,7 +5,8 @@
 # The recipe (SHARED_RULES_PLAN.md Step 3, each step measured): a pinned
 # nightly rebuilding std for size, panics that abort at once, the `wasm`
 # profile (opt-level z, fat LTO, one codegen unit; native builds never use it),
-# chrono-tz cut to scripts/tz-filter.txt, then wasm-opt.
+# chrono-tz cut to scripts/tz-filter.txt in `public` (`full` keeps every IANA
+# zone, as the backend accepts), then wasm-opt.
 #
 # Needs: the pinned nightly with rust-src and the wasm32-unknown-unknown
 # target, wasm-bindgen-cli 0.2.129 (the crate's pin), and wasm-opt (binaryen).
@@ -25,13 +26,18 @@ if [ "$got" != "$COMMIT" ]; then
   exit 1
 fi
 
-export CHRONO_TZ_TIMEZONE_FILTER="$(cat scripts/tz-filter.txt)"
 export CARGO_TARGET_DIR=${CARGO_TARGET_DIR:-$PWD/target/wasm}
 # With --target, RUSTFLAGS reach only the wasm, not build scripts or macros.
 export RUSTFLAGS="-Zunstable-options -Cpanic=immediate-abort"
 
 rm -rf dist
 for pkg in public full; do
+  # Unset, chrono-tz keeps every zone (it rebuilds when this changes).
+  if [ "$pkg" = public ]; then
+    export CHRONO_TZ_TIMEZONE_FILTER="$(cat scripts/tz-filter.txt)"
+  else
+    unset CHRONO_TZ_TIMEZONE_FILTER
+  fi
   cargo +"$TOOLCHAIN" build --locked -p madar-web --features "$pkg" \
     --profile wasm --target wasm32-unknown-unknown \
     -Z build-std=std,panic_abort -Z build-std-features=optimize_for_size

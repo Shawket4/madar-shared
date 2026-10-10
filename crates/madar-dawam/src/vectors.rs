@@ -14,6 +14,10 @@ pub const DAWAM: &str = include_str!("../vectors/dawam_vectors.json");
 pub const SHIFT: &str = include_str!("../vectors/shift_vectors.json");
 /// `pay::percent_vectors`: a percentage of a salary, the server's rounding.
 pub const PERCENT: &str = include_str!("../vectors/percent_vectors.json");
+/// `salary::vectors`: rates, first pay and pro rata, worked out by hand.
+pub const SALARY: &str = include_str!("../vectors/salary_vectors.json");
+/// `ladder::vectors`: the late ladder and the absence charge, by hand.
+pub const LADDER: &str = include_str!("../vectors/ladder_vectors.json");
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
 pub struct FenceVector {

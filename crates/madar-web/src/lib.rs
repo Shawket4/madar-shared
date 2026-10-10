@@ -19,8 +19,8 @@
 //! - Whole numbers (piastres, counts) are JS numbers and must be whole.
 //! - Instants are epoch milliseconds, never text. Calendar dates are
 //!   `YYYY-MM-DD`.
-//! - Time zones are IANA names; the build bundles Cairo, MENA and the US
-//!   (scripts/tz-filter.txt). Any other zone throws.
+//! - Time zones are IANA names: `full` bundles every zone, `public` Cairo,
+//!   MENA and the US (scripts/tz-filter.txt). A zone not bundled throws.
 
 #![cfg(feature = "public")]
 
@@ -64,11 +64,35 @@ where
     v.iter().map(|t| Ok(t.to_rust()?)).collect()
 }
 
+fn zone(name: &str) -> Result<chrono_tz::Tz, JsError> {
+    name.parse()
+        .map_err(|_| JsError::new("unknown time zone, or one this build leaves out"))
+}
+
+fn ymd(d: chrono::NaiveDate) -> String {
+    use chrono::Datelike;
+    format!("{:04}-{:02}-{:02}", d.year(), d.month(), d.day())
+}
+
+fn instant(ms: f64) -> Result<chrono::DateTime<chrono::Utc>, JsError> {
+    chrono::DateTime::from_timestamp_millis(int(ms)?)
+        .ok_or_else(|| JsError::new("epoch milliseconds out of range"))
+}
+
 mod public {
     use madar_catalog::combo::{ComboView, PickIn};
     use madar_catalog::{CatalogView, ItemView, Selection};
 
     use super::*;
+
+    /// The branch-local business date of an instant (epoch ms).
+    #[wasm_bindgen]
+    pub fn business_date(tz: &str, at_ms: f64) -> Result<String, JsError> {
+        Ok(ymd(madar_time::business_date_of(
+            zone(tz)?,
+            instant(at_ms)?,
+        )))
+    }
 
     /// One unit of the item at `size_label` before any option (madar-catalog
     /// `unit_price`).
@@ -157,21 +181,17 @@ mod public {
 
 #[cfg(feature = "full")]
 mod full {
-    use chrono::{DateTime, Datelike, NaiveDate, Utc};
-    use chrono_tz::Tz;
+    use chrono::NaiveDate;
     use madar_catalog::combo::SlotView;
     use madar_inventory::replenish::Input as ReplenishInput;
     use madar_inventory::transfer::{Action, Side, TransferStatus};
     use madar_money::cost::CostLine;
+    use rust_decimal::prelude::FromPrimitive;
+    use rust_decimal::Decimal;
     use serde::Deserialize;
     use tsify::Tsify;
 
     use super::*;
-
-    fn zone(name: &str) -> Result<Tz, JsError> {
-        name.parse()
-            .map_err(|_| JsError::new("unknown time zone, or one this build leaves out"))
-    }
 
     /// `YYYY-MM-DD`, read by hand: chrono's text parser would add to the
     /// download for one format.
@@ -185,25 +205,7 @@ mod full {
             .ok_or_else(|| JsError::new("expected a YYYY-MM-DD date"))
     }
 
-    fn ymd(d: NaiveDate) -> String {
-        format!("{:04}-{:02}-{:02}", d.year(), d.month(), d.day())
-    }
-
-    fn instant(ms: f64) -> Result<DateTime<Utc>, JsError> {
-        DateTime::from_timestamp_millis(int(ms)?)
-            .ok_or_else(|| JsError::new("epoch milliseconds out of range"))
-    }
-
     // ── time (madar-time) ────────────────────────────────────────────────
-
-    /// The branch-local business date of an instant (epoch ms).
-    #[wasm_bindgen]
-    pub fn business_date(tz: &str, at_ms: f64) -> Result<String, JsError> {
-        Ok(ymd(madar_time::business_date_of(
-            zone(tz)?,
-            instant(at_ms)?,
-        )))
-    }
 
     /// A branch-local calendar day as `[start, end)` in epoch ms (DST days
     /// are 23 or 25 hours).
@@ -219,6 +221,34 @@ mod full {
         Ok(ymd(madar_time::week_start(self::date(date)?)))
     }
 
+    /// An instant (epoch ms) on a zone's wall clock.
+    #[derive(Serialize, Tsify)]
+    pub struct LocalParts {
+        pub date: String,
+        pub hour: u32,
+        pub minute: u32,
+    }
+
+    /// An instant (epoch ms) read on `tz`'s wall clock.
+    #[wasm_bindgen(unchecked_return_type = "LocalParts")]
+    pub fn local_parts(tz: &str, at_ms: f64) -> Result<JsValue, JsError> {
+        let p = madar_time::local_parts(zone(tz)?, instant(at_ms)?);
+        out(&LocalParts {
+            date: ymd(p.date),
+            hour: p.hour,
+            minute: p.minute,
+        })
+    }
+
+    /// `date` at `hour`:`minute` on `tz`'s wall clock, in epoch ms: a time
+    /// that happens twice is the earliest, one in a DST gap moves forward by
+    /// the gap, an hour or minute past its range rolls over.
+    #[wasm_bindgen]
+    pub fn local_instant(tz: &str, date: &str, hour: f64, minute: f64) -> Result<f64, JsError> {
+        let at = madar_time::local_instant(zone(tz)?, self::date(date)?, int(hour)?, int(minute)?);
+        Ok(at.timestamp_millis() as f64)
+    }
+
     // ── Dawam pay (madar-dawam) ──────────────────────────────────────────
 
     /// The pay window `[start, end]` (inclusive dates) holding `day`;
@@ -227,6 +257,159 @@ mod full {
     pub fn pay_period(day: &str, start_day: f64) -> Result<JsValue, JsError> {
         let (a, b) = madar_dawam::pay::period_window(date(day)?, int(start_day)?);
         out(&(ymd(a), ymd(b)))
+    }
+
+    /// A decimal the dashboard holds as a JS number, read as the decimal it
+    /// prints as (`0.35` is 0.35); a non-finite number throws.
+    fn decimal(x: f64) -> Result<Decimal, JsError> {
+        Decimal::from_f64(x).ok_or_else(|| JsError::new("expected a finite number"))
+    }
+
+    /// The one rate the salary calculator was typed with, in piastres.
+    #[derive(Deserialize, Tsify)]
+    #[serde(rename_all = "snake_case")]
+    pub enum TypedRate {
+        Monthly(i64),
+        Daily(i64),
+        Hourly(i64),
+    }
+
+    /// A salary as a month, a day and an hour, in piastres.
+    #[derive(Serialize, Tsify)]
+    pub struct SalaryRates {
+        pub monthly: i64,
+        pub daily: i64,
+        pub hourly: i64,
+    }
+
+    /// The three rates from whichever one was typed (madar-dawam
+    /// `salary::rates`); `working_days` may be a fraction.
+    #[wasm_bindgen(unchecked_return_type = "SalaryRates")]
+    pub fn rates(
+        typed: Ts<TypedRate>,
+        working_days: f64,
+        day_minutes: f64,
+    ) -> Result<JsValue, JsError> {
+        use madar_dawam::salary::Typed;
+        let typed = match typed.to_rust()? {
+            TypedRate::Monthly(p) => Typed::Monthly(p),
+            TypedRate::Daily(p) => Typed::Daily(p),
+            TypedRate::Hourly(p) => Typed::Hourly(p),
+        };
+        let r = madar_dawam::salary::rates(typed, decimal(working_days)?, int(day_minutes)?);
+        out(&SalaryRates {
+            monthly: r.monthly,
+            daily: r.daily,
+            hourly: r.hourly,
+        })
+    }
+
+    /// What someone hired on a day earns in their first pay period.
+    #[derive(Serialize, Tsify)]
+    pub struct FirstPay {
+        /// The hire date.
+        pub from: String,
+        /// The period's last day.
+        pub to: String,
+        pub days: i64,
+        pub period_days: i64,
+        pub piastres: i64,
+    }
+
+    /// The first pay of someone hired on `hire_date` at `monthly`, periods
+    /// opening on `start_day` (madar-dawam `salary::first_pay`).
+    #[wasm_bindgen(unchecked_return_type = "FirstPay")]
+    pub fn first_pay(monthly: f64, hire_date: &str, start_day: f64) -> Result<JsValue, JsError> {
+        let f = madar_dawam::salary::first_pay(int(monthly)?, date(hire_date)?, int(start_day)?);
+        out(&FirstPay {
+            from: ymd(f.from),
+            to: ymd(f.to),
+            days: f.days,
+            period_days: f.period_days,
+            piastres: f.piastres,
+        })
+    }
+
+    /// One rung of the late ladder as the Rules page holds it: inclusive at
+    /// both ends, `to_minutes` `null` for the open top rung.
+    #[derive(Deserialize, Tsify)]
+    #[tsify(missing_as_null)]
+    pub struct LateTier {
+        pub from_minutes: i32,
+        pub to_minutes: Option<i32>,
+        #[tsify(type = "\"minutes\" | \"piastres\" | \"day_fraction\"")]
+        pub kind: madar_dawam::ladder::LateDeductionKind,
+        pub value: f64,
+    }
+
+    fn tier(t: LateTier) -> Result<madar_dawam::ladder::LateTier, JsError> {
+        Ok(madar_dawam::ladder::LateTier {
+            from_minutes: t.from_minutes,
+            to_minutes: t.to_minutes,
+            kind: t.kind,
+            value: decimal(t.value)?,
+        })
+    }
+
+    fn pay_rates(
+        salary: f64,
+        working_days: f64,
+        day_minutes: f64,
+    ) -> Result<madar_dawam::salary::PayRates, JsError> {
+        Ok(madar_dawam::salary::PayRates::from_base(
+            int(salary)?,
+            decimal(working_days)?,
+            int(day_minutes)?,
+        ))
+    }
+
+    /// The index of the FIRST rung `late_minutes` falls on, or `null` (on
+    /// time, or past a ladder that stops).
+    #[wasm_bindgen(unchecked_return_type = "number | null")]
+    pub fn select_late_tier(
+        tiers: Vec<Ts<LateTier>>,
+        late_minutes: f64,
+    ) -> Result<JsValue, JsError> {
+        let tiers = each(tiers)?
+            .into_iter()
+            .map(tier)
+            .collect::<Result<Vec<_>, _>>()?;
+        let hit = madar_dawam::ladder::select_late_tier(&tiers, int(late_minutes)?);
+        out(&hit.and_then(|t| tiers.iter().position(|x| core::ptr::eq(x, t))))
+    }
+
+    /// What a rung costs in piastres for a monthly `salary`, `working_days` a
+    /// month and the day's `day_minutes` (madar-dawam
+    /// `ladder::late_deduction_piastres`).
+    #[wasm_bindgen]
+    pub fn late_deduction_piastres(
+        tier: Ts<LateTier>,
+        salary: f64,
+        working_days: f64,
+        day_minutes: f64,
+    ) -> Result<f64, JsError> {
+        let rates = pay_rates(salary, working_days, day_minutes)?;
+        Ok(
+            madar_dawam::ladder::late_deduction_piastres(&self::tier(tier.to_rust()?)?, &rates)
+                as f64,
+        )
+    }
+
+    /// What `days_absent` absent days cost at `deduction_days` docked each,
+    /// for a monthly `salary` over `working_days` (madar-dawam
+    /// `ladder::absence_deduction_piastres`; the day's minutes do not enter).
+    #[wasm_bindgen]
+    pub fn absence_deduction_piastres(
+        salary: f64,
+        working_days: f64,
+        days_absent: f64,
+        deduction_days: f64,
+    ) -> Result<f64, JsError> {
+        Ok(madar_dawam::ladder::absence_deduction_piastres(
+            &pay_rates(salary, working_days, 0.0)?,
+            decimal(days_absent)?,
+            decimal(deduction_days)?,
+        ) as f64)
     }
 
     // ── units (madar-units) ──────────────────────────────────────────────
@@ -300,6 +483,13 @@ mod full {
     #[wasm_bindgen]
     pub fn usable_qty(stored: f64, yield_pct: Option<f64>) -> f64 {
         madar_units::usable_qty(stored, yield_pct)
+    }
+
+    /// A recipe quantity copied to another size × `factor`, 3 dp, half away
+    /// from zero.
+    #[wasm_bindgen]
+    pub fn scale_qty(qty: f64, factor: f64) -> f64 {
+        madar_units::scale_qty(qty, factor)
     }
 
     // ── money (madar-money) ──────────────────────────────────────────────
@@ -506,6 +696,48 @@ mod full {
         madar_inventory::purchase::quantity_dec(q)
             .to_f64()
             .unwrap_or(0.0)
+    }
+
+    /// A quantity in whole thousandths, as `numeric(12,3)` stores it (half
+    /// away from zero; non-finite is 0).
+    #[wasm_bindgen]
+    pub fn quantity_milli(q: f64) -> f64 {
+        madar_inventory::purchase::milli(q) as f64
+    }
+
+    /// The server's 400 message for a purchase cost it refuses.
+    #[derive(Serialize, Tsify)]
+    pub struct PurchaseRefusal {
+        pub error: String,
+    }
+
+    /// Piastres one delivery cost, not rounded: the invoice total if given,
+    /// else the per-unit price × the quantity, else the ordered line total
+    /// pro rata to the quantity received (the receive dialog's hint).
+    /// `quantity_ordered` is the stored column.
+    #[wasm_bindgen(unchecked_return_type = "number | PurchaseRefusal")]
+    pub fn delivery_cost(
+        quantity_received: f64,
+        line_cost: Option<f64>,
+        unit_cost: Option<f64>,
+        ordered_line_cost: f64,
+        quantity_ordered: f64,
+    ) -> Result<JsValue, JsError> {
+        use madar_inventory::purchase::quantity_dec;
+        use rust_decimal::prelude::ToPrimitive;
+        either(
+            madar_inventory::purchase::delivery_cost(
+                quantity_received,
+                line_cost.map(int).transpose()?,
+                unit_cost.map(int).transpose()?,
+                int(ordered_line_cost)?,
+                quantity_dec(quantity_ordered),
+            )
+            .map(|d| d.to_f64().unwrap_or(0.0))
+            .map_err(|e| PurchaseRefusal {
+                error: e.to_string(),
+            }),
+        )
     }
 
     /// The order dialog's line estimate in piastres; `null` without a cost,

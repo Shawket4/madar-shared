@@ -1,0 +1,356 @@
+{
+  "rates": [
+    {
+      "typed": "monthly",
+      "value": 1200000,
+      "working_days": "26",
+      "day_minutes": 480,
+      "monthly": 1200000,
+      "daily": 46154,
+      "hourly": 5769
+    },
+    {
+      "typed": "monthly",
+      "value": 1200000,
+      "working_days": "30",
+      "day_minutes": 480,
+      "monthly": 1200000,
+      "daily": 40000,
+      "hourly": 5000
+    },
+    {
+      "typed": "monthly",
+      "value": 1000000,
+      "working_days": "26.5",
+      "day_minutes": 480,
+      "monthly": 1000000,
+      "daily": 37736,
+      "hourly": 4717
+    },
+    {
+      "typed": "monthly",
+      "value": 13,
+      "working_days": "26",
+      "day_minutes": 480,
+      "monthly": 13,
+      "daily": 1,
+      "hourly": 0
+    },
+    {
+      "typed": "monthly",
+      "value": 260013,
+      "working_days": "26",
+      "day_minutes": 480,
+      "monthly": 260013,
+      "daily": 10001,
+      "hourly": 1250
+    },
+    {
+      "typed": "daily",
+      "value": 40000,
+      "working_days": "26",
+      "day_minutes": 480,
+      "monthly": 1040000,
+      "daily": 40000,
+      "hourly": 5000
+    },
+    {
+      "typed": "daily",
+      "value": 45001,
+      "working_days": "26.5",
+      "day_minutes": 450,
+      "monthly": 1192527,
+      "daily": 45001,
+      "hourly": 6000
+    },
+    {
+      "typed": "hourly",
+      "value": 5000,
+      "working_days": "26",
+      "day_minutes": 480,
+      "monthly": 1040000,
+      "daily": 40000,
+      "hourly": 5000
+    },
+    {
+      "typed": "hourly",
+      "value": 4717,
+      "working_days": "26.5",
+      "day_minutes": 480,
+      "monthly": 1000004,
+      "daily": 37736,
+      "hourly": 4717
+    },
+    {
+      "typed": "hourly",
+      "value": 125,
+      "working_days": "22.5",
+      "day_minutes": 420,
+      "monthly": 19688,
+      "daily": 875,
+      "hourly": 125
+    },
+    {
+      "typed": "monthly",
+      "value": 1200000,
+      "working_days": "0",
+      "day_minutes": 480,
+      "monthly": 1200000,
+      "daily": 0,
+      "hourly": 0,
+      "client": "ts monthly 1200000, daily Infinity, hourly Infinity; dart throws IntegerDivisionByZeroException"
+    },
+    {
+      "typed": "monthly",
+      "value": 1200000,
+      "working_days": "26",
+      "day_minutes": 0,
+      "monthly": 1200000,
+      "daily": 46154,
+      "hourly": 0,
+      "client": "ts monthly 1200000, daily 46154, hourly Infinity; dart throws IntegerDivisionByZeroException"
+    },
+    {
+      "typed": "daily",
+      "value": 40000,
+      "working_days": "26",
+      "day_minutes": 0,
+      "monthly": 1040000,
+      "daily": 40000,
+      "hourly": 0,
+      "client": "ts monthly 1040000, daily 40000, hourly Infinity; dart throws IntegerDivisionByZeroException"
+    },
+    {
+      "typed": "monthly",
+      "value": -1200000,
+      "working_days": "26",
+      "day_minutes": 480,
+      "monthly": 0,
+      "daily": 0,
+      "hourly": 0,
+      "client": "ts monthly -1200000, daily -46154, hourly -5769; dart the same"
+    },
+    {
+      "typed": "hourly",
+      "value": -5000,
+      "working_days": "26",
+      "day_minutes": 480,
+      "monthly": 0,
+      "daily": 0,
+      "hourly": 0,
+      "client": "ts monthly -1040000, daily -40000, hourly -5000; dart the same"
+    }
+  ],
+  "first_pay": [
+    {
+      "monthly": 1200000,
+      "hire_date": "2026-09-10",
+      "start_day": 26,
+      "from": "2026-09-10",
+      "to": "2026-09-25",
+      "days": 16,
+      "period_days": 31,
+      "piastres": 619355
+    },
+    {
+      "monthly": 1200000,
+      "hire_date": "2026-09-26",
+      "start_day": 26,
+      "from": "2026-09-26",
+      "to": "2026-10-25",
+      "days": 30,
+      "period_days": 30,
+      "piastres": 1200000
+    },
+    {
+      "monthly": 1200000,
+      "hire_date": "2026-10-25",
+      "start_day": 26,
+      "from": "2026-10-25",
+      "to": "2026-10-25",
+      "days": 1,
+      "period_days": 30,
+      "piastres": 40000
+    },
+    {
+      "monthly": 1000000,
+      "hire_date": "2026-02-15",
+      "start_day": 1,
+      "from": "2026-02-15",
+      "to": "2026-02-28",
+      "days": 14,
+      "period_days": 28,
+      "piastres": 500000
+    },
+    {
+      "monthly": 1000001,
+      "hire_date": "2026-10-11",
+      "start_day": 26,
+      "from": "2026-10-11",
+      "to": "2026-10-25",
+      "days": 15,
+      "period_days": 30,
+      "piastres": 500001
+    },
+    {
+      "monthly": 1200000,
+      "hire_date": "2026-03-01",
+      "start_day": 31,
+      "from": "2026-03-01",
+      "to": "2026-03-27",
+      "days": 27,
+      "period_days": 28,
+      "piastres": 1157143
+    },
+    {
+      "monthly": 1450000,
+      "hire_date": "2028-02-20",
+      "start_day": 1,
+      "from": "2028-02-20",
+      "to": "2028-02-29",
+      "days": 10,
+      "period_days": 29,
+      "piastres": 500000
+    },
+    {
+      "monthly": 1200000,
+      "hire_date": "2026-01-03",
+      "start_day": 26,
+      "from": "2026-01-03",
+      "to": "2026-01-25",
+      "days": 23,
+      "period_days": 31,
+      "piastres": 890323
+    },
+    {
+      "monthly": -1200000,
+      "hire_date": "2026-09-10",
+      "start_day": 26,
+      "from": "2026-09-10",
+      "to": "2026-09-25",
+      "days": 16,
+      "period_days": 31,
+      "piastres": 0,
+      "client": "ts and dart -619355"
+    }
+  ],
+  "prorated": [
+    {
+      "history": [
+        [
+          "2026-09-11",
+          1500000
+        ]
+      ],
+      "fallback": 1200000,
+      "window": [
+        "2026-08-26",
+        "2026-09-25"
+      ],
+      "paid": [
+        "2026-08-26",
+        "2026-09-25"
+      ],
+      "piastres": 1345161,
+      "note": "a raise on 09-11: 16 days at 1,200,000 and 15 at 1,500,000, over 31"
+    },
+    {
+      "history": [
+        [
+          "2026-09-11",
+          1500000
+        ]
+      ],
+      "fallback": 1200000,
+      "window": [
+        "2026-08-26",
+        "2026-09-25"
+      ],
+      "paid": [
+        "2026-09-01",
+        "2026-09-25"
+      ],
+      "piastres": 1112903,
+      "note": "a joiner on 09-01 with a raise on 09-11"
+    },
+    {
+      "history": [],
+      "fallback": 1200000,
+      "window": [
+        "2026-08-26",
+        "2026-09-25"
+      ],
+      "paid": [
+        "2026-08-26",
+        "2026-09-05"
+      ],
+      "piastres": 425806,
+      "note": "a leaver on 09-05: 11 days of 31"
+    },
+    {
+      "history": [
+        [
+          "2026-08-01",
+          900000
+        ],
+        [
+          "2026-09-20",
+          1000000
+        ]
+      ],
+      "fallback": 1200000,
+      "window": [
+        "2026-08-26",
+        "2026-09-25"
+      ],
+      "paid": [
+        "2026-08-26",
+        "2026-09-25"
+      ],
+      "piastres": 919355,
+      "note": "the newest row at or before the day wins; the fallback never applies"
+    },
+    {
+      "history": [],
+      "fallback": 1200000,
+      "window": [
+        "2026-08-26",
+        "2026-09-25"
+      ],
+      "paid": [
+        "2026-09-20",
+        "2026-09-19"
+      ],
+      "piastres": 0,
+      "note": "paid_to before paid_from: nothing"
+    },
+    {
+      "history": [],
+      "fallback": 1200000,
+      "window": [
+        "2026-08-26",
+        "2026-09-25"
+      ],
+      "paid": [
+        "2026-08-01",
+        "2026-10-31"
+      ],
+      "piastres": 1200000,
+      "note": "paid days clamp to the window: the full salary"
+    },
+    {
+      "history": [],
+      "fallback": 1000001,
+      "window": [
+        "2026-09-26",
+        "2026-10-25"
+      ],
+      "paid": [
+        "2026-10-11",
+        "2026-10-25"
+      ],
+      "piastres": 500001,
+      "note": "15 of 30 days: 500,000.5 rounds away from zero"
+    }
+  ]
+}

@@ -260,6 +260,42 @@ pub fn generate_business_dates() -> Vec<BusinessDateVector> {
     out
 }
 
+/// The bytes of `vectors/wallclock_vectors.json`: [`crate::local_parts`] and
+/// [`crate::local_instant`], worked out independently (Python's `zoneinfo`,
+/// PEP 495 `fold=0`: the earliest of a repeated time, a gap time at the offset
+/// before the jump) and written by hand; never regenerated from this crate.
+pub const WALLCLOCK: &str = include_str!("../vectors/wallclock_vectors.json");
+
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+pub struct WallClockVectors {
+    pub parts: Vec<PartsVector>,
+    pub instants: Vec<InstantVector>,
+}
+
+/// An instant on a zone's wall clock.
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+pub struct PartsVector {
+    pub tz: String,
+    /// RFC 3339, UTC.
+    pub at: String,
+    pub date: String,
+    pub hour: u32,
+    pub minute: u32,
+    pub note: String,
+}
+
+/// A wall-clock time in a zone, as an instant.
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+pub struct InstantVector {
+    pub tz: String,
+    pub date: String,
+    pub hour: u32,
+    pub minute: u32,
+    /// RFC 3339, UTC.
+    pub at: String,
+    pub note: String,
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -466,5 +502,66 @@ mod tests {
                 x.date
             );
         }
+    }
+
+    #[test]
+    fn wallclock_vectors() {
+        let v: WallClockVectors = serde_json::from_str(WALLCLOCK).unwrap();
+        for x in &v.parts {
+            let tz: chrono_tz::Tz = x.tz.parse().unwrap();
+            let at = chrono::DateTime::parse_from_rfc3339(&x.at)
+                .unwrap()
+                .to_utc();
+            let p = crate::local_parts(tz, at);
+            assert_eq!(
+                (p.date.to_string(), p.hour, p.minute),
+                (x.date.clone(), x.hour, x.minute),
+                "{} {} ({})",
+                x.tz,
+                x.at,
+                x.note
+            );
+        }
+        for x in &v.instants {
+            let tz: chrono_tz::Tz = x.tz.parse().unwrap();
+            let at = crate::local_instant(tz, x.date.parse().unwrap(), x.hour, x.minute);
+            assert_eq!(
+                at.to_rfc3339_opts(SecondsFormat::Secs, true),
+                x.at,
+                "{} {} {:02}:{:02} ({})",
+                x.tz,
+                x.date,
+                x.hour,
+                x.minute,
+                x.note
+            );
+        }
+    }
+
+    /// At midnight `local_instant` is `local_midnight`, on every day the
+    /// day-bound vectors hold (the gap days included); and a time that
+    /// exists reads back as itself.
+    #[test]
+    fn local_instant_at_midnight_is_local_midnight() {
+        let days: Vec<DayBoundVector> = serde_json::from_str(DAY_BOUNDS).unwrap();
+        for x in &days {
+            let tz: chrono_tz::Tz = x.tz.parse().unwrap();
+            let date: NaiveDate = x.date.parse().unwrap();
+            assert_eq!(
+                crate::local_instant(tz, date, 0, 0),
+                crate::local_midnight(tz, date),
+                "{} {}",
+                x.tz,
+                x.date
+            );
+        }
+        let cairo = chrono_tz::Africa::Cairo;
+        let date: NaiveDate = "2026-09-20".parse().unwrap();
+        for (h, m) in [(0, 0), (9, 5), (23, 59)] {
+            let p = crate::local_parts(cairo, crate::local_instant(cairo, date, h, m));
+            assert_eq!((p.date, p.hour, p.minute), (date, h, m));
+        }
+        // Absurd hours do not panic.
+        let _ = crate::local_instant(cairo, date, u32::MAX, u32::MAX);
     }
 }
