@@ -1,0 +1,208 @@
+{
+  "about": "Hand-computed. madar-catalog `order`: the order a menu's categories are shown in, the POS's rule (madar-core `menu::categories`). `display_order` (missing or null = 0) ascending, then the name resolved for `locale` compared by Unicode code point, then `id`. `resolve` pins the name resolution (madar-core `menu::resolve`): the exact locale, its language, `en`, the base name; an empty or non-text translation is none. Each order case's `expected` is the categories' ids in the order shown.",
+  "resolve": [
+    {
+      "name": "exact_locale_wins_over_language",
+      "why": "ar-EG is tried before ar",
+      "translations": { "ar-EG": "قهوة مصرية", "ar": "قهوة" },
+      "base": "Coffee",
+      "locale": "ar-EG",
+      "expected": "قهوة مصرية"
+    },
+    {
+      "name": "language_of_a_regional_locale",
+      "why": "no ar-EG: its language, ar",
+      "translations": { "ar": "قهوة" },
+      "base": "Coffee",
+      "locale": "ar-EG",
+      "expected": "قهوة"
+    },
+    {
+      "name": "underscore_locale_splits_too",
+      "why": "ar_EG's language is ar",
+      "translations": { "ar": "قهوة" },
+      "base": "Coffee",
+      "locale": "ar_EG",
+      "expected": "قهوة"
+    },
+    {
+      "name": "english_before_the_base",
+      "why": "no fr, no fr's language: en, ahead of the base name",
+      "translations": { "en": "Hot drinks", "ar": "مشروبات ساخنة" },
+      "base": "Hot",
+      "locale": "fr",
+      "expected": "Hot drinks"
+    },
+    {
+      "name": "base_when_nothing_matches",
+      "why": "no ar and no en: the base name",
+      "translations": { "fr": "Café" },
+      "base": "Coffee",
+      "locale": "ar",
+      "expected": "Coffee"
+    },
+    {
+      "name": "empty_translation_falls_through",
+      "why": "an empty ar is no ar: the base name",
+      "translations": { "ar": "" },
+      "base": "Coffee",
+      "locale": "ar",
+      "expected": "Coffee"
+    },
+    {
+      "name": "non_text_translation_is_ignored",
+      "why": "ar is a number, not text: no ar",
+      "translations": { "ar": 5 },
+      "base": "Coffee",
+      "locale": "ar",
+      "expected": "Coffee"
+    },
+    {
+      "name": "null_translations",
+      "why": "no translations at all: the base name",
+      "translations": null,
+      "base": "Coffee",
+      "locale": "ar",
+      "expected": "Coffee"
+    }
+  ],
+  "categories": [
+    {
+      "name": "display_order_beats_the_alphabet",
+      "why": "0, 1, 2 — the dashboard's drag order — not Breakfast, Coffee, Desserts",
+      "locale": "en",
+      "categories": [
+        { "id": "c-breakfast", "name": "Breakfast", "display_order": 2 },
+        { "id": "c-coffee", "name": "Coffee", "display_order": 1 },
+        { "id": "c-desserts", "name": "Desserts", "display_order": 0 }
+      ],
+      "expected": ["c-desserts", "c-coffee", "c-breakfast"]
+    },
+    {
+      "name": "a_tie_breaks_on_the_name",
+      "why": "Apple and Bread share 0: A < B; Zebra is 2 (the POS core's own test)",
+      "locale": "en",
+      "categories": [
+        { "id": "c-zebra", "name": "Zebra", "name_translations": {}, "display_order": 2 },
+        { "id": "c-bread", "name": "Bread", "name_translations": {}, "display_order": 0 },
+        { "id": "c-apple", "name": "Apple", "name_translations": {}, "display_order": 0 }
+      ],
+      "expected": ["c-apple", "c-bread", "c-zebra"]
+    },
+    {
+      "name": "missing_and_null_display_order_are_zero",
+      "why": "Tea (missing) and Juice (null) are both 0, ahead of Coffee's 1; between them J < T",
+      "locale": "en",
+      "categories": [
+        { "id": "c-tea", "name": "Tea" },
+        { "id": "c-coffee", "name": "Coffee", "display_order": 1 },
+        { "id": "c-juice", "name": "Juice", "display_order": null }
+      ],
+      "expected": ["c-juice", "c-tea", "c-coffee"]
+    },
+    {
+      "name": "a_negative_position_comes_first",
+      "why": "-1 < 0",
+      "locale": "en",
+      "categories": [
+        { "id": "c-apple", "name": "Apple", "display_order": 0 },
+        { "id": "c-specials", "name": "Specials", "display_order": -1 }
+      ],
+      "expected": ["c-specials", "c-apple"]
+    },
+    {
+      "name": "english_reader_ties_on_the_english_name",
+      "why": "both 0; en reads Coffee and Tea: C < T",
+      "locale": "en",
+      "categories": [
+        { "id": "c-tea", "name": "Tea", "name_translations": { "ar": "شاي" }, "display_order": 0 },
+        { "id": "c-coffee", "name": "Coffee", "name_translations": { "ar": "قهوة" }, "display_order": 0 }
+      ],
+      "expected": ["c-coffee", "c-tea"]
+    },
+    {
+      "name": "arabic_reader_ties_on_the_arabic_name",
+      "why": "the same two in ar read قهوة (U+0642 first) and شاي (U+0634 first): ش < ق, so Tea first — the tie follows the name the reader sees",
+      "locale": "ar",
+      "categories": [
+        { "id": "c-tea", "name": "Tea", "name_translations": { "ar": "شاي" }, "display_order": 0 },
+        { "id": "c-coffee", "name": "Coffee", "name_translations": { "ar": "قهوة" }, "display_order": 0 }
+      ],
+      "expected": ["c-tea", "c-coffee"]
+    },
+    {
+      "name": "arabic_reader_untranslated_name_sorts_before_arabic",
+      "why": "in ar, Water has no ar and reads Water; W (U+0057) < ش (U+0634)",
+      "locale": "ar",
+      "categories": [
+        { "id": "c-tea", "name": "Tea", "name_translations": { "ar": "شاي" }, "display_order": 0 },
+        { "id": "c-water", "name": "Water", "display_order": 0 }
+      ],
+      "expected": ["c-water", "c-tea"]
+    },
+    {
+      "name": "position_still_beats_the_arabic_name",
+      "why": "in ar, شاي < قهوة, but Coffee is 0 and Tea is 1",
+      "locale": "ar",
+      "categories": [
+        { "id": "c-tea", "name": "Tea", "name_translations": { "ar": "شاي" }, "display_order": 1 },
+        { "id": "c-coffee", "name": "Coffee", "name_translations": { "ar": "قهوة" }, "display_order": 0 }
+      ],
+      "expected": ["c-coffee", "c-tea"]
+    },
+    {
+      "name": "code_point_order_not_a_collation",
+      "why": "both 0: B (U+0042) < a (U+0061), so Banana before apple; a locale collation (Postgres en_US.UTF-8, JS localeCompare) puts apple first",
+      "locale": "en",
+      "categories": [
+        { "id": "c-apple", "name": "apple", "display_order": 0 },
+        { "id": "c-banana", "name": "Banana", "display_order": 0 }
+      ],
+      "expected": ["c-banana", "c-apple"]
+    },
+    {
+      "name": "code_points_not_utf16_units",
+      "why": "both 0: Ｐ (U+FF30) < 🍕 (U+1F355); JavaScript's default string order compares UTF-16 units and puts the pizza (0xD83C) first",
+      "locale": "en",
+      "categories": [
+        { "id": "c-pizza-emoji", "name": "🍕 Pizza", "display_order": 0 },
+        { "id": "c-fullwidth", "name": "Ｐizza", "display_order": 0 }
+      ],
+      "expected": ["c-fullwidth", "c-pizza-emoji"]
+    },
+    {
+      "name": "equal_names_break_on_id",
+      "why": "two Drinks at 0: the id decides, a < b",
+      "locale": "en",
+      "categories": [
+        { "id": "b-drinks", "name": "Drinks", "display_order": 0 },
+        { "id": "a-drinks", "name": "Drinks", "display_order": 0 }
+      ],
+      "expected": ["a-drinks", "b-drinks"]
+    },
+    {
+      "name": "names_equal_only_in_arabic",
+      "why": "in ar both read مشروبات, so the id decides (a < b) — in en the names would (Drinks < Juices)",
+      "locale": "ar",
+      "categories": [
+        { "id": "a-juices", "name": "Juices", "name_translations": { "ar": "مشروبات" }, "display_order": 3 },
+        { "id": "b-drinks", "name": "Drinks", "name_translations": { "ar": "مشروبات" }, "display_order": 3 }
+      ],
+      "expected": ["a-juices", "b-drinks"]
+    },
+    {
+      "name": "a_whole_menu",
+      "why": "0: Breakfast and Specials (missing = 0), B < S; 1: Cold drinks and Hot drinks, C < H; then 2 Sandwiches, 3 Desserts",
+      "locale": "en",
+      "categories": [
+        { "id": "c-desserts", "name": "Desserts", "display_order": 3 },
+        { "id": "c-hot", "name": "Hot drinks", "display_order": 1 },
+        { "id": "c-specials", "name": "Specials" },
+        { "id": "c-sandwiches", "name": "Sandwiches", "display_order": 2 },
+        { "id": "c-cold", "name": "Cold drinks", "display_order": 1 },
+        { "id": "c-breakfast", "name": "Breakfast", "display_order": 0 }
+      ],
+      "expected": ["c-breakfast", "c-specials", "c-cold", "c-hot", "c-sandwiches", "c-desserts"]
+    }
+  ]
+}

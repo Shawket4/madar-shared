@@ -37,6 +37,10 @@ pub const FOLLOW: &str = include_str!("../vectors/follow_vectors.json");
 /// `combo_menu_vectors.json` (hand-computed): [`crate::combo::choice_extra`].
 pub const COMBO_MENU: &str = include_str!("../vectors/combo_menu_vectors.json");
 
+/// `menu_order_vectors.json` (hand-computed): [`crate::order`] — the name
+/// resolution and the categories' order.
+pub const MENU_ORDER: &str = include_str!("../vectors/menu_order_vectors.json");
+
 /// One case of `follow_vectors.json`.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct FollowVector {

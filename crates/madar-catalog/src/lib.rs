@@ -34,15 +34,20 @@
 //!   pricing of an application both sides run.
 //! - [`sale_window`] (v0.5): the optional weekday / time / date windows of a
 //!   combo or a deal.
+//! - [`order`] (v0.7.2): the order a menu's categories are shown in — the
+//!   POS's rule (`display_order`, then the name the reader sees, then `id`),
+//!   which the public menu and the customer pages follow too.
 //!
 //! Pinned by `vectors/catalog_vectors.json`, generated from the server's
 //! behaviour (MadarRust `tests/catalog_pricing_tests.rs`); the combo, deal
-//! and window rules by hand-computed `vectors/{combo,deal,sale_window}_vectors.json`.
+//! and window rules by hand-computed `vectors/{combo,deal,sale_window}_vectors.json`,
+//! the menu's order by hand-computed `vectors/menu_order_vectors.json`.
 
 pub mod combo;
 pub mod deal;
 pub mod feed;
 pub mod follow;
+pub mod order;
 pub mod price;
 pub mod sale_window;
 pub mod staff;

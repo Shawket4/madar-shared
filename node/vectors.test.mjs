@@ -4,7 +4,7 @@
 //
 // Build first (scripts/build-wasm.sh), then: node --test node/
 // Each package runs every file its exports cover; `full` covers all
-// twenty-three files the web uses, `public` the customer pages' eight.
+// twenty-four files the web uses, `public` the customer pages' nine.
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -49,6 +49,7 @@ const businessDates = vectors("madar-time/vectors/business_date_vectors.json");
 const cart = vectors("madar-money/vectors/cart_vectors.json");
 const comboMenu = vectors("madar-catalog/vectors/combo_menu_vectors.json");
 const loyaltyCard = vectors("madar-loyalty/vectors/loyalty_card_vectors.json");
+const menuOrder = vectors("madar-catalog/vectors/menu_order_vectors.json");
 // `public` bundles scripts/tz-filter.txt's zones (Cairo, MENA, the US, UTC); a
 // case in another zone (Europe/London) must throw there. `full` bundles every zone.
 const bundled = new RegExp(`^${readFileSync(join(root, "scripts/tz-filter.txt"), "utf8").trim()}$`);
@@ -92,6 +93,9 @@ function publicFiles(pkg, w) {
   cases(pkg, "combo_menu_vectors", "combo_choice_extra", comboMenu,
     (c) => w.combo_choice_extra(c.choice, c.size_label), (c) => c.expected);
 
+  cases(pkg, "menu_order_vectors", "category_order", menuOrder.categories,
+    (c) => w.category_order(c.categories, c.locale).map((i) => c.categories[i].id), (c) => c.expected);
+
   cases(pkg, "loyalty_card_vectors", "loyalty_card", loyaltyCard.cards,
     (c) => w.loyalty_card(c.balance, c.next_reward_cost), (c) => c.expected);
   cases(pkg, "loyalty_card_vectors", "loyalty_stamps", loyaltyCard.stamps,
@@ -124,6 +128,8 @@ function publicFiles(pkg, w) {
     assert.throws(() => w.cart_line_total({ item: { quantity: 1.5, unit_price: 100, addons: [], optionals: [] } }), Error);
     assert.throws(() => w.cart_subtotal([{ kind: "item", quantity: 1, unit_price: 100, addons: [], optionals: [] }]), Error);
     assert.throws(() => w.loyalty_card(2.5, 5), /whole number/);
+    assert.throws(() => w.category_order([{ id: "a", name: "A", display_order: 1.5 }], "en"), Error);
+    assert.throws(() => w.category_order([{ name: "no id" }], "en"), Error);
   });
 }
 
