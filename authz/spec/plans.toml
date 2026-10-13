@@ -1,0 +1,89 @@
+# ============================================================================
+# The plans (FREEMIUM_SPEC_2026-10-11.md §3): what Free and Paid allow.
+#
+# The ONE source of truth for the plan ceiling. `cargo run -p authz-gen`
+# validates this file against capabilities.toml and generates from it:
+#   - crates/madar-plan/src/generated.rs            (Rust: backend + cores)
+#   - MadarDashboard/src/generated/plans.ts         (--dashboard)
+#   - madar/packages/app_core/lib/src/generated/plans.dart   (--pos)
+# CI fails when a generated file is stale (`authz-gen --check`).
+#
+# A FEATURE is a set of capabilities that a plan switches on or off together,
+# plus anything the plan gates that is not a capability (a public page, a job,
+# a device kind). It names its capabilities three ways:
+#   groups  every NON-CORE capability of each capability group
+#   caps    capability keys, or a `prefix.*` pattern (non-core matches only)
+# A core capability (tier = "core") can never be removed, so a group or a
+# pattern skips it, and naming one exactly is an error. A capability sits
+# behind at most one feature.
+#
+# Every non-core capability must be accounted for: behind a feature, or free
+# (`[free]`). A new capability in a group that is not listed anywhere fails
+# authz-gen instead of silently becoming free.
+# ============================================================================
+
+spec_version = 1
+
+[features.inventory]
+groups = ["inventory", "purchasing"]
+# Recipes deduct stock; packaging rules apply to the stock of every item.
+caps = ["recipes.*", "menu.packaging_rules.apply"]
+
+[features.loyalty]
+caps = ["loyalty.*", "legacy.loyalty.*"]
+
+[features.online]
+# Delivery and every non-POS channel. Also gated by this feature, with no
+# capability of their own: the public menu, the links page, wallet passes'
+# join pages, the delivery OTP.
+groups = ["delivery"]
+# A customer's saved delivery addresses; the third-party order-analytics pull.
+caps = ["customers.addresses.view", "integrations.read"]
+
+[features.bookings]
+caps = ["bookings.*", "legacy.bookings.*"]
+
+[features.floor]
+# Tables, the floor plan and open tickets. Core reads (tickets.read,
+# floor.layout.read, floor.transfers.read) survive on Free by the core rule;
+# the apps hide the screens by this feature.
+caps = ["tickets.*", "floor.*", "legacy.table_transfers.*"]
+
+[features.kitchen]
+# Kitchen screens and stations. kitchen.display.read and kitchen.stations.read
+# are core and survive; the KDS device itself is refused by the plan's limits.
+groups = ["kitchen"]
+
+[features.dawam]
+# Staff scheduling, attendance, payroll. NOT the `staff` group: that is the
+# team's accounts, roles and permissions, unlimited on Free.
+groups = ["hr"]
+
+[features.branding]
+# Custom brand colours and logo, and the shop's own subdomain. Pure plan
+# features: no capability gates them (org.settings.* edits them).
+groups = []
+
+[features.basira]
+# The AI assistant. There is no reports.basira capability yet; the server and
+# the apps check this feature.
+groups = []
+
+# Capabilities that are free but live in a group this plan splits (a group that
+# is entirely free goes under `groups`; one whose capabilities all sit behind
+# features needs no entry).
+[free]
+groups = ["selling", "till", "menu", "staff", "settings", "reports", "customers"]
+caps = ["orders.service_charge.waive"]
+
+[plans.free]
+features = []
+# Absent = unlimited. A downgraded org keeps its branches (and may not add one);
+# the limits are the ceiling for NEW ones and per branch for devices.
+limits = { branches = 1, pos_devices_per_branch = 1, kds_devices = 0, waiter_devices = 0 }
+realtime = false
+
+[plans.paid]
+features = ["*"]
+limits = {}
+realtime = true

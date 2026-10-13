@@ -12,6 +12,11 @@
 //! - `<dashboard>/src/generated/capabilities.ts`
 //! - `<pos>/packages/app_core/lib/src/generated/capabilities.dart`
 //!
+//! and from `authz/spec/plans.toml` (validated against the capability registry):
+//! - `crates/madar-plan/src/generated.rs` (this repo)
+//! - `<dashboard>/src/generated/plans.ts`
+//! - `<pos>/packages/app_core/lib/src/generated/plans.dart`
+//!
 //! The backend and the POS core no longer carry a copy of the crate: both pin a
 //! tag of this repo, so there is nothing to vendor and no crate hash to keep.
 //! The `.ts`/`.dart` headers still name `MadarRust/authz/spec` — they are
@@ -23,6 +28,8 @@ use std::fmt::Write as _;
 use std::path::{Path, PathBuf};
 
 use serde::Deserialize;
+
+mod plans;
 
 #[derive(Deserialize)]
 struct Spec {
@@ -671,8 +678,10 @@ fn main() {
 fn run() -> Result<(), String> {
     let gen_root = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     let crate_root = gen_root.join("../../crates/madar-authz");
+    let plan_root = gen_root.join("../../crates/madar-plan");
     let mut args = std::env::args().skip(1);
     let mut spec_path = gen_root.join("../spec/capabilities.toml");
+    let mut plans_path = gen_root.join("../spec/plans.toml");
     let mut dashboard: Option<PathBuf> = None;
     let mut pos: Option<PathBuf> = None;
     let mut check = false;
@@ -680,6 +689,7 @@ fn run() -> Result<(), String> {
         match a.as_str() {
             "--check" => check = true,
             "--spec" => spec_path = args.next().ok_or("--spec needs a path")?.into(),
+            "--plans" => plans_path = args.next().ok_or("--plans needs a path")?.into(),
             "--dashboard" => {
                 dashboard = Some(args.next().ok_or("--dashboard needs a path")?.into())
             }
@@ -693,6 +703,15 @@ fn run() -> Result<(), String> {
     validate(&spec)?;
     let spec_hash = fnv(&[raw.as_bytes()]);
 
+    let plans_raw = std::fs::read_to_string(&plans_path)
+        .map_err(|e| format!("{}: {e}", plans_path.display()))?;
+    let plans: plans::PlansSpec =
+        toml::from_str(&plans_raw).map_err(|e| format!("plans.toml: {e}"))?;
+    let resolved = plans::validate(&spec, &plans)?;
+    // The plan tables follow both files: a capability added to a group a
+    // feature names changes them.
+    let plans_hash = fnv(&[plans_raw.as_bytes(), raw.as_bytes()]);
+
     let mut out = Out {
         check,
         stale: vec![],
@@ -702,13 +721,26 @@ fn run() -> Result<(), String> {
         gen_rust(&spec, &spec_hash)?.as_bytes(),
     )?;
 
+    out.put(
+        &plan_root.join("src/generated.rs"),
+        plans::gen_rust(&plans, &resolved, &plans_hash).as_bytes(),
+    )?;
+
     if let Some(d) = dashboard {
+        out.put(
+            &d.join("src/generated/plans.ts"),
+            plans::gen_ts(&plans, &resolved, &plans_hash).as_bytes(),
+        )?;
         out.put(
             &d.join("src/generated/capabilities.ts"),
             gen_ts(&spec, &spec_hash).as_bytes(),
         )?;
     }
     if let Some(p) = pos {
+        out.put(
+            &p.join("packages/app_core/lib/src/generated/plans.dart"),
+            plans::gen_dart(&plans, &resolved, &plans_hash).as_bytes(),
+        )?;
         out.put(
             &p.join("packages/app_core/lib/src/generated/capabilities.dart"),
             gen_dart(&spec, &spec_hash).as_bytes(),
