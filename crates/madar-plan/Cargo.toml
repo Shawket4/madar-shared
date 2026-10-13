@@ -1,0 +1,26 @@
+# madar-plan: what a plan (Free, Paid) allows, defined once for the backend, the
+# Rust cores and the web dashboard. The tables in src/generated.rs come from
+# authz/spec/plans.toml by authz-gen; never edit them by hand.
+[package]
+name = "madar-plan"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+# The capability registry the plan ceiling is cut from.
+madar-authz = { path = "../madar-authz" }
+
+# TypeScript declarations of the types the browser build (madar-web) passes
+# across, for its .d.ts (off by default: no consumer but madar-web builds it).
+tsify = { version = "0.5", optional = true, default-features = false, features = ["js"] }
+wasm-bindgen = { version = "0.2", optional = true }
+
+[features]
+tsify = ["dep:tsify", "dep:wasm-bindgen"]
+
+[dev-dependencies]
+serde_json = "1"

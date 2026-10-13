@@ -4,7 +4,7 @@
 //
 // Build first (scripts/build-wasm.sh), then: node --test node/
 // Each package runs every file its exports cover; `full` covers all
-// twenty-four files the web uses, `public` the customer pages' nine.
+// twenty-five files the web uses, `public` the customer pages' ten.
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -50,6 +50,7 @@ const cart = vectors("madar-money/vectors/cart_vectors.json");
 const comboMenu = vectors("madar-catalog/vectors/combo_menu_vectors.json");
 const loyaltyCard = vectors("madar-loyalty/vectors/loyalty_card_vectors.json");
 const menuOrder = vectors("madar-catalog/vectors/menu_order_vectors.json");
+const plan = vectors("madar-plan/vectors/plan_vectors.json");
 // `public` bundles scripts/tz-filter.txt's zones (Cairo, MENA, the US, UTC); a
 // case in another zone (Europe/London) must throw there. `full` bundles every zone.
 const bundled = new RegExp(`^${readFileSync(join(root, "scripts/tz-filter.txt"), "utf8").trim()}$`);
@@ -100,6 +101,13 @@ function publicFiles(pkg, w) {
     (c) => w.loyalty_card(c.balance, c.next_reward_cost), (c) => c.expected);
   cases(pkg, "loyalty_card_vectors", "loyalty_stamps", loyaltyCard.stamps,
     (c) => w.loyalty_stamps(c.earned, c.cost), (c) => c.expected);
+
+  // The plan's entitlements; an unknown plan is Paid.
+  cases(pkg, "plan_vectors", "entitlements", plan.plans, (c) => w.entitlements(c.plan), (c) => c.expected);
+  const paid = plan.plans.find((c) => c.plan === "paid").expected;
+  const free = plan.plans.find((c) => c.plan === "free").expected;
+  cases(pkg, "plan_vectors", "entitlements (parse)", plan.parse.map(([raw, want]) => ({ raw, want })),
+    (c) => w.entitlements(c.raw), (c) => (c.want === "free" ? free : paid));
 
   const rules = [...bill.bills, ...bill.open_bills].filter((b) => b.discount.kind !== "stated");
   cases(pkg, "bill_vectors", "bill_discount", rules,

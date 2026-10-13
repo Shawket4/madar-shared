@@ -6,7 +6,8 @@
 //! crate holds no rule of its own (SHARED_RULES_PLAN.md, Step 3).
 //!
 //! Two builds (scripts/build-wasm.sh):
-//! - `public`: the customer pages (ordering, menu, loyalty).
+//! - `public`: the customer pages (ordering, menu, loyalty) and the plan's
+//!   entitlements.
 //! - `full`: the web dashboard; everything in `public` and more.
 //!
 //! The boundary:
@@ -262,6 +263,16 @@ mod public {
     #[wasm_bindgen(unchecked_return_type = "number | null")]
     pub fn loyalty_stamps(earned: f64, cost: f64) -> Result<JsValue, JsError> {
         out(&madar_loyalty::card::stamps(int(earned)?, int(cost)?))
+    }
+
+    // ── the plan (madar-plan) ──
+
+    /// What a plan switches on: its features, limits (`null` is unlimited) and
+    /// whether its tills hold a realtime stream. `"free"` is Free; any other
+    /// value is Paid, so an old server never locks a paying shop out.
+    #[wasm_bindgen(unchecked_return_type = "Entitlements")]
+    pub fn entitlements(plan: &str) -> Result<JsValue, JsError> {
+        out(&madar_plan::entitlements(madar_plan::Plan::parse(plan)))
     }
 
     /// The canonical phone (E.164 digits, no `+`), or `null` when `raw` is
