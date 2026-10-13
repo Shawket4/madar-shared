@@ -3,6 +3,47 @@
 Every tag both consumers pin. A release that changes a result on either side
 says so here; everything else is a move.
 
+## v0.8.0 — the Free plan, defined once (2026-10-13)
+
+**What changes on a till or the server: nothing yet.** A new crate and a new spec file; every
+existing function and vector file is byte-identical. Nobody has a plan until a consumer reads one
+(every organisation is Paid), and `topics_for_role` still lives in madar-core until its swap.
+Like v0.7.x, the tag does not bump the workspace `version`.
+
+- **madar-plan** (new; FREEMIUM_SPEC_2026-10-11.md §3): `Plan { Free, Paid }` (serde `"free"` /
+  `"paid"`; anything else, `null` included, reads as Paid, so an old server never locks a paying
+  shop out); `entitlements(plan)` → `Entitlements { features, limits, realtime }`; `ceiling(plan)` and
+  `apply(plan, EffectiveSet)` (intersection with the plan's capabilities; limits and "ask a manager"
+  fall with their capability; core capabilities always survive); `may_add_branch(plan, live)`,
+  `may_activate(plan, DeviceKind, DeviceCounts)`; `downgrade_keeps(tills, picks)` (the owner's pick
+  per branch, else the most recently used till, a never-used one last, ties to the smaller device
+  id); `realtime_topics(plan, role)` and `Topic`; `Refusal { code, feature }` with `en()`, `ar()` and
+  `message(locale)`. Codes: `plan_feature`, `plan_branch_limit`, `plan_device_limit`,
+  `plan_no_realtime`, `plan_till_inactive`. A kind of device limited to zero (kitchen screens,
+  waiter devices) refuses as the feature it needs ("Kitchen screens are on the paid plan.").
+- **`realtime_topics` is madar-core's `realtime::topics_for_role`, moved.** Paid answers exactly
+  what it answered (`kitchen`: kitchen, sync; `waiter`: tickets, kitchen, floor, bookings, sync;
+  every other role: delivery, kitchen, tickets, orders, floor, bookings, tills, sync), as `Topic`s
+  instead of strings. Free answers nothing: its tills open no stream. `Topic` is the backend's
+  `realtime::event::Topic`, with the same wire names.
+- **`authz/spec/plans.toml`** (new): nine features (`inventory`, `loyalty`, `online`, `bookings`,
+  `floor`, `kitchen`, `dawam`, `branding`, `basira`), each a set of capability groups and
+  key patterns, and the plans: Free has no feature, one branch, one POS device per branch, no kitchen
+  screens or waiter devices, no realtime; Paid has all of them, unlimited. `branding` and `basira`
+  gate no capability (nothing in the registry names them); the apps and the server check the feature.
+- **authz-gen** validates `plans.toml` against `capabilities.toml` (every group and capability
+  exists; no core capability behind a feature; a capability behind at most one; every non-core
+  capability behind a feature or listed free, so a new capability never silently joins Free; Free
+  never looser than Paid) and writes `crates/madar-plan/src/generated.rs`,
+  `<dashboard>/src/generated/plans.ts` (`--dashboard`) and
+  `<pos>/packages/app_core/lib/src/generated/plans.dart` (`--pos`). `--check` covers the Rust file.
+- **madar-web `public` and `full`**: `entitlements(plan)` (the plan as a string; unknown is Paid),
+  run through the wasm against `plan_vectors.json`.
+- **`plan_vectors.json`**: both plans' entitlements, spot checks of the ceiling, the ceiling over
+  every template's role grants (restaurant and café, each role, both plans), every limit at and past
+  its boundary (a downgraded organisation's two branches included), the downgrade's picks, topics per
+  plan and role, and the refusals' exact wording in both languages.
+
 ## v0.7.2 — the menu's order, one rule for the till, the public menu and the store (2026-10-13)
 
 **What changes on a till: nothing** (the POS core's category sort moves here; its order is the
