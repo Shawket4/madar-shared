@@ -3,7 +3,7 @@
 Every tag both consumers pin. A release that changes a result on either side
 says so here; everything else is a move.
 
-## v0.7.2 — the menu's order, one rule for the till, the public menu and the store (unreleased)
+## v0.7.2 — the menu's order, one rule for the till, the public menu and the store (2026-10-13)
 
 **What changes on a till: nothing** (the POS core's category sort moves here; its order is the
 same except that two categories with the same position and the same name now order by id instead
@@ -30,7 +30,7 @@ QR menu and online store. They now run this rule.
   the wasm against `menu_order_vectors.json`. Brotli, wasm + glue: `public` 76 → 82 KB, `full`
   165 → 171 KB.
 
-## v0.7.1 — the storefront cart and the loyalty card in the browser (unreleased)
+## v0.7.1 — the storefront cart and the loyalty card in the browser (2026-10-10)
 
 **What changes on a till or the server: nothing.** New functions, three new hand-computed vector
 files and new exports; every earlier function and vector file is byte-identical. The customer
