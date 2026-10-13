@@ -20,6 +20,8 @@ public = [
     "dep:madar-money",
     "madar-money/tsify",
     "dep:madar-loyalty",
+    "dep:madar-plan",
+    "madar-plan/tsify",
     "dep:madar-ids",
     "dep:rust_decimal",
     "dep:madar-time",
@@ -46,6 +48,7 @@ madar-catalog = { path = "../madar-catalog", features = ["tsify"], optional = tr
 madar-money = { path = "../madar-money", optional = true }
 madar-ids = { path = "../madar-ids", optional = true }
 madar-loyalty = { path = "../madar-loyalty", optional = true }
+madar-plan = { path = "../madar-plan", optional = true }
 madar-time = { path = "../madar-time", optional = true }
 madar-dawam = { path = "../madar-dawam", optional = true }
 madar-units = { path = "../madar-units", optional = true }

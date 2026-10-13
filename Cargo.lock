@@ -370,6 +370,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "madar-plan"
+version = "0.6.0"
+dependencies = [
+ "madar-authz",
+ "serde",
+ "serde_json",
+ "tsify",
+ "wasm-bindgen",
+]
+
+[[package]]
 name = "madar-sync"
 version = "0.6.0"
 dependencies = [
@@ -419,6 +430,7 @@ dependencies = [
  "madar-inventory",
  "madar-loyalty",
  "madar-money",
+ "madar-plan",
  "madar-till",
  "madar-time",
  "madar-units",
