@@ -212,6 +212,24 @@ mod public {
         Ok(madar_catalog::combo::choice_extra(&choice.to_rust()?, size_label.as_deref()) as f64)
     }
 
+    // ── the menu's order (madar-catalog `order`) ──
+
+    /// The positions of `categories` in the order the POS shows them to a
+    /// reader in `locale`: `display_order` (missing or `null` is 0), then the
+    /// name they read, by code point, then `id`. Pass the API's categories as
+    /// they are (other fields are ignored) and read them back with
+    /// `order.map((i) => categories[i])`.
+    #[wasm_bindgen(unchecked_return_type = "number[]")]
+    pub fn category_order(
+        categories: Vec<Ts<madar_catalog::order::Category>>,
+        locale: &str,
+    ) -> Result<JsValue, JsError> {
+        out(&madar_catalog::order::category_order(
+            &each(categories)?,
+            locale,
+        ))
+    }
+
     // ── the loyalty card (madar-loyalty `card`) ──
 
     /// A member's card for a balance against the next reward's cost.

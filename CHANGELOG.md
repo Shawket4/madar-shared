@@ -3,7 +3,34 @@
 Every tag both consumers pin. A release that changes a result on either side
 says so here; everything else is a move.
 
-## v0.7.1 — the storefront cart and the loyalty card in the browser (unreleased)
+## v0.7.2 — the menu's order, one rule for the till, the public menu and the store (2026-10-13)
+
+**What changes on a till: nothing** (the POS core's category sort moves here; its order is the
+same except that two categories with the same position and the same name now order by id instead
+of by whatever order they arrived in). **On the server and the customer pages:** the public menu
+followed none of it (MadarRust `load_public_menu` listed categories `ORDER BY name`), so a shop
+that dragged Coffee above Breakfast on the dashboard saw that on the till and the reverse on its
+QR menu and online store. They now run this rule.
+
+- **madar-catalog `order`** (new): the POS's rule (madar-core `menu::categories`) — categories by
+  `display_order` (missing or `null` is 0), then the name the reader sees, compared by Unicode
+  code point (Rust `str` order: not a locale collation, and not JavaScript's UTF-16 order), then
+  `id`. `cmp` / `sort` over keys a reader already resolved (the POS core's views),
+  `category_order(&[Category], locale)` over the API's categories (the indices in order), and
+  `resolve_name` — madar-core's `menu::resolve` moved here unchanged (the exact locale, its
+  language, `en`, the base name; an empty or non-text translation is none). `Translations`, the
+  API's `name_translations` without a JSON value (non-text entries dropped). Hand-computed
+  `menu_order_vectors.json`: 8 resolve cases, 13 order cases (ties, missing and `null` positions,
+  a negative one, the same categories read in English and in Arabic, an untranslated name among
+  Arabic ones, code points vs a collation and vs UTF-16, equal names, names equal only in Arabic).
+  Menu items have no order of their own (`menu_items.display_order` was dropped in 2026-06):
+  every reader shows them as the server lists them.
+- **madar-web `public` and `full`**: `category_order(categories, locale)` → the indices in order
+  (`OrderCategory` in the `.d.ts`; other fields of the API's categories are ignored), run through
+  the wasm against `menu_order_vectors.json`. Brotli, wasm + glue: `public` 76 → 82 KB, `full`
+  165 → 171 KB.
+
+## v0.7.1 — the storefront cart and the loyalty card in the browser (2026-10-10)
 
 **What changes on a till or the server: nothing.** New functions, three new hand-computed vector
 files and new exports; every earlier function and vector file is byte-identical. The customer
