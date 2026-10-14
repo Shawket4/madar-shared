@@ -334,7 +334,10 @@ fn a_feature_is_exactly_its_capabilities_gone_from_free() {
         }
     }
     let mut gated = CapSet::EMPTY;
-    for m in FEATURES.iter().filter(|m| !entitlements(Plan::Free).has(m.feature)) {
+    for m in FEATURES
+        .iter()
+        .filter(|m| !entitlements(Plan::Free).has(m.feature))
+    {
         gated = gated.union(&m.feature.caps());
     }
     assert_eq!(ceiling(Plan::Free), CapSet::all().minus(&gated));
