@@ -231,16 +231,10 @@ pub fn validate(spec: &Spec, p: &PlansSpec) -> Result<Resolved, String> {
     if p.plans["free"].realtime && !p.plans["paid"].realtime {
         return Err("plans: free has realtime but paid does not".into());
     }
-    // A device kind limited to zero is a feature gate: its feature must be off.
-    for (limit, feature, name) in [
-        (fl.kds_devices, "kitchen", "kds_devices"),
-        (fl.waiter_devices, "floor", "waiter_devices"),
-    ] {
-        if limit == Some(0) && free.contains(feature) {
-            return Err(format!(
-                "plans: free allows no {name} but includes feature {feature}"
-            ));
-        }
+    // Kitchen screens limited to zero are a feature gate: the feature must be off.
+    // (Waiter devices are not: Free has the floor on its till, without handhelds.)
+    if fl.kds_devices == Some(0) && free.contains("kitchen") {
+        return Err("plans: free allows no kds_devices but includes feature kitchen".into());
     }
     Ok(Resolved { features: resolved })
 }
@@ -646,8 +640,8 @@ mod tests {
             "looser than paid",
         );
         fails(
-            "[plans.free]\nfeatures = []",
-            "[plans.free]\nfeatures = [\"kitchen\"]",
+            "[plans.free]\nfeatures = [\"floor\"]",
+            "[plans.free]\nfeatures = [\"floor\", \"kitchen\"]",
             "allows no kds_devices",
         );
     }

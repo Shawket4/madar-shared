@@ -336,7 +336,9 @@ pub fn may_add_branch(plan: Plan, live_branches: u32) -> Result<(), Refusal> {
 
 /// May one more device of `kind` be activated in a branch that already has
 /// `active_in_branch`? A kind whose limit is zero is a feature the plan lacks
-/// (kitchen screens, waiter devices), and says so.
+/// (kitchen screens, waiter devices) and says so, unless the plan has the
+/// feature: Free has the floor on its till, but no waiter handhelds, so that
+/// is a device limit.
 pub fn may_activate(
     plan: Plan,
     kind: DeviceKind,
@@ -356,6 +358,8 @@ pub fn may_activate(
             Some(Feature::Floor),
         ),
     };
+    // A plan that has the feature (Free's floor) is limited, not locked out.
+    let feature = feature.filter(|f| !plan.meta().features.contains(f));
     match max {
         Some(0) if feature.is_some() => Err(Refusal::new(Code::Feature, feature)),
         Some(max) if active >= max => Err(Refusal::new(Code::DeviceLimit, feature)),

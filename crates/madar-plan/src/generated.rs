@@ -6,7 +6,7 @@ use madar_authz::Cap;
 use crate::{FeatureMeta, PlanLimits, PlanMeta};
 
 pub const SPEC_VERSION: u32 = 1;
-pub const SPEC_HASH: &str = "63bb92161548b5b5";
+pub const SPEC_HASH: &str = "f1e6e47ce5c40542";
 
 /// A thing a plan switches on: a set of capabilities plus the surfaces that
 /// have no capability of their own.
@@ -41,6 +41,6 @@ pub static FEATURES: &[FeatureMeta] = &[
 ];
 
 pub static PLANS: &[PlanMeta] = &[
-    PlanMeta { key: "free", features: &[], limits: PlanLimits { branches: Some(1), pos_devices_per_branch: Some(1), kds_devices: Some(0), waiter_devices: Some(0) }, realtime: false },
+    PlanMeta { key: "free", features: &[Feature::Floor], limits: PlanLimits { branches: Some(1), pos_devices_per_branch: Some(1), kds_devices: Some(0), waiter_devices: Some(0) }, realtime: false },
     PlanMeta { key: "paid", features: &[Feature::Basira, Feature::Bookings, Feature::Branding, Feature::Dawam, Feature::Floor, Feature::Inventory, Feature::Kitchen, Feature::Loyalty, Feature::Online], limits: PlanLimits { branches: None, pos_devices_per_branch: None, kds_devices: None, waiter_devices: None }, realtime: true },
 ];

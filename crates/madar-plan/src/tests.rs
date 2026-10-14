@@ -306,7 +306,7 @@ fn paid_has_everything_and_free_nothing_extra() {
     let paid = entitlements(Plan::Paid);
     let free = entitlements(Plan::Free);
     assert!(Feature::all().all(|f| paid.has(f)));
-    assert!(free.features.is_empty());
+    assert!(free.has(Feature::Floor) && Feature::all().filter(|f| free.has(*f)).count() == 1);
     assert!(ceiling(Plan::Free).is_subset(&ceiling(Plan::Paid)));
     assert!(free.limits.branches <= paid.limits.branches.or(Some(u32::MAX)));
     assert!(paid.realtime && !free.realtime);
@@ -323,8 +323,9 @@ fn a_feature_is_exactly_its_capabilities_gone_from_free() {
             m.key
         );
         behind = behind.union(&caps);
-        assert!(
+        assert_eq!(
             ceiling(Plan::Free).intersect(&caps).is_empty(),
+            !entitlements(Plan::Free).has(m.feature),
             "Free keeps a {} capability",
             m.key
         );
@@ -332,7 +333,11 @@ fn a_feature_is_exactly_its_capabilities_gone_from_free() {
             assert_eq!(Feature::of_cap(*c), Some(m.feature));
         }
     }
-    assert_eq!(ceiling(Plan::Free), CapSet::all().minus(&behind));
+    let mut gated = CapSet::EMPTY;
+    for m in FEATURES.iter().filter(|m| !entitlements(Plan::Free).has(m.feature)) {
+        gated = gated.union(&m.feature.caps());
+    }
+    assert_eq!(ceiling(Plan::Free), CapSet::all().minus(&gated));
 }
 
 #[test]

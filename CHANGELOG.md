@@ -3,6 +3,13 @@
 Every tag both consumers pin. A release that changes a result on either side
 says so here; everything else is a move.
 
+## Unreleased: the floor is on Free
+
+**What changes:** `plans.free.features = ["floor"]`. Free keeps tables, the floor plan and open tickets
+on its one till. Waiter handhelds stay at zero on Free, so `may_activate(Free, Waiter, _)` now refuses as
+`plan_device_limit` (no feature), not `plan_feature`/floor. `authz-gen` no longer ties `waiter_devices = 0`
+to the floor feature. Vectors updated; consumers regenerate and bump the tag together.
+
 ## v0.8.0 — the Free plan, defined once (2026-10-13)
 
 **What changes on a till or the server: nothing yet.** A new crate and a new spec file; every
