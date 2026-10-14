@@ -3,7 +3,7 @@
 Every tag both consumers pin. A release that changes a result on either side
 says so here; everything else is a move.
 
-## Unreleased: the floor is on Free
+## v0.8.1 — the floor is on Free (2026-10-14)
 
 **What changes:** `plans.free.features = ["floor"]`. Free keeps tables, the floor plan and open tickets
 on its one till. Waiter handhelds stay at zero on Free, so `may_activate(Free, Waiter, _)` now refuses as
