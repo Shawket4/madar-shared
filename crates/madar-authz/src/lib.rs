@@ -63,6 +63,7 @@ impl RoleKind {
         }
     }
 
+    #[must_use]
     pub fn parse(s: &str) -> Option<RoleKind> {
         RoleKind::ALL.into_iter().find(|k| k.as_str() == s)
     }
@@ -189,17 +190,20 @@ impl Cap {
         self.meta().key
     }
 
+    #[must_use]
     pub fn from_id(id: u16) -> Option<Cap> {
         CAPS.binary_search_by_key(&id, |m| m.cap.id())
             .ok()
             .map(|i| CAPS[i].cap)
     }
 
+    #[must_use]
     pub fn from_key(key: &str) -> Option<Cap> {
         CAPS.iter().find(|m| m.key == key).map(|m| m.cap)
     }
 
     /// The capability that answers for an old `resource:action` cell.
+    #[must_use]
     pub fn from_legacy(resource: &str, action: &str) -> Option<Cap> {
         CAPS.iter()
             .find(|m| m.legacy == Some((resource, action)))
@@ -327,6 +331,7 @@ pub fn is_core_for(cap: Cap, kinds: Kinds) -> bool {
 
 /// A template's grants for one role kind: the spec defaults, plus the template's
 /// additions, minus its removals, plus core.
+#[must_use]
 pub fn template_grants(template: &str, kind: RoleKind) -> Option<CapSet> {
     let t = TEMPLATES.iter().find(|t| t.key == template)?;
     let mut s: CapSet = CAPS
@@ -392,6 +397,7 @@ impl Limits {
         *self == Limits::UNLIMITED
     }
 
+    #[must_use]
     pub fn get(&self, k: LimitKey) -> Option<i64> {
         match k {
             LimitKey::MaxAmount => self.max_amount,
@@ -539,6 +545,7 @@ pub struct EffectiveSet {
 }
 
 impl EffectiveSet {
+    #[must_use]
     pub fn can(&self, c: Cap) -> bool {
         self.caps.contains(c)
     }
@@ -763,6 +770,7 @@ pub enum Why {
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(tag = "decision", rename_all = "snake_case")]
+#[must_use]
 pub enum Decision {
     Allow,
     /// A person holding the act (within the figures) may approve it on this
@@ -772,6 +780,7 @@ pub enum Decision {
 }
 
 impl Decision {
+    #[must_use]
     pub fn is_allow(&self) -> bool {
         matches!(self, Decision::Allow)
     }
@@ -894,6 +903,7 @@ pub mod legacy {
     use super::*;
 
     /// Is the old `resource:action` cell granted, for a pre-0.8 tablet?
+    #[must_use]
     pub fn granted(eff: &EffectiveSet, resource: &str, action: &str) -> bool {
         Cap::from_legacy(resource, action).is_some_and(|c| eff.caps.contains(c))
     }

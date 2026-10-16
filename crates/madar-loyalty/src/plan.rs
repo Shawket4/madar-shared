@@ -182,6 +182,7 @@ fn listed_cost(item: &str, programme: &Programme) -> Option<i64> {
 
 /// What one unit of `line` costs, if the TILL may offer it as a reward: not a
 /// line without a menu item, not a staff drink, on offer, priced above zero.
+#[must_use]
 pub fn unit_cost(line: &Line, programme: &Programme) -> Option<i64> {
     if line.is_staff_drink || line.in_combo {
         return None;

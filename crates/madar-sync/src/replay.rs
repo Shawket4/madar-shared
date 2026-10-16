@@ -267,6 +267,7 @@ impl ReplayOp {
 /// The manager's approval an envelope carries, if any (the server reads it
 /// beside the op: `void_order`, `refund_order`, `spot_report_view`,
 /// `settle_open_ticket`, `record_waste`, `record_staff_drink`).
+#[must_use]
 pub fn approval_of(envelope: &Value) -> Option<&Value> {
     envelope.get("approval").filter(|a| !a.is_null())
 }

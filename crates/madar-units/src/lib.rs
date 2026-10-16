@@ -23,6 +23,7 @@ pub use recipe::{recipe_base_qty, scale_qty, usable_qty};
 /// `(family, factor to the family's canonical unit)`. Canonical per family:
 /// grams for mass, millilitres for volume, pcs for count. Case and
 /// surrounding whitespace are ignored.
+#[must_use]
 pub fn unit_spec(unit: &str) -> Option<(&'static str, f64)> {
     match unit.trim().to_ascii_lowercase().as_str() {
         "g" => Some(("mass", 1.0)),

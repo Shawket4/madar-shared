@@ -81,6 +81,7 @@ pub fn recipe_cost(lines: &[CostLine]) -> RecipeCost {
 
 /// `(price − cost) / price`, both in piastres (the cost already rounded, as
 /// the server does). `None` unless `price > 0`.
+#[must_use]
 pub fn margin(price: i64, cost: i64) -> Option<f64> {
     (price > 0).then(|| price.saturating_sub(cost) as f64 / price as f64)
 }
@@ -102,6 +103,7 @@ pub enum Band {
 /// The food-cost band of `cost` against `price` (piastres), compared in
 /// integers: good when `cost × 100 < 30 × price`, fair when `≤ 40 × price`,
 /// else poor. `None` unless `price > 0`.
+#[must_use]
 pub fn food_cost_band(cost: i64, price: i64) -> Option<Band> {
     if price <= 0 {
         return None;

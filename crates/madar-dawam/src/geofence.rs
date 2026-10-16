@@ -29,6 +29,7 @@ pub fn effective_radius(geo_radius_meters: Option<i64>) -> i64 {
 }
 
 /// Whether `distance_m` is inside a fence of `radius_m` (on the line is inside).
+#[must_use]
 pub fn inside(distance_m: f64, radius_m: i64) -> bool {
     distance_m <= radius_m as f64
 }

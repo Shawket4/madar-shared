@@ -19,6 +19,7 @@ use crate::purchase::milli;
 /// `c = milli(counted)`, `p = milli(pct)` (thousandths of a percent); book 0
 /// flags any `c ≠ 0`, else `|c − b| × 100 000 ≥ |b| × p`. A threshold of 0
 /// flags every row of a non-zero book, an exact count included.
+#[must_use]
 pub fn is_variance_flagged(book: f64, counted: f64, pct: f64) -> bool {
     let (b, c, p) = (
         i128::from(milli(book)),

@@ -41,6 +41,7 @@ pub fn digits(raw: &str) -> String {
 }
 
 /// The canonical form, or `None` when `raw` is not a phone number.
+#[must_use]
 pub fn canonical(raw: &str) -> Option<String> {
     if raw.chars().count() > MAX_PHONE_RAW_LEN {
         return None;
@@ -72,6 +73,7 @@ pub fn canonical(raw: &str) -> Option<String> {
 /// What a search box's digits should be matched against canonical keys with:
 /// a partial number cannot be canonicalised, but its local prefix can be
 /// dropped (`0100…` is stored as `20100…`, so `100…` is what both contain).
+#[must_use]
 pub fn search_digits(raw: &str) -> Option<String> {
     let d = digits(raw);
     let d = d

@@ -48,6 +48,7 @@ pub struct Anchor {
 
 /// Read an anchor: `v1.<ms>.<64 hex>` (surrounding whitespace ignored).
 /// `None` for any other shape. Whether the tag is RIGHT is the server's to say.
+#[must_use]
 pub fn parse_anchor(anchor: &str) -> Option<Anchor> {
     let mut parts = anchor.trim().splitn(3, '.');
     if parts.next()? != ANCHOR_VERSION {

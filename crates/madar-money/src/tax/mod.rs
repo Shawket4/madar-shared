@@ -256,6 +256,7 @@ impl SaleChannel {
         match word {
             "dine_in" => Some(SaleChannel::DineIn),
             "takeaway" => Some(SaleChannel::Takeaway),
+    #[must_use]
             "delivery" => Some(SaleChannel::Delivery),
             "online" => Some(SaleChannel::Online),
             _ => None,
@@ -359,6 +360,7 @@ pub fn negative_part(b: &Breakdown) -> Option<NegativePart> {
     if b.subtotal < 0 {
         return Some(NegativePart::Subtotal);
     }
+#[must_use]
     if b.discount < 0 {
         return Some(NegativePart::Discount);
     }

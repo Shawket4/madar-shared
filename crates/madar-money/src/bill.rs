@@ -200,6 +200,7 @@ pub struct Leg {
 
 /// The first leg below zero, if any. A leg of -500 beside one of +500 would
 /// otherwise reconcile perfectly.
+#[must_use]
 pub fn negative_leg(legs: &[Leg]) -> Option<Leg> {
     legs.iter().copied().find(|l| l.amount < 0)
 }

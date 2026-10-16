@@ -116,6 +116,7 @@ impl StaffDrinkRefusal {
 /// The verdict on one staff drink. Both the till (before ringing) and the
 /// server (at replay) compute this from the same inputs and must agree.
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Eq)]
+#[must_use]
 pub struct StaffDrinkDecision {
     /// The drink may be recorded. False means refused outright.
     pub allowed: bool,

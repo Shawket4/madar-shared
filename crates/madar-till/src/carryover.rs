@@ -33,6 +33,7 @@ fn opened(t: &ClosedTill) -> Option<DateTime<FixedOffset>> {
 
 /// The drawer's most recent declared close: this device's own last close
 /// wins; otherwise the branch's. `rows` must be one branch's.
+#[must_use]
 pub fn last_close_declared(rows: &[ClosedTill], device_id: Option<&str>) -> Option<i64> {
     let closed = || {
         rows.iter()

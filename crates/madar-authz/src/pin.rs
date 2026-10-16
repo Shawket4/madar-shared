@@ -12,6 +12,7 @@ use argon2::{Argon2, PasswordVerifier};
 
 /// Whether `pin` matches the argon2id PHC string `phc`. A string that is not
 /// a PHC hash matches nothing.
+#[must_use]
 pub fn verify_offline_pin(pin: &str, phc: &str) -> bool {
     PasswordHash::new(phc)
         .map(|h| {

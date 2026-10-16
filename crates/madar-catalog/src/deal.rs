@@ -331,6 +331,7 @@ fn by_line(units: &[Unit]) -> Vec<LineUnits> {
 
 /// The best way to take `deal` over `lines` (contract §5): `None` when it
 /// saves nothing, is off, or has no time left under `max_per_order`.
+#[must_use]
 pub fn best(deal: &DealView, lines: &[DealLine], ctx: &DealContext) -> Option<Suggestion> {
     eligible_now(deal, ctx).ok()?;
     let r = rule(deal).ok()?;

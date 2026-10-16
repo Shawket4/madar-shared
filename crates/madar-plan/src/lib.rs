@@ -122,6 +122,7 @@ impl Feature {
         self.meta().key
     }
 
+    #[must_use]
     pub fn parse(s: &str) -> Option<Feature> {
         FEATURES.iter().find(|m| m.key == s).map(|m| m.feature)
     }
@@ -141,6 +142,7 @@ impl Feature {
 
     /// The feature that gates `cap`, if any. A capability behind no feature is
     /// free (or core), on every plan.
+    #[must_use]
     pub fn of_cap(cap: Cap) -> Option<Feature> {
         FEATURES
             .iter()

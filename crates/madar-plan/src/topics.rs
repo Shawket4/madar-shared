@@ -54,6 +54,7 @@ impl Topic {
         }
     }
 
+    #[must_use]
     pub fn parse(s: &str) -> Option<Topic> {
         Topic::ALL.into_iter().find(|t| t.as_str() == s.trim())
     }

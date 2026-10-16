@@ -12,11 +12,13 @@ use serde_json::Value;
 use crate::view::{CatalogView, ItemView, OptionView};
 
 /// The `pricing` of one `/menu-items?full=true` row.
+#[must_use]
 pub fn item_of(row: &Value) -> Option<ItemView> {
     serde_json::from_value(row.get("pricing")?.clone()).ok()
 }
 
 /// The `pricing` of one add-on row.
+#[must_use]
 pub fn option_of(row: &Value) -> Option<OptionView> {
     serde_json::from_value(row.get("pricing")?.clone()).ok()
 }

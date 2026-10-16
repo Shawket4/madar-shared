@@ -74,6 +74,7 @@ pub struct Step {
 /// `inventory.transfers.create` (a branch manager holds it); receiving is
 /// `.edit` ("Receive or edit stock transfers"); only cancelling stock that is
 /// already in transit is `.delete` (owner by default), because it moves stock.
+#[must_use]
 pub fn step(status: TransferStatus, action: Action) -> Option<Step> {
     use Action as A;
     use Side::*;

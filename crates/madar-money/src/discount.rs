@@ -30,6 +30,7 @@ pub const KIND_MANUAL_AMOUNT: &str = "manual_amount";
 pub const KIND_MANUAL_PERCENT: &str = "manual_percent";
 
 /// The capability for a discount act of `kind`.
+#[must_use]
 pub fn cap_for(kind: &str) -> Option<Cap> {
     match kind {
         KIND_PRESET => Some(Cap::OrdersDiscountPreset),

@@ -36,6 +36,7 @@ impl Code {
         }
     }
 
+    #[must_use]
     pub fn parse(s: &str) -> Option<Code> {
         [
             Code::Feature,

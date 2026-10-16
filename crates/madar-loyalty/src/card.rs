@@ -52,6 +52,7 @@ pub fn card(balance: i32, next_reward_cost: i32) -> Card {
 /// How many of a `cost`-step stamp row `earned` fills (clamped to the row),
 /// or `None` when the card has no row: a cost of 0 or less, or above
 /// [`MAX_STEPS`].
+#[must_use]
 pub fn stamps(earned: i32, cost: i32) -> Option<i32> {
     if cost <= 0 || cost > MAX_STEPS {
         return None;

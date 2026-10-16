@@ -34,6 +34,7 @@ pub struct LateTier {
 
 /// The FIRST rung `late_minutes` falls on, or `None` (on time, or past a
 /// ladder that stops). MadarRust `staff::rules::select_late_tier`.
+#[must_use]
 pub fn select_late_tier(tiers: &[LateTier], late_minutes: i64) -> Option<&LateTier> {
     if late_minutes <= 0 {
         return None;

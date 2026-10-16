@@ -22,6 +22,7 @@ use chrono_tz::Tz;
 
 /// A wall-clock time in `tz` as an instant, the way Postgres's `timestamp AT
 /// TIME ZONE tz` places it.
+#[must_use]
 pub fn wall_instant(tz: Tz, wall: NaiveDateTime) -> Option<DateTime<Utc>> {
     match tz.from_local_datetime(&wall) {
         LocalResult::Single(x) => Some(x.with_timezone(&Utc)),

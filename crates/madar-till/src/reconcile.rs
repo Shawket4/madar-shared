@@ -68,6 +68,7 @@ pub enum PlanError {
 
 impl PlanError {
     /// The stable code, when the refusal has one.
+    #[must_use]
     pub fn code(&self) -> Option<&'static str> {
         match self {
             PlanError::AmountRequired { .. } => Some(CODE_AMOUNT_REQUIRED),

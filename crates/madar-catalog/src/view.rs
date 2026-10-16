@@ -28,6 +28,7 @@ pub struct CatalogView {
 
 impl CatalogView {
     /// The option with this id.
+    #[must_use]
     pub fn option(&self, id: &str) -> Option<&OptionView> {
         self.options.iter().find(|o| o.id == id)
     }

@@ -158,6 +158,7 @@ pub fn estimate_line_total(
 /// The unit cost a typed line total implies: `line / quantity_dec(qty)` to 8
 /// dp, as [`line_costs`] stores it. `None` unless `line ≥ 0` and the 3 dp
 /// quantity is above 0.
+#[must_use]
 pub fn unit_cost_from_total(line: i64, qty: f64) -> Option<f64> {
     line_costs(qty, Some(line), None).ok()?.1.to_f64()
 }

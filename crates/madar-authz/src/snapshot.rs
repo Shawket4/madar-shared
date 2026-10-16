@@ -59,6 +59,7 @@ impl SnapshotBody {
         self.spec_version == SPEC_VERSION
     }
 
+    #[must_use]
     pub fn user(&self, user_id: &str) -> Option<&SnapshotUser> {
         self.users.iter().find(|u| u.user_id == user_id)
     }

@@ -214,6 +214,7 @@ pub fn swap_target(
 }
 
 /// The swap target of an option.
+#[must_use]
 pub fn target_of(o: &OptionView) -> Option<SwapTarget> {
     swap_target(
         Some(&o.kind),

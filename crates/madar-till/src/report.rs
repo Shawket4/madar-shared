@@ -402,6 +402,7 @@ pub fn is_blank_method(method: &str) -> bool {
 /// The org's fallback cash method: `ORDER BY (name = 'cash') DESC, is_active
 /// DESC, created_at LIMIT 1` over the cash-flagged methods, a missing
 /// `created_at` sorting LAST as Postgres sorts a NULL.
+#[must_use]
 pub fn fallback_cash_method(methods: &[Method]) -> Option<&Method> {
     let at = |m: &Method| -> Option<DateTime<FixedOffset>> {
         m.created_at
