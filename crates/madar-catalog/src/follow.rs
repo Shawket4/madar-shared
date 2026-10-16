@@ -103,8 +103,8 @@ pub fn follow_the_drink(lines: &mut [DrinkLine], families: &[String]) -> Vec<Fol
                 Ok(q) => {
                     let from = std::mem::replace(&mut l.name, name.clone());
                     l.quantity = q;
-                    l.ingredient_id = id.clone();
-                    l.unit = unit.clone();
+                    l.ingredient_id.clone_from(&id);
+                    l.unit.clone_from(&unit);
                     out.push(Followed::Followed {
                         line: i,
                         from,

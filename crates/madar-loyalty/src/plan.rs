@@ -640,7 +640,7 @@ pub mod vectors {
                 capped(9, 2),
                 vec![ask(1, 5), ask(0, 2), ask(2, 1)],
             ),
-            case("empty", cart.clone(), catalogue(0), vec![]),
+            case("empty", cart, catalogue(0), vec![]),
             case("empty_cart", vec![], catalogue(10), vec![ask(0, 1)]),
             // v0.5 (C7): a combo's part is never a reward. The server refuses
             // (REWARD_IN_COMBO), the till trims it, the replay drops it.

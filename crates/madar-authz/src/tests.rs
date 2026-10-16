@@ -627,7 +627,7 @@ proptest! {
     fn p1_an_allow_is_monotone(p in any_principal(), c in any_cap(), branch in prop::sample::select(vec!["b1", "b2", "b3"])) {
         let pol = OrgPolicy::default();
         let before = resolve(&p, Scope::Branch(branch), NOW, &pol);
-        let mut q = p.clone();
+        let mut q = p;
         q.overrides.retain(|o| o.cap != c.id());
         let base = resolve(&q, Scope::Branch(branch), NOW, &pol);
         q.overrides.push(ov(c, true, None));
@@ -819,7 +819,7 @@ fn a_non_owner_touches_only_people_strictly_below_them() {
     // Revoking needs the capability too.
     let teller = eff_of(RoleKind::Teller, &[Cap::HrPayrollRead]);
     let t_kinds = teller.kinds;
-    let mut odd_mgr = mgr.clone();
+    let mut odd_mgr = mgr;
     odd_mgr.caps = odd_mgr
         .caps
         .union(&[Cap::HrPayrollRead].into_iter().collect());

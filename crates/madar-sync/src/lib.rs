@@ -158,7 +158,7 @@ mod tests {
             assert!(ALL_TYPES.contains(t), "{t}");
         }
         let mut all = ALL_TYPES.to_vec();
-        all.sort();
+        all.sort_unstable();
         all.dedup();
         assert_eq!(all.len(), ALL_TYPES.len(), "no type listed twice");
     }

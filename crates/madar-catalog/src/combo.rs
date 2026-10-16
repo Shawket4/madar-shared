@@ -448,7 +448,8 @@ pub fn quote(combo: &ComboView, picks: &[PickIn], n: i64) -> Result<ComboQuote, 
             (slot.sort, pos, i)
         })
         .collect();
-    order.sort();
+    // Unique tuples (the input index), so an unstable sort is the same.
+    order.sort_unstable();
 
     struct Priced {
         index: usize,
