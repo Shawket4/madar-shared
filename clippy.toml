@@ -1,0 +1,3 @@
+# The workspace lints (Cargo.toml [workspace.lints]) forbid unwrap outside
+# tests; a test may unwrap.
+allow-unwrap-in-tests = true

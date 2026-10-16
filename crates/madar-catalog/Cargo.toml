@@ -10,6 +10,9 @@ rust-version.workspace = true
 license.workspace = true
 publish.workspace = true
 
+[lints]
+workspace = true
+
 [dependencies]
 serde = { version = "1", features = ["derive"] }
 # The feed readers (`feed`) take the wire rows as JSON values.

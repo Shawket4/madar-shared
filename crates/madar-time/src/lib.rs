@@ -24,6 +24,10 @@
 use chrono::{DateTime, Datelike, Duration, NaiveDate, NaiveTime, Offset, TimeZone, Timelike, Utc};
 use chrono_tz::Tz;
 
+#[allow(
+    clippy::unwrap_used,
+    reason = "fixture code: a literal that fails to parse is a bug in this file"
+)]
 pub mod vectors;
 
 /// The first day of a week, everywhere (owner rule, 2026-09-17): SATURDAY.

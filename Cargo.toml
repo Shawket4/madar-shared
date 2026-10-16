@@ -20,6 +20,23 @@ license = "UNLICENSED"
 publish = false
 repository = "https://github.com/Shawket4/madar-shared"
 
+# Lints the 2026-10 hygiene pass fixed, kept fixed (CI's clippy runs with
+# -D warnings). Every crate opts in with `[lints] workspace = true`. A consumer
+# building these crates from a git tag sees none of this: Cargo caps a
+# dependency's lints.
+[workspace.lints.clippy]
+# A money or quantity cast that can silently truncate, wrap or drop the sign.
+# Where a cast is exact by construction it carries an `allow` with its reason.
+cast_possible_truncation = "warn"
+cast_possible_wrap = "warn"
+cast_sign_loss = "warn"
+# No unwrap outside tests and the fixture generators (clippy.toml lets tests
+# unwrap); an invariant states itself with `expect("why")`.
+unwrap_used = "warn"
+redundant_clone = "warn"
+assigning_clones = "warn"
+stable_sort_primitive = "warn"
+
 # The browser build of madar-web (scripts/build-wasm.sh). Its own profile, so
 # no native build's release profile changes.
 [profile.wasm]

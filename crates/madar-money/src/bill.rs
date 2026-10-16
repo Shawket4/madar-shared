@@ -242,6 +242,10 @@ pub fn recorded_tender(
     }
 }
 
+#[allow(
+    clippy::unwrap_used,
+    reason = "fixture code: a literal that fails to parse is a bug in this file"
+)]
 pub mod vectors {
     //! Vectors for bill assembly and tender, generated from the rules as they
     //! moved here (the server's order of operations). Regenerate deliberately:

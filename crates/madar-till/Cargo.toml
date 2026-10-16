@@ -9,6 +9,9 @@ rust-version.workspace = true
 license.workspace = true
 publish.workspace = true
 
+[lints]
+workspace = true
+
 [dependencies]
 # No `clock`: nothing here reads the time. Instants arrive as RFC 3339.
 chrono = { version = "0.4", default-features = false, features = ["std"] }

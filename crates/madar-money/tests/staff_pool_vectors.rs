@@ -6,6 +6,11 @@
 //! madar-core `tests/staff_pool_vectors.rs`); this is that test, once. Change
 //! the rule in the fixture first.
 
+#![allow(
+    clippy::unwrap_used,
+    reason = "a test: a malformed vector file should fail loudly"
+)]
+
 use madar_money::staff_pool::{self as engine, StaffPoolSettings};
 use serde_json::Value;
 

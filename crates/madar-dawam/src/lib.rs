@@ -30,4 +30,8 @@ pub mod presence;
 pub mod salary;
 pub mod shift;
 pub mod stamp;
+#[allow(
+    clippy::unwrap_used,
+    reason = "fixture code: a literal that fails to parse is a bug in this file"
+)]
 pub mod vectors;

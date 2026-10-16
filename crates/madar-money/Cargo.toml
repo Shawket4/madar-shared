@@ -11,6 +11,9 @@ rust-version.workspace = true
 license.workspace = true
 publish.workspace = true
 
+[lints]
+workspace = true
+
 [dependencies]
 # Default features off: the POS core builds rust_decimal without `std`, and a
 # shared crate must not switch features on in either consumer.

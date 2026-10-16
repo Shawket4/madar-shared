@@ -236,6 +236,10 @@ pub fn figures(
     }
 }
 
+#[allow(
+    clippy::unwrap_used,
+    reason = "fixture code: a literal that fails to parse is a bug in this file"
+)]
 pub mod vectors {
     //! Vectors for the discount ask, generated from the server's rule as it
     //! moved here. Regenerate deliberately:

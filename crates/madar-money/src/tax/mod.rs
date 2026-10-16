@@ -49,6 +49,10 @@ use rust_decimal::Decimal;
 
 pub mod negative_vectors;
 pub mod refund_vectors;
+#[allow(
+    clippy::unwrap_used,
+    reason = "fixture code: a literal that fails to parse is a bug in this file"
+)]
 pub mod vectors;
 
 /// Minor units (piastres). Signed because a discount can exceed a line and the
@@ -252,11 +256,11 @@ impl SaleChannel {
     }
 
     /// The channel for a wire word. Unknown words are `None`, never a guess.
+    #[must_use]
     pub fn from_wire(word: &str) -> Option<Self> {
         match word {
             "dine_in" => Some(SaleChannel::DineIn),
             "takeaway" => Some(SaleChannel::Takeaway),
-    #[must_use]
             "delivery" => Some(SaleChannel::Delivery),
             "online" => Some(SaleChannel::Online),
             _ => None,
@@ -356,11 +360,11 @@ impl NegativePart {
 /// `compute` already floors the base it taxes, so this can only fire on a
 /// `subtotal` that arrived negative — which is exactly the case worth
 /// catching, because that subtotal is what the books store.
+#[must_use]
 pub fn negative_part(b: &Breakdown) -> Option<NegativePart> {
     if b.subtotal < 0 {
         return Some(NegativePart::Subtotal);
     }
-#[must_use]
     if b.discount < 0 {
         return Some(NegativePart::Discount);
     }

@@ -69,6 +69,10 @@ pub fn instants(
     ))
 }
 
+#[allow(
+    clippy::unwrap_used,
+    reason = "fixture code: a literal that fails to parse is a bug in this file"
+)]
 pub mod vectors {
     //! Shifts on ordinary days, across midnight and on DST days in the zones
     //! a branch may be in. Regenerate deliberately:

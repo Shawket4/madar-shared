@@ -7,6 +7,11 @@
 //! madar-core `tests/staff_comp_vectors.rs`); this is that test, once, with the
 //! POS side's stricter case count. Change the rule in the fixture first.
 
+#![allow(
+    clippy::unwrap_used,
+    reason = "a test: a malformed vector file should fail loudly"
+)]
+
 use madar_money::staff_comp::{self as comp, CompInput, CompResult};
 use serde_json::Value;
 

@@ -4,6 +4,10 @@
 //! picks a sale may redeem (the server's `redeem::plan`, the till's
 //! `loyalty.rs`) is still decided on each side.
 
+#[allow(
+    clippy::unwrap_used,
+    reason = "fixture code: a literal that fails to parse is a bug in this file"
+)]
 pub mod vectors;
 
 /// Minor units a reward takes off one line: whole units at the price the line

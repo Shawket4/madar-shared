@@ -7,6 +7,11 @@
 //! `ledger::write_row`) and folded; the core's own test runs the same file
 //! through its SQLite ledger.
 
+#![allow(
+    clippy::unwrap_used,
+    reason = "a test: a malformed vector file should fail loudly"
+)]
+
 use madar_till::report::{self, Figures, Leg, Method, MovementRow, OrderRefund, Refund, Sale};
 use serde_json::Value;
 

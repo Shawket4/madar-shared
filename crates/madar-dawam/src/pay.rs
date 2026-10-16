@@ -37,6 +37,10 @@ pub fn percent_of_salary(base_salary_minor: i64, percent: rust_decimal::Decimal)
         .max(0)
 }
 
+#[allow(
+    clippy::unwrap_used,
+    reason = "fixture code: a literal that fails to parse is a bug in this file"
+)]
 pub mod percent_vectors {
     //! Salaries and percentages, with the server's figure. Regenerate
     //! deliberately: `MADAR_REGENERATE_PERCENT_VECTORS=1 cargo test -p
