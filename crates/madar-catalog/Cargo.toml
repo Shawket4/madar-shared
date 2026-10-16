@@ -25,3 +25,11 @@ wasm-bindgen = { version = "0.2", optional = true }
 
 [features]
 tsify = ["dep:tsify", "dep:wasm-bindgen"]
+
+# The tsify derive expands to `wasm_bindgen` paths, so the feature needs the
+# crate though no source line names it.
+[package.metadata.cargo-machete]
+ignored = ["wasm-bindgen"]
+
+[package.metadata.cargo-shear]
+ignored = ["wasm-bindgen"]
