@@ -29,6 +29,10 @@ pub mod transfer;
 pub mod vectors;
 
 /// A quantity in whole thousandths of its unit (the `numeric(12,3)` grain).
+#[allow(
+    clippy::cast_possible_truncation,
+    reason = "`as` saturates (NaN reads 0); a numeric(12,3) quantity is far inside i64 in thousandths"
+)]
 pub fn milli(q: f64) -> i64 {
     (q * 1000.0).round() as i64
 }

@@ -49,7 +49,12 @@ fn either<T: Serialize, E: Serialize>(r: Result<T, E>) -> Result<JsValue, JsErro
 fn int<T: TryFrom<i64>>(x: f64) -> Result<T, JsError> {
     const MAX_SAFE: f64 = 9_007_199_254_740_991.0;
     if x.fract() == 0.0 && x.abs() <= MAX_SAFE {
-        if let Ok(v) = T::try_from(x as i64) {
+        #[allow(
+            clippy::cast_possible_truncation,
+            reason = "x is whole and within 2^53, checked above: the cast is exact"
+        )]
+        let x = x as i64;
+        if let Ok(v) = T::try_from(x) {
             return Ok(v);
         }
     }

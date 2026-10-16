@@ -119,7 +119,7 @@ fn seconds_of(time: &str) -> Option<u32> {
 /// The weekday of a date: 0 = Sunday … 6 = Saturday. `None` when it does not
 /// parse.
 pub fn weekday_of(date: &str) -> Option<u8> {
-    day_number(date).map(|n| (n + 4).rem_euclid(7) as u8)
+    day_number(date).and_then(|n| u8::try_from((n + 4).rem_euclid(7)).ok())
 }
 
 /// Does `w` cover `now`?
@@ -150,8 +150,8 @@ pub fn matches(w: &Window, now: &LocalNow) -> bool {
         }
         _ => return false,
     };
-    let weekday = (start_day + 4).rem_euclid(7) as u32;
-    if w.weekdays & (1u8 << weekday) == 0 {
+    let weekday = (start_day + 4).rem_euclid(7);
+    if i64::from(w.weekdays) & (1i64 << weekday) == 0 {
         return false;
     }
     let bound = |d: &Option<String>| -> Option<Option<i64>> {

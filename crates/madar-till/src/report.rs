@@ -126,6 +126,11 @@ pub struct MovementRow {
     pub moved_by_name: String,
 }
 
+/// A row count as the report's `i64` (a slice never holds more than i64::MAX).
+fn count(n: usize) -> i64 {
+    i64::try_from(n).unwrap_or(i64::MAX)
+}
+
 /// Resolve each correction's corrected kind and sort as the report lists them
 /// (`ORDER BY created_at ASC`, compared as instants, ties by id).
 pub fn movements(rows: Vec<MovementRow>) -> Vec<Movement> {
@@ -316,7 +321,7 @@ pub fn fold(
             payment_method: m,
             is_cash: c,
             total: t,
-            order_count: orders.len() as i64,
+            order_count: count(orders.len()),
         })
         .collect();
     let total_payments: i64 = payment_summary.iter().map(|p| p.total).sum();
@@ -374,7 +379,7 @@ pub fn fold(
         safe_drops: -bucket_total("safe_drop"),
         cash_adjustments: bucket_total("correction"),
         cash_movements_net: moves_net,
-        refunds_issued_count: refunds.len() as i64,
+        refunds_issued_count: count(refunds.len()),
         refunds_issued_amount: refunds.iter().map(|r| r.amount).sum(),
         refunds_issued_cash: refunds_cash,
         cash_in_refunded_sales,
@@ -382,7 +387,7 @@ pub fn fold(
         total_service_charge,
         refunds_issued_tax: refunds.iter().map(|r| r.tax).sum(),
         refunds_issued_service_charge: refunds.iter().map(|r| r.service_charge).sum(),
-        service_charge_waived_count: sold().filter(|o| o.waived).count() as i64,
+        service_charge_waived_count: count(sold().filter(|o| o.waived).count()),
         service_charge_waived_amount: sold().map(|o| o.waived_amount).sum(),
         payment_summary,
         close_methods: close_methods(sales, refunds, expected_cash, methods),
@@ -469,7 +474,7 @@ pub fn close_methods(
     let mut out = Vec::new();
     for (method, (is_cash, total, orders)) in by_method {
         if is_cash {
-            cash_orders += orders.len() as i64;
+            cash_orders += count(orders.len());
             if cash_name.is_none() || method == "cash" {
                 cash_name = Some(method);
             }
@@ -479,7 +484,7 @@ pub fn close_methods(
                 method,
                 is_cash: false,
                 system_total: total,
-                order_count: orders.len() as i64,
+                order_count: count(orders.len()),
             });
         }
     }

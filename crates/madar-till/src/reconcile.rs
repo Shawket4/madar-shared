@@ -78,7 +78,7 @@ impl PlanError {
 }
 
 fn clamp_i32(v: i64) -> i32 {
-    v.clamp(i32::MIN as i64, i32::MAX as i64) as i32
+    i32::try_from(v).unwrap_or(if v < 0 { i32::MIN } else { i32::MAX })
 }
 
 /// A note that is blank after trimming is no note.

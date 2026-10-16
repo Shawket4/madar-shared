@@ -554,8 +554,8 @@ mod tests {
         let b = compute(100, 0, &exclusive(dec!(0.145)));
         assert_eq!(b.tax, 15);
         assert_eq!(
-            (100.0_f64 * 0.145).round() as i64,
-            14,
+            (100.0_f64 * 0.145).round(),
+            14.0,
             "the f64 maths this replaces really did lose the piastre"
         );
     }
@@ -613,8 +613,8 @@ mod tests {
         // customer than the server charged, and a refused order.
         assert_eq!(discount_amount(100, Discount::Percentage(dec!(0.145))), 15);
         assert_eq!(
-            (100.0_f64 * 0.145).round() as i64,
-            14,
+            (100.0_f64 * 0.145).round(),
+            14.0,
             "the f64 derivation this replaces really did lose the piastre"
         );
         // The classic halves, for good measure.

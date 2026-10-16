@@ -41,10 +41,17 @@ pub fn value_of(lines: &[(f64, Option<f64>)]) -> Result<(Option<i64>, bool), Bad
         return Ok((None, partial));
     }
     let total = known.iter().sum::<f64>().round();
-    if !total.is_finite() || total < 0.0 || total > i64::MAX as f64 {
+    // 2^63 is the first whole f64 past i64::MAX: at or above it the cast
+    // below would saturate instead of failing.
+    if !total.is_finite() || total < 0.0 || total >= 9_223_372_036_854_775_808.0 {
         return Err(BadValue);
     }
-    Ok((Some(total as i64), partial))
+    #[allow(
+        clippy::cast_possible_truncation,
+        reason = "a whole, finite value in 0..2^63, checked above"
+    )]
+    let total = total as i64;
+    Ok((Some(total), partial))
 }
 
 /// The most of anything one waste may record.

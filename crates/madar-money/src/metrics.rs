@@ -41,7 +41,7 @@ mod tests {
                 w["from"],
                 w["to"]
             );
-            assert!(w["top_items"].as_array().unwrap().len() as i64 <= TOP_ITEMS);
+            assert!(i64::try_from(w["top_items"].as_array().unwrap().len()).unwrap() <= TOP_ITEMS);
         }
     }
 

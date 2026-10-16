@@ -16,6 +16,10 @@ pub fn derive_kitchen_ticket_id(round_idem: Uuid) -> Uuid {
 
 /// The kitchen-line id for the line at `index` within its (derived) kitchen
 /// ticket.
+#[allow(
+    clippy::cast_possible_truncation,
+    reason = "the id's bytes are the index as a u32, as old tablets derive it; a ticket never has 2^32 lines"
+)]
 pub fn derive_kitchen_item_id(kitchen_ticket_id: Uuid, index: usize) -> Uuid {
     Uuid::new_v5(&kitchen_ticket_id, &(index as u32).to_le_bytes())
 }

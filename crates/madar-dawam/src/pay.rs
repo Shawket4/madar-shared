@@ -7,7 +7,7 @@ use chrono::{Datelike, Duration, Months, NaiveDate};
 /// month. MadarRust `staff/dawam/pay.rs` `period_window`; madar-core
 /// `dawam.rs` `period_around`.
 pub fn period_window(day: NaiveDate, start_day: i64) -> (NaiveDate, NaiveDate) {
-    let start_day = start_day.clamp(1, 28) as u32;
+    let start_day = u32::try_from(start_day.clamp(1, 28)).unwrap_or(1);
     let this = NaiveDate::from_ymd_opt(day.year(), day.month(), start_day).expect("day <= 28");
     let start = if day >= this {
         this

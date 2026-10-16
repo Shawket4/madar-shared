@@ -41,7 +41,8 @@ pub fn split(total: i64, weights: &[i64]) -> Vec<i64> {
     for wi in w {
         cum += wi;
         let upto = round_half_away(total * cum, big_w);
-        out.push((upto - prev) as i64);
+        // A share is in 0..=total, and total came from an i64.
+        out.push(i64::try_from(upto - prev).unwrap_or(i64::MAX));
         prev = upto;
     }
     out
@@ -86,8 +87,10 @@ mod tests {
         };
         for _ in 0..5000 {
             let n = (next() % 7) as usize + 1;
-            let total = (next() % 1_000_000) as i64;
-            let weights: Vec<i64> = (0..n).map(|_| (next() % 30_000) as i64).collect();
+            let total = i64::try_from(next() % 1_000_000).unwrap();
+            let weights: Vec<i64> = (0..n)
+                .map(|_| i64::try_from(next() % 30_000).unwrap())
+                .collect();
             let s = split(total, &weights);
             assert_eq!(s.len(), n);
             assert_eq!(s.iter().sum::<i64>(), total, "{total} over {weights:?}");

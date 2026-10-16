@@ -17,7 +17,7 @@ fn vectors() -> Value {
 fn settings_of(v: &Value) -> StaffPoolSettings {
     StaffPoolSettings {
         enabled: v["enabled"].as_bool().unwrap(),
-        daily_allowance: v["daily_allowance"].as_i64().unwrap() as i32,
+        daily_allowance: i32::try_from(v["daily_allowance"].as_i64().unwrap()).unwrap(),
         eligible_item_ids: v["eligible_item_ids"]
             .as_array()
             .unwrap()
@@ -40,7 +40,7 @@ fn the_shared_vectors_decide_exactly_as_this_side_does() {
             c["business_date"].as_str().unwrap(),
             c["item_id"].as_str().unwrap(),
             c["note"].as_str().unwrap(),
-            c["used"].as_i64().unwrap() as i32,
+            i32::try_from(c["used"].as_i64().unwrap()).unwrap(),
         );
         let want = &c["expect"];
 
@@ -68,22 +68,22 @@ fn the_shared_vectors_decide_exactly_as_this_side_does() {
         );
         assert_eq!(
             d.pool.allowance,
-            p["allowance"].as_i64().unwrap() as i32,
+            i32::try_from(p["allowance"].as_i64().unwrap()).unwrap(),
             "[{name}] allowance"
         );
         assert_eq!(
             d.pool.used,
-            p["used"].as_i64().unwrap() as i32,
+            i32::try_from(p["used"].as_i64().unwrap()).unwrap(),
             "[{name}] used"
         );
         assert_eq!(
             d.pool.remaining,
-            p["remaining"].as_i64().unwrap() as i32,
+            i32::try_from(p["remaining"].as_i64().unwrap()).unwrap(),
             "[{name}] remaining"
         );
         assert_eq!(
             d.pool.over,
-            p["over"].as_i64().unwrap() as i32,
+            i32::try_from(p["over"].as_i64().unwrap()).unwrap(),
             "[{name}] over"
         );
     }
