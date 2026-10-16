@@ -3,6 +3,20 @@
 Every tag both consumers pin. A release that changes a result on either side
 says so here; everything else is a move.
 
+## v0.9.0 — checked casts and #[must_use] (2026-10-16)
+
+**What changes:** two results, both only at absurd inputs. A deal whose `qty`/`get_qty` exceeds
+u32::MAX (or whose `buy + get` overflows) is now refused as an invalid rule instead of truncating
+in the 32-bit browser build or panicking; waste `value_of` refuses a total of exactly 2^63 instead
+of capping it at i64::MAX. Every vector file is byte-identical.
+
+- `#[must_use]` on ~40 pure functions returning `Option`, the permission answers and the
+  `Decision` / `StaffDrinkDecision` types: a minor release, since a consumer that ignores one of
+  them now gets an `unused_must_use` warning.
+- Remaining unchecked numeric casts became `try_from`; `[workspace.lints]` + `clippy.toml` keep
+  the cast, unwrap and clone lints on; `deny.toml` + a CI `deny` job (the release waits on it).
+- Like v0.7.x, the tag does not bump the workspace `version`.
+
 ## v0.8.1 — the floor is on Free (2026-10-14)
 
 **What changes:** `plans.free.features = ["floor"]`. Free keeps tables, the floor plan and open tickets
