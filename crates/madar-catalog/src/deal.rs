@@ -192,6 +192,16 @@ impl core::fmt::Display for NotEligible {
     }
 }
 
+/// The most units a rule may count (`qty`, `get_qty`). A larger count is a
+/// malformed rule: the bound keeps every count a `usize` on wasm32 (the
+/// browser build) and `buy + get` inside `i64`.
+const MAX_UNITS: i64 = 4_294_967_295;
+
+/// A rule's count (in `1..=MAX_UNITS`, so it always fits) as a slice length.
+fn count_len(n: i64) -> usize {
+    usize::try_from(n).unwrap_or(usize::MAX)
+}
+
 #[derive(Clone, Copy, Debug)]
 enum Rule {
     NForPrice { n: i64, price: i64 },
@@ -201,13 +211,17 @@ enum Rule {
 fn rule(deal: &DealView) -> Result<Rule, NotEligible> {
     match deal.kind.as_str() {
         "n_for_price" => match deal.price {
-            Some(price) if price >= 0 && deal.qty >= 2 => {
+            Some(price) if price >= 0 && (2..=MAX_UNITS).contains(&deal.qty) => {
                 Ok(Rule::NForPrice { n: deal.qty, price })
             }
             _ => Err(NotEligible::Invalid),
         },
         "buy_get" => match (deal.get_qty, deal.get_percent) {
-            (Some(get), Some(pct)) if deal.qty >= 1 && get >= 1 && (1..=100).contains(&pct) => {
+            (Some(get), Some(pct))
+                if (1..=MAX_UNITS).contains(&deal.qty)
+                    && (1..=MAX_UNITS).contains(&get)
+                    && (1..=100).contains(&pct) =>
+            {
                 Ok(Rule::BuyGet {
                     buy: deal.qty,
                     get,
@@ -281,7 +295,12 @@ fn expand(lines: &[DealLine], keep: impl Fn(&DealLine) -> bool) -> Vec<Unit> {
 }
 
 fn pct_of(values: i64, pct: i64) -> i64 {
-    alloc::round_half_away(i128::from(values.max(0)) * i128::from(pct), 100) as i64
+    // `pct` is 1..=100, so the share never exceeds `values`.
+    i64::try_from(alloc::round_half_away(
+        i128::from(values.max(0)) * i128::from(pct),
+        100,
+    ))
+    .unwrap_or(i64::MAX)
 }
 
 /// The deal is active and a window covers now.
@@ -322,7 +341,7 @@ pub fn best(deal: &DealView, lines: &[DealLine], ctx: &DealContext) -> Option<Su
         Rule::NForPrice { n, price } => {
             let mut units = expand(lines, |l| in_pool(&deal.pool, l));
             desc(&mut units);
-            let n = n as usize;
+            let n = count_len(n);
             let mut i = 0;
             while times < cap && i + n <= units.len() {
                 let chunk = &units[i..i + n];
@@ -337,11 +356,11 @@ pub fn best(deal: &DealView, lines: &[DealLine], ctx: &DealContext) -> Option<Su
         Rule::BuyGet { buy, get, pct } if deal.reward_pool.is_empty() => {
             let mut units = expand(lines, |l| in_pool(&deal.pool, l));
             desc(&mut units);
-            let size = (buy + get) as usize;
+            let size = count_len(buy + get);
             let mut i = 0;
             while times < cap && i + size <= units.len() {
                 let chunk = &units[i..i + size];
-                let rewards: i64 = chunk[buy as usize..].iter().map(|u| u.value).sum();
+                let rewards: i64 = chunk[count_len(buy)..].iter().map(|u| u.value).sum();
                 if pct_of(rewards, pct) <= 0 {
                     break;
                 }
@@ -374,9 +393,9 @@ pub fn best(deal: &DealView, lines: &[DealLine], ctx: &DealContext) -> Option<Su
                     .iter()
                     .copied()
                     .filter(|&k| pool[k] && !taken[k])
-                    .take(buy as usize)
+                    .take(count_len(buy))
                     .collect();
-                if buys.len() < buy as usize {
+                if buys.len() < count_len(buy) {
                     break;
                 }
                 let rewards: Vec<usize> = order
@@ -384,9 +403,9 @@ pub fn best(deal: &DealView, lines: &[DealLine], ctx: &DealContext) -> Option<Su
                     .rev()
                     .copied()
                     .filter(|&k| reward[k] && !taken[k] && !buys.contains(&k))
-                    .take(get as usize)
+                    .take(count_len(get))
                     .collect();
-                if rewards.len() < get as usize {
+                if rewards.len() < count_len(get) {
                     break;
                 }
                 if pct_of(rewards.iter().map(|&k| all[k].value).sum(), pct) <= 0 {
@@ -481,17 +500,19 @@ pub fn price_application(
             });
         }
     }
-    let total_units = picked.len() as i64;
+    let total_units = i64::try_from(picked.len()).unwrap_or(i64::MAX);
     let cap = cap(deal, ctx);
 
     // Chunks: (units in split order, the chunk's discount).
     let mut chunks: Vec<(Vec<Unit>, i64)> = Vec::new();
     let in_given_order = |pred: &dyn Fn(&DealLine) -> bool| -> Result<(), NotEligible> {
         for u in units {
-            let l = lines
-                .iter()
-                .find(|l| l.line_index == u.line_index)
-                .expect("checked");
+            // Every line was found above; a missing one is an overlap.
+            let Some(l) = lines.iter().find(|l| l.line_index == u.line_index) else {
+                return Err(NotEligible::Overlap {
+                    line_index: u.line_index,
+                });
+            };
             if !pred(l) {
                 return Err(NotEligible::NotInPool {
                     line_index: u.line_index,
@@ -511,7 +532,7 @@ pub fn price_application(
                 return Err(NotEligible::MaxPerOrder);
             }
             desc(&mut picked);
-            for chunk in picked.chunks(n as usize) {
+            for chunk in picked.chunks(count_len(n)) {
                 let sum: i64 = chunk.iter().map(|u| u.value).sum();
                 chunks.push((chunk.to_vec(), (sum - price).max(0)));
             }
@@ -528,8 +549,8 @@ pub fn price_application(
                 return Err(NotEligible::MaxPerOrder);
             }
             desc(&mut picked);
-            for chunk in picked.chunks(size as usize) {
-                let rewards: i64 = chunk[buy as usize..].iter().map(|u| u.value).sum();
+            for chunk in picked.chunks(count_len(size)) {
+                let rewards: i64 = chunk[count_len(buy)..].iter().map(|u| u.value).sum();
                 chunks.push((chunk.to_vec(), pct_of(rewards, pct)));
             }
             times
@@ -546,7 +567,7 @@ pub fn price_application(
             let mut idx: Vec<usize> = (0..picked.len())
                 .filter(|&k| in_pool(&deal.reward_pool, &lines[picked[k].pos]))
                 .collect();
-            let want = (times * get) as usize;
+            let want = count_len(times * get);
             if idx.len() < want {
                 return Err(NotEligible::Count);
             }
@@ -577,7 +598,10 @@ pub fn price_application(
             }
             desc(&mut buys);
             desc(&mut rewards);
-            for (b, g) in buys.chunks(buy as usize).zip(rewards.chunks(get as usize)) {
+            for (b, g) in buys
+                .chunks(count_len(buy))
+                .zip(rewards.chunks(count_len(get)))
+            {
                 let disc = pct_of(g.iter().map(|u| u.value).sum(), pct);
                 let mut chunk = b.to_vec();
                 chunk.extend_from_slice(g);
