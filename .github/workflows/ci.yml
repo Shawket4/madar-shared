@@ -57,6 +57,18 @@ jobs:
       - name: permission registry is generated and current
         run: cargo run --locked -p authz-gen -- --check
 
+  deny:
+    # deny.toml: RustSec advisories, licences, duplicate versions, sources.
+    # The clippy steps above also hold the [workspace.lints] in Cargo.toml.
+    name: cargo-deny
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: EmbarkStudios/cargo-deny-action@v2
+        with:
+          command: check
+          arguments: --all-features
+
   msrv:
     # The oldest toolchain a consumer builds these crates with: the backend's
     # Docker image (rust:1.88). A newer language feature here breaks a deploy.
@@ -109,7 +121,7 @@ jobs:
     # pin the tag and a tarball's sha256 (README "The browser packages").
     name: attach the wasm packages to the release
     if: startsWith(github.ref, 'refs/tags/v')
-    needs: [check, msrv, wasm]
+    needs: [check, deny, msrv, wasm]
     runs-on: ubuntu-latest
     permissions:
       contents: write

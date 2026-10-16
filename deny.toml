@@ -1,0 +1,45 @@
+# cargo-deny: advisories, licences, duplicate versions and sources.
+# CI runs `cargo deny --all-features check` (.github/workflows/ci.yml).
+
+[graph]
+# The optional features consumers switch on (utoipa, tsify) and madar-web's
+# browser builds are part of what ships.
+all-features = true
+
+[advisories]
+# Every RustSec advisory kind fails: a vulnerability, an unmaintained or
+# unsound crate, a yanked version. Ignore one only with a reason here.
+version = 2
+yanked = "deny"
+ignore = []
+
+[licenses]
+version = 2
+# Exactly the licences in the tree today (2026-10-16). A new one is a
+# decision, so it fails until it is added here.
+allow = [
+    "Apache-2.0",
+    "BSD-3-Clause",
+    "MIT",
+    "Unicode-3.0",
+    "Unlicense",
+]
+confidence-threshold = 0.9
+
+[licenses.private]
+# The workspace's own crates are UNLICENSED and unpublished.
+ignore = true
+
+[bans]
+# Two versions of one crate is a cost (binary size, build time), not an error:
+# reported, not failed.
+multiple-versions = "warn"
+wildcards = "deny"
+# The workspace's path dependencies carry no version.
+allow-wildcard-paths = true
+
+[sources]
+unknown-registry = "deny"
+unknown-git = "deny"
+allow-registry = ["https://github.com/rust-lang/crates.io-index"]
+allow-git = []
