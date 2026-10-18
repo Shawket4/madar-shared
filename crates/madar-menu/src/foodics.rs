@@ -224,6 +224,9 @@ pub enum FoodicsIssue {
     SecondSizes { item: String, group: String },
     /// A second group with a name already read (another reference); skipped.
     DuplicateGroup { name: String },
+    /// A milk or beans group a product may pick more than one of: a swap
+    /// replaces the drink's own milk or beans, so it is read as extras.
+    NotASwap { group: String },
 }
 
 /// The menu read from the files, every warning, and which files were read.
@@ -809,7 +812,11 @@ pub fn parse(files: &[&str]) -> Result<FoodicsParsed, FoodicsError> {
     let mut group_names: HashSet<String> = HashSet::new();
     let mut kept: HashMap<String, usize> = HashMap::new();
     for g in &groups {
-        if g.options.is_empty() {
+        // A sizes group needs a size someone can pick.
+        if g.options.is_empty()
+            || (sizes.contains(&g.key) && !g.options.iter().any(|o| o.is_active))
+        {
+            sizes.remove(&g.key);
             warnings.push(FoodicsWarning {
                 file: None,
                 line: None,
@@ -837,7 +844,7 @@ pub fn parse(files: &[&str]) -> Result<FoodicsParsed, FoodicsError> {
             u32::try_from(g.options.iter().filter(|o| o.is_active).count()).unwrap_or(u32::MAX);
         // Each product's link that asks for too many warns on its own.
         let min = min.min(active);
-        let family = match g.key.as_str() {
+        let mut family = match g.key.as_str() {
             "milk_type" => BulkFamily::MilkType,
             "coffee_type" => BulkFamily::CoffeeType,
             "extra" => BulkFamily::Extra,
@@ -851,6 +858,24 @@ pub fn parse(files: &[&str]) -> Result<FoodicsParsed, FoodicsError> {
                     BulkFamily::Extra
                 }
             }
+        };
+        // A swap is one pick at most, on every product (the dashboard's rule).
+        let (min, max) = if matches!(family, BulkFamily::MilkType | BulkFamily::CoffeeType) {
+            if g.uses.iter().all(|&(mn, mx)| mn <= 1 && mx == Some(1)) {
+                (min.min(1), Some(1))
+            } else {
+                warnings.push(FoodicsWarning {
+                    file: None,
+                    line: None,
+                    issue: FoodicsIssue::NotASwap {
+                        group: g.name.clone(),
+                    },
+                });
+                family = BulkFamily::Extra;
+                (min, max)
+            }
+        } else {
+            (min, max)
         };
         kept.insert(g.key.clone(), out_groups.len());
         out_groups.push(BulkGroup {

@@ -253,6 +253,16 @@ pub enum BulkRefusal {
         name: String,
         price: i64,
     },
+    /// A milk or beans (swap) group, or an item's link to one, that allows
+    /// more than one pick: a swap replaces the drink's own ingredient.
+    SwapNotSingle {
+        group: String,
+        item: Option<String>,
+    },
+    /// An item with sizes, none of them on sale.
+    NoActiveSize {
+        item: String,
+    },
     /// The label the server keeps for an item with no sizes.
     ReservedLabel {
         item: String,
@@ -314,6 +324,15 @@ impl std::fmt::Display for BulkRefusal {
             }
             Self::BadPrice { what, name, price } => {
                 write!(f, "{what:?} \"{name}\" has price {price}")
+            }
+            Self::SwapNotSingle { group, .. } => {
+                write!(
+                    f,
+                    "group \"{group}\" swaps an ingredient, so it allows one pick at most"
+                )
+            }
+            Self::NoActiveSize { item } => {
+                write!(f, "item \"{item}\" has sizes but none is on sale")
             }
             Self::ReservedLabel { item, label } => write!(
                 f,
@@ -409,6 +428,7 @@ pub fn validate(menu: &BulkMenu) -> Result<BulkSummary, BulkRefusal> {
         }
         let active = g.options.iter().filter(|o| o.is_active).count();
         limits(&g.name, None, g.min, g.max, active)?;
+        swap(g, None, g.min, g.max)?;
         if groups.insert(g.key.trim(), (g, active)).is_some() {
             return Err(dup(BulkThing::Group, &g.key, None));
         }
@@ -449,6 +469,11 @@ pub fn validate(menu: &BulkMenu) -> Result<BulkSummary, BulkRefusal> {
             labels.add(BulkThing::Size, &z.label, Some(&it.name))?;
             price(BulkThing::Size, &z.label, z.price)?;
         }
+        if !it.sizes.is_empty() && !it.sizes.iter().any(|z| z.is_active) {
+            return Err(BulkRefusal::NoActiveSize {
+                item: it.name.clone(),
+            });
+        }
 
         count(
             BulkThing::Link,
@@ -468,6 +493,7 @@ pub fn validate(menu: &BulkMenu) -> Result<BulkSummary, BulkRefusal> {
                 return Err(dup(BulkThing::Link, &g.name, Some(&it.name)));
             }
             limits(&g.name, Some(&it.name), l.min, l.max, *active)?;
+            swap(g, Some(&it.name), l.min, l.max)?;
         }
 
         count(
@@ -588,6 +614,19 @@ fn limits(
             min,
             max,
             options,
+        });
+    }
+    Ok(())
+}
+
+/// A swap (milk, beans) replaces the drink's own ingredient: one pick at
+/// most, on the group and on every item's link (the dashboard's rule).
+fn swap(g: &BulkGroup, item: Option<&str>, min: u32, max: Option<u32>) -> Result<(), BulkRefusal> {
+    let is_swap = matches!(g.family, BulkFamily::MilkType | BulkFamily::CoffeeType);
+    if is_swap && !(min <= 1 && max == Some(1)) {
+        return Err(BulkRefusal::SwapNotSingle {
+            group: g.name.clone(),
+            item: item.map(str::to_string),
         });
     }
     Ok(())
@@ -822,6 +861,36 @@ mod tests {
         let mut m = menu();
         m.items.clear();
         assert_eq!(validate(&m), Err(BulkRefusal::Empty));
+    }
+
+    #[test]
+    fn a_swap_allows_one_pick_and_sizes_need_one_on_sale() {
+        let mut m = menu();
+        m.groups[0].max = Some(2);
+        assert!(matches!(
+            validate(&m),
+            Err(BulkRefusal::SwapNotSingle { item: None, .. })
+        ));
+        let mut m = menu();
+        m.items[0].groups[0].max = None;
+        assert!(matches!(
+            validate(&m),
+            Err(BulkRefusal::SwapNotSingle { item: Some(_), .. })
+        ));
+        // Extras may allow many.
+        let mut m = menu();
+        m.groups[0].family = BulkFamily::Extra;
+        m.groups[0].max = None;
+        m.items[0].groups[0].max = None;
+        assert!(validate(&m).is_ok());
+        let mut m = menu();
+        for z in &mut m.items[0].sizes {
+            z.is_active = false;
+        }
+        assert!(matches!(
+            validate(&m),
+            Err(BulkRefusal::NoActiveSize { .. })
+        ));
     }
 
     #[test]

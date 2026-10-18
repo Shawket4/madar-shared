@@ -13,6 +13,9 @@ vector file is byte-identical, and the `public` browser package is byte-identica
   a Foodics console export into a `BulkMenu` plus row warnings. Sizes come from a group with
   reference `size`, or from a group named like sizes that is pick-exactly-one with size-like
   options; one that fails the test stays a group with a `looks_like_sizes` warning.
+  A milk/beans (swap) group is one pick at most (the dashboard's rule): `validate` refuses
+  otherwise (`swap_not_single`), the reader reads a pick-many one as extras (`not_a_swap`). An
+  item with sizes needs one on sale (`no_active_size`).
 - `utoipa` feature (off by default): `ToSchema` on the bulk types, for the backend's OpenAPI.
 - `confirm`: `replace_sentence` (EN/AR, shown by the dashboards) and `confirms_replace` (the
   server's check of the typed sentence, either language, compared like names).

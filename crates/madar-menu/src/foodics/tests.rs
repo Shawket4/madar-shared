@@ -489,6 +489,7 @@ fn vector_file() -> VectorFile {
             foodics("looks_like_sizes_pick_many", "named Size but pick-many: kept as a group", size_files(&[("Small", "0"), ("Large", "10")], "0", "2")),
             foodics("bad_rows", "one of each skipped or changed row next to good ones; the duplicate's SKU finds the first Latte", bad_rows()),
             foodics("bom_crlf_any_order", "files reversed, the first with a BOM and CRLF line ends: the same menu as by_name", crlf),
+            foodics("milk_pick_many_is_extras", "a Milk group products may pick two of is read as extras (a swap allows one pick)", milk_pick_many()),
             foodics("zero_max_is_no_max", "maximum_options 0 means no maximum", zero_max),
             foodics("unknown_file", "a file whose header is no Foodics menu export", vec!["name,price\nx,1\n".into()]),
             foodics("missing_products", "no products file", vec![CATEGORIES.into()]),
@@ -540,6 +541,10 @@ fn vector_file() -> VectorFile {
             check("reserved_size_label", "one_size is the server's hidden size", with(&|m| {
                 m.items[0].sizes = vec![BulkSize { label: "one_size".into(), price: 100, is_active: true }];
             })),
+            check("swap_not_single", "a milk group allowing two picks", with(&|m| m.groups[0].max = Some(2))),
+            check("no_active_size", "an item whose sizes are all off sale", with(&|m| {
+                m.items[0].sizes = vec![BulkSize { label: "Cup".into(), price: 100, is_active: false }];
+            })),
             check("negative_price", "an option at -1 EGP", with(&|m| m.groups[0].options[0].price = -100)),
         ],
     }
@@ -580,6 +585,53 @@ fn menu_import_vectors() {
         serde_json::to_value(&file).unwrap(),
         "stale: MADAR_REGENERATE_MENU_VECTORS=1 cargo test -p madar-menu --features foodics menu_import_vectors"
     );
+}
+
+/// A group named Milk that products may pick two of.
+fn milk_pick_many() -> Vec<String> {
+    let products = [
+        PRODUCTS_HEAD.to_string(),
+        product("Latte", "p-1", "cat-1", "100", ""),
+    ]
+    .concat();
+    let links = [LINKS_HEAD.to_string(), link("p-1", "Milk", "", "0", "2")].concat();
+    let options = [
+        OPTIONS_HEAD.to_string(),
+        option("", "Milk", "Oat", "45", ""),
+        option("", "Milk", "Almond", "45", ""),
+    ]
+    .concat();
+    vec![CATEGORIES.into(), products, links, options]
+}
+
+#[test]
+fn a_milk_group_picked_more_than_once_is_extras() {
+    let p = parse_all(&milk_pick_many());
+    assert!(issues(&p).contains(&&FoodicsIssue::NotASwap {
+        group: "Milk".into()
+    }));
+    let g = &p.menu.groups[0];
+    assert_eq!((g.family, g.min, g.max), (BulkFamily::Extra, 0, Some(2)));
+    validate(&p.menu).unwrap();
+    // Picked once everywhere it stays milk, one pick at most.
+    let p = parse_all(&by_name());
+    let milk = p.menu.groups.iter().find(|g| g.name == "Milk").unwrap();
+    assert_eq!((milk.family, milk.max), (BulkFamily::MilkType, Some(1)));
+}
+
+#[test]
+fn a_size_group_with_no_size_on_sale_is_left_out() {
+    let mut files = keyed();
+    for size in ["Cup,,0,,كوب", "Can,,25,,كان"] {
+        assert!(files[4].contains(size), "fixture");
+        files[4] = files[4].replace(&format!("{size},Yes"), &format!("{size},No"));
+    }
+    let p = parse_all(&files);
+    assert!(issues(&p).contains(&&FoodicsIssue::EmptyGroup {
+        group: "Size".into()
+    }));
+    assert!(p.menu.items[0].sizes.is_empty());
+    validate(&p.menu).unwrap();
 }
 
 #[test]
