@@ -38,6 +38,7 @@ pub const OPS: &[&str] = &[
     "void_open_ticket",
     "void_ticket_line",
     "bump_kitchen_item",
+    "send_cart_to_kitchen",
     "unbump_kitchen_item",
     "swap_tables",
     "create_table_transfer",
@@ -152,6 +153,12 @@ pub enum ReplayOp {
         teller_id: Uuid,
         item_id: Uuid,
     },
+    /// A counter cart sent to the kitchen before it is paid
+    /// ([`crate::kitchen::SendCartRequest`]).
+    SendCartToKitchen {
+        teller_id: Uuid,
+        request: Value,
+    },
     UnbumpKitchenItem {
         teller_id: Uuid,
         item_id: Uuid,
@@ -245,6 +252,7 @@ impl ReplayOp {
             ReplayOp::VoidOpenTicket { .. } => "void_open_ticket",
             ReplayOp::VoidTicketLine { .. } => "void_ticket_line",
             ReplayOp::BumpKitchenItem { .. } => "bump_kitchen_item",
+            ReplayOp::SendCartToKitchen { .. } => "send_cart_to_kitchen",
             ReplayOp::UnbumpKitchenItem { .. } => "unbump_kitchen_item",
             ReplayOp::SwapTables { .. } => "swap_tables",
             ReplayOp::CreateTableTransfer { .. } => "create_table_transfer",
