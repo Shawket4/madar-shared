@@ -24,6 +24,41 @@ pub fn derive_kitchen_item_id(kitchen_ticket_id: Uuid, index: usize) -> Uuid {
     Uuid::new_v5(&kitchen_ticket_id, &(index as u32).to_le_bytes())
 }
 
+/// `POST /kitchen/cart-sends` (and the `send_cart_to_kitchen` replay op's
+/// `request`): a counter cart sent to the kitchen before it is paid. The
+/// kitchen ticket is keyed by `cart_key`, the key the till will sell the order
+/// under: its id is [`derive_kitchen_ticket_id`]`(cart_key)` and the line at
+/// `index` is [`derive_kitchen_item_id`]. Sending the same cart again updates
+/// that ticket; the sale takes it over. Gated by `orders.create` at the
+/// branch: whoever may sell the order may send it ahead.
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+#[cfg_attr(feature = "utoipa", derive(utoipa::ToSchema))]
+pub struct SendCartRequest {
+    pub branch_id: Uuid,
+    pub cart_key: Uuid,
+    /// The order number the board calls out, when the till has one yet.
+    #[serde(default)]
+    pub kitchen_ref: Option<String>,
+    pub lines: Vec<CartKitchenLine>,
+}
+
+/// One line of a sent cart, as the kitchen reads it. Display only: no price.
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+#[cfg_attr(feature = "utoipa", derive(utoipa::ToSchema))]
+pub struct CartKitchenLine {
+    /// Routes the line to its station; `None` for a line the menu no longer has.
+    #[serde(default)]
+    pub menu_item_id: Option<Uuid>,
+    pub name: String,
+    pub qty: i32,
+    #[serde(default)]
+    pub size_label: Option<String>,
+    #[serde(default)]
+    pub modifiers: Vec<String>,
+    #[serde(default)]
+    pub notes: Option<String>,
+}
+
 #[cfg(test)]
 mod id_tests {
     /// Moved from MadarRust `kitchen::id_tests` (madar-core pins the same ids in

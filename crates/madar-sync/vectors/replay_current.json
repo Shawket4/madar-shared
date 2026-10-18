@@ -197,6 +197,25 @@
       "teller_id": "00000000-0000-4000-8000-000000000001"
     },
     {
+      "op": "send_cart_to_kitchen",
+      "request": {
+        "branch_id": "00000000-0000-4000-8000-000000000002",
+        "cart_key": "00000000-0000-4000-8000-000000000022",
+        "kitchen_ref": null,
+        "lines": [
+          {
+            "menu_item_id": "00000000-0000-4000-8000-000000000023",
+            "modifiers": [],
+            "name": "Latte",
+            "notes": null,
+            "qty": 1,
+            "size_label": null
+          }
+        ]
+      },
+      "teller_id": "00000000-0000-4000-8000-000000000001"
+    },
+    {
       "op": "swap_tables",
       "request": {
         "branch_id": "00000000-0000-4000-8000-000000000002",
