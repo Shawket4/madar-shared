@@ -384,6 +384,23 @@ struct VectorFile {
     about: String,
     foodics: Vec<FoodicsCase>,
     validate: Vec<ValidateCase>,
+    sentences: Vec<SentenceCase>,
+    confirm: Vec<ConfirmCase>,
+}
+
+#[derive(serde::Serialize, serde::Deserialize)]
+struct SentenceCase {
+    org_name: String,
+    lang: String,
+    expected: String,
+}
+
+#[derive(serde::Serialize, serde::Deserialize)]
+struct ConfirmCase {
+    name: String,
+    org_name: String,
+    typed: String,
+    expected: bool,
 }
 
 #[derive(serde::Serialize, serde::Deserialize)]
@@ -457,7 +474,8 @@ fn vector_file() -> VectorFile {
 
     VectorFile {
         about: "madar-menu: foodics::parse over Foodics console exports (each case's files, \
-                in the order passed) and validate over bulk menus. Inputs are hand-written \
+                in the order passed), validate over bulk menus, and the replace sentence \
+                 (replace_sentence, confirms_replace). Inputs are hand-written \
                 (crates/madar-menu/src/foodics/tests.rs); expected answers are this crate's, \
                 written by MADAR_REGENERATE_MENU_VECTORS=1 and reviewed by hand. A refusal \
                 or error is the expected value itself, as the browser build returns it."
@@ -476,6 +494,30 @@ fn vector_file() -> VectorFile {
             foodics("missing_products", "no products file", vec![CATEGORIES.into()]),
             foodics("duplicate_file", "two categories files", vec![CATEGORIES.into(), CATEGORIES.into()]),
         ],
+        sentences: [("Drops", "en"), ("Drops", "ar"), (" Pachamama  Cafe ", "en"), ("دروبس", "ar")]
+            .iter()
+            .map(|(org, lang)| SentenceCase {
+                org_name: (*org).into(),
+                lang: (*lang).into(),
+                expected: crate::replace_sentence(org, lang),
+            })
+            .collect(),
+        confirm: [
+            ("english", "Drops", "Replace the menu of Drops"),
+            ("arabic", "Drops", "استبدل قائمة Drops"),
+            ("case_and_spaces", "Drops", "  replace the MENU of   drops "),
+            ("another_org", "Drops", "Replace the menu of Drop"),
+            ("org_name_alone", "Drops", "Drops"),
+            ("empty", "Drops", ""),
+        ]
+        .iter()
+        .map(|(name, org, typed)| ConfirmCase {
+            name: (*name).into(),
+            org_name: (*org).into(),
+            typed: (*typed).into(),
+            expected: crate::confirms_replace(org, typed),
+        })
+        .collect(),
         validate: vec![
             check("whole_menu", "by_name's menu passes, counted", base.clone()),
             check("unsupported_version", "a version this crate does not read", with(&|m| m.version = 2)),
@@ -520,6 +562,17 @@ fn menu_import_vectors() {
     }
     for c in &pinned.validate {
         assert_eq!(either(validate(&c.menu)), c.expected, "{}", c.name);
+    }
+    for c in &pinned.sentences {
+        assert_eq!(crate::replace_sentence(&c.org_name, &c.lang), c.expected);
+    }
+    for c in &pinned.confirm {
+        assert_eq!(
+            crate::confirms_replace(&c.org_name, &c.typed),
+            c.expected,
+            "{}",
+            c.name
+        );
     }
     // The pinned inputs are this file's fixtures: an edit to either shows.
     assert_eq!(

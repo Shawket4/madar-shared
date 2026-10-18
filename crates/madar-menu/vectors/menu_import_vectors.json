@@ -1,5 +1,5 @@
 {
-  "about": "madar-menu: foodics::parse over Foodics console exports (each case's files, in the order passed) and validate over bulk menus. Inputs are hand-written (crates/madar-menu/src/foodics/tests.rs); expected answers are this crate's, written by MADAR_REGENERATE_MENU_VECTORS=1 and reviewed by hand. A refusal or error is the expected value itself, as the browser build returns it.",
+  "about": "madar-menu: foodics::parse over Foodics console exports (each case's files, in the order passed), validate over bulk menus, and the replace sentence (replace_sentence, confirms_replace). Inputs are hand-written (crates/madar-menu/src/foodics/tests.rs); expected answers are this crate's, written by MADAR_REGENERATE_MENU_VECTORS=1 and reviewed by hand. A refusal or error is the expected value itself, as the browser build returns it.",
   "foodics": [
     {
       "name": "by_name",
@@ -2683,6 +2683,66 @@
         "refusal": "bad_price",
         "what": "option"
       }
+    }
+  ],
+  "sentences": [
+    {
+      "org_name": "Drops",
+      "lang": "en",
+      "expected": "Replace the menu of Drops"
+    },
+    {
+      "org_name": "Drops",
+      "lang": "ar",
+      "expected": "استبدل قائمة Drops"
+    },
+    {
+      "org_name": " Pachamama  Cafe ",
+      "lang": "en",
+      "expected": "Replace the menu of Pachamama Cafe"
+    },
+    {
+      "org_name": "دروبس",
+      "lang": "ar",
+      "expected": "استبدل قائمة دروبس"
+    }
+  ],
+  "confirm": [
+    {
+      "name": "english",
+      "org_name": "Drops",
+      "typed": "Replace the menu of Drops",
+      "expected": true
+    },
+    {
+      "name": "arabic",
+      "org_name": "Drops",
+      "typed": "استبدل قائمة Drops",
+      "expected": true
+    },
+    {
+      "name": "case_and_spaces",
+      "org_name": "Drops",
+      "typed": "  replace the MENU of   drops ",
+      "expected": true
+    },
+    {
+      "name": "another_org",
+      "org_name": "Drops",
+      "typed": "Replace the menu of Drop",
+      "expected": false
+    },
+    {
+      "name": "org_name_alone",
+      "org_name": "Drops",
+      "typed": "Drops",
+      "expected": false
+    },
+    {
+      "name": "empty",
+      "org_name": "Drops",
+      "typed": "",
+      "expected": false
     }
   ]
 }

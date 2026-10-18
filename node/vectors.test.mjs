@@ -175,6 +175,10 @@ function fullFiles(pkg, w) {
     (c) => w.foodics_parse(c.files), (c) => c.expected);
   cases(pkg, "menu_import_vectors", "bulk_validate", menuImport.validate,
     (c) => w.bulk_validate(c.menu), (c) => c.expected);
+  cases(pkg, "menu_import_vectors", "replace_sentence", menuImport.sentences,
+    (c) => w.replace_sentence(c.org_name, c.lang), (c) => c.expected);
+  cases(pkg, "menu_import_vectors", "confirms_replace", menuImport.confirm,
+    (c) => w.confirms_replace(c.org_name, c.typed), (c) => c.expected);
   const ladder = vectors("madar-dawam/vectors/ladder_vectors.json");
   const rungs = ladder.ladder.map((t) => ({ ...t, value: Number(t.value) }));
   cases(pkg, "ladder_vectors", "select_late_tier", ladder.select,
@@ -283,6 +287,7 @@ for (const pkg of ["public", "full"]) {
     if (pkg === "public") test("public leaves out the menu import", () => {
       assert.equal(w.foodics_parse, undefined);
       assert.equal(w.bulk_validate, undefined);
+      assert.equal(w.confirms_replace, undefined);
     });
   });
 }

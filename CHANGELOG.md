@@ -14,7 +14,9 @@ vector file is byte-identical, and the `public` browser package is byte-identica
   reference `size`, or from a group named like sizes that is pick-exactly-one with size-like
   options; one that fails the test stays a group with a `looks_like_sizes` warning.
 - `utoipa` feature (off by default): `ToSchema` on the bulk types, for the backend's OpenAPI.
-- `madar-web` `full`: `foodics_parse`, `bulk_validate` (+32 KB brotli). `public`: unchanged.
+- `confirm`: `replace_sentence` (EN/AR, shown by the dashboards) and `confirms_replace` (the
+  server's check of the typed sentence, either language, compared like names).
+- `madar-web` `full`: `foodics_parse`, `bulk_validate`, `replace_sentence`, `confirms_replace` (+32 KB brotli). `public`: unchanged.
 - `vectors/menu_import_vectors.json`: 12 reader cases, 13 check cases, run natively and through the wasm.
 
 ## v0.9.0 — checked casts and #[must_use] (2026-10-16)

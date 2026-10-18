@@ -910,6 +910,18 @@ mod full {
         either(madar_menu::foodics::parse(&refs))
     }
 
+    /// The sentence an owner types to replace the whole menu, in `lang`.
+    #[wasm_bindgen]
+    pub fn replace_sentence(org_name: &str, lang: &str) -> String {
+        madar_menu::replace_sentence(org_name, lang)
+    }
+
+    /// Whether `typed` is that sentence, in either language.
+    #[wasm_bindgen]
+    pub fn confirms_replace(org_name: &str, typed: &str) -> bool {
+        madar_menu::confirms_replace(org_name, typed)
+    }
+
     /// The server's checks on a bulk menu, for the preview.
     #[wasm_bindgen(unchecked_return_type = "BulkSummary | BulkRefusal")]
     pub fn bulk_validate(menu: Ts<madar_menu::BulkMenu>) -> Result<JsValue, JsError> {
