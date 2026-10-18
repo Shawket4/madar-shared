@@ -13,6 +13,7 @@ vector file is byte-identical, and the `public` browser package is byte-identica
   a Foodics console export into a `BulkMenu` plus row warnings. Sizes come from a group with
   reference `size`, or from a group named like sizes that is pick-exactly-one with size-like
   options; one that fails the test stays a group with a `looks_like_sizes` warning.
+- `utoipa` feature (off by default): `ToSchema` on the bulk types, for the backend's OpenAPI.
 - `madar-web` `full`: `foodics_parse`, `bulk_validate` (+32 KB brotli). `public`: unchanged.
 - `vectors/menu_import_vectors.json`: 12 reader cases, 13 check cases, run natively and through the wasm.
 

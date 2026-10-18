@@ -19,6 +19,7 @@ const HIDDEN_SIZE: &str = "one_size";
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
+#[cfg_attr(feature = "utoipa", derive(utoipa::ToSchema))]
 pub struct BulkMenu {
     pub version: u32,
     #[serde(default)]
@@ -31,6 +32,7 @@ pub struct BulkMenu {
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
+#[cfg_attr(feature = "utoipa", derive(utoipa::ToSchema))]
 pub struct BulkCategory {
     pub key: String,
     pub name: String,
@@ -41,6 +43,7 @@ pub struct BulkCategory {
 /// Which kind of choice a group is, the `legacy_addon_type` the POS reads.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
 #[cfg_attr(feature = "tsify", derive(tsify::Tsify))]
+#[cfg_attr(feature = "utoipa", derive(utoipa::ToSchema))]
 #[serde(rename_all = "snake_case")]
 pub enum BulkFamily {
     MilkType,
@@ -60,6 +63,7 @@ impl BulkFamily {
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
+#[cfg_attr(feature = "utoipa", derive(utoipa::ToSchema))]
 pub struct BulkGroup {
     pub key: String,
     pub name: String,
@@ -76,6 +80,7 @@ pub struct BulkGroup {
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
+#[cfg_attr(feature = "utoipa", derive(utoipa::ToSchema))]
 pub struct BulkOption {
     pub name: String,
     #[serde(default)]
@@ -86,6 +91,7 @@ pub struct BulkOption {
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
+#[cfg_attr(feature = "utoipa", derive(utoipa::ToSchema))]
 pub struct BulkItem {
     pub name: String,
     #[serde(default)]
@@ -112,6 +118,7 @@ pub struct BulkItem {
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
+#[cfg_attr(feature = "utoipa", derive(utoipa::ToSchema))]
 pub struct BulkSize {
     pub label: String,
     pub price: i64,
@@ -121,6 +128,7 @@ pub struct BulkSize {
 /// An item's use of a group, with the limits that apply on this item.
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
+#[cfg_attr(feature = "utoipa", derive(utoipa::ToSchema))]
 pub struct BulkLink {
     /// A [`BulkGroup::key`].
     pub group: String,
@@ -131,6 +139,7 @@ pub struct BulkLink {
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
+#[cfg_attr(feature = "utoipa", derive(utoipa::ToSchema))]
 pub struct BulkOptional {
     pub name: String,
     #[serde(default)]
@@ -171,6 +180,7 @@ pub const LIMITS: Limits = Limits {
 /// What a refusal is about.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "tsify", derive(tsify::Tsify))]
+#[cfg_attr(feature = "utoipa", derive(utoipa::ToSchema))]
 #[serde(rename_all = "snake_case")]
 pub enum BulkThing {
     Category,
@@ -186,6 +196,7 @@ pub enum BulkThing {
 /// the item or group the thing belongs to.
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "tsify", derive(tsify::Tsify), tsify(missing_as_null))]
+#[cfg_attr(feature = "utoipa", derive(utoipa::ToSchema))]
 #[serde(tag = "refusal", rename_all = "snake_case")]
 pub enum BulkRefusal {
     UnsupportedVersion {
@@ -317,6 +328,7 @@ impl std::error::Error for BulkRefusal {}
 /// What a valid menu holds, for the preview and the server's answer.
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "tsify", derive(tsify::Tsify))]
+#[cfg_attr(feature = "utoipa", derive(utoipa::ToSchema))]
 pub struct BulkSummary {
     pub categories: usize,
     pub items: usize,
