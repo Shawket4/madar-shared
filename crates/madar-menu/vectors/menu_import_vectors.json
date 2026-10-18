@@ -1,0 +1,2688 @@
+{
+  "about": "madar-menu: foodics::parse over Foodics console exports (each case's files, in the order passed) and validate over bulk menus. Inputs are hand-written (crates/madar-menu/src/foodics/tests.rs); expected answers are this crate's, written by MADAR_REGENERATE_MENU_VECTORS=1 and reviewed by hand. A refusal or error is the expected value itself, as the browser build returns it.",
+  "foodics": [
+    {
+      "name": "by_name",
+      "about": "groups keyed by name (a raw export): Milk is milk_type 1..1, Extra Flavors extra 0..2; 165.5 EGP is 16550 piastres; no Arabic stays null",
+      "files": [
+        "id,name,name_localized,reference,image\n,Coffee,قهوة,cat-1,\n,Cold,بارد,cat-2,\n",
+        "id,name,sku,category_reference,tax_group_reference,is_sold_by_weight,is_active,is_stock_product,price,barcode,description,preparation_time,calories,walking_minutes_to_burn_calories,is_high_salt,image,name_localized,description_localized,ereceipt_item_type,ereceipt_item_code,ereceipt_unit_type\n,\"Espresso\",p-1,cat-1,,No,Yes,No,110,,,,,,No,,إسبريسو,,,,\n,\"Latte\",p-2,cat-1,,No,Yes,No,150,,,,,,No,,لاتيه,,,,\n,\"Iced Latte\",p-3,cat-2,,No,Yes,No,165.5,,,,,,No,,,,,,\n",
+        "product_name,product_name_localized,product_sku,modifier_name,modifier_name_localized,modifier_reference,minimum_options,maximum_options,free_options,default_options,unique_options\n,,p-1,Extra Flavors,,,0,2,0,,No\n,,p-2,Milk,,,1,1,0,,No\n,,p-2,Extra Flavors,,,0,2,0,,No\n,,p-3,Milk,,,1,1,0,,No\n",
+        "id,reference,name,name_localized\n,,Milk,الحليب\n,,Extra Flavors,نكهات إضافية\n",
+        "id,modifier_reference,modifier_name,modifier_name_localized,tax_group_reference,name,sku,price,calories,name_localized,is_active\n,,Milk,,,Full Cream,,0,,كامل الدسم,Yes\n,,Milk,,,Oat,,45,,شوفان,Yes\n,,Extra Flavors,,,Vanilla,,20,,,Yes\n,,Extra Flavors,,,Caramel,,20,,,Yes\n"
+      ],
+      "expected": {
+        "files": [
+          "categories",
+          "products",
+          "product_modifiers",
+          "modifier_groups",
+          "modifier_options"
+        ],
+        "menu": {
+          "categories": [
+            {
+              "key": "c1",
+              "name": "Coffee",
+              "name_ar": "قهوة"
+            },
+            {
+              "key": "c2",
+              "name": "Cold",
+              "name_ar": "بارد"
+            }
+          ],
+          "groups": [
+            {
+              "family": "milk_type",
+              "key": "g1",
+              "max": 1,
+              "min": 1,
+              "name": "Milk",
+              "name_ar": "الحليب",
+              "options": [
+                {
+                  "is_active": true,
+                  "name": "Full Cream",
+                  "name_ar": "كامل الدسم",
+                  "price": 0
+                },
+                {
+                  "is_active": true,
+                  "name": "Oat",
+                  "name_ar": "شوفان",
+                  "price": 4500
+                }
+              ]
+            },
+            {
+              "family": "extra",
+              "key": "g2",
+              "max": 2,
+              "min": 0,
+              "name": "Extra Flavors",
+              "name_ar": "نكهات إضافية",
+              "options": [
+                {
+                  "is_active": true,
+                  "name": "Vanilla",
+                  "name_ar": null,
+                  "price": 2000
+                },
+                {
+                  "is_active": true,
+                  "name": "Caramel",
+                  "name_ar": null,
+                  "price": 2000
+                }
+              ]
+            }
+          ],
+          "items": [
+            {
+              "category": "c1",
+              "description": null,
+              "description_ar": null,
+              "groups": [
+                {
+                  "group": "g2",
+                  "max": 2,
+                  "min": 0
+                }
+              ],
+              "is_active": true,
+              "name": "Espresso",
+              "name_ar": "إسبريسو",
+              "optionals": [],
+              "price": 11000,
+              "sizes": []
+            },
+            {
+              "category": "c1",
+              "description": null,
+              "description_ar": null,
+              "groups": [
+                {
+                  "group": "g1",
+                  "max": 1,
+                  "min": 1
+                },
+                {
+                  "group": "g2",
+                  "max": 2,
+                  "min": 0
+                }
+              ],
+              "is_active": true,
+              "name": "Latte",
+              "name_ar": "لاتيه",
+              "optionals": [],
+              "price": 15000,
+              "sizes": []
+            },
+            {
+              "category": "c2",
+              "description": null,
+              "description_ar": null,
+              "groups": [
+                {
+                  "group": "g1",
+                  "max": 1,
+                  "min": 1
+                }
+              ],
+              "is_active": true,
+              "name": "Iced Latte",
+              "name_ar": null,
+              "optionals": [],
+              "price": 16550,
+              "sizes": []
+            }
+          ],
+          "version": 1
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "size_reference",
+      "about": "reference `size` makes item sizes at the product's price plus the option's; the size group is not a modifier group",
+      "files": [
+        "id,name,name_localized,reference,image\n,Coffee,قهوة,cat-1,\n,Cold,بارد,cat-2,\n",
+        "id,name,sku,category_reference,tax_group_reference,is_sold_by_weight,is_active,is_stock_product,price,barcode,description,preparation_time,calories,walking_minutes_to_burn_calories,is_high_salt,image,name_localized,description_localized,ereceipt_item_type,ereceipt_item_code,ereceipt_unit_type\n,\"Spanish latte\",psk-10,cat-1,,No,Yes,No,100,,,,,,No,,,,,,\n",
+        "product_name,product_name_localized,product_sku,modifier_name,modifier_name_localized,modifier_reference,minimum_options,maximum_options,free_options,default_options,unique_options\n,,psk-10,Size,,size,1,1,0,,No\n,,psk-10,Milk,,milk_type,1,1,0,,No\n",
+        "id,reference,name,name_localized\n,size,Size,الحجم\n,milk_type,Milk,الحليب\n",
+        "id,modifier_reference,modifier_name,modifier_name_localized,tax_group_reference,name,sku,price,calories,name_localized,is_active\n,size,Size,,,Cup,,0,,كوب,Yes\n,size,Size,,,Can,,25,,كان,Yes\n,milk_type,Milk,,,Full Cream,,0,,,Yes\n"
+      ],
+      "expected": {
+        "files": [
+          "categories",
+          "products",
+          "product_modifiers",
+          "modifier_groups",
+          "modifier_options"
+        ],
+        "menu": {
+          "categories": [
+            {
+              "key": "c1",
+              "name": "Coffee",
+              "name_ar": "قهوة"
+            },
+            {
+              "key": "c2",
+              "name": "Cold",
+              "name_ar": "بارد"
+            }
+          ],
+          "groups": [
+            {
+              "family": "milk_type",
+              "key": "g1",
+              "max": 1,
+              "min": 1,
+              "name": "Milk",
+              "name_ar": "الحليب",
+              "options": [
+                {
+                  "is_active": true,
+                  "name": "Full Cream",
+                  "name_ar": null,
+                  "price": 0
+                }
+              ]
+            }
+          ],
+          "items": [
+            {
+              "category": "c1",
+              "description": null,
+              "description_ar": null,
+              "groups": [
+                {
+                  "group": "g1",
+                  "max": 1,
+                  "min": 1
+                }
+              ],
+              "is_active": true,
+              "name": "Spanish latte",
+              "name_ar": null,
+              "optionals": [],
+              "price": 10000,
+              "sizes": [
+                {
+                  "is_active": true,
+                  "label": "Cup",
+                  "price": 10000
+                },
+                {
+                  "is_active": true,
+                  "label": "Can",
+                  "price": 12500
+                }
+              ]
+            }
+          ],
+          "version": 1
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "sizes_by_name",
+      "about": "a group named Size, pick exactly one everywhere, options named like sizes: sizes, with a sizes_by_name warning",
+      "files": [
+        "id,name,name_localized,reference,image\n,Coffee,قهوة,cat-1,\n,Cold,بارد,cat-2,\n",
+        "id,name,sku,category_reference,tax_group_reference,is_sold_by_weight,is_active,is_stock_product,price,barcode,description,preparation_time,calories,walking_minutes_to_burn_calories,is_high_salt,image,name_localized,description_localized,ereceipt_item_type,ereceipt_item_code,ereceipt_unit_type\n,\"Latte\",p-1,cat-1,,No,Yes,No,100,,,,,,No,,,,,,\n",
+        "product_name,product_name_localized,product_sku,modifier_name,modifier_name_localized,modifier_reference,minimum_options,maximum_options,free_options,default_options,unique_options\n,,p-1,Size,,,1,1,0,,No\n",
+        "id,modifier_reference,modifier_name,modifier_name_localized,tax_group_reference,name,sku,price,calories,name_localized,is_active\n,,Size,,,Small,,0,,,Yes\n,,Size,,,Medium,,10,,,Yes\n,,Size,,,Large,,20,,,Yes\n"
+      ],
+      "expected": {
+        "files": [
+          "categories",
+          "products",
+          "product_modifiers",
+          "modifier_options"
+        ],
+        "menu": {
+          "categories": [
+            {
+              "key": "c1",
+              "name": "Coffee",
+              "name_ar": "قهوة"
+            },
+            {
+              "key": "c2",
+              "name": "Cold",
+              "name_ar": "بارد"
+            }
+          ],
+          "groups": [],
+          "items": [
+            {
+              "category": "c1",
+              "description": null,
+              "description_ar": null,
+              "groups": [],
+              "is_active": true,
+              "name": "Latte",
+              "name_ar": null,
+              "optionals": [],
+              "price": 10000,
+              "sizes": [
+                {
+                  "is_active": true,
+                  "label": "Small",
+                  "price": 10000
+                },
+                {
+                  "is_active": true,
+                  "label": "Medium",
+                  "price": 11000
+                },
+                {
+                  "is_active": true,
+                  "label": "Large",
+                  "price": 12000
+                }
+              ]
+            }
+          ],
+          "version": 1
+        },
+        "warnings": [
+          {
+            "file": null,
+            "issue": {
+              "group": "Size",
+              "issue": "sizes_by_name"
+            },
+            "line": null
+          },
+          {
+            "file": null,
+            "issue": {
+              "issue": "missing_file",
+              "kind": "modifier_groups"
+            },
+            "line": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "sizes_by_name_arabic_and_ounces",
+      "about": "Arabic and ounce labels count as sizes",
+      "files": [
+        "id,name,name_localized,reference,image\n,Coffee,قهوة,cat-1,\n,Cold,بارد,cat-2,\n",
+        "id,name,sku,category_reference,tax_group_reference,is_sold_by_weight,is_active,is_stock_product,price,barcode,description,preparation_time,calories,walking_minutes_to_burn_calories,is_high_salt,image,name_localized,description_localized,ereceipt_item_type,ereceipt_item_code,ereceipt_unit_type\n,\"Latte\",p-1,cat-1,,No,Yes,No,100,,,,,,No,,,,,,\n",
+        "product_name,product_name_localized,product_sku,modifier_name,modifier_name_localized,modifier_reference,minimum_options,maximum_options,free_options,default_options,unique_options\n,,p-1,Size,,,1,1,0,,No\n",
+        "id,modifier_reference,modifier_name,modifier_name_localized,tax_group_reference,name,sku,price,calories,name_localized,is_active\n,,Size,,,صغير,,0,,,Yes\n,,Size,,,12 oz,,10,,,Yes\n"
+      ],
+      "expected": {
+        "files": [
+          "categories",
+          "products",
+          "product_modifiers",
+          "modifier_options"
+        ],
+        "menu": {
+          "categories": [
+            {
+              "key": "c1",
+              "name": "Coffee",
+              "name_ar": "قهوة"
+            },
+            {
+              "key": "c2",
+              "name": "Cold",
+              "name_ar": "بارد"
+            }
+          ],
+          "groups": [],
+          "items": [
+            {
+              "category": "c1",
+              "description": null,
+              "description_ar": null,
+              "groups": [],
+              "is_active": true,
+              "name": "Latte",
+              "name_ar": null,
+              "optionals": [],
+              "price": 10000,
+              "sizes": [
+                {
+                  "is_active": true,
+                  "label": "صغير",
+                  "price": 10000
+                },
+                {
+                  "is_active": true,
+                  "label": "12 oz",
+                  "price": 11000
+                }
+              ]
+            }
+          ],
+          "version": 1
+        },
+        "warnings": [
+          {
+            "file": null,
+            "issue": {
+              "group": "Size",
+              "issue": "sizes_by_name"
+            },
+            "line": null
+          },
+          {
+            "file": null,
+            "issue": {
+              "issue": "missing_file",
+              "kind": "modifier_groups"
+            },
+            "line": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "looks_like_sizes_hot_iced",
+      "about": "named Size but its options are not sizes: kept as a group, looks_like_sizes warning",
+      "files": [
+        "id,name,name_localized,reference,image\n,Coffee,قهوة,cat-1,\n,Cold,بارد,cat-2,\n",
+        "id,name,sku,category_reference,tax_group_reference,is_sold_by_weight,is_active,is_stock_product,price,barcode,description,preparation_time,calories,walking_minutes_to_burn_calories,is_high_salt,image,name_localized,description_localized,ereceipt_item_type,ereceipt_item_code,ereceipt_unit_type\n,\"Latte\",p-1,cat-1,,No,Yes,No,100,,,,,,No,,,,,,\n",
+        "product_name,product_name_localized,product_sku,modifier_name,modifier_name_localized,modifier_reference,minimum_options,maximum_options,free_options,default_options,unique_options\n,,p-1,Size,,,1,1,0,,No\n",
+        "id,modifier_reference,modifier_name,modifier_name_localized,tax_group_reference,name,sku,price,calories,name_localized,is_active\n,,Size,,,Hot,,0,,,Yes\n,,Size,,,Iced,,10,,,Yes\n"
+      ],
+      "expected": {
+        "files": [
+          "categories",
+          "products",
+          "product_modifiers",
+          "modifier_options"
+        ],
+        "menu": {
+          "categories": [
+            {
+              "key": "c1",
+              "name": "Coffee",
+              "name_ar": "قهوة"
+            },
+            {
+              "key": "c2",
+              "name": "Cold",
+              "name_ar": "بارد"
+            }
+          ],
+          "groups": [
+            {
+              "family": "extra",
+              "key": "g1",
+              "max": 1,
+              "min": 1,
+              "name": "Size",
+              "name_ar": null,
+              "options": [
+                {
+                  "is_active": true,
+                  "name": "Hot",
+                  "name_ar": null,
+                  "price": 0
+                },
+                {
+                  "is_active": true,
+                  "name": "Iced",
+                  "name_ar": null,
+                  "price": 1000
+                }
+              ]
+            }
+          ],
+          "items": [
+            {
+              "category": "c1",
+              "description": null,
+              "description_ar": null,
+              "groups": [
+                {
+                  "group": "g1",
+                  "max": 1,
+                  "min": 1
+                }
+              ],
+              "is_active": true,
+              "name": "Latte",
+              "name_ar": null,
+              "optionals": [],
+              "price": 10000,
+              "sizes": []
+            }
+          ],
+          "version": 1
+        },
+        "warnings": [
+          {
+            "file": null,
+            "issue": {
+              "group": "Size",
+              "issue": "looks_like_sizes"
+            },
+            "line": null
+          },
+          {
+            "file": null,
+            "issue": {
+              "issue": "missing_file",
+              "kind": "modifier_groups"
+            },
+            "line": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "looks_like_sizes_pick_many",
+      "about": "named Size but pick-many: kept as a group",
+      "files": [
+        "id,name,name_localized,reference,image\n,Coffee,قهوة,cat-1,\n,Cold,بارد,cat-2,\n",
+        "id,name,sku,category_reference,tax_group_reference,is_sold_by_weight,is_active,is_stock_product,price,barcode,description,preparation_time,calories,walking_minutes_to_burn_calories,is_high_salt,image,name_localized,description_localized,ereceipt_item_type,ereceipt_item_code,ereceipt_unit_type\n,\"Latte\",p-1,cat-1,,No,Yes,No,100,,,,,,No,,,,,,\n",
+        "product_name,product_name_localized,product_sku,modifier_name,modifier_name_localized,modifier_reference,minimum_options,maximum_options,free_options,default_options,unique_options\n,,p-1,Size,,,0,2,0,,No\n",
+        "id,modifier_reference,modifier_name,modifier_name_localized,tax_group_reference,name,sku,price,calories,name_localized,is_active\n,,Size,,,Small,,0,,,Yes\n,,Size,,,Large,,10,,,Yes\n"
+      ],
+      "expected": {
+        "files": [
+          "categories",
+          "products",
+          "product_modifiers",
+          "modifier_options"
+        ],
+        "menu": {
+          "categories": [
+            {
+              "key": "c1",
+              "name": "Coffee",
+              "name_ar": "قهوة"
+            },
+            {
+              "key": "c2",
+              "name": "Cold",
+              "name_ar": "بارد"
+            }
+          ],
+          "groups": [
+            {
+              "family": "extra",
+              "key": "g1",
+              "max": 2,
+              "min": 0,
+              "name": "Size",
+              "name_ar": null,
+              "options": [
+                {
+                  "is_active": true,
+                  "name": "Small",
+                  "name_ar": null,
+                  "price": 0
+                },
+                {
+                  "is_active": true,
+                  "name": "Large",
+                  "name_ar": null,
+                  "price": 1000
+                }
+              ]
+            }
+          ],
+          "items": [
+            {
+              "category": "c1",
+              "description": null,
+              "description_ar": null,
+              "groups": [
+                {
+                  "group": "g1",
+                  "max": 2,
+                  "min": 0
+                }
+              ],
+              "is_active": true,
+              "name": "Latte",
+              "name_ar": null,
+              "optionals": [],
+              "price": 10000,
+              "sizes": []
+            }
+          ],
+          "version": 1
+        },
+        "warnings": [
+          {
+            "file": null,
+            "issue": {
+              "group": "Size",
+              "issue": "looks_like_sizes"
+            },
+            "line": null
+          },
+          {
+            "file": null,
+            "issue": {
+              "issue": "missing_file",
+              "kind": "modifier_groups"
+            },
+            "line": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "bad_rows",
+      "about": "one of each skipped or changed row next to good ones; the duplicate's SKU finds the first Latte",
+      "files": [
+        "id,name,name_localized,reference,image\n,Coffee,قهوة,cat-1,\n,Cold,بارد,cat-2,\n",
+        "id,name,sku,category_reference,tax_group_reference,is_sold_by_weight,is_active,is_stock_product,price,barcode,description,preparation_time,calories,walking_minutes_to_burn_calories,is_high_salt,image,name_localized,description_localized,ereceipt_item_type,ereceipt_item_code,ereceipt_unit_type\n,\"Latte\",p-1,cat-1,,No,Yes,No,100,,,,,,No,,,,,,\n,\"latte \",p-9,cat-1,,No,Yes,No,100,,,,,,No,,,,,,\n,\"Mocha\",p-2,nope,,No,Yes,No,100,,,,,,No,,,,,,\n,\"Cake\",p-3,cat-1,,No,Yes,No,abc,,,,,,No,,,,,,\n,\"\",p-4,cat-1,,No,Yes,No,1,,,,,,No,,,,,,\n",
+        "product_name,product_name_localized,product_sku,modifier_name,modifier_name_localized,modifier_reference,minimum_options,maximum_options,free_options,default_options,unique_options\n,,p-1,Milk,,,3,3,0,,No\n,,p-404,Milk,,,1,1,0,,No\n,,p-1,Empty,,,0,1,0,,No\n",
+        "id,modifier_reference,modifier_name,modifier_name_localized,tax_group_reference,name,sku,price,calories,name_localized,is_active\n,,Milk,,,Oat,,0,,,Yes\n,,Ghost,,,X,,0,,,Yes\n"
+      ],
+      "expected": {
+        "files": [
+          "categories",
+          "products",
+          "product_modifiers",
+          "modifier_options"
+        ],
+        "menu": {
+          "categories": [
+            {
+              "key": "c1",
+              "name": "Coffee",
+              "name_ar": "قهوة"
+            },
+            {
+              "key": "c2",
+              "name": "Cold",
+              "name_ar": "بارد"
+            },
+            {
+              "key": "c3",
+              "name": "Uncategorized",
+              "name_ar": "غير مصنف"
+            }
+          ],
+          "groups": [
+            {
+              "family": "milk_type",
+              "key": "g1",
+              "max": 3,
+              "min": 1,
+              "name": "Milk",
+              "name_ar": null,
+              "options": [
+                {
+                  "is_active": true,
+                  "name": "Oat",
+                  "name_ar": null,
+                  "price": 0
+                }
+              ]
+            }
+          ],
+          "items": [
+            {
+              "category": "c1",
+              "description": null,
+              "description_ar": null,
+              "groups": [
+                {
+                  "group": "g1",
+                  "max": 3,
+                  "min": 1
+                }
+              ],
+              "is_active": true,
+              "name": "Latte",
+              "name_ar": null,
+              "optionals": [],
+              "price": 10000,
+              "sizes": []
+            },
+            {
+              "category": "c3",
+              "description": null,
+              "description_ar": null,
+              "groups": [],
+              "is_active": true,
+              "name": "Mocha",
+              "name_ar": null,
+              "optionals": [],
+              "price": 10000,
+              "sizes": []
+            }
+          ],
+          "version": 1
+        },
+        "warnings": [
+          {
+            "file": "products",
+            "issue": {
+              "issue": "duplicate",
+              "name": "latte"
+            },
+            "line": 3
+          },
+          {
+            "file": "products",
+            "issue": {
+              "issue": "uncategorized",
+              "item": "Mocha"
+            },
+            "line": 4
+          },
+          {
+            "file": "products",
+            "issue": {
+              "column": "price",
+              "issue": "not_a_number",
+              "value": "abc"
+            },
+            "line": 5
+          },
+          {
+            "file": "products",
+            "issue": {
+              "issue": "blank_name"
+            },
+            "line": 6
+          },
+          {
+            "file": "product_modifiers",
+            "issue": {
+              "issue": "unknown_sku",
+              "sku": "p-404"
+            },
+            "line": 3
+          },
+          {
+            "file": "modifier_options",
+            "issue": {
+              "group": "Ghost",
+              "issue": "unknown_group"
+            },
+            "line": 3
+          },
+          {
+            "file": null,
+            "issue": {
+              "group": "Empty",
+              "issue": "empty_group"
+            },
+            "line": null
+          },
+          {
+            "file": "product_modifiers",
+            "issue": {
+              "from": 3,
+              "group": "Milk",
+              "issue": "min_lowered",
+              "item": "Latte",
+              "to": 1
+            },
+            "line": 2
+          },
+          {
+            "file": null,
+            "issue": {
+              "issue": "missing_file",
+              "kind": "modifier_groups"
+            },
+            "line": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "bom_crlf_any_order",
+      "about": "files reversed, the first with a BOM and CRLF line ends: the same menu as by_name",
+      "files": [
+        "﻿id,modifier_reference,modifier_name,modifier_name_localized,tax_group_reference,name,sku,price,calories,name_localized,is_active\r\n,,Milk,,,Full Cream,,0,,كامل الدسم,Yes\r\n,,Milk,,,Oat,,45,,شوفان,Yes\r\n,,Extra Flavors,,,Vanilla,,20,,,Yes\r\n,,Extra Flavors,,,Caramel,,20,,,Yes\r\n",
+        "id,reference,name,name_localized\n,,Milk,الحليب\n,,Extra Flavors,نكهات إضافية\n",
+        "product_name,product_name_localized,product_sku,modifier_name,modifier_name_localized,modifier_reference,minimum_options,maximum_options,free_options,default_options,unique_options\n,,p-1,Extra Flavors,,,0,2,0,,No\n,,p-2,Milk,,,1,1,0,,No\n,,p-2,Extra Flavors,,,0,2,0,,No\n,,p-3,Milk,,,1,1,0,,No\n",
+        "id,name,sku,category_reference,tax_group_reference,is_sold_by_weight,is_active,is_stock_product,price,barcode,description,preparation_time,calories,walking_minutes_to_burn_calories,is_high_salt,image,name_localized,description_localized,ereceipt_item_type,ereceipt_item_code,ereceipt_unit_type\n,\"Espresso\",p-1,cat-1,,No,Yes,No,110,,,,,,No,,إسبريسو,,,,\n,\"Latte\",p-2,cat-1,,No,Yes,No,150,,,,,,No,,لاتيه,,,,\n,\"Iced Latte\",p-3,cat-2,,No,Yes,No,165.5,,,,,,No,,,,,,\n",
+        "id,name,name_localized,reference,image\n,Coffee,قهوة,cat-1,\n,Cold,بارد,cat-2,\n"
+      ],
+      "expected": {
+        "files": [
+          "modifier_options",
+          "modifier_groups",
+          "product_modifiers",
+          "products",
+          "categories"
+        ],
+        "menu": {
+          "categories": [
+            {
+              "key": "c1",
+              "name": "Coffee",
+              "name_ar": "قهوة"
+            },
+            {
+              "key": "c2",
+              "name": "Cold",
+              "name_ar": "بارد"
+            }
+          ],
+          "groups": [
+            {
+              "family": "milk_type",
+              "key": "g1",
+              "max": 1,
+              "min": 1,
+              "name": "Milk",
+              "name_ar": "الحليب",
+              "options": [
+                {
+                  "is_active": true,
+                  "name": "Full Cream",
+                  "name_ar": "كامل الدسم",
+                  "price": 0
+                },
+                {
+                  "is_active": true,
+                  "name": "Oat",
+                  "name_ar": "شوفان",
+                  "price": 4500
+                }
+              ]
+            },
+            {
+              "family": "extra",
+              "key": "g2",
+              "max": 2,
+              "min": 0,
+              "name": "Extra Flavors",
+              "name_ar": "نكهات إضافية",
+              "options": [
+                {
+                  "is_active": true,
+                  "name": "Vanilla",
+                  "name_ar": null,
+                  "price": 2000
+                },
+                {
+                  "is_active": true,
+                  "name": "Caramel",
+                  "name_ar": null,
+                  "price": 2000
+                }
+              ]
+            }
+          ],
+          "items": [
+            {
+              "category": "c1",
+              "description": null,
+              "description_ar": null,
+              "groups": [
+                {
+                  "group": "g2",
+                  "max": 2,
+                  "min": 0
+                }
+              ],
+              "is_active": true,
+              "name": "Espresso",
+              "name_ar": "إسبريسو",
+              "optionals": [],
+              "price": 11000,
+              "sizes": []
+            },
+            {
+              "category": "c1",
+              "description": null,
+              "description_ar": null,
+              "groups": [
+                {
+                  "group": "g1",
+                  "max": 1,
+                  "min": 1
+                },
+                {
+                  "group": "g2",
+                  "max": 2,
+                  "min": 0
+                }
+              ],
+              "is_active": true,
+              "name": "Latte",
+              "name_ar": "لاتيه",
+              "optionals": [],
+              "price": 15000,
+              "sizes": []
+            },
+            {
+              "category": "c2",
+              "description": null,
+              "description_ar": null,
+              "groups": [
+                {
+                  "group": "g1",
+                  "max": 1,
+                  "min": 1
+                }
+              ],
+              "is_active": true,
+              "name": "Iced Latte",
+              "name_ar": null,
+              "optionals": [],
+              "price": 16550,
+              "sizes": []
+            }
+          ],
+          "version": 1
+        },
+        "warnings": []
+      }
+    },
+    {
+      "name": "zero_max_is_no_max",
+      "about": "maximum_options 0 means no maximum",
+      "files": [
+        "id,name,name_localized,reference,image\n,Coffee,قهوة,cat-1,\n,Cold,بارد,cat-2,\n",
+        "id,name,sku,category_reference,tax_group_reference,is_sold_by_weight,is_active,is_stock_product,price,barcode,description,preparation_time,calories,walking_minutes_to_burn_calories,is_high_salt,image,name_localized,description_localized,ereceipt_item_type,ereceipt_item_code,ereceipt_unit_type\n,\"Latte\",p-1,cat-1,,No,Yes,No,100,,,,,,No,,,,,,\n",
+        "product_name,product_name_localized,product_sku,modifier_name,modifier_name_localized,modifier_reference,minimum_options,maximum_options,free_options,default_options,unique_options\n,,p-1,Extras,,,0,0,0,,No\n",
+        "id,modifier_reference,modifier_name,modifier_name_localized,tax_group_reference,name,sku,price,calories,name_localized,is_active\n,,Extras,,,Shot,,20,,,Yes\n"
+      ],
+      "expected": {
+        "files": [
+          "categories",
+          "products",
+          "product_modifiers",
+          "modifier_options"
+        ],
+        "menu": {
+          "categories": [
+            {
+              "key": "c1",
+              "name": "Coffee",
+              "name_ar": "قهوة"
+            },
+            {
+              "key": "c2",
+              "name": "Cold",
+              "name_ar": "بارد"
+            }
+          ],
+          "groups": [
+            {
+              "family": "extra",
+              "key": "g1",
+              "max": null,
+              "min": 0,
+              "name": "Extras",
+              "name_ar": null,
+              "options": [
+                {
+                  "is_active": true,
+                  "name": "Shot",
+                  "name_ar": null,
+                  "price": 2000
+                }
+              ]
+            }
+          ],
+          "items": [
+            {
+              "category": "c1",
+              "description": null,
+              "description_ar": null,
+              "groups": [
+                {
+                  "group": "g1",
+                  "max": null,
+                  "min": 0
+                }
+              ],
+              "is_active": true,
+              "name": "Latte",
+              "name_ar": null,
+              "optionals": [],
+              "price": 10000,
+              "sizes": []
+            }
+          ],
+          "version": 1
+        },
+        "warnings": [
+          {
+            "file": null,
+            "issue": {
+              "issue": "missing_file",
+              "kind": "modifier_groups"
+            },
+            "line": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "unknown_file",
+      "about": "a file whose header is no Foodics menu export",
+      "files": [
+        "name,price\nx,1\n"
+      ],
+      "expected": {
+        "error": "unknown_file",
+        "index": 0
+      }
+    },
+    {
+      "name": "missing_products",
+      "about": "no products file",
+      "files": [
+        "id,name,name_localized,reference,image\n,Coffee,قهوة,cat-1,\n,Cold,بارد,cat-2,\n"
+      ],
+      "expected": {
+        "error": "missing_products"
+      }
+    },
+    {
+      "name": "duplicate_file",
+      "about": "two categories files",
+      "files": [
+        "id,name,name_localized,reference,image\n,Coffee,قهوة,cat-1,\n,Cold,بارد,cat-2,\n",
+        "id,name,name_localized,reference,image\n,Coffee,قهوة,cat-1,\n,Cold,بارد,cat-2,\n"
+      ],
+      "expected": {
+        "error": "duplicate_file",
+        "kind": "categories"
+      }
+    }
+  ],
+  "validate": [
+    {
+      "name": "whole_menu",
+      "about": "by_name's menu passes, counted",
+      "menu": {
+        "version": 1,
+        "categories": [
+          {
+            "key": "c1",
+            "name": "Coffee",
+            "name_ar": "قهوة"
+          },
+          {
+            "key": "c2",
+            "name": "Cold",
+            "name_ar": "بارد"
+          }
+        ],
+        "groups": [
+          {
+            "key": "g1",
+            "name": "Milk",
+            "name_ar": "الحليب",
+            "min": 1,
+            "max": 1,
+            "family": "milk_type",
+            "options": [
+              {
+                "name": "Full Cream",
+                "name_ar": "كامل الدسم",
+                "price": 0,
+                "is_active": true
+              },
+              {
+                "name": "Oat",
+                "name_ar": "شوفان",
+                "price": 4500,
+                "is_active": true
+              }
+            ]
+          },
+          {
+            "key": "g2",
+            "name": "Extra Flavors",
+            "name_ar": "نكهات إضافية",
+            "min": 0,
+            "max": 2,
+            "family": "extra",
+            "options": [
+              {
+                "name": "Vanilla",
+                "name_ar": null,
+                "price": 2000,
+                "is_active": true
+              },
+              {
+                "name": "Caramel",
+                "name_ar": null,
+                "price": 2000,
+                "is_active": true
+              }
+            ]
+          }
+        ],
+        "items": [
+          {
+            "name": "Espresso",
+            "name_ar": "إسبريسو",
+            "description": null,
+            "description_ar": null,
+            "category": "c1",
+            "price": 11000,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g2",
+                "min": 0,
+                "max": 2
+              }
+            ],
+            "optionals": []
+          },
+          {
+            "name": "Latte",
+            "name_ar": "لاتيه",
+            "description": null,
+            "description_ar": null,
+            "category": "c1",
+            "price": 15000,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g1",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "group": "g2",
+                "min": 0,
+                "max": 2
+              }
+            ],
+            "optionals": []
+          },
+          {
+            "name": "Iced Latte",
+            "name_ar": null,
+            "description": null,
+            "description_ar": null,
+            "category": "c2",
+            "price": 16550,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g1",
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "optionals": []
+          }
+        ]
+      },
+      "expected": {
+        "categories": 2,
+        "groups": 2,
+        "items": 3,
+        "links": 4,
+        "optionals": 0,
+        "options": 4,
+        "sizes": 0
+      }
+    },
+    {
+      "name": "unsupported_version",
+      "about": "a version this crate does not read",
+      "menu": {
+        "version": 2,
+        "categories": [
+          {
+            "key": "c1",
+            "name": "Coffee",
+            "name_ar": "قهوة"
+          },
+          {
+            "key": "c2",
+            "name": "Cold",
+            "name_ar": "بارد"
+          }
+        ],
+        "groups": [
+          {
+            "key": "g1",
+            "name": "Milk",
+            "name_ar": "الحليب",
+            "min": 1,
+            "max": 1,
+            "family": "milk_type",
+            "options": [
+              {
+                "name": "Full Cream",
+                "name_ar": "كامل الدسم",
+                "price": 0,
+                "is_active": true
+              },
+              {
+                "name": "Oat",
+                "name_ar": "شوفان",
+                "price": 4500,
+                "is_active": true
+              }
+            ]
+          },
+          {
+            "key": "g2",
+            "name": "Extra Flavors",
+            "name_ar": "نكهات إضافية",
+            "min": 0,
+            "max": 2,
+            "family": "extra",
+            "options": [
+              {
+                "name": "Vanilla",
+                "name_ar": null,
+                "price": 2000,
+                "is_active": true
+              },
+              {
+                "name": "Caramel",
+                "name_ar": null,
+                "price": 2000,
+                "is_active": true
+              }
+            ]
+          }
+        ],
+        "items": [
+          {
+            "name": "Espresso",
+            "name_ar": "إسبريسو",
+            "description": null,
+            "description_ar": null,
+            "category": "c1",
+            "price": 11000,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g2",
+                "min": 0,
+                "max": 2
+              }
+            ],
+            "optionals": []
+          },
+          {
+            "name": "Latte",
+            "name_ar": "لاتيه",
+            "description": null,
+            "description_ar": null,
+            "category": "c1",
+            "price": 15000,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g1",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "group": "g2",
+                "min": 0,
+                "max": 2
+              }
+            ],
+            "optionals": []
+          },
+          {
+            "name": "Iced Latte",
+            "name_ar": null,
+            "description": null,
+            "description_ar": null,
+            "category": "c2",
+            "price": 16550,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g1",
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "optionals": []
+          }
+        ]
+      },
+      "expected": {
+        "got": 2,
+        "refusal": "unsupported_version",
+        "supported": 1
+      }
+    },
+    {
+      "name": "empty",
+      "about": "no items",
+      "menu": {
+        "version": 1,
+        "categories": [
+          {
+            "key": "c1",
+            "name": "Coffee",
+            "name_ar": "قهوة"
+          },
+          {
+            "key": "c2",
+            "name": "Cold",
+            "name_ar": "بارد"
+          }
+        ],
+        "groups": [
+          {
+            "key": "g1",
+            "name": "Milk",
+            "name_ar": "الحليب",
+            "min": 1,
+            "max": 1,
+            "family": "milk_type",
+            "options": [
+              {
+                "name": "Full Cream",
+                "name_ar": "كامل الدسم",
+                "price": 0,
+                "is_active": true
+              },
+              {
+                "name": "Oat",
+                "name_ar": "شوفان",
+                "price": 4500,
+                "is_active": true
+              }
+            ]
+          },
+          {
+            "key": "g2",
+            "name": "Extra Flavors",
+            "name_ar": "نكهات إضافية",
+            "min": 0,
+            "max": 2,
+            "family": "extra",
+            "options": [
+              {
+                "name": "Vanilla",
+                "name_ar": null,
+                "price": 2000,
+                "is_active": true
+              },
+              {
+                "name": "Caramel",
+                "name_ar": null,
+                "price": 2000,
+                "is_active": true
+              }
+            ]
+          }
+        ],
+        "items": []
+      },
+      "expected": {
+        "refusal": "empty"
+      }
+    },
+    {
+      "name": "duplicate_item_by_case",
+      "about": "names compare trimmed, spaces folded, case ignored",
+      "menu": {
+        "version": 1,
+        "categories": [
+          {
+            "key": "c1",
+            "name": "Coffee",
+            "name_ar": "قهوة"
+          },
+          {
+            "key": "c2",
+            "name": "Cold",
+            "name_ar": "بارد"
+          }
+        ],
+        "groups": [
+          {
+            "key": "g1",
+            "name": "Milk",
+            "name_ar": "الحليب",
+            "min": 1,
+            "max": 1,
+            "family": "milk_type",
+            "options": [
+              {
+                "name": "Full Cream",
+                "name_ar": "كامل الدسم",
+                "price": 0,
+                "is_active": true
+              },
+              {
+                "name": "Oat",
+                "name_ar": "شوفان",
+                "price": 4500,
+                "is_active": true
+              }
+            ]
+          },
+          {
+            "key": "g2",
+            "name": "Extra Flavors",
+            "name_ar": "نكهات إضافية",
+            "min": 0,
+            "max": 2,
+            "family": "extra",
+            "options": [
+              {
+                "name": "Vanilla",
+                "name_ar": null,
+                "price": 2000,
+                "is_active": true
+              },
+              {
+                "name": "Caramel",
+                "name_ar": null,
+                "price": 2000,
+                "is_active": true
+              }
+            ]
+          }
+        ],
+        "items": [
+          {
+            "name": "Espresso",
+            "name_ar": "إسبريسو",
+            "description": null,
+            "description_ar": null,
+            "category": "c1",
+            "price": 11000,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g2",
+                "min": 0,
+                "max": 2
+              }
+            ],
+            "optionals": []
+          },
+          {
+            "name": "Latte",
+            "name_ar": "لاتيه",
+            "description": null,
+            "description_ar": null,
+            "category": "c1",
+            "price": 15000,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g1",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "group": "g2",
+                "min": 0,
+                "max": 2
+              }
+            ],
+            "optionals": []
+          },
+          {
+            "name": "Iced Latte",
+            "name_ar": null,
+            "description": null,
+            "description_ar": null,
+            "category": "c2",
+            "price": 16550,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g1",
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "optionals": []
+          },
+          {
+            "name": "  ESPRESSO ",
+            "name_ar": "إسبريسو",
+            "description": null,
+            "description_ar": null,
+            "category": "c1",
+            "price": 11000,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g2",
+                "min": 0,
+                "max": 2
+              }
+            ],
+            "optionals": []
+          }
+        ]
+      },
+      "expected": {
+        "name": "ESPRESSO",
+        "refusal": "duplicate",
+        "what": "item",
+        "within": null
+      }
+    },
+    {
+      "name": "unknown_category",
+      "about": "an item names a category key not in the menu",
+      "menu": {
+        "version": 1,
+        "categories": [
+          {
+            "key": "c1",
+            "name": "Coffee",
+            "name_ar": "قهوة"
+          },
+          {
+            "key": "c2",
+            "name": "Cold",
+            "name_ar": "بارد"
+          }
+        ],
+        "groups": [
+          {
+            "key": "g1",
+            "name": "Milk",
+            "name_ar": "الحليب",
+            "min": 1,
+            "max": 1,
+            "family": "milk_type",
+            "options": [
+              {
+                "name": "Full Cream",
+                "name_ar": "كامل الدسم",
+                "price": 0,
+                "is_active": true
+              },
+              {
+                "name": "Oat",
+                "name_ar": "شوفان",
+                "price": 4500,
+                "is_active": true
+              }
+            ]
+          },
+          {
+            "key": "g2",
+            "name": "Extra Flavors",
+            "name_ar": "نكهات إضافية",
+            "min": 0,
+            "max": 2,
+            "family": "extra",
+            "options": [
+              {
+                "name": "Vanilla",
+                "name_ar": null,
+                "price": 2000,
+                "is_active": true
+              },
+              {
+                "name": "Caramel",
+                "name_ar": null,
+                "price": 2000,
+                "is_active": true
+              }
+            ]
+          }
+        ],
+        "items": [
+          {
+            "name": "Espresso",
+            "name_ar": "إسبريسو",
+            "description": null,
+            "description_ar": null,
+            "category": "c404",
+            "price": 11000,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g2",
+                "min": 0,
+                "max": 2
+              }
+            ],
+            "optionals": []
+          },
+          {
+            "name": "Latte",
+            "name_ar": "لاتيه",
+            "description": null,
+            "description_ar": null,
+            "category": "c1",
+            "price": 15000,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g1",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "group": "g2",
+                "min": 0,
+                "max": 2
+              }
+            ],
+            "optionals": []
+          },
+          {
+            "name": "Iced Latte",
+            "name_ar": null,
+            "description": null,
+            "description_ar": null,
+            "category": "c2",
+            "price": 16550,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g1",
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "optionals": []
+          }
+        ]
+      },
+      "expected": {
+        "category": "c404",
+        "item": "Espresso",
+        "refusal": "unknown_category"
+      }
+    },
+    {
+      "name": "unknown_group",
+      "about": "an item names a group key not in the menu",
+      "menu": {
+        "version": 1,
+        "categories": [
+          {
+            "key": "c1",
+            "name": "Coffee",
+            "name_ar": "قهوة"
+          },
+          {
+            "key": "c2",
+            "name": "Cold",
+            "name_ar": "بارد"
+          }
+        ],
+        "groups": [
+          {
+            "key": "g1",
+            "name": "Milk",
+            "name_ar": "الحليب",
+            "min": 1,
+            "max": 1,
+            "family": "milk_type",
+            "options": [
+              {
+                "name": "Full Cream",
+                "name_ar": "كامل الدسم",
+                "price": 0,
+                "is_active": true
+              },
+              {
+                "name": "Oat",
+                "name_ar": "شوفان",
+                "price": 4500,
+                "is_active": true
+              }
+            ]
+          },
+          {
+            "key": "g2",
+            "name": "Extra Flavors",
+            "name_ar": "نكهات إضافية",
+            "min": 0,
+            "max": 2,
+            "family": "extra",
+            "options": [
+              {
+                "name": "Vanilla",
+                "name_ar": null,
+                "price": 2000,
+                "is_active": true
+              },
+              {
+                "name": "Caramel",
+                "name_ar": null,
+                "price": 2000,
+                "is_active": true
+              }
+            ]
+          }
+        ],
+        "items": [
+          {
+            "name": "Espresso",
+            "name_ar": "إسبريسو",
+            "description": null,
+            "description_ar": null,
+            "category": "c1",
+            "price": 11000,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g2",
+                "min": 0,
+                "max": 2
+              }
+            ],
+            "optionals": []
+          },
+          {
+            "name": "Latte",
+            "name_ar": "لاتيه",
+            "description": null,
+            "description_ar": null,
+            "category": "c1",
+            "price": 15000,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g404",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "group": "g2",
+                "min": 0,
+                "max": 2
+              }
+            ],
+            "optionals": []
+          },
+          {
+            "name": "Iced Latte",
+            "name_ar": null,
+            "description": null,
+            "description_ar": null,
+            "category": "c2",
+            "price": 16550,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g1",
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "optionals": []
+          }
+        ]
+      },
+      "expected": {
+        "group": "g404",
+        "item": "Latte",
+        "refusal": "unknown_group"
+      }
+    },
+    {
+      "name": "unmeetable_min",
+      "about": "a link requiring more picks than the group has active options",
+      "menu": {
+        "version": 1,
+        "categories": [
+          {
+            "key": "c1",
+            "name": "Coffee",
+            "name_ar": "قهوة"
+          },
+          {
+            "key": "c2",
+            "name": "Cold",
+            "name_ar": "بارد"
+          }
+        ],
+        "groups": [
+          {
+            "key": "g1",
+            "name": "Milk",
+            "name_ar": "الحليب",
+            "min": 1,
+            "max": 1,
+            "family": "milk_type",
+            "options": [
+              {
+                "name": "Full Cream",
+                "name_ar": "كامل الدسم",
+                "price": 0,
+                "is_active": true
+              },
+              {
+                "name": "Oat",
+                "name_ar": "شوفان",
+                "price": 4500,
+                "is_active": true
+              }
+            ]
+          },
+          {
+            "key": "g2",
+            "name": "Extra Flavors",
+            "name_ar": "نكهات إضافية",
+            "min": 0,
+            "max": 2,
+            "family": "extra",
+            "options": [
+              {
+                "name": "Vanilla",
+                "name_ar": null,
+                "price": 2000,
+                "is_active": true
+              },
+              {
+                "name": "Caramel",
+                "name_ar": null,
+                "price": 2000,
+                "is_active": true
+              }
+            ]
+          }
+        ],
+        "items": [
+          {
+            "name": "Espresso",
+            "name_ar": "إسبريسو",
+            "description": null,
+            "description_ar": null,
+            "category": "c1",
+            "price": 11000,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g2",
+                "min": 0,
+                "max": 2
+              }
+            ],
+            "optionals": []
+          },
+          {
+            "name": "Latte",
+            "name_ar": "لاتيه",
+            "description": null,
+            "description_ar": null,
+            "category": "c1",
+            "price": 15000,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g1",
+                "min": 5,
+                "max": 1
+              },
+              {
+                "group": "g2",
+                "min": 0,
+                "max": 2
+              }
+            ],
+            "optionals": []
+          },
+          {
+            "name": "Iced Latte",
+            "name_ar": null,
+            "description": null,
+            "description_ar": null,
+            "category": "c2",
+            "price": 16550,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g1",
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "optionals": []
+          }
+        ]
+      },
+      "expected": {
+        "group": "Milk",
+        "item": "Latte",
+        "max": 1,
+        "min": 5,
+        "options": 2,
+        "refusal": "bad_limits"
+      }
+    },
+    {
+      "name": "max_under_min",
+      "about": "a group maximum under its minimum",
+      "menu": {
+        "version": 1,
+        "categories": [
+          {
+            "key": "c1",
+            "name": "Coffee",
+            "name_ar": "قهوة"
+          },
+          {
+            "key": "c2",
+            "name": "Cold",
+            "name_ar": "بارد"
+          }
+        ],
+        "groups": [
+          {
+            "key": "g1",
+            "name": "Milk",
+            "name_ar": "الحليب",
+            "min": 2,
+            "max": 1,
+            "family": "milk_type",
+            "options": [
+              {
+                "name": "Full Cream",
+                "name_ar": "كامل الدسم",
+                "price": 0,
+                "is_active": true
+              },
+              {
+                "name": "Oat",
+                "name_ar": "شوفان",
+                "price": 4500,
+                "is_active": true
+              }
+            ]
+          },
+          {
+            "key": "g2",
+            "name": "Extra Flavors",
+            "name_ar": "نكهات إضافية",
+            "min": 0,
+            "max": 2,
+            "family": "extra",
+            "options": [
+              {
+                "name": "Vanilla",
+                "name_ar": null,
+                "price": 2000,
+                "is_active": true
+              },
+              {
+                "name": "Caramel",
+                "name_ar": null,
+                "price": 2000,
+                "is_active": true
+              }
+            ]
+          }
+        ],
+        "items": [
+          {
+            "name": "Espresso",
+            "name_ar": "إسبريسو",
+            "description": null,
+            "description_ar": null,
+            "category": "c1",
+            "price": 11000,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g2",
+                "min": 0,
+                "max": 2
+              }
+            ],
+            "optionals": []
+          },
+          {
+            "name": "Latte",
+            "name_ar": "لاتيه",
+            "description": null,
+            "description_ar": null,
+            "category": "c1",
+            "price": 15000,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g1",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "group": "g2",
+                "min": 0,
+                "max": 2
+              }
+            ],
+            "optionals": []
+          },
+          {
+            "name": "Iced Latte",
+            "name_ar": null,
+            "description": null,
+            "description_ar": null,
+            "category": "c2",
+            "price": 16550,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g1",
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "optionals": []
+          }
+        ]
+      },
+      "expected": {
+        "group": "Milk",
+        "item": null,
+        "max": 1,
+        "min": 2,
+        "options": 2,
+        "refusal": "bad_limits"
+      }
+    },
+    {
+      "name": "control_character",
+      "about": "a bell in an item name",
+      "menu": {
+        "version": 1,
+        "categories": [
+          {
+            "key": "c1",
+            "name": "Coffee",
+            "name_ar": "قهوة"
+          },
+          {
+            "key": "c2",
+            "name": "Cold",
+            "name_ar": "بارد"
+          }
+        ],
+        "groups": [
+          {
+            "key": "g1",
+            "name": "Milk",
+            "name_ar": "الحليب",
+            "min": 1,
+            "max": 1,
+            "family": "milk_type",
+            "options": [
+              {
+                "name": "Full Cream",
+                "name_ar": "كامل الدسم",
+                "price": 0,
+                "is_active": true
+              },
+              {
+                "name": "Oat",
+                "name_ar": "شوفان",
+                "price": 4500,
+                "is_active": true
+              }
+            ]
+          },
+          {
+            "key": "g2",
+            "name": "Extra Flavors",
+            "name_ar": "نكهات إضافية",
+            "min": 0,
+            "max": 2,
+            "family": "extra",
+            "options": [
+              {
+                "name": "Vanilla",
+                "name_ar": null,
+                "price": 2000,
+                "is_active": true
+              },
+              {
+                "name": "Caramel",
+                "name_ar": null,
+                "price": 2000,
+                "is_active": true
+              }
+            ]
+          }
+        ],
+        "items": [
+          {
+            "name": "Espresso\u0007",
+            "name_ar": "إسبريسو",
+            "description": null,
+            "description_ar": null,
+            "category": "c1",
+            "price": 11000,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g2",
+                "min": 0,
+                "max": 2
+              }
+            ],
+            "optionals": []
+          },
+          {
+            "name": "Latte",
+            "name_ar": "لاتيه",
+            "description": null,
+            "description_ar": null,
+            "category": "c1",
+            "price": 15000,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g1",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "group": "g2",
+                "min": 0,
+                "max": 2
+              }
+            ],
+            "optionals": []
+          },
+          {
+            "name": "Iced Latte",
+            "name_ar": null,
+            "description": null,
+            "description_ar": null,
+            "category": "c2",
+            "price": 16550,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g1",
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "optionals": []
+          }
+        ]
+      },
+      "expected": {
+        "name": "Espresso\u0007",
+        "refusal": "bad_text",
+        "what": "item"
+      }
+    },
+    {
+      "name": "name_too_long_in_characters",
+      "about": "121 Arabic letters: the limit counts characters, not bytes",
+      "menu": {
+        "version": 1,
+        "categories": [
+          {
+            "key": "c1",
+            "name": "Coffee",
+            "name_ar": "قهوة"
+          },
+          {
+            "key": "c2",
+            "name": "Cold",
+            "name_ar": "بارد"
+          }
+        ],
+        "groups": [
+          {
+            "key": "g1",
+            "name": "Milk",
+            "name_ar": "الحليب",
+            "min": 1,
+            "max": 1,
+            "family": "milk_type",
+            "options": [
+              {
+                "name": "Full Cream",
+                "name_ar": "كامل الدسم",
+                "price": 0,
+                "is_active": true
+              },
+              {
+                "name": "Oat",
+                "name_ar": "شوفان",
+                "price": 4500,
+                "is_active": true
+              }
+            ]
+          },
+          {
+            "key": "g2",
+            "name": "Extra Flavors",
+            "name_ar": "نكهات إضافية",
+            "min": 0,
+            "max": 2,
+            "family": "extra",
+            "options": [
+              {
+                "name": "Vanilla",
+                "name_ar": null,
+                "price": 2000,
+                "is_active": true
+              },
+              {
+                "name": "Caramel",
+                "name_ar": null,
+                "price": 2000,
+                "is_active": true
+              }
+            ]
+          }
+        ],
+        "items": [
+          {
+            "name": "ققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققق",
+            "name_ar": "إسبريسو",
+            "description": null,
+            "description_ar": null,
+            "category": "c1",
+            "price": 11000,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g2",
+                "min": 0,
+                "max": 2
+              }
+            ],
+            "optionals": []
+          },
+          {
+            "name": "Latte",
+            "name_ar": "لاتيه",
+            "description": null,
+            "description_ar": null,
+            "category": "c1",
+            "price": 15000,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g1",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "group": "g2",
+                "min": 0,
+                "max": 2
+              }
+            ],
+            "optionals": []
+          },
+          {
+            "name": "Iced Latte",
+            "name_ar": null,
+            "description": null,
+            "description_ar": null,
+            "category": "c2",
+            "price": 16550,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g1",
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "optionals": []
+          }
+        ]
+      },
+      "expected": {
+        "max": 120,
+        "name": "قققققققققققققققققققققققققققققققققققققققق",
+        "refusal": "too_long",
+        "what": "item"
+      }
+    },
+    {
+      "name": "name_at_the_limit",
+      "about": "120 Arabic letters pass",
+      "menu": {
+        "version": 1,
+        "categories": [
+          {
+            "key": "c1",
+            "name": "Coffee",
+            "name_ar": "قهوة"
+          },
+          {
+            "key": "c2",
+            "name": "Cold",
+            "name_ar": "بارد"
+          }
+        ],
+        "groups": [
+          {
+            "key": "g1",
+            "name": "Milk",
+            "name_ar": "الحليب",
+            "min": 1,
+            "max": 1,
+            "family": "milk_type",
+            "options": [
+              {
+                "name": "Full Cream",
+                "name_ar": "كامل الدسم",
+                "price": 0,
+                "is_active": true
+              },
+              {
+                "name": "Oat",
+                "name_ar": "شوفان",
+                "price": 4500,
+                "is_active": true
+              }
+            ]
+          },
+          {
+            "key": "g2",
+            "name": "Extra Flavors",
+            "name_ar": "نكهات إضافية",
+            "min": 0,
+            "max": 2,
+            "family": "extra",
+            "options": [
+              {
+                "name": "Vanilla",
+                "name_ar": null,
+                "price": 2000,
+                "is_active": true
+              },
+              {
+                "name": "Caramel",
+                "name_ar": null,
+                "price": 2000,
+                "is_active": true
+              }
+            ]
+          }
+        ],
+        "items": [
+          {
+            "name": "قققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققققق",
+            "name_ar": "إسبريسو",
+            "description": null,
+            "description_ar": null,
+            "category": "c1",
+            "price": 11000,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g2",
+                "min": 0,
+                "max": 2
+              }
+            ],
+            "optionals": []
+          },
+          {
+            "name": "Latte",
+            "name_ar": "لاتيه",
+            "description": null,
+            "description_ar": null,
+            "category": "c1",
+            "price": 15000,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g1",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "group": "g2",
+                "min": 0,
+                "max": 2
+              }
+            ],
+            "optionals": []
+          },
+          {
+            "name": "Iced Latte",
+            "name_ar": null,
+            "description": null,
+            "description_ar": null,
+            "category": "c2",
+            "price": 16550,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g1",
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "optionals": []
+          }
+        ]
+      },
+      "expected": {
+        "categories": 2,
+        "groups": 2,
+        "items": 3,
+        "links": 4,
+        "optionals": 0,
+        "options": 4,
+        "sizes": 0
+      }
+    },
+    {
+      "name": "reserved_size_label",
+      "about": "one_size is the server's hidden size",
+      "menu": {
+        "version": 1,
+        "categories": [
+          {
+            "key": "c1",
+            "name": "Coffee",
+            "name_ar": "قهوة"
+          },
+          {
+            "key": "c2",
+            "name": "Cold",
+            "name_ar": "بارد"
+          }
+        ],
+        "groups": [
+          {
+            "key": "g1",
+            "name": "Milk",
+            "name_ar": "الحليب",
+            "min": 1,
+            "max": 1,
+            "family": "milk_type",
+            "options": [
+              {
+                "name": "Full Cream",
+                "name_ar": "كامل الدسم",
+                "price": 0,
+                "is_active": true
+              },
+              {
+                "name": "Oat",
+                "name_ar": "شوفان",
+                "price": 4500,
+                "is_active": true
+              }
+            ]
+          },
+          {
+            "key": "g2",
+            "name": "Extra Flavors",
+            "name_ar": "نكهات إضافية",
+            "min": 0,
+            "max": 2,
+            "family": "extra",
+            "options": [
+              {
+                "name": "Vanilla",
+                "name_ar": null,
+                "price": 2000,
+                "is_active": true
+              },
+              {
+                "name": "Caramel",
+                "name_ar": null,
+                "price": 2000,
+                "is_active": true
+              }
+            ]
+          }
+        ],
+        "items": [
+          {
+            "name": "Espresso",
+            "name_ar": "إسبريسو",
+            "description": null,
+            "description_ar": null,
+            "category": "c1",
+            "price": 11000,
+            "is_active": true,
+            "sizes": [
+              {
+                "label": "one_size",
+                "price": 100,
+                "is_active": true
+              }
+            ],
+            "groups": [
+              {
+                "group": "g2",
+                "min": 0,
+                "max": 2
+              }
+            ],
+            "optionals": []
+          },
+          {
+            "name": "Latte",
+            "name_ar": "لاتيه",
+            "description": null,
+            "description_ar": null,
+            "category": "c1",
+            "price": 15000,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g1",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "group": "g2",
+                "min": 0,
+                "max": 2
+              }
+            ],
+            "optionals": []
+          },
+          {
+            "name": "Iced Latte",
+            "name_ar": null,
+            "description": null,
+            "description_ar": null,
+            "category": "c2",
+            "price": 16550,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g1",
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "optionals": []
+          }
+        ]
+      },
+      "expected": {
+        "item": "Espresso",
+        "label": "one_size",
+        "refusal": "reserved_label"
+      }
+    },
+    {
+      "name": "negative_price",
+      "about": "an option at -1 EGP",
+      "menu": {
+        "version": 1,
+        "categories": [
+          {
+            "key": "c1",
+            "name": "Coffee",
+            "name_ar": "قهوة"
+          },
+          {
+            "key": "c2",
+            "name": "Cold",
+            "name_ar": "بارد"
+          }
+        ],
+        "groups": [
+          {
+            "key": "g1",
+            "name": "Milk",
+            "name_ar": "الحليب",
+            "min": 1,
+            "max": 1,
+            "family": "milk_type",
+            "options": [
+              {
+                "name": "Full Cream",
+                "name_ar": "كامل الدسم",
+                "price": -100,
+                "is_active": true
+              },
+              {
+                "name": "Oat",
+                "name_ar": "شوفان",
+                "price": 4500,
+                "is_active": true
+              }
+            ]
+          },
+          {
+            "key": "g2",
+            "name": "Extra Flavors",
+            "name_ar": "نكهات إضافية",
+            "min": 0,
+            "max": 2,
+            "family": "extra",
+            "options": [
+              {
+                "name": "Vanilla",
+                "name_ar": null,
+                "price": 2000,
+                "is_active": true
+              },
+              {
+                "name": "Caramel",
+                "name_ar": null,
+                "price": 2000,
+                "is_active": true
+              }
+            ]
+          }
+        ],
+        "items": [
+          {
+            "name": "Espresso",
+            "name_ar": "إسبريسو",
+            "description": null,
+            "description_ar": null,
+            "category": "c1",
+            "price": 11000,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g2",
+                "min": 0,
+                "max": 2
+              }
+            ],
+            "optionals": []
+          },
+          {
+            "name": "Latte",
+            "name_ar": "لاتيه",
+            "description": null,
+            "description_ar": null,
+            "category": "c1",
+            "price": 15000,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g1",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "group": "g2",
+                "min": 0,
+                "max": 2
+              }
+            ],
+            "optionals": []
+          },
+          {
+            "name": "Iced Latte",
+            "name_ar": null,
+            "description": null,
+            "description_ar": null,
+            "category": "c2",
+            "price": 16550,
+            "is_active": true,
+            "sizes": [],
+            "groups": [
+              {
+                "group": "g1",
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "optionals": []
+          }
+        ]
+      },
+      "expected": {
+        "name": "Full Cream",
+        "price": -100,
+        "refusal": "bad_price",
+        "what": "option"
+      }
+    }
+  ]
+}

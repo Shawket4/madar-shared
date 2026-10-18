@@ -3,6 +3,19 @@
 Every tag both consumers pin. A release that changes a result on either side
 says so here; everything else is a move.
 
+## v0.10.0 — madar-menu: the self-serve menu import (2026-10-18)
+
+**What changes:** nothing on a till or the server yet. A new crate; every existing function and
+vector file is byte-identical, and the `public` browser package is byte-identical too.
+
+- `madar-menu`: `BulkMenu` (the JSON a dashboard sends to `POST /menu/bulk`) and `validate`, the
+  server's checks before it writes one; `foodics::parse` (feature `foodics`, the `csv` crate) reads
+  a Foodics console export into a `BulkMenu` plus row warnings. Sizes come from a group with
+  reference `size`, or from a group named like sizes that is pick-exactly-one with size-like
+  options; one that fails the test stays a group with a `looks_like_sizes` warning.
+- `madar-web` `full`: `foodics_parse`, `bulk_validate` (+32 KB brotli). `public`: unchanged.
+- `vectors/menu_import_vectors.json`: 12 reader cases, 13 check cases, run natively and through the wasm.
+
 ## v0.9.0 — checked casts and #[must_use] (2026-10-16)
 
 **What changes:** two results, both only at absurd inputs. A deal whose `qty`/`get_qty` exceeds

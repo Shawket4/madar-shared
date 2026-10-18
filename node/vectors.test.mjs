@@ -4,7 +4,7 @@
 //
 // Build first (scripts/build-wasm.sh), then: node --test node/
 // Each package runs every file its exports cover; `full` covers all
-// twenty-five files the web uses, `public` the customer pages' ten.
+// twenty-six files the web uses, `public` the customer pages' ten.
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -168,6 +168,13 @@ function fullFiles(pkg, w) {
     (c) => w.first_pay(c.monthly, c.hire_date, c.start_day),
     (c) => ({ from: c.from, to: c.to, days: c.days, period_days: c.period_days, piastres: c.piastres }));
   skipped.push(`full: ${salary.prorated.length} salary_vectors prorated cases (prorated_base is not exported: the web does not compute it)`);
+
+  // The menu import (madar-menu): the Foodics reader and the server's checks.
+  const menuImport = vectors("madar-menu/vectors/menu_import_vectors.json");
+  cases(pkg, "menu_import_vectors", "foodics_parse", menuImport.foodics,
+    (c) => w.foodics_parse(c.files), (c) => c.expected);
+  cases(pkg, "menu_import_vectors", "bulk_validate", menuImport.validate,
+    (c) => w.bulk_validate(c.menu), (c) => c.expected);
   const ladder = vectors("madar-dawam/vectors/ladder_vectors.json");
   const rungs = ladder.ladder.map((t) => ({ ...t, value: Number(t.value) }));
   cases(pkg, "ladder_vectors", "select_late_tier", ladder.select,
@@ -272,6 +279,11 @@ for (const pkg of ["public", "full"]) {
   describe(pkg, () => {
     publicFiles(pkg, w);
     if (pkg === "full") fullFiles(pkg, w);
+    // The customer pages never download the menu import's reader.
+    if (pkg === "public") test("public leaves out the menu import", () => {
+      assert.equal(w.foodics_parse, undefined);
+      assert.equal(w.bulk_validate, undefined);
+    });
   });
 }
 

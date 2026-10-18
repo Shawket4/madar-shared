@@ -38,6 +38,7 @@ full = [
     "dep:madar-units",
     "dep:madar-inventory",
     "dep:madar-till",
+    "dep:madar-menu",
 ]
 
 [dependencies]
@@ -57,6 +58,9 @@ madar-dawam = { path = "../madar-dawam", optional = true }
 madar-units = { path = "../madar-units", optional = true }
 madar-inventory = { path = "../madar-inventory", features = ["tsify"], optional = true }
 madar-till = { path = "../madar-till", optional = true }
+# The menu import, in `full` only: the customer pages never download the CSV
+# reader (node/vectors.test.mjs checks `public` exports none of it).
+madar-menu = { path = "../madar-menu", features = ["foodics", "tsify"], optional = true }
 
 rust_decimal = { version = "1", default-features = false, optional = true }
 chrono = { version = "0.4", default-features = false, features = ["std"], optional = true }

@@ -899,4 +899,20 @@ mod full {
             category_id.as_deref(),
         ))
     }
+
+    // ── menu import (madar-menu), dashboard only ─────────────────────────
+
+    /// A Foodics console export read into a bulk menu: each file's text, in
+    /// any order. A file that cannot be read is returned, not thrown.
+    #[wasm_bindgen(unchecked_return_type = "FoodicsParsed | FoodicsError")]
+    pub fn foodics_parse(files: Vec<String>) -> Result<JsValue, JsError> {
+        let refs: Vec<&str> = files.iter().map(String::as_str).collect();
+        either(madar_menu::foodics::parse(&refs))
+    }
+
+    /// The server's checks on a bulk menu, for the preview.
+    #[wasm_bindgen(unchecked_return_type = "BulkSummary | BulkRefusal")]
+    pub fn bulk_validate(menu: Ts<madar_menu::BulkMenu>) -> Result<JsValue, JsError> {
+        either(madar_menu::validate(&menu.to_rust()?))
+    }
 }
