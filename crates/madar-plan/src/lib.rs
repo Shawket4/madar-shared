@@ -179,6 +179,10 @@ impl FeatureSet {
     pub fn is_empty(self) -> bool {
         self.0 == 0
     }
+
+    pub fn union(self, other: FeatureSet) -> FeatureSet {
+        FeatureSet(self.0 | other.0)
+    }
 }
 
 impl std::fmt::Debug for FeatureSet {
@@ -252,9 +256,16 @@ impl Entitlements {
 }
 
 pub fn entitlements(plan: Plan) -> Entitlements {
+    entitlements_with(plan, FeatureSet::EMPTY)
+}
+
+/// The plan's entitlements plus the organisation's add-ons (Wafa: loyalty
+/// sold alone on Free). An add-on adds features only; limits and realtime stay
+/// the plan's.
+pub fn entitlements_with(plan: Plan, addons: FeatureSet) -> Entitlements {
     let m = plan.meta();
     Entitlements {
-        features: m.features.iter().copied().collect(),
+        features: m.features.iter().copied().collect::<FeatureSet>().union(addons),
         limits: m.limits,
         realtime: m.realtime,
     }
@@ -277,9 +288,14 @@ pub fn require(plan: Plan, f: Feature) -> Result<(), Refusal> {
 /// feature the plan lacks. Core capabilities are never behind a feature, so
 /// they are always inside it.
 pub fn ceiling(plan: Plan) -> CapSet {
+    ceiling_with(plan, FeatureSet::EMPTY)
+}
+
+/// [`ceiling`] with the organisation's add-ons switched on too.
+pub fn ceiling_with(plan: Plan, addons: FeatureSet) -> CapSet {
     let mut set = CapSet::all();
     for m in FEATURES {
-        if !has_feature(plan, m.feature) {
+        if !has_feature(plan, m.feature) && !addons.contains(m.feature) {
             for c in m.caps {
                 set.remove(*c);
             }
@@ -292,8 +308,13 @@ pub fn ceiling(plan: Plan) -> CapSet {
 /// intersection. Capped capabilities that fall out lose their limits, and "ask a
 /// manager" cannot stand in for a capability the plan does not have. Paid
 /// changes nothing; core capabilities survive every plan.
-pub fn apply(plan: Plan, mut eff: EffectiveSet) -> EffectiveSet {
-    let ceil = ceiling(plan);
+pub fn apply(plan: Plan, eff: EffectiveSet) -> EffectiveSet {
+    apply_with(plan, FeatureSet::EMPTY, eff)
+}
+
+/// [`apply`] under the ceiling the plan and the add-ons make together.
+pub fn apply_with(plan: Plan, addons: FeatureSet, mut eff: EffectiveSet) -> EffectiveSet {
+    let ceil = ceiling_with(plan, addons);
     if ceil == CapSet::all() {
         return eff;
     }

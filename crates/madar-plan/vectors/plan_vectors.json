@@ -1,5 +1,10 @@
 {
-  "_doc": "madar-plan vectors. `plans`, `parse`, `spot`, `branches`, `devices`, `downgrade` and `topics` are hand-computed from the spec (FREEMIUM_SPEC_2026-10-11.md §1, §3). `ceiling_roles` (the capabilities each plan cuts from each template role's grants) and `refusals` (the wording) are reviewed snapshots of the crate: regenerate with `WRITE_PLAN_VECTORS=<file> cargo test -p madar-plan --lib print_vectors -- --ignored` and merge by hand. A limit of null is unlimited; an `expected` of null is allowed.",
+  "_doc": "madar-plan vectors. `plans`, `addons`, `parse`, `spot`, `branches`, `devices`, `downgrade` and `topics` are hand-computed from the spec (FREEMIUM_SPEC_2026-10-11.md §1, §3). `ceiling_roles` (the capabilities each plan cuts from each template role's grants) and `refusals` (the wording) are reviewed snapshots of the crate: regenerate with `WRITE_PLAN_VECTORS=<file> cargo test -p madar-plan --lib print_vectors -- --ignored` and merge by hand. A limit of null is unlimited; an `expected` of null is allowed.",
+  "addons": [
+    {"plan": "free", "addons": [], "features": ["floor"], "kept": ["pos.sign_in"], "cut": ["loyalty.use", "loyalty.read", "inventory.read"]},
+    {"plan": "free", "addons": ["loyalty"], "features": ["floor", "loyalty"], "kept": ["pos.sign_in", "loyalty.use", "loyalty.read", "loyalty.members.list", "loyalty.points.adjust"], "cut": ["inventory.read", "recipes.read"]},
+    {"plan": "paid", "addons": ["loyalty"], "features": ["basira", "bookings", "branding", "dawam", "floor", "inventory", "kitchen", "loyalty", "online"], "kept": ["loyalty.use", "inventory.read"], "cut": []}
+  ],
   "plans": [
     {"plan": "free", "expected": {"features": ["floor"], "limits": {"branches": 1, "pos_devices_per_branch": 1, "kds_devices": 0, "waiter_devices": 0}, "realtime": false}},
     {"plan": "paid", "expected": {"features": ["basira", "bookings", "branding", "dawam", "floor", "inventory", "kitchen", "loyalty", "online"], "limits": {"branches": null, "pos_devices_per_branch": null, "kds_devices": null, "waiter_devices": null}, "realtime": true}}

@@ -3,6 +3,22 @@
 Every tag both consumers pin. A release that changes a result on either side
 says so here; everything else is a move.
 
+## v0.11.0 — Wafa: the scan rule and plan add-ons (2026-10-19)
+
+**What changes:** nothing on a till or the server until they adopt the new functions. Every
+existing function and vector case is unchanged; two vector files gain cases.
+
+- `madar-ids::scan::classify`: what a scanned or typed string is (a whole member card, a phone in
+  its canonical form, or still partial). The POS core's `classify_scan_input` becomes a wrapper
+  over it; `vectors/scan_vectors.json` pins it. `madar-web` (`public`) exports `scan_classify` for
+  the Wafa teller page.
+- `madar-plan` add-ons: `FeatureSet::union`, `entitlements_with`, `ceiling_with`, `apply_with`
+  take the organisation's add-on features beside the plan (loyalty sold alone on Free). Add-ons
+  add features only, never limits. The plan-only functions are the empty-add-on case.
+  `plan_vectors.json` gains `addons`. No new `Feature` variant, so old `FeatureSet` decoders are
+  unaffected.
+- Like v0.7.x, the tag does not bump the workspace `version`.
+
 ## v0.10.0 — madar-menu: the self-serve menu import (2026-10-18)
 
 **What changes:** nothing on a till or the server yet. A new crate; every existing function and

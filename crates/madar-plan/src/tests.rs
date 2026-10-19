@@ -18,6 +18,7 @@ fn plan(s: &str) -> Plan {
 #[derive(Deserialize)]
 struct Vectors {
     plans: Vec<PlanCase>,
+    addons: Vec<AddonCase>,
     parse: Vec<(String, String)>,
     spot: Vec<Spot>,
     ceiling_roles: Vec<RoleCase>,
@@ -32,6 +33,15 @@ struct Vectors {
 struct PlanCase {
     plan: String,
     expected: serde_json::Value,
+}
+
+#[derive(Deserialize)]
+struct AddonCase {
+    plan: String,
+    addons: FeatureSet,
+    features: FeatureSet,
+    kept: Vec<String>,
+    cut: Vec<String>,
 }
 
 #[derive(Deserialize)]
@@ -101,6 +111,29 @@ fn entitlements_match_the_vectors() {
             "{}",
             c.plan
         );
+    }
+}
+
+#[test]
+fn addons_add_features_and_lift_the_ceiling_for_them_only() {
+    for c in vectors().addons {
+        let p = plan(&c.plan);
+        let e = entitlements_with(p, c.addons);
+        assert_eq!(e.features, c.features, "{} {:?}", c.plan, c.addons);
+        assert_eq!(e.limits, entitlements(p).limits, "add-ons never move limits");
+        assert_eq!(e.realtime, entitlements(p).realtime);
+        let ceil = ceiling_with(p, c.addons);
+        for (keys, want) in [(&c.kept, true), (&c.cut, false)] {
+            for k in keys {
+                let cap = Cap::from_key(k).unwrap_or_else(|| panic!("no capability {k}"));
+                assert_eq!(ceil.contains(cap), want, "{} {:?} {k}", c.plan, c.addons);
+            }
+        }
+    }
+    // No add-ons is exactly the plan.
+    for p in [Plan::Free, Plan::Paid] {
+        assert_eq!(entitlements_with(p, FeatureSet::EMPTY), entitlements(p));
+        assert_eq!(ceiling_with(p, FeatureSet::EMPTY), ceiling(p));
     }
 }
 
