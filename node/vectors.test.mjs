@@ -4,7 +4,8 @@
 //
 // Build first (scripts/build-wasm.sh), then: node --test node/
 // Each package runs every file its exports cover; `full` covers all
-// twenty-six files the web uses, `public` the customer pages' ten.
+// twenty-five files the web dashboard boots with, `public` the customer pages'
+// ten, `menu` the menu import's one.
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -16,8 +17,9 @@ const vectors = (path) => JSON.parse(readFileSync(join(root, "crates", path), "u
 
 async function load(pkg) {
   const dir = join(root, "dist", pkg);
-  const m = await import(join(dir, "madar_web.js"));
-  m.initSync({ module: readFileSync(join(dir, "madar_web_bg.wasm")) });
+  const name = pkg === "menu" ? "madar_menu" : "madar_web";
+  const m = await import(join(dir, `${name}.js`));
+  m.initSync({ module: readFileSync(join(dir, `${name}_bg.wasm`)) });
   return m;
 }
 
@@ -169,16 +171,6 @@ function fullFiles(pkg, w) {
     (c) => ({ from: c.from, to: c.to, days: c.days, period_days: c.period_days, piastres: c.piastres }));
   skipped.push(`full: ${salary.prorated.length} salary_vectors prorated cases (prorated_base is not exported: the web does not compute it)`);
 
-  // The menu import (madar-menu): the Foodics reader and the server's checks.
-  const menuImport = vectors("madar-menu/vectors/menu_import_vectors.json");
-  cases(pkg, "menu_import_vectors", "foodics_parse", menuImport.foodics,
-    (c) => w.foodics_parse(c.files), (c) => c.expected);
-  cases(pkg, "menu_import_vectors", "bulk_validate", menuImport.validate,
-    (c) => w.bulk_validate(c.menu), (c) => c.expected);
-  cases(pkg, "menu_import_vectors", "replace_sentence", menuImport.sentences,
-    (c) => w.replace_sentence(c.org_name, c.lang), (c) => c.expected);
-  cases(pkg, "menu_import_vectors", "confirms_replace", menuImport.confirm,
-    (c) => w.confirms_replace(c.org_name, c.typed), (c) => c.expected);
   const ladder = vectors("madar-dawam/vectors/ladder_vectors.json");
   const rungs = ladder.ladder.map((t) => ({ ...t, value: Number(t.value) }));
   cases(pkg, "ladder_vectors", "select_late_tier", ladder.select,
@@ -278,13 +270,27 @@ function fullFiles(pkg, w) {
   });
 }
 
+/** The menu import (madar-menu): the Foodics reader, the server's checks, the
+ * replace sentence; only its own package carries them. */
+function menuFiles(pkg, w) {
+  const menuImport = vectors("madar-menu/vectors/menu_import_vectors.json");
+  cases(pkg, "menu_import_vectors", "foodics_parse", menuImport.foodics,
+    (c) => w.foodics_parse(c.files), (c) => c.expected);
+  cases(pkg, "menu_import_vectors", "bulk_validate", menuImport.validate,
+    (c) => w.bulk_validate(c.menu), (c) => c.expected);
+  cases(pkg, "menu_import_vectors", "replace_sentence", menuImport.sentences,
+    (c) => w.replace_sentence(c.org_name, c.lang), (c) => c.expected);
+  cases(pkg, "menu_import_vectors", "confirms_replace", menuImport.confirm,
+    (c) => w.confirms_replace(c.org_name, c.typed), (c) => c.expected);
+}
+
 for (const pkg of ["public", "full"]) {
   const w = await load(pkg);
   describe(pkg, () => {
     publicFiles(pkg, w);
     if (pkg === "full") fullFiles(pkg, w);
-    // The customer pages never download the menu import's reader.
-    if (pkg === "public") test("public leaves out the menu import", () => {
+    // Neither boot package carries the menu import's reader.
+    test(`${pkg} leaves out the menu import`, () => {
       assert.equal(w.foodics_parse, undefined);
       assert.equal(w.bulk_validate, undefined);
       assert.equal(w.confirms_replace, undefined);
@@ -292,9 +298,20 @@ for (const pkg of ["public", "full"]) {
   });
 }
 
+{
+  const w = await load("menu");
+  describe("menu", () => {
+    menuFiles("menu", w);
+    test("menu carries only the menu import", () => {
+      assert.equal(w.price_line, undefined);
+      assert.equal(w.business_date, undefined);
+    });
+  });
+}
+
 after(() => {
   const total = (pkg) => runs.filter((r) => r.pkg === pkg).reduce((n, r) => n + r.cases, 0);
   const failed = runs.reduce((n, r) => n + r.failed, 0);
-  console.log(`vector cases through wasm: public ${total("public")}, full ${total("full")}, failed ${failed}`);
+  console.log(`vector cases through wasm: public ${total("public")}, full ${total("full")}, menu ${total("menu")}, failed ${failed}`);
   for (const s of skipped) console.log(`not run: ${s}`);
 });

@@ -5,10 +5,13 @@
 //! the backend and the POS core. Every export is one call into a crate; this
 //! crate holds no rule of its own (SHARED_RULES_PLAN.md, Step 3).
 //!
-//! Two builds (scripts/build-wasm.sh):
+//! Three builds (scripts/build-wasm.sh):
 //! - `public`: the customer pages (ordering, menu, loyalty) and the plan's
 //!   entitlements.
 //! - `full`: the web dashboard; everything in `public` and more.
+//! - `menu`: the self-serve menu import (madar-menu: the Foodics reader, the
+//!   bulk menu's checks, the replace sentence), loaded by the dashboard when
+//!   its import dialog opens; nothing else.
 //!
 //! The boundary:
 //! - Structs and enums cross as plain JS objects (serde-wasm-bindgen), typed
@@ -23,7 +26,7 @@
 //! - Time zones are IANA names: `full` bundles every zone, `public` Cairo,
 //!   MENA and the US (scripts/tz-filter.txt). A zone not bundled throws.
 
-#![cfg(feature = "public")]
+#![cfg(any(feature = "public", feature = "menu"))]
 
 use serde::Serialize;
 use tsify::Ts;
@@ -44,6 +47,7 @@ fn either<T: Serialize, E: Serialize>(r: Result<T, E>) -> Result<JsValue, JsErro
     }
 }
 
+#[cfg(feature = "public")]
 /// A JS number that must be a whole number (piastres, counts): anything else
 /// throws instead of being truncated.
 fn int<T: TryFrom<i64>>(x: f64) -> Result<T, JsError> {
@@ -61,6 +65,7 @@ fn int<T: TryFrom<i64>>(x: f64) -> Result<T, JsError> {
     Err(JsError::new("expected a whole number in range"))
 }
 
+#[cfg(feature = "public")]
 /// Each element of a JS array of typed objects.
 fn each<T>(v: Vec<Ts<T>>) -> Result<Vec<T>, JsError>
 where
@@ -70,21 +75,25 @@ where
     v.iter().map(|t| Ok(t.to_rust()?)).collect()
 }
 
+#[cfg(feature = "public")]
 fn zone(name: &str) -> Result<chrono_tz::Tz, JsError> {
     name.parse()
         .map_err(|_| JsError::new("unknown time zone, or one this build leaves out"))
 }
 
+#[cfg(feature = "public")]
 fn ymd(d: chrono::NaiveDate) -> String {
     use chrono::Datelike;
     format!("{:04}-{:02}-{:02}", d.year(), d.month(), d.day())
 }
 
+#[cfg(feature = "public")]
 fn instant(ms: f64) -> Result<chrono::DateTime<chrono::Utc>, JsError> {
     chrono::DateTime::from_timestamp_millis(int(ms)?)
         .ok_or_else(|| JsError::new("epoch milliseconds out of range"))
 }
 
+#[cfg(feature = "public")]
 mod public {
     use madar_catalog::combo::{ComboView, MenuChoice, PickIn};
     use madar_catalog::{CatalogView, ItemView, Selection};
@@ -899,8 +908,11 @@ mod full {
             category_id.as_deref(),
         ))
     }
+}
 
-    // ── menu import (madar-menu), dashboard only ─────────────────────────
+#[cfg(feature = "menu")]
+mod menu {
+    use super::*;
 
     /// A Foodics console export read into a bulk menu: each file's text, in
     /// any order. A file that cannot be read is returned, not thrown.

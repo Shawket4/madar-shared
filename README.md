@@ -88,11 +88,13 @@ crate above.
 | Package | For | Exports |
 |---|---|---|
 | `public` | the customer pages: ordering, menu, loyalty, reservations | catalog `unit_price`, `price_options`, `price_line`, `option_charge`, `combo_quote`, `combo_choice_extra`, `category_order`; money `bill_discount`, `cart_line_unit`, `cart_line_total`, `cart_subtotal`, `combo_extras`; loyalty `loyalty_card`, `loyalty_stamps`; plan `entitlements`; ids `phone_canonical`; time `business_date` |
-| `full` | the web dashboard | everything in `public`, and: time `day_bounds`, `week_start`, `local_parts`, `local_instant`; Dawam `pay_period`, `rates`, `first_pay`, `select_late_tier`, `late_deduction_piastres`, `absence_deduction_piastres`; units `unit_spec`, `units_of`, `convert`, `convert_with_density`, `recipe_base_qty`, `usable_qty`, `scale_qty`; money `average_ticket`, `line_cost`, `recipe_cost`, `margin`, `food_cost_band`; till `till_plan_lines`; inventory `transfer_step`, `check_receive_line`, `replenish_suggest`, `quantity_dec`, `quantity_milli`, `delivery_cost`, `estimate_line_total`, `unit_cost_from_total`, `is_variance_flagged`; catalog `combo_choice_for`; menu import `foodics_parse`, `bulk_validate`, `replace_sentence`, `confirms_replace` |
+| `full` | the web dashboard | everything in `public`, and: time `day_bounds`, `week_start`, `local_parts`, `local_instant`; Dawam `pay_period`, `rates`, `first_pay`, `select_late_tier`, `late_deduction_piastres`, `absence_deduction_piastres`; units `unit_spec`, `units_of`, `convert`, `convert_with_density`, `recipe_base_qty`, `usable_qty`, `scale_qty`; money `average_ticket`, `line_cost`, `recipe_cost`, `margin`, `food_cost_band`; till `till_plan_lines`; inventory `transfer_step`, `check_receive_line`, `replenish_suggest`, `quantity_dec`, `quantity_milli`, `delivery_cost`, `estimate_line_total`, `unit_cost_from_total`, `is_variance_flagged`; catalog `combo_choice_for` |
+| `menu` | the web dashboard's menu import, loaded when its dialog opens (`madar_menu.js`, its own name so a preload of `madar_web_bg` never fetches it) | menu `foodics_parse`, `bulk_validate`, `replace_sentence`, `confirms_replace` |
 
 The customer pages compute no sale-window rule (the server answers it), so
-`public` carries none, nor the menu import (madar-menu and `csv` are in `full`
-only; the vector test checks `public` exports neither function); the loyalty pages get the card's figures and stamps, the
+`public` carries none. Neither boot package carries the menu import (madar-menu
+and `csv` are in `menu` only; the vector test checks `public` and `full` export
+none of it); the loyalty pages get the card's figures and stamps, the
 manage-booking page the business date.
 
 **The boundary.** Each package's `madar_web.d.ts` types every call; its

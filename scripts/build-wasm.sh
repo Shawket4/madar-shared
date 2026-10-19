@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
-# Build madar-web to WebAssembly: dist/public and dist/full, each the wasm, its
-# JS glue (`wasm-bindgen --target web`) and its .d.ts, plus dist/SHA256SUMS.
+# Build madar-web to WebAssembly: dist/public, dist/full and dist/menu, each the
+# wasm, its JS glue (`wasm-bindgen --target web`) and its .d.ts, plus
+# dist/SHA256SUMS. `menu` is named madar_menu (its own files, never matched by a
+# consumer's preload of madar_web_bg).
 #
 # The recipe (SHARED_RULES_PLAN.md Step 3, each step measured): a pinned
 # nightly rebuilding std for size, panics that abort at once, the `wasm`
@@ -31,7 +33,7 @@ export CARGO_TARGET_DIR=${CARGO_TARGET_DIR:-$PWD/target/wasm}
 export RUSTFLAGS="-Zunstable-options -Cpanic=immediate-abort"
 
 rm -rf dist
-for pkg in public full; do
+for pkg in public full menu; do
   # Unset, chrono-tz keeps every zone (it rebuilds when this changes).
   if [ "$pkg" = public ]; then
     export CHRONO_TZ_TIMEZONE_FILTER="$(cat scripts/tz-filter.txt)"
@@ -41,19 +43,23 @@ for pkg in public full; do
   cargo +"$TOOLCHAIN" build --locked -p madar-web --features "$pkg" \
     --profile wasm --target wasm32-unknown-unknown \
     -Z build-std=std,panic_abort -Z build-std-features=optimize_for_size
-  wasm-bindgen --target web --out-dir "dist/$pkg" \
+  name=madar_web
+  [ "$pkg" = menu ] && name=madar_menu
+  wasm-bindgen --target web --out-dir "dist/$pkg" --out-name "$name" \
     "$CARGO_TARGET_DIR/wasm32-unknown-unknown/wasm/madar_web.wasm"
   wasm-opt -Oz --converge --strip-debug --strip-producers \
-    "dist/$pkg/madar_web_bg.wasm" -o "dist/$pkg/madar_web_bg.wasm"
+    "dist/$pkg/${name}_bg.wasm" -o "dist/$pkg/${name}_bg.wasm"
 done
 
-(cd dist && shasum -a 256 public/* full/* >SHA256SUMS)
+(cd dist && shasum -a 256 public/* full/* menu/* >SHA256SUMS)
 
 # What a browser downloads: wasm + glue, brotli as served.
 if command -v brotli >/dev/null; then
-  for pkg in public full; do
+  for pkg in public full menu; do
+    name=madar_web
+    [ "$pkg" = menu ] && name=madar_menu
     raw=0 br=0
-    for f in "dist/$pkg/madar_web_bg.wasm" "dist/$pkg/madar_web.js"; do
+    for f in "dist/$pkg/${name}_bg.wasm" "dist/$pkg/${name}.js"; do
       raw=$((raw + $(wc -c <"$f")))
       br=$((br + $(brotli -q 11 -c "$f" | wc -c)))
     done
