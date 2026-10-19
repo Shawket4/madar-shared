@@ -1,0 +1,16 @@
+[
+  ["", "partial", ""],
+  ["   ", "partial", ""],
+  ["MAAAAAAAAAAAAAAAAAAAAAA", "token", "MAAAAAAAAAAAAAAAAAAAAAA"],
+  ["  M_-__-__-__-__-__-__-_A\n", "token", "M_-__-__-__-__-__-__-_A"],
+  ["MAAAAAAAAAAAAAAAAAAAAA", "partial", ""],
+  ["MAAAAAAAAAAAAAAAAAAAAAAA", "partial", ""],
+  ["01001234567", "phone", "201001234567"],
+  ["+20 100 123 4567", "phone", "201001234567"],
+  ["٠١٠٠١٢٣٤٥٦٧", "phone", "201001234567"],
+  ["(0100) 123-4567", "phone", "201001234567"],
+  ["010012345", "partial", ""],
+  ["0100123456789012345", "partial", ""],
+  ["0100abc4567", "partial", ""],
+  ["010012345678", "partial", ""]
+]

@@ -295,6 +295,16 @@ mod public {
     pub fn phone_canonical(raw: &str) -> Result<JsValue, JsError> {
         out(&madar_ids::phone::canonical(raw))
     }
+
+    /// What a scanned or typed string is: `{kind: "token" | "phone" | "partial",
+    /// value}`. Feed it every keystroke of a wedge scanner and act once `kind`
+    /// is not `partial`.
+    #[wasm_bindgen(
+        unchecked_return_type = "{ kind: 'token' | 'phone' | 'partial'; value: string }"
+    )]
+    pub fn scan_classify(raw: &str) -> Result<JsValue, JsError> {
+        out(&madar_ids::scan::classify(raw))
+    }
 }
 
 #[cfg(feature = "full")]

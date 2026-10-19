@@ -7,3 +7,5 @@ pub const PHONE: &str = include_str!("../vectors/phone_vectors.json");
 pub const ORDER_REF: &str = include_str!("../vectors/order_ref_vectors.json");
 /// `member::vectors`: card tokens from fixed bytes, and the shape check.
 pub const MEMBER: &str = include_str!("../vectors/member_vectors.json");
+/// `scan::classify`: `[[input, kind, value], …]`.
+pub const SCAN: &str = include_str!("../vectors/scan_vectors.json");
