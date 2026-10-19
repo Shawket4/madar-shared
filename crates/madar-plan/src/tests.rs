@@ -120,7 +120,11 @@ fn addons_add_features_and_lift_the_ceiling_for_them_only() {
         let p = plan(&c.plan);
         let e = entitlements_with(p, c.addons);
         assert_eq!(e.features, c.features, "{} {:?}", c.plan, c.addons);
-        assert_eq!(e.limits, entitlements(p).limits, "add-ons never move limits");
+        assert_eq!(
+            e.limits,
+            entitlements(p).limits,
+            "add-ons never move limits"
+        );
         assert_eq!(e.realtime, entitlements(p).realtime);
         let ceil = ceiling_with(p, c.addons);
         for (keys, want) in [(&c.kept, true), (&c.cut, false)] {

@@ -265,7 +265,12 @@ pub fn entitlements(plan: Plan) -> Entitlements {
 pub fn entitlements_with(plan: Plan, addons: FeatureSet) -> Entitlements {
     let m = plan.meta();
     Entitlements {
-        features: m.features.iter().copied().collect::<FeatureSet>().union(addons),
+        features: m
+            .features
+            .iter()
+            .copied()
+            .collect::<FeatureSet>()
+            .union(addons),
         limits: m.limits,
         realtime: m.realtime,
     }
