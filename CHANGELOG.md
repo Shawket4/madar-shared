@@ -3,6 +3,20 @@
 Every tag both consumers pin. A release that changes a result on either side
 says so here; everything else is a move.
 
+## v0.11.1 — a counter cart sent to the kitchen (2026-10-19)
+
+**What changes:** one new replay op and its request; every existing envelope, function and
+vector is unchanged. A till's "Send to kitchen" on a counter cart now reaches the server as
+`send_cart_to_kitchen` (`madar_sync::replay`), carrying `madar_sync::kitchen::SendCartRequest`:
+the cart's key, which the sale will carry, and its lines in the order the till's board
+projection numbers them (`derive_kitchen_ticket_id(cart_key)`, `derive_kitchen_item_id`). The
+server puts the cart on its kitchen screens (and pushes a closed one); the sale takes the ticket
+over. Gated by `orders.create`, an existing capability.
+
+- `madar-sync` gains an optional `utoipa` feature (the backend's OpenAPI schemas), as in
+  `madar-inventory`.
+- `vectors/replay_current.json` gains the op's envelope; consumers bump the tag together.
+
 ## v0.11.0 — Wafa: the scan rule and plan add-ons (2026-10-19)
 
 **What changes:** nothing on a till or the server until they adopt the new functions. Every
