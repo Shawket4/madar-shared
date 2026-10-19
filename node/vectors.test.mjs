@@ -47,6 +47,7 @@ const catalog = vectors("madar-catalog/vectors/catalog_vectors.json");
 const combo = vectors("madar-catalog/vectors/combo_vectors.json");
 const bill = vectors("madar-money/vectors/bill_vectors.json");
 const phone = vectors("madar-ids/vectors/phone_vectors.json");
+const scan = vectors("madar-ids/vectors/scan_vectors.json");
 const businessDates = vectors("madar-time/vectors/business_date_vectors.json");
 const cart = vectors("madar-money/vectors/cart_vectors.json");
 const comboMenu = vectors("madar-catalog/vectors/combo_menu_vectors.json");
@@ -119,6 +120,9 @@ function publicFiles(pkg, w) {
   cases(pkg, "phone_vectors", "phone_canonical",
     [...phone.valid.map(([raw, want]) => ({ raw, want })), ...phone.invalid.map((raw) => ({ raw, want: null }))],
     (c) => w.phone_canonical(c.raw), (c) => c.want);
+
+  cases(pkg, "scan_vectors", "scan_classify", scan.map(([raw, kind, value]) => ({ raw, kind, value })),
+    (c) => w.scan_classify(c.raw), (c) => ({ kind: c.kind, value: c.value }));
 
   const [dates, elsewhere] = pkg === "public" ? split(businessDates, (c) => bundled.test(c.tz)) : [businessDates, []];
   cases(pkg, "business_date_vectors", "business_date", dates,
