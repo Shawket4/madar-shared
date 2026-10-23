@@ -1,0 +1,41 @@
+# madar-card: the Rewards by Madar card as data — the card-design schema the
+# dashboard's editor writes and the server renders, its validation (only
+# designs that can really render), the ready-made templates, the stamp tracks
+# and their arithmetic, the audience a dashboard message goes to, and the
+# message limits. The backend renders the strip from `render::svg`; the web
+# dashboard shows the same SVG (madar-web's `card` package); the POS core may
+# consume it later. No I/O.
+[package]
+name = "madar-card"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+# The card arithmetic of one track is the card's own (rewards earned, progress).
+madar-loyalty = { path = "../madar-loyalty" }
+tsify = { version = "0.5", optional = true, default-features = false, features = ["js"] }
+wasm-bindgen = { version = "0.2", optional = true }
+# The backend's OpenAPI schemas for the design, the tracks and the audience.
+utoipa = { version = "5", optional = true, default-features = false, features = ["macros"] }
+
+[dev-dependencies]
+serde_json = "1"
+
+[features]
+tsify = ["dep:tsify", "dep:wasm-bindgen"]
+utoipa = ["dep:utoipa"]
+
+# The tsify derive expands to `wasm_bindgen` paths, so the feature needs the
+# crate though no source line names it.
+[package.metadata.cargo-machete]
+ignored = ["wasm-bindgen"]
+
+[package.metadata.cargo-shear]
+ignored = ["wasm-bindgen"]

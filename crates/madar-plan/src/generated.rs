@@ -6,7 +6,7 @@ use madar_authz::Cap;
 use crate::{FeatureMeta, PlanLimits, PlanMeta};
 
 pub const SPEC_VERSION: u32 = 1;
-pub const SPEC_HASH: &str = "f1e6e47ce5c40542";
+pub const SPEC_HASH: &str = "2f9143884e3efa7a";
 
 /// A thing a plan switches on: a set of capabilities plus the surfaces that
 /// have no capability of their own.
@@ -36,7 +36,7 @@ pub static FEATURES: &[FeatureMeta] = &[
     FeatureMeta { feature: Feature::Floor, key: "floor", caps: &[Cap::TicketsOpen, Cap::TicketsEdit, Cap::TicketsVoid, Cap::FloorLayoutCreate, Cap::FloorLayoutEdit, Cap::FloorLayoutDelete, Cap::FloorTransfersCreate, Cap::FloorTransfersEdit, Cap::LegacyTableTransfersDelete] },
     FeatureMeta { feature: Feature::Inventory, key: "inventory", caps: &[Cap::RecipesCreate, Cap::RecipesRead, Cap::RecipesEdit, Cap::RecipesDelete, Cap::InventoryItemsCreate, Cap::InventoryRead, Cap::InventoryAdjust, Cap::InventoryItemsDelete, Cap::LegacyInventoryAdjustmentsCreate, Cap::LegacyInventoryAdjustmentsRead, Cap::LegacyInventoryAdjustmentsUpdate, Cap::LegacyInventoryAdjustmentsDelete, Cap::InventoryTransfersCreate, Cap::InventoryTransfersRead, Cap::InventoryTransfersEdit, Cap::InventoryTransfersDelete, Cap::InventoryCountsCreate, Cap::InventoryCountsRead, Cap::InventoryCountsEdit, Cap::LegacyStocktakesDelete, Cap::InventoryWasteRecord, Cap::InventoryWasteRead, Cap::LegacyInventoryWasteUpdate, Cap::LegacyInventoryWasteDelete, Cap::PurchasingSuppliersCreate, Cap::PurchasingSuppliersRead, Cap::PurchasingSuppliersEdit, Cap::PurchasingSuppliersDelete, Cap::PurchasingOrdersCreate, Cap::PurchasingOrdersRead, Cap::PurchasingOrdersEdit, Cap::LegacyPurchaseOrdersDelete, Cap::LegacySoftServeBatchesCreate, Cap::LegacySoftServeBatchesRead, Cap::LegacySoftServeBatchesUpdate, Cap::LegacySoftServeBatchesDelete, Cap::MenuPackagingRulesApply] },
     FeatureMeta { feature: Feature::Kitchen, key: "kitchen", caps: &[Cap::KitchenStationsCreate, Cap::KitchenStationsEdit, Cap::KitchenStationsDelete, Cap::LegacyKitchenOrdersCreate, Cap::KitchenBump, Cap::LegacyKitchenOrdersDelete] },
-    FeatureMeta { feature: Feature::Loyalty, key: "loyalty", caps: &[Cap::LegacyLoyaltyCreate, Cap::LoyaltyRead, Cap::LoyaltyUse, Cap::LegacyLoyaltyDelete, Cap::LoyaltyMembersList, Cap::LoyaltyPointsAdjust, Cap::LoyaltyMembersDelete] },
+    FeatureMeta { feature: Feature::Loyalty, key: "loyalty", caps: &[Cap::LegacyLoyaltyCreate, Cap::LoyaltyRead, Cap::LoyaltyUse, Cap::LegacyLoyaltyDelete, Cap::LoyaltyMembersList, Cap::LoyaltyPointsAdjust, Cap::LoyaltyMembersDelete, Cap::LoyaltyCardDesign, Cap::LoyaltyBroadcast] },
     FeatureMeta { feature: Feature::Online, key: "online", caps: &[Cap::LegacyDeliveryOrdersCreate, Cap::DeliveryOrdersRead, Cap::DeliveryOrdersManage, Cap::LegacyDeliveryOrdersDelete, Cap::DeliverySettingsCreate, Cap::DeliverySettingsRead, Cap::DeliverySettingsEdit, Cap::DeliverySettingsDelete, Cap::IntegrationsRead, Cap::CustomersAddressesView] },
 ];
 

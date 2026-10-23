@@ -1,0 +1,948 @@
+{
+  "about": "Hand-written inputs; answers by madar-card (MADAR_REGENERATE_CARD_VECTORS=1 cargo test -p madar-card vectors), reviewed by hand.",
+  "audience": [
+    {
+      "audience": {
+        "rules": []
+      },
+      "expected": [],
+      "name": "everyone",
+      "track_count": 1,
+      "why": "no rules = every member"
+    },
+    {
+      "audience": {
+        "rules": [
+          {
+            "days": 30,
+            "type": "not_visited_for"
+          },
+          {
+            "track": 1,
+            "type": "reward_ready"
+          }
+        ]
+      },
+      "expected": [],
+      "name": "lapsed_with_reward",
+      "track_count": 1,
+      "why": "not seen for 30 days and a reward waiting on track 1"
+    },
+    {
+      "audience": {
+        "rules": [
+          {
+            "days": 7,
+            "type": "visited_within"
+          },
+          {
+            "days": 30,
+            "type": "not_visited_for"
+          }
+        ]
+      },
+      "expected": [
+        [
+          "rules_contradict",
+          "rules[1]"
+        ]
+      ],
+      "name": "contradiction",
+      "track_count": 1,
+      "why": "visited within 7 days AND not for 30 days: nobody"
+    },
+    {
+      "audience": {
+        "rules": [
+          {
+            "track": 2,
+            "type": "balance_at_least",
+            "value": 3
+          },
+          {
+            "track": 2,
+            "type": "balance_at_most",
+            "value": 5
+          }
+        ]
+      },
+      "expected": [],
+      "name": "balance_window",
+      "track_count": 2,
+      "why": "between 3 and 5 on track 2"
+    },
+    {
+      "audience": {
+        "rules": [
+          {
+            "track": 1,
+            "type": "balance_at_least",
+            "value": 5
+          },
+          {
+            "track": 1,
+            "type": "balance_at_most",
+            "value": 3
+          }
+        ]
+      },
+      "expected": [
+        [
+          "rules_contradict",
+          "rules[1]"
+        ]
+      ],
+      "name": "balance_inverted",
+      "track_count": 1,
+      "why": "at least 5 and at most 3"
+    },
+    {
+      "audience": {
+        "rules": [
+          {
+            "track": 2,
+            "type": "reward_ready"
+          }
+        ]
+      },
+      "expected": [
+        [
+          "track_unknown",
+          "rules[0]"
+        ]
+      ],
+      "name": "unknown_track",
+      "track_count": 1,
+      "why": "track 2 in a one-track shop"
+    },
+    {
+      "audience": {
+        "rules": [
+          {
+            "days": 0,
+            "type": "joined_within"
+          },
+          {
+            "days": 366,
+            "type": "visited_within"
+          }
+        ]
+      },
+      "expected": [
+        [
+          "days_range",
+          "rules[0]"
+        ],
+        [
+          "days_range",
+          "rules[1]"
+        ]
+      ],
+      "name": "days_out_of_range",
+      "track_count": 1,
+      "why": "0 and 366"
+    },
+    {
+      "audience": {
+        "rules": [
+          {
+            "month": 3,
+            "type": "birthday_month"
+          },
+          {
+            "month": 4,
+            "type": "birthday_month"
+          }
+        ]
+      },
+      "expected": [
+        [
+          "rules_contradict",
+          "rules[1]"
+        ]
+      ],
+      "name": "two_months",
+      "track_count": 1,
+      "why": "born in March AND April: nobody"
+    },
+    {
+      "audience": {
+        "rules": [
+          {
+            "type": "has_wallet",
+            "wallet": "none"
+          },
+          {
+            "type": "has_wallet",
+            "wallet": "apple"
+          }
+        ]
+      },
+      "expected": [
+        [
+          "rules_contradict",
+          "rules[1]"
+        ]
+      ],
+      "name": "wallet_none_and_apple",
+      "track_count": 1,
+      "why": "no card AND an Apple card: nobody"
+    },
+    {
+      "audience": {
+        "rules": [
+          {
+            "month": 3,
+            "type": "birthday_month"
+          },
+          {
+            "month": 3,
+            "type": "birthday_month"
+          },
+          {
+            "month": 3,
+            "type": "birthday_month"
+          },
+          {
+            "month": 3,
+            "type": "birthday_month"
+          },
+          {
+            "month": 3,
+            "type": "birthday_month"
+          },
+          {
+            "month": 3,
+            "type": "birthday_month"
+          },
+          {
+            "month": 3,
+            "type": "birthday_month"
+          }
+        ]
+      },
+      "expected": [
+        [
+          "too_many_rules",
+          "rules"
+        ]
+      ],
+      "name": "seven_rules",
+      "track_count": 1,
+      "why": "more than 6"
+    }
+  ],
+  "message": [
+    {
+      "expected": [],
+      "message": {
+        "ar": "طوابع مضاعفة يوم الجمعة!",
+        "en": "Double stamps this Friday!"
+      },
+      "name": "plain",
+      "why": "a line in both languages"
+    },
+    {
+      "expected": [],
+      "message": {
+        "ar": "",
+        "en": "See you soon"
+      },
+      "name": "english_only",
+      "why": "either language alone is enough"
+    },
+    {
+      "expected": [
+        [
+          "message_empty",
+          "message"
+        ]
+      ],
+      "message": {
+        "ar": "",
+        "en": "  "
+      },
+      "name": "empty",
+      "why": "nothing to say"
+    },
+    {
+      "expected": [
+        [
+          "message_long",
+          "message.en"
+        ]
+      ],
+      "message": {
+        "ar": "",
+        "en": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      },
+      "name": "too_long",
+      "why": "101 characters"
+    },
+    {
+      "expected": [
+        [
+          "message_link",
+          "message.en"
+        ]
+      ],
+      "message": {
+        "ar": "",
+        "en": "Order at https://drops.example"
+      },
+      "name": "a_link",
+      "why": "no links on a card"
+    },
+    {
+      "expected": [
+        [
+          "message_link",
+          "message.en"
+        ]
+      ],
+      "message": {
+        "ar": "",
+        "en": "visit drops.com today"
+      },
+      "name": "a_bare_domain",
+      "why": "a bare domain is a link"
+    },
+    {
+      "expected": [],
+      "message": {
+        "ar": "",
+        "en": "3.5 EGP off lattes"
+      },
+      "name": "a_decimal",
+      "why": "3.5 is not a domain"
+    },
+    {
+      "expected": [
+        [
+          "message_one_line",
+          "message.en"
+        ]
+      ],
+      "message": {
+        "ar": "",
+        "en": "Hi\nthere"
+      },
+      "name": "two_lines",
+      "why": "one line only"
+    }
+  ],
+  "stepper": [
+    {
+      "balance": 3,
+      "expected": {
+        "earned": null,
+        "progress": "●─●─●─○─○"
+      },
+      "name": "joined_row",
+      "size": 5,
+      "why": "5 steps, joined: 3 filled"
+    },
+    {
+      "balance": 2,
+      "expected": {
+        "earned": null,
+        "progress": "●●○○○○○○"
+      },
+      "name": "unjoined_row",
+      "size": 8,
+      "why": "8 steps, no joins"
+    },
+    {
+      "balance": 9,
+      "expected": {
+        "earned": null,
+        "progress": "9 / 20"
+      },
+      "name": "figures",
+      "size": 20,
+      "why": "20 steps: figures only"
+    },
+    {
+      "balance": 5,
+      "expected": {
+        "earned": "●─●─●─●─●",
+        "progress": "○─○─○─○─○"
+      },
+      "name": "full_card",
+      "size": 5,
+      "why": "5 of 5: a fresh row and one earned"
+    },
+    {
+      "balance": 11,
+      "expected": {
+        "earned": "●─●─●─●─●  ×2",
+        "progress": "●─○─○─○─○"
+      },
+      "name": "two_earned",
+      "size": 5,
+      "why": "11 of 5: 2 earned, 1 on"
+    },
+    {
+      "balance": 40,
+      "expected": {
+        "earned": "×2",
+        "progress": "0 / 20"
+      },
+      "name": "earned_past_the_cap",
+      "size": 20,
+      "why": "40 of 20: x2 alone"
+    }
+  ],
+  "track_card": [
+    {
+      "balance": 0,
+      "expected": {
+        "can_redeem": false,
+        "points_to_next_reward": 6,
+        "progress_to_next": 0,
+        "rewards_ready": 0
+      },
+      "name": "fresh",
+      "size": 6,
+      "why": "0 of 6"
+    },
+    {
+      "balance": 4,
+      "expected": {
+        "can_redeem": false,
+        "points_to_next_reward": 2,
+        "progress_to_next": 4,
+        "rewards_ready": 0
+      },
+      "name": "partway",
+      "size": 6,
+      "why": "4 of 6: 2 to go"
+    },
+    {
+      "balance": 6,
+      "expected": {
+        "can_redeem": true,
+        "points_to_next_reward": 6,
+        "progress_to_next": 0,
+        "rewards_ready": 1
+      },
+      "name": "full",
+      "size": 6,
+      "why": "6/6 = 1 earned, a fresh card"
+    },
+    {
+      "balance": 14,
+      "expected": {
+        "can_redeem": true,
+        "points_to_next_reward": 4,
+        "progress_to_next": 2,
+        "rewards_ready": 2
+      },
+      "name": "over",
+      "size": 6,
+      "why": "14 against 6: 2 earned, 2 on"
+    },
+    {
+      "balance": 3,
+      "expected": {
+        "can_redeem": false,
+        "points_to_next_reward": 0,
+        "progress_to_next": 3,
+        "rewards_ready": 0
+      },
+      "name": "no_size",
+      "size": 0,
+      "why": "a size of 0 earns nothing"
+    }
+  ],
+  "tracks": [
+    {
+      "expected": [],
+      "mode": "visits",
+      "name": "one_track",
+      "tracks": [
+        {
+          "cap": null,
+          "colour": null,
+          "items": [],
+          "name_ar": "",
+          "name_en": "",
+          "per_item": true,
+          "position": 1,
+          "shape": null,
+          "size": null
+        }
+      ],
+      "why": "today's card"
+    },
+    {
+      "expected": [],
+      "mode": "visits",
+      "name": "two_tracks",
+      "tracks": [
+        {
+          "cap": null,
+          "colour": null,
+          "items": [],
+          "name_ar": "قهوة",
+          "name_en": "Coffee",
+          "per_item": true,
+          "position": 1,
+          "shape": null,
+          "size": null
+        },
+        {
+          "cap": null,
+          "colour": null,
+          "items": [],
+          "name_ar": "ساندوتش",
+          "name_en": "Sandwich",
+          "per_item": true,
+          "position": 2,
+          "shape": null,
+          "size": 6
+        }
+      ],
+      "why": "coffee 8 (the programme's size) and sandwiches 6"
+    },
+    {
+      "expected": [],
+      "mode": "visits",
+      "name": "four_tracks",
+      "tracks": [
+        {
+          "cap": null,
+          "colour": null,
+          "items": [],
+          "name_ar": "",
+          "name_en": "",
+          "per_item": true,
+          "position": 1,
+          "shape": null,
+          "size": null
+        },
+        {
+          "cap": null,
+          "colour": null,
+          "items": [],
+          "name_ar": "",
+          "name_en": "A",
+          "per_item": true,
+          "position": 2,
+          "shape": null,
+          "size": 6
+        },
+        {
+          "cap": null,
+          "colour": null,
+          "items": [],
+          "name_ar": "",
+          "name_en": "B",
+          "per_item": true,
+          "position": 3,
+          "shape": null,
+          "size": 10
+        },
+        {
+          "cap": null,
+          "colour": null,
+          "items": [],
+          "name_ar": "",
+          "name_en": "C",
+          "per_item": true,
+          "position": 4,
+          "shape": null,
+          "size": 50
+        }
+      ],
+      "why": "the most a card holds"
+    },
+    {
+      "expected": [
+        [
+          "tracks_count",
+          "tracks"
+        ]
+      ],
+      "mode": "visits",
+      "name": "five_tracks",
+      "tracks": [
+        {
+          "cap": null,
+          "colour": null,
+          "items": [],
+          "name_ar": "",
+          "name_en": "",
+          "per_item": true,
+          "position": 1,
+          "shape": null,
+          "size": null
+        },
+        {
+          "cap": null,
+          "colour": null,
+          "items": [],
+          "name_ar": "",
+          "name_en": "A",
+          "per_item": true,
+          "position": 2,
+          "shape": null,
+          "size": 6
+        },
+        {
+          "cap": null,
+          "colour": null,
+          "items": [],
+          "name_ar": "",
+          "name_en": "B",
+          "per_item": true,
+          "position": 3,
+          "shape": null,
+          "size": 6
+        },
+        {
+          "cap": null,
+          "colour": null,
+          "items": [],
+          "name_ar": "",
+          "name_en": "C",
+          "per_item": true,
+          "position": 4,
+          "shape": null,
+          "size": 6
+        },
+        {
+          "cap": null,
+          "colour": null,
+          "items": [],
+          "name_ar": "",
+          "name_en": "D",
+          "per_item": true,
+          "position": 5,
+          "shape": null,
+          "size": 6
+        }
+      ],
+      "why": "one too many"
+    },
+    {
+      "expected": [
+        [
+          "tracks_points_single",
+          "tracks"
+        ]
+      ],
+      "mode": "points",
+      "name": "points_two_tracks",
+      "tracks": [
+        {
+          "cap": null,
+          "colour": null,
+          "items": [],
+          "name_ar": "",
+          "name_en": "",
+          "per_item": true,
+          "position": 1,
+          "shape": null,
+          "size": null
+        },
+        {
+          "cap": null,
+          "colour": null,
+          "items": [],
+          "name_ar": "",
+          "name_en": "A",
+          "per_item": true,
+          "position": 2,
+          "shape": null,
+          "size": 6
+        }
+      ],
+      "why": "points programmes keep one track"
+    },
+    {
+      "expected": [
+        [
+          "track_one_size",
+          "tracks[0]"
+        ]
+      ],
+      "mode": "visits",
+      "name": "track_one_with_size",
+      "tracks": [
+        {
+          "cap": null,
+          "colour": null,
+          "items": [],
+          "name_ar": "",
+          "name_en": "",
+          "per_item": true,
+          "position": 1,
+          "shape": null,
+          "size": 8
+        }
+      ],
+      "why": "track 1's size is the programme's"
+    },
+    {
+      "expected": [
+        [
+          "track_position",
+          "tracks[1]"
+        ]
+      ],
+      "mode": "visits",
+      "name": "gap",
+      "tracks": [
+        {
+          "cap": null,
+          "colour": null,
+          "items": [],
+          "name_ar": "",
+          "name_en": "",
+          "per_item": true,
+          "position": 1,
+          "shape": null,
+          "size": null
+        },
+        {
+          "cap": null,
+          "colour": null,
+          "items": [],
+          "name_ar": "",
+          "name_en": "A",
+          "per_item": true,
+          "position": 3,
+          "shape": null,
+          "size": 6
+        }
+      ],
+      "why": "positions must run 1,2,3"
+    },
+    {
+      "expected": [
+        [
+          "track_size",
+          "tracks[1]"
+        ],
+        [
+          "track_size",
+          "tracks[2]"
+        ]
+      ],
+      "mode": "visits",
+      "name": "size_out_of_range",
+      "tracks": [
+        {
+          "cap": null,
+          "colour": null,
+          "items": [],
+          "name_ar": "",
+          "name_en": "",
+          "per_item": true,
+          "position": 1,
+          "shape": null,
+          "size": null
+        },
+        {
+          "cap": null,
+          "colour": null,
+          "items": [],
+          "name_ar": "",
+          "name_en": "A",
+          "per_item": true,
+          "position": 2,
+          "shape": null,
+          "size": 51
+        },
+        {
+          "cap": null,
+          "colour": null,
+          "items": [],
+          "name_ar": "",
+          "name_en": "B",
+          "per_item": true,
+          "position": 3,
+          "shape": null,
+          "size": 0
+        }
+      ],
+      "why": "51 > 50, 0 < 1"
+    },
+    {
+      "expected": [
+        [
+          "track_name_missing",
+          "tracks[1]"
+        ]
+      ],
+      "mode": "visits",
+      "name": "no_name",
+      "tracks": [
+        {
+          "cap": null,
+          "colour": null,
+          "items": [],
+          "name_ar": "",
+          "name_en": "",
+          "per_item": true,
+          "position": 1,
+          "shape": null,
+          "size": null
+        },
+        {
+          "cap": null,
+          "colour": null,
+          "items": [],
+          "name_ar": " ",
+          "name_en": " ",
+          "per_item": true,
+          "position": 2,
+          "shape": null,
+          "size": 6
+        }
+      ],
+      "why": "tracks 2-4 need a name in one language"
+    },
+    {
+      "expected": [
+        [
+          "track_name_long",
+          "tracks[1]"
+        ]
+      ],
+      "mode": "visits",
+      "name": "long_name",
+      "tracks": [
+        {
+          "cap": null,
+          "colour": null,
+          "items": [],
+          "name_ar": "",
+          "name_en": "",
+          "per_item": true,
+          "position": 1,
+          "shape": null,
+          "size": null
+        },
+        {
+          "cap": null,
+          "colour": null,
+          "items": [],
+          "name_ar": "",
+          "name_en": "xxxxxxxxxxxxxxxxxxxxxxxxx",
+          "per_item": true,
+          "position": 2,
+          "shape": null,
+          "size": 6
+        }
+      ],
+      "why": "25 characters > 24"
+    },
+    {
+      "expected": [
+        [
+          "track_colour",
+          "tracks[0]"
+        ]
+      ],
+      "mode": "visits",
+      "name": "bad_colour",
+      "tracks": [
+        {
+          "cap": null,
+          "colour": "red",
+          "items": [],
+          "name_ar": "",
+          "name_en": "",
+          "per_item": true,
+          "position": 1,
+          "shape": null,
+          "size": null
+        }
+      ],
+      "why": "not #RRGGBB"
+    },
+    {
+      "expected": [],
+      "mode": "visits",
+      "name": "bound_track",
+      "tracks": [
+        {
+          "cap": null,
+          "colour": null,
+          "items": [],
+          "name_ar": "",
+          "name_en": "",
+          "per_item": true,
+          "position": 1,
+          "shape": null,
+          "size": null
+        },
+        {
+          "cap": 12,
+          "colour": "#C2410C",
+          "items": [
+            "00000000-0000-4000-8000-0000000000b1",
+            "00000000-0000-4000-8000-0000000000b2"
+          ],
+          "name_ar": "ساندوتش",
+          "name_en": "Sandwich",
+          "per_item": true,
+          "position": 2,
+          "shape": "heart",
+          "size": 6
+        }
+      ],
+      "why": "a POS shop's sandwich track: bound to two items, a stamp per unit, a ceiling of 12 (>= its size 6)"
+    },
+    {
+      "expected": [
+        [
+          "track_one_items",
+          "tracks[0]"
+        ],
+        [
+          "track_items_duplicate",
+          "tracks[1]"
+        ],
+        [
+          "track_cap",
+          "tracks[1]"
+        ]
+      ],
+      "mode": "visits",
+      "name": "bound_track_faults",
+      "tracks": [
+        {
+          "cap": null,
+          "colour": null,
+          "items": [
+            "00000000-0000-4000-8000-0000000000b1"
+          ],
+          "name_ar": "",
+          "name_en": "",
+          "per_item": true,
+          "position": 1,
+          "shape": null,
+          "size": null
+        },
+        {
+          "cap": 4,
+          "colour": null,
+          "items": [
+            "00000000-0000-4000-8000-0000000000b1",
+            "00000000-0000-4000-8000-0000000000b1"
+          ],
+          "name_ar": "",
+          "name_en": "Sandwich",
+          "per_item": false,
+          "position": 2,
+          "shape": null,
+          "size": 6
+        }
+      ],
+      "why": "track 1 lists items (its list is the programme's earning items); track 2 lists an item twice and caps at 4 < size 6"
+    }
+  ]
+}

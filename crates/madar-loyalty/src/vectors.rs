@@ -6,3 +6,7 @@ pub const PLAN: &str = include_str!("../vectors/loyalty_plan_vectors.json");
 
 /// `card`: a balance's rewards earned, progress and stamps (hand-computed).
 pub const CARD: &str = include_str!("../vectors/loyalty_card_vectors.json");
+
+/// `tracks::plan_tracks`: mixed baskets across stamp tracks (hand-written
+/// inputs, answers reviewed).
+pub const TRACKS: &str = include_str!("../vectors/loyalty_tracks_vectors.json");

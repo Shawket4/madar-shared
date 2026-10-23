@@ -3,6 +3,37 @@
 Every tag both consumers pin. A release that changes a result on either side
 says so here; everything else is a move.
 
+## v0.12.0 — Rewards dashboard: the card as data, stamp tracks (2026-10-23)
+
+**What changes:** nothing on a till or the server until they adopt the new functions. Every
+existing function and vector case is unchanged; the `public` and `full` browser packages are
+byte-identical in behaviour (no export added or removed).
+
+- `madar-card` (new): the Rewards card as data (REWARDS_DASHBOARD_DESIGN.md). `tracks` — a card
+  holds 1–4 stamp tracks; track 1 is the programme's own card; tracks 2–4 have a size, a name,
+  a stamp, a colour and a list of menu items (a POS sale earns on them with the one "Add points"
+  press, a stamp per unit or per sale; completing the track covers one unit of any of them), or
+  no items (a counter-only track); `validate_tracks`, `track_card`, `can_complete`,
+  `stamps_within_cap`. `design` + `grid` + `templates` + `validate` — the card-design schema
+  (v1) on a 12×6 grid, the ready-made templates (the default is today's look) and the checks
+  that keep a design renderable. `render` — where elements land on Apple's strip and Google's
+  hero and the strip as SVG (the server rasterises it; the dashboard shows it). `text` — the
+  passes' stepper. `audience` — who a dashboard message goes to. `message` — what it may say
+  and the send limits. Pinned by `card_design_vectors.json` and `card_rules_vectors.json`.
+- `madar-loyalty::tracks` (new): `plan_tracks`, the redemption planner across a card's tracks
+  (one reward per line, each track its own balance, one shared per-order cap; strict on the
+  server, trimming on the till), `tracks_for_line` (the till's chooser), `track_programme`.
+  A sale on track 1 alone is `plan` itself: every `loyalty_plan_vectors.json` case answers the
+  same through it. Pinned by `loyalty_tracks_vectors.json` (hand-written).
+- Capabilities `loyalty.card.design` (254) and `loyalty.broadcast` (255), owner and manager by
+  default, behind the `loyalty` feature; no legacy cell.
+- `madar-web`: a fourth, lazily loaded package `card` (`madar_card.js`): `card_rules`,
+  `card_templates`, `card_default`, `card_validate`, `card_first_free`, `card_layout`,
+  `card_svg`, `tracks_validate`, `track_card`, `card_stepper`, `audience_validate`,
+  `message_validate`, `message_line_for`. CI attaches `madar-web-card.tar.gz`.
+- Like v0.7.x, the tag does not bump the workspace `version`. v0.11.1 (`send_cart_to_kitchen`,
+  branch `feat/kitchen-cart-send`) is NOT in this tag: it was never merged to main.
+
 ## v0.11.0 — Wafa: the scan rule and plan add-ons (2026-10-19)
 
 **What changes:** nothing on a till or the server until they adopt the new functions. Every

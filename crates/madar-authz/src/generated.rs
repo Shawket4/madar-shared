@@ -4,7 +4,7 @@
 use crate::{CapMeta, GroupMeta, Kinds, LimitKey, Limits, Risk, RoleKind, TemplateMeta, Tier};
 
 pub const SPEC_VERSION: u32 = 2;
-pub const SPEC_HASH: &str = "24c0f2b2c6520bbe";
+pub const SPEC_HASH: &str = "34b900ddeb4b05be";
 pub const WORDS: usize = 4;
 
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Hash, PartialOrd, Ord)]
@@ -209,6 +209,8 @@ pub enum Cap {
     MenuDealsEdit = 251,
     OrdersDealsApply = 252,
     ReportsBundles = 253,
+    LoyaltyCardDesign = 254,
+    LoyaltyBroadcast = 255,
 }
 
 pub static CAPS: &[CapMeta] = &[
@@ -411,6 +413,8 @@ pub static CAPS: &[CapMeta] = &[
     CapMeta { cap: Cap::MenuDealsEdit, key: "menu.deals.edit", legacy: None, group: "menu", tier: Tier::Configurable, risk: Risk::Money, defaults: Kinds(1), core: Kinds(0), approval: false, limits: &[], pos: false, protected: false, en: "Create and change deals (mix & match, buy X get Y)", ar: "إنشاء وتعديل العروض (اختر أي صنفين، اشتر\u{650} واحصل)", hint_en: None, hint_ar: None },
     CapMeta { cap: Cap::OrdersDealsApply, key: "orders.deals.apply", legacy: None, group: "selling", tier: Tier::Configurable, risk: Risk::Money, defaults: Kinds(7), core: Kinds(0), approval: true, limits: &[], pos: true, protected: false, en: "Apply a deal the till suggests", ar: "تطبيق عرض يقترحه الكاشير", hint_en: None, hint_ar: None },
     CapMeta { cap: Cap::ReportsBundles, key: "reports.bundles", legacy: None, group: "reports", tier: Tier::Configurable, risk: Risk::Money, defaults: Kinds(3), core: Kinds(0), approval: false, limits: &[], pos: false, protected: false, en: "See the combos and deals report", ar: "عرض تقرير الكومبو والعروض", hint_en: None, hint_ar: None },
+    CapMeta { cap: Cap::LoyaltyCardDesign, key: "loyalty.card.design", legacy: None, group: "customers", tier: Tier::Configurable, risk: Risk::Normal, defaults: Kinds(3), core: Kinds(0), approval: false, limits: &[], pos: false, protected: false, en: "Design the loyalty card and its stamp tracks", ar: "تصميم بطاقة الولاء ومسارات الطوابع", hint_en: Some("Changes what every member's wallet card shows; published designs reach the cards within minutes."), hint_ar: Some("يغي\u{651}ر ما تعرضه بطاقة كل عضو في المحفظة؛ يصل التصميم المنشور إلى البطاقات خلال دقائق.") },
+    CapMeta { cap: Cap::LoyaltyBroadcast, key: "loyalty.broadcast", legacy: None, group: "customers", tier: Tier::Configurable, risk: Risk::Pii, defaults: Kinds(3), core: Kinds(0), approval: false, limits: &[], pos: false, protected: false, en: "Send messages to members' loyalty cards", ar: "إرسال رسائل إلى بطاقات ولاء الأعضاء", hint_en: Some("A message lands on the lock screen of every member in the audience who has not opted out."), hint_ar: Some("تظهر الرسالة على شاشة القفل لكل عضو في الجمهور لم يلغ\u{650} الاشتراك.") },
 ];
 
 pub static GROUPS: &[GroupMeta] = &[

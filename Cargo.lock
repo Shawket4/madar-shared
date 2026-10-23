@@ -318,6 +318,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "madar-card"
+version = "0.6.0"
+dependencies = [
+ "madar-loyalty",
+ "serde",
+ "serde_json",
+ "tsify",
+ "utoipa",
+ "wasm-bindgen",
+]
+
+[[package]]
 name = "madar-catalog"
 version = "0.6.0"
 dependencies = [
@@ -457,6 +469,7 @@ version = "0.6.0"
 dependencies = [
  "chrono",
  "chrono-tz",
+ "madar-card",
  "madar-catalog",
  "madar-dawam",
  "madar-ids",

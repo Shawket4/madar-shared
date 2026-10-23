@@ -1,0 +1,2505 @@
+{
+  "about": "Hand-written inputs; answers by madar-card (MADAR_REGENERATE_CARD_VECTORS=1 cargo test -p madar-card vectors), reviewed by hand. validate: [code, path] pairs per design and shop. layout: where elements land (canvas pixels).",
+  "layout": [
+    {
+      "arabic": false,
+      "design": {
+        "apple": {
+          "auxiliary": [],
+          "header": [
+            {
+              "track": 1,
+              "type": "balance"
+            }
+          ],
+          "primary": null,
+          "secondary": [
+            {
+              "track": 1,
+              "type": "rewards"
+            },
+            {
+              "track": 1,
+              "type": "progress"
+            }
+          ]
+        },
+        "colours": {
+          "background": "#0D6273",
+          "foreground": "#EFF3F4",
+          "label": "#B9DCE3"
+        },
+        "elements": [
+          {
+            "cell": {
+              "col": 0,
+              "h": 1,
+              "row": 4,
+              "w": 12
+            },
+            "kind": {
+              "track": 1,
+              "type": "bar"
+            }
+          }
+        ],
+        "google": {
+          "points": {
+            "track": 1,
+            "type": "progress"
+          },
+          "secondary": {
+            "track": 1,
+            "type": "rewards"
+          }
+        },
+        "ground": {
+          "kind": "colour",
+          "pattern": null
+        },
+        "stamp": {
+          "empty": "outline",
+          "shape": "circle"
+        },
+        "template": "",
+        "version": 1
+      },
+      "expected": [
+        {
+          "index": 0,
+          "rect": {
+            "h": 21.333333333333332,
+            "w": 343.0,
+            "x": 16.0,
+            "y": 93.33333333333333
+          },
+          "what": "element"
+        },
+        {
+          "index": null,
+          "rect": {
+            "h": 19.0,
+            "w": 163.0,
+            "x": 16.0,
+            "y": 115.83333333333333
+          },
+          "what": "footer"
+        }
+      ],
+      "name": "classic_apple_1x",
+      "primary_field": false,
+      "scale": 1,
+      "store": "apple",
+      "why": "inner box 16,8 343x128; row 4 of 6: y = 8 + 4*21.33 = 93.33, h 21.33; footer 163x19 at x 16, centred in row 5 (y 114.67 + (21.33-19)/2 = 115.83)"
+    },
+    {
+      "arabic": true,
+      "design": {
+        "apple": {
+          "auxiliary": [],
+          "header": [
+            {
+              "track": 1,
+              "type": "balance"
+            }
+          ],
+          "primary": null,
+          "secondary": [
+            {
+              "track": 1,
+              "type": "rewards"
+            },
+            {
+              "track": 1,
+              "type": "progress"
+            }
+          ]
+        },
+        "colours": {
+          "background": "#0D6273",
+          "foreground": "#EFF3F4",
+          "label": "#B9DCE3"
+        },
+        "elements": [
+          {
+            "cell": {
+              "col": 0,
+              "h": 1,
+              "row": 4,
+              "w": 12
+            },
+            "kind": {
+              "track": 1,
+              "type": "bar"
+            }
+          }
+        ],
+        "google": {
+          "points": {
+            "track": 1,
+            "type": "progress"
+          },
+          "secondary": {
+            "track": 1,
+            "type": "rewards"
+          }
+        },
+        "ground": {
+          "kind": "colour",
+          "pattern": null
+        },
+        "stamp": {
+          "empty": "outline",
+          "shape": "circle"
+        },
+        "template": "",
+        "version": 1
+      },
+      "expected": [
+        {
+          "index": 0,
+          "rect": {
+            "h": 64.0,
+            "w": 1029.0,
+            "x": 48.0,
+            "y": 280.0
+          },
+          "what": "element"
+        },
+        {
+          "index": null,
+          "rect": {
+            "h": 57.0,
+            "w": 324.0,
+            "x": 753.0,
+            "y": 347.5
+          },
+          "what": "footer"
+        }
+      ],
+      "name": "classic_apple_3x_arabic",
+      "primary_field": false,
+      "scale": 3,
+      "store": "apple",
+      "why": "x3, mirrored: the footer is the Arabic file (108x19 -> 324x57) at the right edge of its cell"
+    },
+    {
+      "arabic": false,
+      "design": {
+        "apple": {
+          "auxiliary": [],
+          "header": [
+            {
+              "track": 1,
+              "type": "balance"
+            }
+          ],
+          "primary": null,
+          "secondary": [
+            {
+              "track": 1,
+              "type": "rewards"
+            },
+            {
+              "track": 1,
+              "type": "progress"
+            }
+          ]
+        },
+        "colours": {
+          "background": "#0D6273",
+          "foreground": "#EFF3F4",
+          "label": "#B9DCE3"
+        },
+        "elements": [
+          {
+            "cell": {
+              "col": 0,
+              "h": 2,
+              "row": 0,
+              "w": 3
+            },
+            "kind": {
+              "align": "start",
+              "ar": "قهوة",
+              "en": "Coffee",
+              "size": "small",
+              "type": "text"
+            }
+          },
+          {
+            "cell": {
+              "col": 3,
+              "h": 2,
+              "row": 0,
+              "w": 9
+            },
+            "kind": {
+              "track": 1,
+              "type": "stamps"
+            }
+          },
+          {
+            "cell": {
+              "col": 0,
+              "h": 2,
+              "row": 2,
+              "w": 3
+            },
+            "kind": {
+              "align": "start",
+              "ar": "ساندوتش",
+              "en": "Sandwich",
+              "size": "small",
+              "type": "text"
+            }
+          },
+          {
+            "cell": {
+              "col": 3,
+              "h": 2,
+              "row": 2,
+              "w": 9
+            },
+            "kind": {
+              "track": 2,
+              "type": "stamps"
+            }
+          }
+        ],
+        "google": {
+          "points": {
+            "track": 1,
+            "type": "progress"
+          },
+          "secondary": {
+            "track": 1,
+            "type": "rewards"
+          }
+        },
+        "ground": {
+          "kind": "colour",
+          "pattern": null
+        },
+        "stamp": {
+          "empty": "outline",
+          "shape": "circle"
+        },
+        "template": "",
+        "version": 1
+      },
+      "expected": [
+        {
+          "index": 0,
+          "rect": {
+            "h": 99.33333333333333,
+            "w": 236.0,
+            "x": 44.0,
+            "y": 19.0
+          },
+          "what": "element"
+        },
+        {
+          "index": 1,
+          "rect": {
+            "h": 99.33333333333333,
+            "w": 708.0,
+            "x": 280.0,
+            "y": 19.0
+          },
+          "what": "element"
+        },
+        {
+          "index": 2,
+          "rect": {
+            "h": 99.33333333333333,
+            "w": 236.0,
+            "x": 44.0,
+            "y": 118.33333333333333
+          },
+          "what": "element"
+        },
+        {
+          "index": 3,
+          "rect": {
+            "h": 99.33333333333333,
+            "w": 708.0,
+            "x": 280.0,
+            "y": 118.33333333333333
+          },
+          "what": "element"
+        },
+        {
+          "index": null,
+          "rect": {
+            "h": 52.288,
+            "w": 448.57599999999996,
+            "x": 44.0,
+            "y": 266.0226666666666
+          },
+          "what": "footer"
+        }
+      ],
+      "name": "two_tracks_google",
+      "primary_field": false,
+      "scale": 1,
+      "store": "google",
+      "why": "Google's hero 1032x336: margin round(1032*16/375)=44, round(336*8/144)=19"
+    },
+    {
+      "arabic": false,
+      "design": {
+        "apple": {
+          "auxiliary": [],
+          "header": [],
+          "primary": {
+            "track": 1,
+            "type": "balance"
+          },
+          "secondary": []
+        },
+        "colours": {
+          "background": "#0D6273",
+          "foreground": "#EFF3F4",
+          "label": "#B9DCE3"
+        },
+        "elements": [
+          {
+            "cell": {
+              "col": 8,
+              "h": 3,
+              "row": 0,
+              "w": 4
+            },
+            "kind": {
+              "track": 1,
+              "type": "stamps"
+            }
+          }
+        ],
+        "google": {
+          "points": {
+            "track": 1,
+            "type": "progress"
+          },
+          "secondary": {
+            "track": 1,
+            "type": "rewards"
+          }
+        },
+        "ground": {
+          "kind": "colour",
+          "pattern": null
+        },
+        "stamp": {
+          "empty": "outline",
+          "shape": "circle"
+        },
+        "template": "",
+        "version": 1
+      },
+      "expected": [
+        {
+          "index": 0,
+          "rect": {
+            "h": 128.0,
+            "w": 228.66666666666666,
+            "x": 489.3333333333333,
+            "y": 16.0
+          },
+          "what": "element"
+        },
+        {
+          "index": null,
+          "rect": {
+            "h": 38.0,
+            "w": 326.0,
+            "x": 32.0,
+            "y": 231.66666666666666
+          },
+          "what": "footer"
+        },
+        {
+          "index": null,
+          "rect": {
+            "h": 170.66666666666666,
+            "w": 457.3333333333333,
+            "x": 32.0,
+            "y": 16.0
+          },
+          "what": "primary_zone"
+        }
+      ],
+      "name": "primary_zone_apple_2x",
+      "primary_field": true,
+      "scale": 2,
+      "store": "apple",
+      "why": "the zone Apple writes the primary field in: 8x4 cells"
+    }
+  ],
+  "validate": [
+    {
+      "ctx": {
+        "has_photo": false,
+        "mode": "visits",
+        "tracks": [
+          {
+            "position": 1,
+            "size": 5
+          }
+        ]
+      },
+      "design": {
+        "apple": {
+          "auxiliary": [],
+          "header": [
+            {
+              "track": 1,
+              "type": "balance"
+            }
+          ],
+          "primary": null,
+          "secondary": [
+            {
+              "track": 1,
+              "type": "rewards"
+            },
+            {
+              "track": 1,
+              "type": "progress"
+            }
+          ]
+        },
+        "colours": {
+          "background": "#0D6273",
+          "foreground": "#EFF3F4",
+          "label": "#B9DCE3"
+        },
+        "elements": [
+          {
+            "cell": {
+              "col": 0,
+              "h": 1,
+              "row": 4,
+              "w": 12
+            },
+            "kind": {
+              "track": 1,
+              "type": "bar"
+            }
+          }
+        ],
+        "google": {
+          "points": {
+            "track": 1,
+            "type": "progress"
+          },
+          "secondary": {
+            "track": 1,
+            "type": "rewards"
+          }
+        },
+        "ground": {
+          "kind": "colour",
+          "pattern": null
+        },
+        "stamp": {
+          "empty": "outline",
+          "shape": "circle"
+        },
+        "template": "",
+        "version": 1
+      },
+      "expected": [],
+      "name": "classic_is_clean",
+      "why": "today's look: a bar on row 4 above the footer, balance in the header"
+    },
+    {
+      "ctx": {
+        "has_photo": false,
+        "mode": "visits",
+        "tracks": [
+          {
+            "position": 1,
+            "size": 5
+          }
+        ]
+      },
+      "design": {
+        "apple": {
+          "auxiliary": [],
+          "header": [
+            {
+              "track": 1,
+              "type": "balance"
+            }
+          ],
+          "primary": null,
+          "secondary": [
+            {
+              "track": 1,
+              "type": "rewards"
+            },
+            {
+              "track": 1,
+              "type": "progress"
+            }
+          ]
+        },
+        "colours": {
+          "background": "#0D6273",
+          "foreground": "#EFF3F4",
+          "label": "#B9DCE3"
+        },
+        "elements": [
+          {
+            "cell": {
+              "col": 0,
+              "h": 1,
+              "row": 4,
+              "w": 12
+            },
+            "kind": {
+              "track": 1,
+              "type": "bar"
+            }
+          }
+        ],
+        "google": {
+          "points": {
+            "track": 1,
+            "type": "progress"
+          },
+          "secondary": {
+            "track": 1,
+            "type": "rewards"
+          }
+        },
+        "ground": {
+          "kind": "colour",
+          "pattern": null
+        },
+        "stamp": {
+          "empty": "outline",
+          "shape": "circle"
+        },
+        "template": "",
+        "version": 2
+      },
+      "expected": [
+        [
+          "design_version",
+          "version"
+        ]
+      ],
+      "name": "wrong_version",
+      "why": "a version this crate does not know is refused before anything else"
+    },
+    {
+      "ctx": {
+        "has_photo": false,
+        "mode": "visits",
+        "tracks": [
+          {
+            "position": 1,
+            "size": 5
+          }
+        ]
+      },
+      "design": {
+        "apple": {
+          "auxiliary": [],
+          "header": [
+            {
+              "track": 1,
+              "type": "balance"
+            }
+          ],
+          "primary": null,
+          "secondary": [
+            {
+              "track": 1,
+              "type": "rewards"
+            },
+            {
+              "track": 1,
+              "type": "progress"
+            }
+          ]
+        },
+        "colours": {
+          "background": "#12345",
+          "foreground": "#FFFFFF",
+          "label": "#FFFFFF"
+        },
+        "elements": [
+          {
+            "cell": {
+              "col": 0,
+              "h": 1,
+              "row": 4,
+              "w": 12
+            },
+            "kind": {
+              "track": 1,
+              "type": "bar"
+            }
+          }
+        ],
+        "google": {
+          "points": {
+            "track": 1,
+            "type": "progress"
+          },
+          "secondary": {
+            "track": 1,
+            "type": "rewards"
+          }
+        },
+        "ground": {
+          "kind": "colour",
+          "pattern": null
+        },
+        "stamp": {
+          "empty": "outline",
+          "shape": "circle"
+        },
+        "template": "",
+        "version": 1
+      },
+      "expected": [
+        [
+          "colour_invalid",
+          "colours.background"
+        ]
+      ],
+      "name": "bad_colour",
+      "why": "#12345 is not #RRGGBB"
+    },
+    {
+      "ctx": {
+        "has_photo": false,
+        "mode": "visits",
+        "tracks": [
+          {
+            "position": 1,
+            "size": 5
+          }
+        ]
+      },
+      "design": {
+        "apple": {
+          "auxiliary": [],
+          "header": [
+            {
+              "track": 1,
+              "type": "balance"
+            }
+          ],
+          "primary": null,
+          "secondary": [
+            {
+              "track": 1,
+              "type": "rewards"
+            },
+            {
+              "track": 1,
+              "type": "progress"
+            }
+          ]
+        },
+        "colours": {
+          "background": "#FFFFFF",
+          "foreground": "#EFF3F4",
+          "label": "#EEEEEE"
+        },
+        "elements": [
+          {
+            "cell": {
+              "col": 0,
+              "h": 1,
+              "row": 4,
+              "w": 12
+            },
+            "kind": {
+              "track": 1,
+              "type": "bar"
+            }
+          }
+        ],
+        "google": {
+          "points": {
+            "track": 1,
+            "type": "progress"
+          },
+          "secondary": {
+            "track": 1,
+            "type": "rewards"
+          }
+        },
+        "ground": {
+          "kind": "colour",
+          "pattern": null
+        },
+        "stamp": {
+          "empty": "outline",
+          "shape": "circle"
+        },
+        "template": "",
+        "version": 1
+      },
+      "expected": [
+        [
+          "contrast_low",
+          "colours.foreground"
+        ],
+        [
+          "label_contrast_low",
+          "colours.label"
+        ]
+      ],
+      "name": "low_contrast",
+      "why": "#EFF3F4 on #FFFFFF is about 1.1:1, under the 3:1 the balance needs; the label too (a warning)"
+    },
+    {
+      "ctx": {
+        "has_photo": false,
+        "mode": "visits",
+        "tracks": [
+          {
+            "position": 1,
+            "size": 5
+          }
+        ]
+      },
+      "design": {
+        "apple": {
+          "auxiliary": [],
+          "header": [
+            {
+              "track": 1,
+              "type": "balance"
+            }
+          ],
+          "primary": null,
+          "secondary": [
+            {
+              "track": 1,
+              "type": "rewards"
+            },
+            {
+              "track": 1,
+              "type": "progress"
+            }
+          ]
+        },
+        "colours": {
+          "background": "#0D6273",
+          "foreground": "#EFF3F4",
+          "label": "#B9DCE3"
+        },
+        "elements": [
+          {
+            "cell": {
+              "col": 0,
+              "h": 1,
+              "row": 5,
+              "w": 12
+            },
+            "kind": {
+              "track": 1,
+              "type": "bar"
+            }
+          }
+        ],
+        "google": {
+          "points": {
+            "track": 1,
+            "type": "progress"
+          },
+          "secondary": {
+            "track": 1,
+            "type": "rewards"
+          }
+        },
+        "ground": {
+          "kind": "colour",
+          "pattern": null
+        },
+        "stamp": {
+          "empty": "outline",
+          "shape": "circle"
+        },
+        "template": "",
+        "version": 1
+      },
+      "expected": [
+        [
+          "covers_footer",
+          "elements[0]"
+        ]
+      ],
+      "name": "over_the_footer",
+      "why": "row 5, columns 0-5 hold the footer; a bar there covers it"
+    },
+    {
+      "ctx": {
+        "has_photo": false,
+        "mode": "visits",
+        "tracks": [
+          {
+            "position": 1,
+            "size": 5
+          }
+        ]
+      },
+      "design": {
+        "apple": {
+          "auxiliary": [],
+          "header": [
+            {
+              "track": 1,
+              "type": "balance"
+            }
+          ],
+          "primary": null,
+          "secondary": [
+            {
+              "track": 1,
+              "type": "rewards"
+            },
+            {
+              "track": 1,
+              "type": "progress"
+            }
+          ]
+        },
+        "colours": {
+          "background": "#0D6273",
+          "foreground": "#EFF3F4",
+          "label": "#B9DCE3"
+        },
+        "elements": [
+          {
+            "cell": {
+              "col": 10,
+              "h": 1,
+              "row": 0,
+              "w": 3
+            },
+            "kind": {
+              "track": 1,
+              "type": "bar"
+            }
+          }
+        ],
+        "google": {
+          "points": {
+            "track": 1,
+            "type": "progress"
+          },
+          "secondary": {
+            "track": 1,
+            "type": "rewards"
+          }
+        },
+        "ground": {
+          "kind": "colour",
+          "pattern": null
+        },
+        "stamp": {
+          "empty": "outline",
+          "shape": "circle"
+        },
+        "template": "",
+        "version": 1
+      },
+      "expected": [
+        [
+          "outside_grid",
+          "elements[0]"
+        ]
+      ],
+      "name": "outside_the_grid",
+      "why": "col 10 + w 3 = 13 > 12"
+    },
+    {
+      "ctx": {
+        "has_photo": false,
+        "mode": "visits",
+        "tracks": [
+          {
+            "position": 1,
+            "size": 5
+          }
+        ]
+      },
+      "design": {
+        "apple": {
+          "auxiliary": [],
+          "header": [
+            {
+              "track": 1,
+              "type": "balance"
+            }
+          ],
+          "primary": null,
+          "secondary": [
+            {
+              "track": 1,
+              "type": "rewards"
+            },
+            {
+              "track": 1,
+              "type": "progress"
+            }
+          ]
+        },
+        "colours": {
+          "background": "#0D6273",
+          "foreground": "#EFF3F4",
+          "label": "#B9DCE3"
+        },
+        "elements": [
+          {
+            "cell": {
+              "col": 0,
+              "h": 1,
+              "row": 4,
+              "w": 12
+            },
+            "kind": {
+              "track": 1,
+              "type": "bar"
+            }
+          },
+          {
+            "cell": {
+              "col": 6,
+              "h": 1,
+              "row": 4,
+              "w": 6
+            },
+            "kind": {
+              "track": 1,
+              "type": "count"
+            }
+          }
+        ],
+        "google": {
+          "points": {
+            "track": 1,
+            "type": "progress"
+          },
+          "secondary": {
+            "track": 1,
+            "type": "rewards"
+          }
+        },
+        "ground": {
+          "kind": "colour",
+          "pattern": null
+        },
+        "stamp": {
+          "empty": "outline",
+          "shape": "circle"
+        },
+        "template": "",
+        "version": 1
+      },
+      "expected": [
+        [
+          "overlap",
+          "elements[1]~elements[0]"
+        ]
+      ],
+      "name": "overlap",
+      "why": "two elements share cells (0..12,4) and (6..12,4)"
+    },
+    {
+      "ctx": {
+        "has_photo": false,
+        "mode": "visits",
+        "tracks": [
+          {
+            "position": 1,
+            "size": 5
+          }
+        ]
+      },
+      "design": {
+        "apple": {
+          "auxiliary": [],
+          "header": [],
+          "primary": {
+            "track": 1,
+            "type": "balance"
+          },
+          "secondary": []
+        },
+        "colours": {
+          "background": "#0D6273",
+          "foreground": "#EFF3F4",
+          "label": "#B9DCE3"
+        },
+        "elements": [
+          {
+            "cell": {
+              "col": 0,
+              "h": 3,
+              "row": 0,
+              "w": 12
+            },
+            "kind": {
+              "track": 1,
+              "type": "stamps"
+            }
+          }
+        ],
+        "google": {
+          "points": {
+            "track": 1,
+            "type": "progress"
+          },
+          "secondary": {
+            "track": 1,
+            "type": "rewards"
+          }
+        },
+        "ground": {
+          "kind": "colour",
+          "pattern": null
+        },
+        "stamp": {
+          "empty": "outline",
+          "shape": "circle"
+        },
+        "template": "",
+        "version": 1
+      },
+      "expected": [
+        [
+          "under_primary_field",
+          "elements[0]"
+        ]
+      ],
+      "name": "under_the_primary_field",
+      "why": "with a primary field, cells 0-7 x 0-3 are Apple's; stamps at (0,0) collide"
+    },
+    {
+      "ctx": {
+        "has_photo": false,
+        "mode": "visits",
+        "tracks": [
+          {
+            "position": 1,
+            "size": 5
+          }
+        ]
+      },
+      "design": {
+        "apple": {
+          "auxiliary": [],
+          "header": [],
+          "primary": {
+            "track": 1,
+            "type": "balance"
+          },
+          "secondary": []
+        },
+        "colours": {
+          "background": "#0D6273",
+          "foreground": "#EFF3F4",
+          "label": "#B9DCE3"
+        },
+        "elements": [
+          {
+            "cell": {
+              "col": 8,
+              "h": 3,
+              "row": 0,
+              "w": 4
+            },
+            "kind": {
+              "track": 1,
+              "type": "stamps"
+            }
+          }
+        ],
+        "google": {
+          "points": {
+            "track": 1,
+            "type": "progress"
+          },
+          "secondary": {
+            "track": 1,
+            "type": "rewards"
+          }
+        },
+        "ground": {
+          "kind": "colour",
+          "pattern": null
+        },
+        "stamp": {
+          "empty": "outline",
+          "shape": "circle"
+        },
+        "template": "",
+        "version": 1
+      },
+      "expected": [],
+      "name": "primary_field_with_stamps_on_the_right",
+      "why": "the same stamps moved to columns 8-11 leave the zone free: 4 cols x 3 rows = 114.3 x 64 pt, 5 stamps -> 2 rows of 3 -> min(38.1,32)*0.82 = 26.2 pt"
+    },
+    {
+      "ctx": {
+        "has_photo": false,
+        "mode": "visits",
+        "tracks": [
+          {
+            "position": 1,
+            "size": 5
+          }
+        ]
+      },
+      "design": {
+        "apple": {
+          "auxiliary": [],
+          "header": [
+            {
+              "track": 1,
+              "type": "balance"
+            }
+          ],
+          "primary": null,
+          "secondary": [
+            {
+              "track": 1,
+              "type": "rewards"
+            },
+            {
+              "track": 1,
+              "type": "progress"
+            }
+          ]
+        },
+        "colours": {
+          "background": "#0D6273",
+          "foreground": "#EFF3F4",
+          "label": "#B9DCE3"
+        },
+        "elements": [
+          {
+            "cell": {
+              "col": 0,
+              "h": 1,
+              "row": 0,
+              "w": 1
+            },
+            "kind": {
+              "track": 1,
+              "type": "stamps"
+            }
+          }
+        ],
+        "google": {
+          "points": {
+            "track": 1,
+            "type": "progress"
+          },
+          "secondary": {
+            "track": 1,
+            "type": "rewards"
+          }
+        },
+        "ground": {
+          "kind": "colour",
+          "pattern": null
+        },
+        "stamp": {
+          "empty": "outline",
+          "shape": "circle"
+        },
+        "template": "",
+        "version": 1
+      },
+      "expected": [
+        [
+          "stamps_too_small",
+          "elements[0]"
+        ]
+      ],
+      "name": "stamps_too_small",
+      "why": "5 stamps in one cell (28.6 x 21.3 pt at 1x): one row -> min(5.7, 21.3) x 0.82 = 4.7 pt, two rows -> min(9.5, 10.7) x 0.82 = 7.8 pt; under the 12 pt floor either way"
+    },
+    {
+      "ctx": {
+        "has_photo": false,
+        "mode": "points",
+        "tracks": [
+          {
+            "position": 1,
+            "size": 500
+          }
+        ]
+      },
+      "design": {
+        "apple": {
+          "auxiliary": [],
+          "header": [
+            {
+              "track": 1,
+              "type": "balance"
+            }
+          ],
+          "primary": null,
+          "secondary": [
+            {
+              "track": 1,
+              "type": "rewards"
+            },
+            {
+              "track": 1,
+              "type": "progress"
+            }
+          ]
+        },
+        "colours": {
+          "background": "#0D6273",
+          "foreground": "#EFF3F4",
+          "label": "#B9DCE3"
+        },
+        "elements": [
+          {
+            "cell": {
+              "col": 0,
+              "h": 3,
+              "row": 0,
+              "w": 12
+            },
+            "kind": {
+              "track": 1,
+              "type": "stamps"
+            }
+          }
+        ],
+        "google": {
+          "points": {
+            "track": 1,
+            "type": "progress"
+          },
+          "secondary": {
+            "track": 1,
+            "type": "rewards"
+          }
+        },
+        "ground": {
+          "kind": "colour",
+          "pattern": null
+        },
+        "stamp": {
+          "empty": "outline",
+          "shape": "circle"
+        },
+        "template": "",
+        "version": 1
+      },
+      "expected": [
+        [
+          "stamps_on_points",
+          "elements[0]"
+        ]
+      ],
+      "name": "stamps_on_points",
+      "why": "a points programme has no stamps to draw on track 1"
+    },
+    {
+      "ctx": {
+        "has_photo": false,
+        "mode": "visits",
+        "tracks": [
+          {
+            "position": 1,
+            "size": 5
+          }
+        ]
+      },
+      "design": {
+        "apple": {
+          "auxiliary": [],
+          "header": [
+            {
+              "track": 1,
+              "type": "balance"
+            }
+          ],
+          "primary": null,
+          "secondary": [
+            {
+              "track": 1,
+              "type": "rewards"
+            },
+            {
+              "track": 1,
+              "type": "progress"
+            }
+          ]
+        },
+        "colours": {
+          "background": "#0D6273",
+          "foreground": "#EFF3F4",
+          "label": "#B9DCE3"
+        },
+        "elements": [
+          {
+            "cell": {
+              "col": 0,
+              "h": 1,
+              "row": 4,
+              "w": 12
+            },
+            "kind": {
+              "track": 3,
+              "type": "bar"
+            }
+          }
+        ],
+        "google": {
+          "points": {
+            "track": 3,
+            "type": "progress"
+          },
+          "secondary": null
+        },
+        "ground": {
+          "kind": "colour",
+          "pattern": null
+        },
+        "stamp": {
+          "empty": "outline",
+          "shape": "circle"
+        },
+        "template": "",
+        "version": 1
+      },
+      "expected": [
+        [
+          "track_unknown",
+          "elements[0]"
+        ],
+        [
+          "track_unknown",
+          "google.points"
+        ]
+      ],
+      "name": "track_unknown",
+      "why": "track 3 does not exist in a one-track shop, on the strip and in a field"
+    },
+    {
+      "ctx": {
+        "has_photo": false,
+        "mode": "visits",
+        "tracks": [
+          {
+            "position": 1,
+            "size": 5
+          }
+        ]
+      },
+      "design": {
+        "apple": {
+          "auxiliary": [],
+          "header": [
+            {
+              "track": 1,
+              "type": "balance"
+            }
+          ],
+          "primary": null,
+          "secondary": [
+            {
+              "track": 1,
+              "type": "rewards"
+            },
+            {
+              "track": 1,
+              "type": "progress"
+            }
+          ]
+        },
+        "colours": {
+          "background": "#0D6273",
+          "foreground": "#EFF3F4",
+          "label": "#B9DCE3"
+        },
+        "elements": [
+          {
+            "cell": {
+              "col": 0,
+              "h": 1,
+              "row": 4,
+              "w": 12
+            },
+            "kind": {
+              "track": 1,
+              "type": "bar"
+            }
+          }
+        ],
+        "google": {
+          "points": {
+            "track": 1,
+            "type": "progress"
+          },
+          "secondary": {
+            "track": 1,
+            "type": "rewards"
+          }
+        },
+        "ground": {
+          "kind": "photo",
+          "pattern": null
+        },
+        "stamp": {
+          "empty": "outline",
+          "shape": "circle"
+        },
+        "template": "",
+        "version": 1
+      },
+      "expected": [
+        [
+          "photo_missing",
+          "ground"
+        ]
+      ],
+      "name": "photo_without_photo",
+      "why": "the shop has no card photograph"
+    },
+    {
+      "ctx": {
+        "has_photo": false,
+        "mode": "visits",
+        "tracks": [
+          {
+            "position": 1,
+            "size": 5
+          }
+        ]
+      },
+      "design": {
+        "apple": {
+          "auxiliary": [],
+          "header": [
+            {
+              "track": 1,
+              "type": "balance"
+            }
+          ],
+          "primary": null,
+          "secondary": [
+            {
+              "track": 1,
+              "type": "rewards"
+            },
+            {
+              "track": 1,
+              "type": "progress"
+            }
+          ]
+        },
+        "colours": {
+          "background": "#0D6273",
+          "foreground": "#EFF3F4",
+          "label": "#B9DCE3"
+        },
+        "elements": [
+          {
+            "cell": {
+              "col": 0,
+              "h": 1,
+              "row": 4,
+              "w": 12
+            },
+            "kind": {
+              "track": 1,
+              "type": "bar"
+            }
+          }
+        ],
+        "google": {
+          "points": {
+            "track": 1,
+            "type": "progress"
+          },
+          "secondary": {
+            "track": 1,
+            "type": "rewards"
+          }
+        },
+        "ground": {
+          "kind": "pattern",
+          "pattern": null
+        },
+        "stamp": {
+          "empty": "outline",
+          "shape": "circle"
+        },
+        "template": "",
+        "version": 1
+      },
+      "expected": [
+        [
+          "pattern_missing",
+          "ground"
+        ]
+      ],
+      "name": "pattern_without_pattern",
+      "why": "a pattern ground must name its pattern"
+    },
+    {
+      "ctx": {
+        "has_photo": false,
+        "mode": "visits",
+        "tracks": [
+          {
+            "position": 1,
+            "size": 5
+          }
+        ]
+      },
+      "design": {
+        "apple": {
+          "auxiliary": [],
+          "header": [
+            {
+              "track": 1,
+              "type": "balance"
+            }
+          ],
+          "primary": null,
+          "secondary": [
+            {
+              "track": 1,
+              "type": "rewards"
+            },
+            {
+              "track": 1,
+              "type": "progress"
+            }
+          ]
+        },
+        "colours": {
+          "background": "#0D6273",
+          "foreground": "#EFF3F4",
+          "label": "#B9DCE3"
+        },
+        "elements": [
+          {
+            "cell": {
+              "col": 0,
+              "h": 2,
+              "row": 0,
+              "w": 6
+            },
+            "kind": {
+              "align": "start",
+              "ar": "نادي القهوة",
+              "en": "Coffee club",
+              "size": "medium",
+              "type": "text"
+            }
+          },
+          {
+            "cell": {
+              "col": 0,
+              "h": 1,
+              "row": 4,
+              "w": 12
+            },
+            "kind": {
+              "track": 1,
+              "type": "bar"
+            }
+          }
+        ],
+        "google": {
+          "points": {
+            "track": 1,
+            "type": "progress"
+          },
+          "secondary": {
+            "track": 1,
+            "type": "rewards"
+          }
+        },
+        "ground": {
+          "kind": "colour",
+          "pattern": null
+        },
+        "stamp": {
+          "empty": "outline",
+          "shape": "circle"
+        },
+        "template": "",
+        "version": 1
+      },
+      "expected": [],
+      "name": "text_fits",
+      "why": "'Coffee club' 11 x 0.6 x 16 = 105.6 pt in 6 cols (171.5 pt), 16 x 1.2 = 19.2 <= 2 rows (42.7)"
+    },
+    {
+      "ctx": {
+        "has_photo": false,
+        "mode": "visits",
+        "tracks": [
+          {
+            "position": 1,
+            "size": 5
+          }
+        ]
+      },
+      "design": {
+        "apple": {
+          "auxiliary": [],
+          "header": [
+            {
+              "track": 1,
+              "type": "balance"
+            }
+          ],
+          "primary": null,
+          "secondary": [
+            {
+              "track": 1,
+              "type": "rewards"
+            },
+            {
+              "track": 1,
+              "type": "progress"
+            }
+          ]
+        },
+        "colours": {
+          "background": "#0D6273",
+          "foreground": "#EFF3F4",
+          "label": "#B9DCE3"
+        },
+        "elements": [
+          {
+            "cell": {
+              "col": 0,
+              "h": 2,
+              "row": 0,
+              "w": 4
+            },
+            "kind": {
+              "align": "start",
+              "ar": "",
+              "en": "Free coffee every week!",
+              "size": "large",
+              "type": "text"
+            }
+          },
+          {
+            "cell": {
+              "col": 0,
+              "h": 1,
+              "row": 4,
+              "w": 12
+            },
+            "kind": {
+              "track": 1,
+              "type": "bar"
+            }
+          }
+        ],
+        "google": {
+          "points": {
+            "track": 1,
+            "type": "progress"
+          },
+          "secondary": {
+            "track": 1,
+            "type": "rewards"
+          }
+        },
+        "ground": {
+          "kind": "colour",
+          "pattern": null
+        },
+        "stamp": {
+          "empty": "outline",
+          "shape": "circle"
+        },
+        "template": "",
+        "version": 1
+      },
+      "expected": [
+        [
+          "text_does_not_fit",
+          "elements[0]"
+        ]
+      ],
+      "name": "text_does_not_fit",
+      "why": "'Free coffee every week!' 23 x 0.6 x 22 = 303.6 pt > 4 cols (114.3)"
+    },
+    {
+      "ctx": {
+        "has_photo": false,
+        "mode": "visits",
+        "tracks": [
+          {
+            "position": 1,
+            "size": 5
+          }
+        ]
+      },
+      "design": {
+        "apple": {
+          "auxiliary": [],
+          "header": [
+            {
+              "track": 1,
+              "type": "balance"
+            }
+          ],
+          "primary": null,
+          "secondary": [
+            {
+              "track": 1,
+              "type": "rewards"
+            },
+            {
+              "track": 1,
+              "type": "progress"
+            }
+          ]
+        },
+        "colours": {
+          "background": "#0D6273",
+          "foreground": "#EFF3F4",
+          "label": "#B9DCE3"
+        },
+        "elements": [
+          {
+            "cell": {
+              "col": 0,
+              "h": 1,
+              "row": 0,
+              "w": 4
+            },
+            "kind": {
+              "align": "start",
+              "ar": "",
+              "en": " ",
+              "size": "small",
+              "type": "text"
+            }
+          },
+          {
+            "cell": {
+              "col": 0,
+              "h": 1,
+              "row": 4,
+              "w": 12
+            },
+            "kind": {
+              "track": 1,
+              "type": "bar"
+            }
+          }
+        ],
+        "google": {
+          "points": {
+            "track": 1,
+            "type": "progress"
+          },
+          "secondary": {
+            "track": 1,
+            "type": "rewards"
+          }
+        },
+        "ground": {
+          "kind": "colour",
+          "pattern": null
+        },
+        "stamp": {
+          "empty": "outline",
+          "shape": "circle"
+        },
+        "template": "",
+        "version": 1
+      },
+      "expected": [
+        [
+          "text_empty",
+          "elements[0]"
+        ]
+      ],
+      "name": "text_empty",
+      "why": "a text element with no words"
+    },
+    {
+      "ctx": {
+        "has_photo": false,
+        "mode": "visits",
+        "tracks": [
+          {
+            "position": 1,
+            "size": 5
+          }
+        ]
+      },
+      "design": {
+        "apple": {
+          "auxiliary": [
+            {
+              "type": "member"
+            },
+            {
+              "track": 1,
+              "type": "balance"
+            }
+          ],
+          "header": [
+            {
+              "track": 1,
+              "type": "balance"
+            },
+            {
+              "type": "member"
+            },
+            {
+              "track": 1,
+              "type": "progress"
+            }
+          ],
+          "primary": null,
+          "secondary": [
+            {
+              "track": 1,
+              "type": "progress"
+            },
+            {
+              "track": 1,
+              "type": "rewards"
+            }
+          ]
+        },
+        "colours": {
+          "background": "#0D6273",
+          "foreground": "#EFF3F4",
+          "label": "#B9DCE3"
+        },
+        "elements": [
+          {
+            "cell": {
+              "col": 0,
+              "h": 1,
+              "row": 4,
+              "w": 12
+            },
+            "kind": {
+              "track": 1,
+              "type": "bar"
+            }
+          }
+        ],
+        "google": {
+          "points": {
+            "track": 1,
+            "type": "progress"
+          },
+          "secondary": {
+            "track": 1,
+            "type": "rewards"
+          }
+        },
+        "ground": {
+          "kind": "colour",
+          "pattern": null
+        },
+        "stamp": {
+          "empty": "outline",
+          "shape": "circle"
+        },
+        "template": "",
+        "version": 1
+      },
+      "expected": [
+        [
+          "too_many_header_fields",
+          "apple.header"
+        ],
+        [
+          "too_many_fields",
+          "apple.secondary"
+        ]
+      ],
+      "name": "too_many_fields",
+      "why": "Apple: 2 secondary + 2 auxiliary = 4 > 3 (one auxiliary slot is the notice's); 3 header > 2"
+    },
+    {
+      "ctx": {
+        "has_photo": true,
+        "mode": "visits",
+        "tracks": [
+          {
+            "position": 1,
+            "size": 8
+          },
+          {
+            "position": 2,
+            "size": 6
+          }
+        ]
+      },
+      "design": {
+        "apple": {
+          "auxiliary": [],
+          "header": [
+            {
+              "track": 1,
+              "type": "balance"
+            }
+          ],
+          "primary": null,
+          "secondary": [
+            {
+              "track": 1,
+              "type": "rewards"
+            },
+            {
+              "track": 1,
+              "type": "progress"
+            }
+          ]
+        },
+        "colours": {
+          "background": "#0D6273",
+          "foreground": "#EFF3F4",
+          "label": "#B9DCE3"
+        },
+        "elements": [
+          {
+            "cell": {
+              "col": 0,
+              "h": 2,
+              "row": 0,
+              "w": 3
+            },
+            "kind": {
+              "align": "start",
+              "ar": "قهوة",
+              "en": "Coffee",
+              "size": "small",
+              "type": "text"
+            }
+          },
+          {
+            "cell": {
+              "col": 3,
+              "h": 2,
+              "row": 0,
+              "w": 9
+            },
+            "kind": {
+              "track": 1,
+              "type": "stamps"
+            }
+          },
+          {
+            "cell": {
+              "col": 0,
+              "h": 2,
+              "row": 2,
+              "w": 3
+            },
+            "kind": {
+              "align": "start",
+              "ar": "ساندوتش",
+              "en": "Sandwich",
+              "size": "small",
+              "type": "text"
+            }
+          },
+          {
+            "cell": {
+              "col": 3,
+              "h": 2,
+              "row": 2,
+              "w": 9
+            },
+            "kind": {
+              "track": 2,
+              "type": "stamps"
+            }
+          }
+        ],
+        "google": {
+          "points": {
+            "track": 1,
+            "type": "progress"
+          },
+          "secondary": {
+            "track": 1,
+            "type": "rewards"
+          }
+        },
+        "ground": {
+          "kind": "colour",
+          "pattern": null
+        },
+        "stamp": {
+          "empty": "outline",
+          "shape": "circle"
+        },
+        "template": "",
+        "version": 1
+      },
+      "expected": [],
+      "name": "two_tracks",
+      "why": "one stamp row per track with labels; both tracks visible"
+    },
+    {
+      "ctx": {
+        "has_photo": true,
+        "mode": "visits",
+        "tracks": [
+          {
+            "position": 1,
+            "size": 8
+          },
+          {
+            "position": 2,
+            "size": 6
+          }
+        ]
+      },
+      "design": {
+        "apple": {
+          "auxiliary": [],
+          "header": [
+            {
+              "track": 1,
+              "type": "balance"
+            }
+          ],
+          "primary": null,
+          "secondary": [
+            {
+              "track": 1,
+              "type": "rewards"
+            },
+            {
+              "track": 1,
+              "type": "progress"
+            }
+          ]
+        },
+        "colours": {
+          "background": "#0D6273",
+          "foreground": "#EFF3F4",
+          "label": "#B9DCE3"
+        },
+        "elements": [
+          {
+            "cell": {
+              "col": 0,
+              "h": 1,
+              "row": 4,
+              "w": 12
+            },
+            "kind": {
+              "track": 1,
+              "type": "bar"
+            }
+          }
+        ],
+        "google": {
+          "points": {
+            "track": 1,
+            "type": "progress"
+          },
+          "secondary": {
+            "track": 1,
+            "type": "rewards"
+          }
+        },
+        "ground": {
+          "kind": "colour",
+          "pattern": null
+        },
+        "stamp": {
+          "empty": "outline",
+          "shape": "circle"
+        },
+        "template": "",
+        "version": 1
+      },
+      "expected": [
+        [
+          "track_hidden",
+          "tracks[1]"
+        ]
+      ],
+      "name": "a_track_left_off",
+      "why": "track 2 (tracks[1]) runs but neither the strip nor a field shows it: a warning, not an error"
+    },
+    {
+      "ctx": {
+        "has_photo": false,
+        "mode": "visits",
+        "tracks": [
+          {
+            "position": 1,
+            "size": 5
+          }
+        ]
+      },
+      "design": {
+        "apple": {
+          "auxiliary": [],
+          "header": [
+            {
+              "track": 1,
+              "type": "balance"
+            }
+          ],
+          "primary": null,
+          "secondary": [
+            {
+              "track": 1,
+              "type": "rewards"
+            },
+            {
+              "track": 1,
+              "type": "progress"
+            }
+          ]
+        },
+        "colours": {
+          "background": "#0D6273",
+          "foreground": "#EFF3F4",
+          "label": "#B9DCE3"
+        },
+        "elements": [
+          {
+            "cell": {
+              "col": 0,
+              "h": 1,
+              "row": 4,
+              "w": 2
+            },
+            "kind": {
+              "track": 1,
+              "type": "bar"
+            }
+          }
+        ],
+        "google": {
+          "points": {
+            "track": 1,
+            "type": "progress"
+          },
+          "secondary": {
+            "track": 1,
+            "type": "rewards"
+          }
+        },
+        "ground": {
+          "kind": "colour",
+          "pattern": null
+        },
+        "stamp": {
+          "empty": "outline",
+          "shape": "circle"
+        },
+        "template": "",
+        "version": 1
+      },
+      "expected": [
+        [
+          "bar_too_short",
+          "elements[0]"
+        ]
+      ],
+      "name": "bar_too_short",
+      "why": "a bar needs at least 3 columns"
+    },
+    {
+      "ctx": {
+        "has_photo": false,
+        "mode": "visits",
+        "tracks": [
+          {
+            "position": 1,
+            "size": 5
+          }
+        ]
+      },
+      "design": {
+        "apple": {
+          "auxiliary": [],
+          "header": [
+            {
+              "track": 1,
+              "type": "balance"
+            }
+          ],
+          "primary": null,
+          "secondary": [
+            {
+              "track": 1,
+              "type": "rewards"
+            },
+            {
+              "track": 1,
+              "type": "progress"
+            }
+          ]
+        },
+        "colours": {
+          "background": "#0D6273",
+          "foreground": "#EFF3F4",
+          "label": "#B9DCE3"
+        },
+        "elements": [
+          {
+            "cell": {
+              "col": 10,
+              "h": 1,
+              "row": 0,
+              "w": 1
+            },
+            "kind": {
+              "type": "logo"
+            }
+          },
+          {
+            "cell": {
+              "col": 0,
+              "h": 1,
+              "row": 4,
+              "w": 12
+            },
+            "kind": {
+              "track": 1,
+              "type": "bar"
+            }
+          }
+        ],
+        "google": {
+          "points": {
+            "track": 1,
+            "type": "progress"
+          },
+          "secondary": {
+            "track": 1,
+            "type": "rewards"
+          }
+        },
+        "ground": {
+          "kind": "colour",
+          "pattern": null
+        },
+        "stamp": {
+          "empty": "outline",
+          "shape": "circle"
+        },
+        "template": "",
+        "version": 1
+      },
+      "expected": [
+        [
+          "logo_too_small",
+          "elements[0]"
+        ]
+      ],
+      "name": "logo_too_small",
+      "why": "the logo needs at least 2 x 2 cells"
+    },
+    {
+      "ctx": {
+        "has_photo": false,
+        "mode": "visits",
+        "tracks": [
+          {
+            "position": 1,
+            "size": 5
+          }
+        ]
+      },
+      "design": {
+        "apple": {
+          "auxiliary": [],
+          "header": [
+            {
+              "track": 1,
+              "type": "balance"
+            }
+          ],
+          "primary": null,
+          "secondary": [
+            {
+              "track": 1,
+              "type": "rewards"
+            },
+            {
+              "track": 1,
+              "type": "progress"
+            }
+          ]
+        },
+        "colours": {
+          "background": "#0D6273",
+          "foreground": "#EFF3F4",
+          "label": "#B9DCE3"
+        },
+        "elements": [
+          {
+            "cell": {
+              "col": 0,
+              "h": 2,
+              "row": 0,
+              "w": 3
+            },
+            "kind": {
+              "track": 1,
+              "type": "count"
+            }
+          },
+          {
+            "cell": {
+              "col": 0,
+              "h": 1,
+              "row": 4,
+              "w": 12
+            },
+            "kind": {
+              "track": 1,
+              "type": "bar"
+            }
+          }
+        ],
+        "google": {
+          "points": {
+            "track": 1,
+            "type": "progress"
+          },
+          "secondary": {
+            "track": 1,
+            "type": "rewards"
+          }
+        },
+        "ground": {
+          "kind": "colour",
+          "pattern": null
+        },
+        "stamp": {
+          "empty": "outline",
+          "shape": "circle"
+        },
+        "template": "",
+        "version": 1
+      },
+      "expected": [],
+      "name": "count_fits",
+      "why": "a count of 5: '5/5' is 3 chars; 3 cols x 2 rows = 85.75 x 42.7 pt -> min(42.7*0.72=30.7, 85.75/1.8=47.6) = 30.7 pt"
+    },
+    {
+      "ctx": {
+        "has_photo": false,
+        "mode": "visits",
+        "tracks": [
+          {
+            "position": 1,
+            "size": 50
+          }
+        ]
+      },
+      "design": {
+        "apple": {
+          "auxiliary": [],
+          "header": [
+            {
+              "track": 1,
+              "type": "balance"
+            }
+          ],
+          "primary": null,
+          "secondary": [
+            {
+              "track": 1,
+              "type": "rewards"
+            },
+            {
+              "track": 1,
+              "type": "progress"
+            }
+          ]
+        },
+        "colours": {
+          "background": "#0D6273",
+          "foreground": "#EFF3F4",
+          "label": "#B9DCE3"
+        },
+        "elements": [
+          {
+            "cell": {
+              "col": 0,
+              "h": 1,
+              "row": 0,
+              "w": 1
+            },
+            "kind": {
+              "track": 1,
+              "type": "count"
+            }
+          },
+          {
+            "cell": {
+              "col": 0,
+              "h": 1,
+              "row": 4,
+              "w": 12
+            },
+            "kind": {
+              "track": 1,
+              "type": "bar"
+            }
+          }
+        ],
+        "google": {
+          "points": {
+            "track": 1,
+            "type": "progress"
+          },
+          "secondary": {
+            "track": 1,
+            "type": "rewards"
+          }
+        },
+        "ground": {
+          "kind": "colour",
+          "pattern": null
+        },
+        "stamp": {
+          "empty": "outline",
+          "shape": "circle"
+        },
+        "template": "",
+        "version": 1
+      },
+      "expected": [
+        [
+          "count_too_small",
+          "elements[0]"
+        ]
+      ],
+      "name": "count_too_small",
+      "why": "a 50-stamp card in one cell: '50/50' is 5 characters, 28.6 / (5 x 0.6) = 9.5 pt < 10 (the height allows 21.3 x 0.72 = 15.4)"
+    }
+  ]
+}

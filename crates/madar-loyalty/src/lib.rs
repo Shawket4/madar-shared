@@ -27,12 +27,17 @@
 //! covered_minor`; this crate only decides units and cost. Nothing here does
 //! I/O. Pinned by `vectors/loyalty_plan_vectors.json`.
 //!
+//! [`tracks`] plans a basket across a card's stamp tracks (up to four, each
+//! its own balance, one shared per-order ceiling); a sale on track 1 alone is
+//! [`plan`] itself. Pinned by `vectors/loyalty_tracks_vectors.json`.
+//!
 //! [`card`] is what a member's card shows for a balance: rewards earned,
 //! progress to the next, what it still needs, the stamps (the server's
 //! `loyalty::model` rule). Pinned by `vectors/loyalty_card_vectors.json`.
 
 pub mod card;
 pub mod plan;
+pub mod tracks;
 pub mod vectors;
 
 pub use plan::{

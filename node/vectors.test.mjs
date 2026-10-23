@@ -17,7 +17,7 @@ const vectors = (path) => JSON.parse(readFileSync(join(root, "crates", path), "u
 
 async function load(pkg) {
   const dir = join(root, "dist", pkg);
-  const name = pkg === "menu" ? "madar_menu" : "madar_web";
+  const name = pkg === "menu" ? "madar_menu" : pkg === "card" ? "madar_card" : "madar_web";
   const m = await import(join(dir, `${name}.js`));
   m.initSync({ module: readFileSync(join(dir, `${name}_bg.wasm`)) });
   return m;
@@ -288,6 +288,34 @@ function menuFiles(pkg, w) {
     (c) => w.confirms_replace(c.org_name, c.typed), (c) => c.expected);
 }
 
+/** The Rewards card designer (madar-card): validation, layout, tracks,
+ * audiences, messages and the stepper; only its own package carries them. */
+function cardFiles(pkg, w) {
+  const design = vectors("madar-card/vectors/card_design_vectors.json");
+  const rules = vectors("madar-card/vectors/card_rules_vectors.json");
+  const pairs = (problems) => problems.map((p) => [p.code, p.path]);
+  cases(pkg, "card_design_vectors", "card_validate", design.validate,
+    (c) => pairs(w.card_validate(c.design, c.ctx)), (c) => c.expected);
+  cases(pkg, "card_design_vectors", "card_layout", design.layout,
+    (c) => w.card_layout(c.design, c.store, c.scale, c.arabic, c.primary_field), (c) => c.expected);
+  cases(pkg, "card_rules_vectors", "tracks_validate", rules.tracks,
+    (c) => pairs(w.tracks_validate(c.tracks, c.mode)), (c) => c.expected);
+  cases(pkg, "card_rules_vectors", "track_card", rules.track_card,
+    (c) => w.track_card(c.balance, c.size), (c) => c.expected);
+  cases(pkg, "card_rules_vectors", "audience_validate", rules.audience,
+    (c) => pairs(w.audience_validate(c.audience, c.track_count)), (c) => c.expected);
+  cases(pkg, "card_rules_vectors", "message_validate", rules.message,
+    (c) => pairs(w.message_validate(c.message)), (c) => c.expected);
+  cases(pkg, "card_rules_vectors", "card_stepper", rules.stepper,
+    (c) => w.card_stepper(c.balance, c.size), (c) => c.expected);
+  test("card_svg draws a strip", () => {
+    const d = design.validate.find((c) => c.name === "two_tracks");
+    const svg = w.card_svg(d.design, { arabic: true, tracks: [{ position: 1, size: 8, balance: 3, colour: null, shape: null }, { position: 2, size: 6, balance: 7, colour: "#C2410C", shape: "heart" }] }, "apple", 2, { photo_href: null, logo_href: null, footer_href: null, scrim_preview: false, primary_field: false });
+    assert.match(svg, /^<svg [^>]*width="750" height="288"/);
+    assert.match(svg, /قهوة/);
+  });
+}
+
 for (const pkg of ["public", "full"]) {
   const w = await load(pkg);
   describe(pkg, () => {
@@ -298,6 +326,18 @@ for (const pkg of ["public", "full"]) {
       assert.equal(w.foodics_parse, undefined);
       assert.equal(w.bulk_validate, undefined);
       assert.equal(w.confirms_replace, undefined);
+      assert.equal(w.card_validate, undefined);
+    });
+  });
+}
+
+{
+  const w = await load("card");
+  describe("card", () => {
+    cardFiles("card", w);
+    test("card carries only the card designer", () => {
+      assert.equal(w.price_line, undefined);
+      assert.equal(w.foodics_parse, undefined);
     });
   });
 }
@@ -316,6 +356,6 @@ for (const pkg of ["public", "full"]) {
 after(() => {
   const total = (pkg) => runs.filter((r) => r.pkg === pkg).reduce((n, r) => n + r.cases, 0);
   const failed = runs.reduce((n, r) => n + r.failed, 0);
-  console.log(`vector cases through wasm: public ${total("public")}, full ${total("full")}, menu ${total("menu")}, failed ${failed}`);
+  console.log(`vector cases through wasm: public ${total("public")}, full ${total("full")}, menu ${total("menu")}, card ${total("card")}, failed ${failed}`);
   for (const s of skipped) console.log(`not run: ${s}`);
 });

@@ -12,6 +12,9 @@
 //! - `menu`: the self-serve menu import (madar-menu: the Foodics reader, the
 //!   bulk menu's checks, the replace sentence), loaded by the dashboard when
 //!   its import dialog opens; nothing else.
+//! - `card`: the Rewards card designer (madar-card: templates, validation,
+//!   layout, the strip's SVG, tracks, audiences, messages), loaded by the
+//!   dashboard's Rewards pages; nothing else.
 //!
 //! The boundary:
 //! - Structs and enums cross as plain JS objects (serde-wasm-bindgen), typed
@@ -26,7 +29,7 @@
 //! - Time zones are IANA names: `full` bundles every zone, `public` Cairo,
 //!   MENA and the US (scripts/tz-filter.txt). A zone not bundled throws.
 
-#![cfg(any(feature = "public", feature = "menu"))]
+#![cfg(any(feature = "public", feature = "menu", feature = "card"))]
 
 use serde::Serialize;
 use tsify::Ts;
@@ -40,6 +43,7 @@ fn out<T: Serialize + ?Sized>(v: &T) -> Result<JsValue, JsError> {
 }
 
 /// A crate's `Result`, its refusal returned rather than thrown.
+#[cfg(any(feature = "public", feature = "menu"))]
 fn either<T: Serialize, E: Serialize>(r: Result<T, E>) -> Result<JsValue, JsError> {
     match r {
         Ok(v) => out(&v),
@@ -47,7 +51,7 @@ fn either<T: Serialize, E: Serialize>(r: Result<T, E>) -> Result<JsValue, JsErro
     }
 }
 
-#[cfg(feature = "public")]
+#[cfg(any(feature = "public", feature = "card"))]
 /// A JS number that must be a whole number (piastres, counts): anything else
 /// throws instead of being truncated.
 fn int<T: TryFrom<i64>>(x: f64) -> Result<T, JsError> {
@@ -948,5 +952,212 @@ mod menu {
     #[wasm_bindgen(unchecked_return_type = "BulkSummary | BulkRefusal")]
     pub fn bulk_validate(menu: Ts<madar_menu::BulkMenu>) -> Result<JsValue, JsError> {
         either(madar_menu::validate(&menu.to_rust()?))
+    }
+}
+
+#[cfg(feature = "card")]
+mod card {
+    use super::*;
+    use madar_card::audience::{validate_audience, Audience};
+    use madar_card::grid::{Canvas, Cell, Store, APPLE_PRIMARY_ZONE, COLS, FOOTER_CELL, ROWS};
+    use madar_card::message::{validate_message, Limits, Message, LIMITS};
+    use madar_card::render::{CardState, SvgOpts};
+    use madar_card::tracks::{Mode, Track};
+    use madar_card::{CardDesign, Colours, Ctx};
+
+    fn tracks_of(v: Vec<Ts<Track>>) -> Result<Vec<Track>, JsError> {
+        v.iter().map(|t| Ok(t.to_rust()?)).collect()
+    }
+
+    /// The fixed numbers the editor and the composer show.
+    #[derive(Serialize, tsify::Tsify)]
+    pub struct CardRules {
+        pub cols: u8,
+        pub rows: u8,
+        pub apple_primary_zone: Cell,
+        pub footer_cell: Cell,
+        pub template_ids: Vec<String>,
+        pub max_elements: usize,
+        pub max_stamps: i32,
+        pub text_max: usize,
+        pub max_header: usize,
+        pub max_secondary_and_auxiliary: usize,
+        pub min_contrast: f64,
+        pub max_tracks: usize,
+        pub max_track_size: i32,
+        pub track_name_max: usize,
+        pub audience_max_rules: usize,
+        pub audience_max_days: u32,
+        pub message: Limits,
+    }
+
+    #[wasm_bindgen(unchecked_return_type = "CardRules")]
+    pub fn card_rules() -> Result<JsValue, JsError> {
+        use madar_card::validate as v;
+        out(&CardRules {
+            cols: COLS,
+            rows: ROWS,
+            apple_primary_zone: APPLE_PRIMARY_ZONE,
+            footer_cell: FOOTER_CELL,
+            template_ids: madar_card::templates::TEMPLATE_IDS
+                .iter()
+                .map(|s| (*s).to_string())
+                .collect(),
+            max_elements: v::MAX_ELEMENTS,
+            max_stamps: v::MAX_STAMPS,
+            text_max: v::TEXT_MAX,
+            max_header: v::MAX_HEADER,
+            max_secondary_and_auxiliary: v::MAX_SECONDARY_AND_AUXILIARY,
+            min_contrast: v::MIN_CONTRAST,
+            max_tracks: madar_card::tracks::MAX_TRACKS,
+            max_track_size: madar_card::tracks::MAX_TRACK_SIZE,
+            track_name_max: madar_card::tracks::NAME_MAX,
+            audience_max_rules: madar_card::audience::MAX_RULES,
+            audience_max_days: madar_card::audience::MAX_DAYS,
+            message: LIMITS,
+        })
+    }
+
+    /// Every template this shop can use, built for it.
+    #[wasm_bindgen(unchecked_return_type = "CardDesign[]")]
+    pub fn card_templates(
+        colours: Ts<Colours>,
+        ctx: Ts<Ctx>,
+        tracks: Vec<Ts<Track>>,
+    ) -> Result<JsValue, JsError> {
+        out(&madar_card::templates::templates(
+            &colours.to_rust()?,
+            &ctx.to_rust()?,
+            &tracks_of(tracks)?,
+        ))
+    }
+
+    /// The design a shop starts from (today's look, or a row per track).
+    #[wasm_bindgen(unchecked_return_type = "CardDesign")]
+    pub fn card_default(
+        colours: Ts<Colours>,
+        ctx: Ts<Ctx>,
+        tracks: Vec<Ts<Track>>,
+    ) -> Result<JsValue, JsError> {
+        out(&madar_card::templates::default_design(
+            &colours.to_rust()?,
+            &ctx.to_rust()?,
+            &tracks_of(tracks)?,
+        ))
+    }
+
+    /// The server's checks on a design, for this shop.
+    #[wasm_bindgen(unchecked_return_type = "Problem[]")]
+    pub fn card_validate(design: Ts<CardDesign>, ctx: Ts<Ctx>) -> Result<JsValue, JsError> {
+        out(&madar_card::validate(&design.to_rust()?, &ctx.to_rust()?))
+    }
+
+    /// The first free spot of `w`x`h` cells, or `null`.
+    #[wasm_bindgen(unchecked_return_type = "Cell | null")]
+    pub fn card_first_free(design: Ts<CardDesign>, w: f64, h: f64) -> Result<JsValue, JsError> {
+        out(&madar_card::validate::first_free(
+            &design.to_rust()?,
+            int(w)?,
+            int(h)?,
+        ))
+    }
+
+    /// Where each element lands on a wallet's image.
+    #[wasm_bindgen(unchecked_return_type = "Placement[]")]
+    pub fn card_layout(
+        design: Ts<CardDesign>,
+        store: Ts<Store>,
+        scale: f64,
+        arabic: bool,
+        primary_field: bool,
+    ) -> Result<JsValue, JsError> {
+        let canvas = Canvas::of(store.to_rust()?, int(scale)?);
+        out(&madar_card::render::layout(
+            &design.to_rust()?,
+            canvas,
+            arabic,
+            primary_field,
+        ))
+    }
+
+    /// The strip (Apple, at `scale`) or the hero (Google) as SVG.
+    #[wasm_bindgen]
+    pub fn card_svg(
+        design: Ts<CardDesign>,
+        state: Ts<CardState>,
+        store: Ts<Store>,
+        scale: f64,
+        opts: Ts<SvgOpts>,
+    ) -> Result<String, JsError> {
+        let canvas = Canvas::of(store.to_rust()?, int(scale)?);
+        Ok(madar_card::render::svg(
+            &design.to_rust()?,
+            &state.to_rust()?,
+            canvas,
+            &opts.to_rust()?,
+        ))
+    }
+
+    /// The problems with a set of tracks.
+    #[wasm_bindgen(unchecked_return_type = "Problem[]")]
+    pub fn tracks_validate(tracks: Vec<Ts<Track>>, mode: Ts<Mode>) -> Result<JsValue, JsError> {
+        out(&madar_card::tracks::validate_tracks(
+            &tracks_of(tracks)?,
+            mode.to_rust()?,
+        ))
+    }
+
+    #[derive(Serialize, tsify::Tsify)]
+    pub struct TrackCard {
+        pub rewards_ready: i32,
+        pub progress_to_next: i32,
+        pub points_to_next_reward: i32,
+        pub can_redeem: bool,
+    }
+
+    /// One track's card for its balance.
+    #[wasm_bindgen(unchecked_return_type = "TrackCard")]
+    pub fn track_card(balance: f64, size: f64) -> Result<JsValue, JsError> {
+        let c = madar_card::tracks::track_card(int(balance)?, int(size)?);
+        out(&TrackCard {
+            rewards_ready: c.rewards_ready,
+            progress_to_next: c.progress_to_next,
+            points_to_next_reward: c.points_to_next_reward,
+            can_redeem: c.can_redeem,
+        })
+    }
+
+    #[derive(Serialize, tsify::Tsify)]
+    pub struct Stepper {
+        pub progress: String,
+        pub earned: Option<String>,
+    }
+
+    /// A track's figures as the wallet fields print them.
+    #[wasm_bindgen(unchecked_return_type = "Stepper")]
+    pub fn card_stepper(balance: f64, size: f64) -> Result<JsValue, JsError> {
+        let (b, s) = (int(balance)?, int(size)?);
+        out(&Stepper {
+            progress: madar_card::text::progress_line(b, s),
+            earned: madar_card::text::earned_line(b, s),
+        })
+    }
+
+    /// The problems with an audience for a shop of `track_count` tracks.
+    #[wasm_bindgen(unchecked_return_type = "Problem[]")]
+    pub fn audience_validate(audience: Ts<Audience>, track_count: f64) -> Result<JsValue, JsError> {
+        out(&validate_audience(&audience.to_rust()?, int(track_count)?))
+    }
+
+    /// The problems with a message.
+    #[wasm_bindgen(unchecked_return_type = "Problem[]")]
+    pub fn message_validate(message: Ts<Message>) -> Result<JsValue, JsError> {
+        out(&validate_message(&message.to_rust()?))
+    }
+
+    /// The line a member reading Arabic (or not) gets.
+    #[wasm_bindgen]
+    pub fn message_line_for(message: Ts<Message>, arabic: bool) -> Result<String, JsError> {
+        Ok(message.to_rust()?.line_for(arabic).to_string())
     }
 }

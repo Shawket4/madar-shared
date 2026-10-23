@@ -43,6 +43,10 @@ full = [
 # its own: the dashboard loads it when the import dialog opens, so neither boot
 # package carries the reader.
 menu = ["dep:madar-menu"]
+# The Rewards card designer and its rules (madar-card: designs, tracks,
+# audiences, messages), a package of its own: the dashboard loads it when a
+# Rewards page that needs it opens, so neither boot package carries it.
+card = ["dep:madar-card"]
 
 [dependencies]
 # Exactly the wasm-bindgen CLI's version: the glue it writes must match.
@@ -64,6 +68,8 @@ madar-till = { path = "../madar-till", optional = true }
 # The menu import, in the `menu` package only (node/vectors.test.mjs checks
 # `public` and `full` export none of it).
 madar-menu = { path = "../madar-menu", features = ["foodics", "tsify"], optional = true }
+# The card designer, in the `card` package only.
+madar-card = { path = "../madar-card", features = ["tsify"], optional = true }
 
 rust_decimal = { version = "1", default-features = false, optional = true }
 chrono = { version = "0.4", default-features = false, features = ["std"], optional = true }

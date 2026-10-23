@@ -1,0 +1,1126 @@
+{
+  "about": "Hand-written baskets across stamp tracks (POS_MULTITRACK_DESIGN.md §2); till/server/choices written by MADAR_REGENERATE_TRACKS_VECTORS=1 cargo test -p madar-loyalty tracks_vectors and checked by hand against each why.",
+  "cases": [
+    {
+      "asks": [
+        {
+          "line": 0,
+          "track": null,
+          "units": 1
+        },
+        {
+          "line": 1,
+          "track": 2,
+          "units": 1
+        }
+      ],
+      "choices": [
+        [
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        []
+      ],
+      "lines": [
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "quantity": 2
+        },
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000b1",
+          "quantity": 1
+        },
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000b2",
+          "quantity": 1
+        },
+        {
+          "is_staff_drink": false,
+          "menu_item_id": null,
+          "quantity": 1
+        }
+      ],
+      "max_per_order": null,
+      "name": "mixed_basket",
+      "programmes": [
+        {
+          "programme": {
+            "any_item": true,
+            "any_item_cost": 8,
+            "balance": 9,
+            "max_per_order": null,
+            "rewards": []
+          },
+          "track": 1
+        },
+        {
+          "programme": {
+            "any_item": false,
+            "any_item_cost": 0,
+            "balance": 7,
+            "max_per_order": null,
+            "rewards": [
+              {
+                "cost": 6,
+                "menu_item_id": "00000000-0000-4000-8000-0000000000b1"
+              },
+              {
+                "cost": 6,
+                "menu_item_id": "00000000-0000-4000-8000-0000000000b2"
+              }
+            ]
+          },
+          "track": 2
+        }
+      ],
+      "server": {
+        "Ok": {
+          "tracks": [
+            {
+              "plan": {
+                "cost": 8,
+                "lines": [
+                  {
+                    "cost": 8,
+                    "line": 0,
+                    "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+                    "unit_cost": 8,
+                    "units": 1
+                  }
+                ],
+                "trimmed": null,
+                "units": 1
+              },
+              "track": 1
+            },
+            {
+              "plan": {
+                "cost": 6,
+                "lines": [
+                  {
+                    "cost": 6,
+                    "line": 1,
+                    "menu_item_id": "00000000-0000-4000-8000-0000000000b1",
+                    "unit_cost": 6,
+                    "units": 1
+                  }
+                ],
+                "trimmed": null,
+                "units": 1
+              },
+              "track": 2
+            }
+          ],
+          "trimmed": null,
+          "units": 2
+        }
+      },
+      "till": {
+        "Ok": {
+          "tracks": [
+            {
+              "plan": {
+                "cost": 8,
+                "lines": [
+                  {
+                    "cost": 8,
+                    "line": 0,
+                    "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+                    "unit_cost": 8,
+                    "units": 1
+                  }
+                ],
+                "trimmed": null,
+                "units": 1
+              },
+              "track": 1
+            },
+            {
+              "plan": {
+                "cost": 6,
+                "lines": [
+                  {
+                    "cost": 6,
+                    "line": 1,
+                    "menu_item_id": "00000000-0000-4000-8000-0000000000b1",
+                    "unit_cost": 6,
+                    "units": 1
+                  }
+                ],
+                "trimmed": null,
+                "units": 1
+              },
+              "track": 2
+            }
+          ],
+          "trimmed": null,
+          "units": 2
+        }
+      },
+      "why": "latte on track 1 (any item at 8, balance 9: 8 spent, 1 left), sandwich on track 2 (size 6, balance 7: 6 spent, 1 left); 2 units, no cap"
+    },
+    {
+      "asks": [
+        {
+          "line": 0,
+          "track": null,
+          "units": 1
+        },
+        {
+          "line": 1,
+          "track": null,
+          "units": 1
+        }
+      ],
+      "choices": [
+        [
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        []
+      ],
+      "lines": [
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "quantity": 2
+        },
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000b1",
+          "quantity": 1
+        },
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000b2",
+          "quantity": 1
+        },
+        {
+          "is_staff_drink": false,
+          "menu_item_id": null,
+          "quantity": 1
+        }
+      ],
+      "max_per_order": null,
+      "name": "track_one_only",
+      "programmes": [
+        {
+          "programme": {
+            "any_item": true,
+            "any_item_cost": 8,
+            "balance": 9,
+            "max_per_order": null,
+            "rewards": []
+          },
+          "track": 1
+        },
+        {
+          "programme": {
+            "any_item": false,
+            "any_item_cost": 0,
+            "balance": 7,
+            "max_per_order": null,
+            "rewards": [
+              {
+                "cost": 6,
+                "menu_item_id": "00000000-0000-4000-8000-0000000000b1"
+              },
+              {
+                "cost": 6,
+                "menu_item_id": "00000000-0000-4000-8000-0000000000b2"
+              }
+            ]
+          },
+          "track": 2
+        }
+      ],
+      "server": {
+        "Err": {
+          "refusal": {
+            "kind": "plan",
+            "reason": {
+              "balance": 9,
+              "refusal": "balance_short",
+              "spent": 16
+            }
+          },
+          "track": 1
+        }
+      },
+      "till": {
+        "Ok": {
+          "tracks": [
+            {
+              "plan": {
+                "cost": 8,
+                "lines": [
+                  {
+                    "cost": 8,
+                    "line": 0,
+                    "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+                    "unit_cost": 8,
+                    "units": 1
+                  }
+                ],
+                "trimmed": "balance_short",
+                "units": 1
+              },
+              "track": 1
+            }
+          ],
+          "trimmed": "balance_short",
+          "units": 1
+        }
+      },
+      "why": "both asks on track 1 (latte, then the sandwich as 'any item'): 8 + 8 = 16 > 9; the single planner answers (server: balance short; till: keeps the latte, trims the sandwich)"
+    },
+    {
+      "asks": [
+        {
+          "line": 0,
+          "track": null,
+          "units": 1
+        },
+        {
+          "line": 1,
+          "track": 2,
+          "units": 1
+        }
+      ],
+      "choices": [
+        [
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        []
+      ],
+      "lines": [
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "quantity": 2
+        },
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000b1",
+          "quantity": 1
+        },
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000b2",
+          "quantity": 1
+        },
+        {
+          "is_staff_drink": false,
+          "menu_item_id": null,
+          "quantity": 1
+        }
+      ],
+      "max_per_order": 1,
+      "name": "shared_cap",
+      "programmes": [
+        {
+          "programme": {
+            "any_item": true,
+            "any_item_cost": 8,
+            "balance": 9,
+            "max_per_order": null,
+            "rewards": []
+          },
+          "track": 1
+        },
+        {
+          "programme": {
+            "any_item": false,
+            "any_item_cost": 0,
+            "balance": 7,
+            "max_per_order": null,
+            "rewards": [
+              {
+                "cost": 6,
+                "menu_item_id": "00000000-0000-4000-8000-0000000000b1"
+              },
+              {
+                "cost": 6,
+                "menu_item_id": "00000000-0000-4000-8000-0000000000b2"
+              }
+            ]
+          },
+          "track": 2
+        }
+      ],
+      "server": {
+        "Err": {
+          "refusal": {
+            "kind": "plan",
+            "reason": {
+              "claimed": 2,
+              "max": 1,
+              "refusal": "over_cap"
+            }
+          },
+          "track": null
+        }
+      },
+      "till": {
+        "Ok": {
+          "tracks": [
+            {
+              "plan": {
+                "cost": 8,
+                "lines": [
+                  {
+                    "cost": 8,
+                    "line": 0,
+                    "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+                    "unit_cost": 8,
+                    "units": 1
+                  }
+                ],
+                "trimmed": null,
+                "units": 1
+              },
+              "track": 1
+            }
+          ],
+          "trimmed": "over_cap",
+          "units": 1
+        }
+      },
+      "why": "cap 1 across tracks: latte on 1 and sandwich on 2 claim 2 > 1 (server refuses; till keeps the first and trims the second, over cap)"
+    },
+    {
+      "asks": [
+        {
+          "line": 0,
+          "track": null,
+          "units": 1
+        },
+        {
+          "line": 1,
+          "track": 2,
+          "units": 1
+        }
+      ],
+      "choices": [
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ],
+        []
+      ],
+      "lines": [
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "quantity": 2
+        },
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000b1",
+          "quantity": 1
+        },
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000b2",
+          "quantity": 1
+        },
+        {
+          "is_staff_drink": false,
+          "menu_item_id": null,
+          "quantity": 1
+        }
+      ],
+      "max_per_order": null,
+      "name": "track_balance_short",
+      "programmes": [
+        {
+          "programme": {
+            "any_item": true,
+            "any_item_cost": 8,
+            "balance": 9,
+            "max_per_order": null,
+            "rewards": []
+          },
+          "track": 1
+        },
+        {
+          "programme": {
+            "any_item": false,
+            "any_item_cost": 0,
+            "balance": 5,
+            "max_per_order": null,
+            "rewards": [
+              {
+                "cost": 6,
+                "menu_item_id": "00000000-0000-4000-8000-0000000000b1"
+              },
+              {
+                "cost": 6,
+                "menu_item_id": "00000000-0000-4000-8000-0000000000b2"
+              }
+            ]
+          },
+          "track": 2
+        }
+      ],
+      "server": {
+        "Err": {
+          "refusal": {
+            "kind": "plan",
+            "reason": {
+              "balance": 5,
+              "refusal": "balance_short",
+              "spent": 6
+            }
+          },
+          "track": 2
+        }
+      },
+      "till": {
+        "Ok": {
+          "tracks": [
+            {
+              "plan": {
+                "cost": 8,
+                "lines": [
+                  {
+                    "cost": 8,
+                    "line": 0,
+                    "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+                    "unit_cost": 8,
+                    "units": 1
+                  }
+                ],
+                "trimmed": null,
+                "units": 1
+              },
+              "track": 1
+            }
+          ],
+          "trimmed": "balance_short",
+          "units": 1
+        }
+      },
+      "why": "track 2 balance 5 < size 6: server balance short on track 2; till trims the sandwich"
+    },
+    {
+      "asks": [
+        {
+          "line": 0,
+          "track": 2,
+          "units": 1
+        }
+      ],
+      "choices": [
+        [
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        []
+      ],
+      "lines": [
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "quantity": 2
+        },
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000b1",
+          "quantity": 1
+        },
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000b2",
+          "quantity": 1
+        },
+        {
+          "is_staff_drink": false,
+          "menu_item_id": null,
+          "quantity": 1
+        }
+      ],
+      "max_per_order": null,
+      "name": "not_on_track",
+      "programmes": [
+        {
+          "programme": {
+            "any_item": true,
+            "any_item_cost": 8,
+            "balance": 9,
+            "max_per_order": null,
+            "rewards": []
+          },
+          "track": 1
+        },
+        {
+          "programme": {
+            "any_item": false,
+            "any_item_cost": 0,
+            "balance": 7,
+            "max_per_order": null,
+            "rewards": [
+              {
+                "cost": 6,
+                "menu_item_id": "00000000-0000-4000-8000-0000000000b1"
+              },
+              {
+                "cost": 6,
+                "menu_item_id": "00000000-0000-4000-8000-0000000000b2"
+              }
+            ]
+          },
+          "track": 2
+        }
+      ],
+      "server": {
+        "Err": {
+          "refusal": {
+            "kind": "plan",
+            "reason": {
+              "refusal": "not_on_offer"
+            }
+          },
+          "track": 2
+        }
+      },
+      "till": {
+        "Ok": {
+          "tracks": [],
+          "trimmed": "not_on_offer",
+          "units": 0
+        }
+      },
+      "why": "the latte is not one of track 2's items: server not on offer (track 2); till trims"
+    },
+    {
+      "asks": [
+        {
+          "line": 1,
+          "track": 3,
+          "units": 1
+        }
+      ],
+      "choices": [
+        [
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        []
+      ],
+      "lines": [
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "quantity": 2
+        },
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000b1",
+          "quantity": 1
+        },
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000b2",
+          "quantity": 1
+        },
+        {
+          "is_staff_drink": false,
+          "menu_item_id": null,
+          "quantity": 1
+        }
+      ],
+      "max_per_order": null,
+      "name": "unknown_track",
+      "programmes": [
+        {
+          "programme": {
+            "any_item": true,
+            "any_item_cost": 8,
+            "balance": 9,
+            "max_per_order": null,
+            "rewards": []
+          },
+          "track": 1
+        },
+        {
+          "programme": {
+            "any_item": false,
+            "any_item_cost": 0,
+            "balance": 7,
+            "max_per_order": null,
+            "rewards": [
+              {
+                "cost": 6,
+                "menu_item_id": "00000000-0000-4000-8000-0000000000b1"
+              },
+              {
+                "cost": 6,
+                "menu_item_id": "00000000-0000-4000-8000-0000000000b2"
+              }
+            ]
+          },
+          "track": 2
+        }
+      ],
+      "server": {
+        "Err": {
+          "refusal": {
+            "kind": "track_unknown"
+          },
+          "track": 3
+        }
+      },
+      "till": {
+        "Ok": {
+          "tracks": [],
+          "trimmed": "not_on_offer",
+          "units": 0
+        }
+      },
+      "why": "track 3 does not exist on this card"
+    },
+    {
+      "asks": [
+        {
+          "line": 1,
+          "track": 2,
+          "units": 1
+        },
+        {
+          "line": 1,
+          "track": 1,
+          "units": 1
+        }
+      ],
+      "choices": [
+        [
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        []
+      ],
+      "lines": [
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "quantity": 2
+        },
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000b1",
+          "quantity": 1
+        },
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000b2",
+          "quantity": 1
+        },
+        {
+          "is_staff_drink": false,
+          "menu_item_id": null,
+          "quantity": 1
+        }
+      ],
+      "max_per_order": null,
+      "name": "one_line_two_tracks",
+      "programmes": [
+        {
+          "programme": {
+            "any_item": true,
+            "any_item_cost": 8,
+            "balance": 9,
+            "max_per_order": null,
+            "rewards": []
+          },
+          "track": 1
+        },
+        {
+          "programme": {
+            "any_item": false,
+            "any_item_cost": 0,
+            "balance": 7,
+            "max_per_order": null,
+            "rewards": [
+              {
+                "cost": 6,
+                "menu_item_id": "00000000-0000-4000-8000-0000000000b1"
+              },
+              {
+                "cost": 6,
+                "menu_item_id": "00000000-0000-4000-8000-0000000000b2"
+              }
+            ]
+          },
+          "track": 2
+        }
+      ],
+      "server": {
+        "Err": {
+          "refusal": {
+            "kind": "plan",
+            "reason": {
+              "refusal": "twice_on_one_line"
+            }
+          },
+          "track": 1
+        }
+      },
+      "till": {
+        "Ok": {
+          "tracks": [
+            {
+              "plan": {
+                "cost": 6,
+                "lines": [
+                  {
+                    "cost": 6,
+                    "line": 1,
+                    "menu_item_id": "00000000-0000-4000-8000-0000000000b1",
+                    "unit_cost": 6,
+                    "units": 1
+                  }
+                ],
+                "trimmed": null,
+                "units": 1
+              },
+              "track": 2
+            }
+          ],
+          "trimmed": null,
+          "units": 1
+        }
+      },
+      "why": "the sandwich asked on track 2 and again on track 1: one reward per line (server refuses the second; till ignores it)"
+    },
+    {
+      "asks": [
+        {
+          "line": 0,
+          "track": 2,
+          "units": 2
+        }
+      ],
+      "choices": [
+        [
+          1,
+          2
+        ]
+      ],
+      "lines": [
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000b1",
+          "quantity": 2
+        }
+      ],
+      "max_per_order": null,
+      "name": "two_units_one_track",
+      "programmes": [
+        {
+          "programme": {
+            "any_item": true,
+            "any_item_cost": 8,
+            "balance": 9,
+            "max_per_order": null,
+            "rewards": []
+          },
+          "track": 1
+        },
+        {
+          "programme": {
+            "any_item": false,
+            "any_item_cost": 0,
+            "balance": 7,
+            "max_per_order": null,
+            "rewards": [
+              {
+                "cost": 6,
+                "menu_item_id": "00000000-0000-4000-8000-0000000000b1"
+              },
+              {
+                "cost": 6,
+                "menu_item_id": "00000000-0000-4000-8000-0000000000b2"
+              }
+            ]
+          },
+          "track": 2
+        }
+      ],
+      "server": {
+        "Err": {
+          "refusal": {
+            "kind": "plan",
+            "reason": {
+              "balance": 7,
+              "refusal": "balance_short",
+              "spent": 12
+            }
+          },
+          "track": 2
+        }
+      },
+      "till": {
+        "Ok": {
+          "tracks": [
+            {
+              "plan": {
+                "cost": 6,
+                "lines": [
+                  {
+                    "cost": 6,
+                    "line": 0,
+                    "menu_item_id": "00000000-0000-4000-8000-0000000000b1",
+                    "unit_cost": 6,
+                    "units": 1
+                  }
+                ],
+                "trimmed": null,
+                "units": 1
+              },
+              "track": 2
+            }
+          ],
+          "trimmed": "balance_short",
+          "units": 1
+        }
+      },
+      "why": "two sandwiches on track 2 need 12 of 7: server short; till covers one"
+    },
+    {
+      "asks": [
+        {
+          "line": 3,
+          "track": 2,
+          "units": 1
+        }
+      ],
+      "choices": [
+        [
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        []
+      ],
+      "lines": [
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "quantity": 2
+        },
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000b1",
+          "quantity": 1
+        },
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000b2",
+          "quantity": 1
+        },
+        {
+          "is_staff_drink": false,
+          "menu_item_id": null,
+          "quantity": 1
+        }
+      ],
+      "max_per_order": null,
+      "name": "no_item_line",
+      "programmes": [
+        {
+          "programme": {
+            "any_item": true,
+            "any_item_cost": 8,
+            "balance": 9,
+            "max_per_order": null,
+            "rewards": []
+          },
+          "track": 1
+        },
+        {
+          "programme": {
+            "any_item": false,
+            "any_item_cost": 0,
+            "balance": 7,
+            "max_per_order": null,
+            "rewards": [
+              {
+                "cost": 6,
+                "menu_item_id": "00000000-0000-4000-8000-0000000000b1"
+              },
+              {
+                "cost": 6,
+                "menu_item_id": "00000000-0000-4000-8000-0000000000b2"
+              }
+            ]
+          },
+          "track": 2
+        }
+      ],
+      "server": {
+        "Err": {
+          "refusal": {
+            "kind": "plan",
+            "reason": {
+              "refusal": "no_menu_item"
+            }
+          },
+          "track": 2
+        }
+      },
+      "till": {
+        "Ok": {
+          "tracks": [],
+          "trimmed": "not_on_offer",
+          "units": 0
+        }
+      },
+      "why": "a line with no menu item is never a reward"
+    },
+    {
+      "asks": [],
+      "choices": [
+        [
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        []
+      ],
+      "lines": [
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "quantity": 2
+        },
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000b1",
+          "quantity": 1
+        },
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000b2",
+          "quantity": 1
+        },
+        {
+          "is_staff_drink": false,
+          "menu_item_id": null,
+          "quantity": 1
+        }
+      ],
+      "max_per_order": null,
+      "name": "chooser",
+      "programmes": [
+        {
+          "programme": {
+            "any_item": true,
+            "any_item_cost": 8,
+            "balance": 9,
+            "max_per_order": null,
+            "rewards": []
+          },
+          "track": 1
+        },
+        {
+          "programme": {
+            "any_item": false,
+            "any_item_cost": 0,
+            "balance": 7,
+            "max_per_order": null,
+            "rewards": [
+              {
+                "cost": 6,
+                "menu_item_id": "00000000-0000-4000-8000-0000000000b1"
+              },
+              {
+                "cost": 6,
+                "menu_item_id": "00000000-0000-4000-8000-0000000000b2"
+              }
+            ]
+          },
+          "track": 2
+        }
+      ],
+      "server": {
+        "Ok": {
+          "tracks": [],
+          "trimmed": null,
+          "units": 0
+        }
+      },
+      "till": {
+        "Ok": {
+          "tracks": [],
+          "trimmed": null,
+          "units": 0
+        }
+      },
+      "why": "with track 1 'any item' at 8 (balance 9) and track 2 (sandwich at 6, balance 7), the sandwich line can be paid by both: choices [1,2]; the latte only by 1; the cookie by 1 and 2"
+    }
+  ]
+}

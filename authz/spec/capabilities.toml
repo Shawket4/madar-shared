@@ -2434,6 +2434,37 @@ en = "See the combos and deals report"
 ar = "عرض تقرير الكومبو والعروض"
 # --- end combos and deals ---
 
+# --- Rewards dashboard (REWARDS_DASHBOARD_DESIGN.md §8, 2026-10-23) ---------
+# The new write surfaces of the Rewards module. Not `loyalty.use`, which every
+# teller holds: the card a shop's customers carry, and messages to all of them,
+# are an owner's and a manager's decisions. Behind the `loyalty` feature by the
+# `loyalty.*` pattern in plans.toml, so Free + Rewards shops hold them too. No
+# legacy cell: old tablets' /auth/permissions is unchanged.
+[[cap]]
+id = 254
+key = "loyalty.card.design"
+group = "customers"
+tier = "configurable"
+risk = "normal"
+defaults = "om"
+en = "Design the loyalty card and its stamp tracks"
+ar = "تصميم بطاقة الولاء ومسارات الطوابع"
+hint_en = "Changes what every member's wallet card shows; published designs reach the cards within minutes."
+hint_ar = "يغيّر ما تعرضه بطاقة كل عضو في المحفظة؛ يصل التصميم المنشور إلى البطاقات خلال دقائق."
+
+[[cap]]
+id = 255
+key = "loyalty.broadcast"
+group = "customers"
+tier = "configurable"
+risk = "pii"
+defaults = "om"
+en = "Send messages to members' loyalty cards"
+ar = "إرسال رسائل إلى بطاقات ولاء الأعضاء"
+hint_en = "A message lands on the lock screen of every member in the audience who has not opted out."
+hint_ar = "تظهر الرسالة على شاشة القفل لكل عضو في الجمهور لم يلغِ الاشتراك."
+# --- end Rewards dashboard ---
+
 # ============================================================================
 # Role templates (Phase 7). `defaults` above IS the restaurant template for the
 # five system roles; a template may add or remove on top.

@@ -33,7 +33,7 @@ export CARGO_TARGET_DIR=${CARGO_TARGET_DIR:-$PWD/target/wasm}
 export RUSTFLAGS="-Zunstable-options -Cpanic=immediate-abort"
 
 rm -rf dist
-for pkg in public full menu; do
+for pkg in public full menu card; do
   # Unset, chrono-tz keeps every zone (it rebuilds when this changes).
   if [ "$pkg" = public ]; then
     export CHRONO_TZ_TIMEZONE_FILTER="$(cat scripts/tz-filter.txt)"
@@ -45,19 +45,21 @@ for pkg in public full menu; do
     -Z build-std=std,panic_abort -Z build-std-features=optimize_for_size
   name=madar_web
   [ "$pkg" = menu ] && name=madar_menu
+  [ "$pkg" = card ] && name=madar_card
   wasm-bindgen --target web --out-dir "dist/$pkg" --out-name "$name" \
     "$CARGO_TARGET_DIR/wasm32-unknown-unknown/wasm/madar_web.wasm"
   wasm-opt -Oz --converge --strip-debug --strip-producers \
     "dist/$pkg/${name}_bg.wasm" -o "dist/$pkg/${name}_bg.wasm"
 done
 
-(cd dist && shasum -a 256 public/* full/* menu/* >SHA256SUMS)
+(cd dist && shasum -a 256 public/* full/* menu/* card/* >SHA256SUMS)
 
 # What a browser downloads: wasm + glue, brotli as served.
 if command -v brotli >/dev/null; then
-  for pkg in public full menu; do
+  for pkg in public full menu card; do
     name=madar_web
     [ "$pkg" = menu ] && name=madar_menu
+    [ "$pkg" = card ] && name=madar_card
     raw=0 br=0
     for f in "dist/$pkg/${name}_bg.wasm" "dist/$pkg/${name}.js"; do
       raw=$((raw + $(wc -c <"$f")))
