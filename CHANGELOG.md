@@ -18,7 +18,7 @@ byte-identical in behaviour (no export added or removed).
   (v1) on a 12×6 grid, the ready-made templates (the default is today's look) and the checks
   that keep a design renderable. `render` — where elements land on Apple's strip and Google's
   hero and the strip as SVG (the server rasterises it; the dashboard shows it). `text` — the
-  passes' stepper. `audience` — who a dashboard message goes to. `message` — what it may say
+  passes' stepper and `stamp_unit` (points | order | item | stamp, the unit every card prints). `audience` — who a dashboard message goes to. `message` — what it may say
   and the send limits. Pinned by `card_design_vectors.json` and `card_rules_vectors.json`.
 - `madar-loyalty::tracks` (new): `plan_tracks`, the redemption planner across a card's tracks
   (one reward per line, each track its own balance, one shared per-order cap; strict on the
@@ -29,7 +29,7 @@ byte-identical in behaviour (no export added or removed).
   default, behind the `loyalty` feature; no legacy cell.
 - `madar-web`: a fourth, lazily loaded package `card` (`madar_card.js`): `card_rules`,
   `card_templates`, `card_default`, `card_validate`, `card_first_free`, `card_layout`,
-  `card_svg`, `tracks_validate`, `track_card`, `card_stepper`, `audience_validate`,
+  `card_svg`, `tracks_validate`, `track_card`, `card_stepper`, `card_stamp_unit`, `audience_validate`,
   `message_validate`, `message_line_for`. CI attaches `madar-web-card.tar.gz`.
 - Like v0.7.x, the tag does not bump the workspace `version`. v0.11.1 (`send_cart_to_kitchen`,
   branch `feat/kitchen-cart-send`) is NOT in this tag: it was never merged to main.

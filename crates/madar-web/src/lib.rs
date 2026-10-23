@@ -1155,6 +1155,12 @@ mod card {
         out(&validate_message(&message.to_rust()?))
     }
 
+    /// What one unit of the card counts: `points`, `order`, `item` or `stamp`.
+    #[wasm_bindgen]
+    pub fn card_stamp_unit(points: bool, per_item: bool, standalone: bool) -> String {
+        madar_card::text::stamp_unit(points, per_item, standalone).to_string()
+    }
+
     /// The line a member reading Arabic (or not) gets.
     #[wasm_bindgen]
     pub fn message_line_for(message: Ts<Message>, arabic: bool) -> Result<String, JsError> {

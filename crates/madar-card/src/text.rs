@@ -7,6 +7,21 @@
 
 use madar_loyalty::card::{card, stamps};
 
+/// What one unit of a card counts, for every place a card prints a unit (the
+/// pass's balance label, the web card, the teller): a points programme counts
+/// `points`; a stamp programme counts `order`s when it stamps once per sale,
+/// `item`s when it stamps per item, and a stand-alone Rewards shop (no Madar
+/// POS: plan Free + the loyalty add-on) counts `stamp`s, the word its teller
+/// page uses.
+pub fn stamp_unit(points: bool, per_item: bool, standalone: bool) -> &'static str {
+    match (points, standalone, per_item) {
+        (true, _, _) => "points",
+        (false, true, _) => "stamp",
+        (false, false, true) => "item",
+        (false, false, false) => "order",
+    }
+}
+
 /// Past this many steps the row is drawn without joins.
 pub const CONNECTED_UP_TO: i32 = 6;
 
@@ -50,6 +65,15 @@ pub fn earned_line(balance: i32, size: i32) -> Option<String> {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn units() {
+        assert_eq!(stamp_unit(true, true, true), "points");
+        assert_eq!(stamp_unit(false, false, false), "order");
+        assert_eq!(stamp_unit(false, true, false), "item");
+        assert_eq!(stamp_unit(false, true, true), "stamp");
+        assert_eq!(stamp_unit(false, false, true), "stamp");
+    }
 
     #[test]
     fn rows() {
