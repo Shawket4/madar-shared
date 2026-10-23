@@ -531,21 +531,23 @@ pub fn svg(design: &CardDesign, state: &CardState, canvas: Canvas, opts: &SvgOpt
                     0 => r.x + r.w / 2.0,
                     _ => r.x + r.w,
                 };
-                // SVG anchors in the text's own direction: for right-to-left
-                // words "start" is the right edge.
-                let anchor = match (physical, arabic_words) {
-                    (0, _) => "middle",
-                    (-1, false) | (1, true) => "start",
+                // Anchored physically and drawn as an LTR paragraph by both
+                // renderers (resvg ignores `direction` when anchoring; a browser
+                // would inherit `rtl` from an Arabic page and flip it). An Arabic
+                // run still reads right to left inside it (bidi).
+                let anchor = match physical {
+                    0 => "middle",
+                    -1 => "start",
                     _ => "end",
                 };
-                let (family, weight, dir) = if arabic_words {
-                    ("Cairo", "500", "rtl")
+                let (family, weight) = if arabic_words {
+                    ("Cairo", "500")
                 } else {
-                    ("Manrope", "600", "ltr")
+                    ("Manrope", "600")
                 };
                 let _ = write!(
                     o,
-                    r#"<text x="{}" y="{}" font-family="{family}" font-weight="{weight}" font-size="{}" fill="{}" text-anchor="{anchor}" direction="{dir}">{}</text>"#,
+                    r#"<text x="{}" y="{}" font-family="{family}" font-weight="{weight}" font-size="{}" fill="{}" text-anchor="{anchor}" direction="ltr">{}</text>"#,
                     n(x),
                     n(r.y + r.h / 2.0 + fs * 0.36),
                     n(fs),
