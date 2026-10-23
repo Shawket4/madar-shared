@@ -207,6 +207,8 @@ MADAR_REGENERATE_MEMBER_VECTORS=1 cargo test -p madar-ids member_vectors
 MADAR_REGENERATE_DAWAM_VECTORS=1  cargo test -p madar-dawam dawam_vectors
 MADAR_REGENERATE_LOYALTY_PLAN_VECTORS=1 cargo test -p madar-loyalty plan_vectors
 MADAR_REGENERATE_MENU_VECTORS=1   cargo test -p madar-menu --features foodics menu_import_vectors   # inputs are the test fixtures; review the diff
+MADAR_REGENERATE_CARD_VECTORS=1   cargo test -p madar-card vectors          # inputs hand-written; review the answers
+MADAR_REGENERATE_TRACKS_VECTORS=1 cargo test -p madar-loyalty tracks_vectors # inputs hand-written; review the answers
 WRITE_PLAN_VECTORS=/tmp/plan.json cargo test -p madar-plan --lib print_vectors -- --ignored   # `ceiling_roles` and `refusals` only; merge by hand
 ```
 
