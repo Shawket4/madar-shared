@@ -3,6 +3,23 @@
 Every tag both consumers pin. A release that changes a result on either side
 says so here; everything else is a move.
 
+## v0.13.0 — The birthday gift's line rule (2026-10-24)
+
+**What changes:** nothing on a till or the server until they adopt the new functions. Every
+existing function and vector case is unchanged; the browser packages export nothing new.
+
+- `madar-loyalty::gift` (new): `plan_gift(lines, programme, chosen, rewarded)`, which line of a
+  sale may take the birthday gift: one unit, no balance; the line must exist, have a menu item
+  and a unit, and not be a staff drink, a combo line or a line a points reward covers
+  (`LOYALTY_GIFT_LINE`); the item must be a reward or "any item" on
+  (`LOYALTY_GIFT_NOT_A_REWARD`); the member must hold an open gift (`LOYALTY_GIFT_NONE`),
+  checked in that order. `gift_eligible` is the same line and item rule without the gift (the
+  till's board, the lookup's list). `GiftRefusal::code` is the server's code. Moved from
+  MadarRust `loyalty::gifts` and madar-core's `gift_eligible`. Pinned by the hand-written
+  `loyalty_gift_vectors.json`.
+- Like v0.7.x, the tag does not bump the workspace `version` (the crates' path dependencies
+  name `0.6.0`).
+
 ## v0.12.0 — Rewards dashboard: the card as data, stamp tracks (2026-10-23)
 
 **What changes:** nothing on a till or the server until they adopt the new functions. Every

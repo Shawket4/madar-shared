@@ -31,15 +31,21 @@
 //! its own balance, one shared per-order ceiling); a sale on track 1 alone is
 //! [`plan`] itself. Pinned by `vectors/loyalty_tracks_vectors.json`.
 //!
+//! [`gift`] is which line may take the birthday gift (one unit, no balance):
+//! `plan_gift` and `gift_eligible`, the server's claim check and the till's
+//! board. Pinned by `vectors/loyalty_gift_vectors.json`.
+//!
 //! [`card`] is what a member's card shows for a balance: rewards earned,
 //! progress to the next, what it still needs, the stamps (the server's
 //! `loyalty::model` rule). Pinned by `vectors/loyalty_card_vectors.json`.
 
 pub mod card;
+pub mod gift;
 pub mod plan;
 pub mod tracks;
 pub mod vectors;
 
+pub use gift::{gift_eligible, plan_gift, GiftCover, GiftProgramme, GiftRefusal};
 pub use plan::{
     plan, replay_lines, unit_cost, Ask, Line, Mode, Plan, Planned, Programme, Refusal, Reward, Trim,
 };

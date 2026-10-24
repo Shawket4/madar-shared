@@ -1,0 +1,420 @@
+{
+  "about": "Hand-written gift cases (BIRTHDAY_GIFT_DESIGN.md): which line may take the birthday gift. result/eligible checked by hand against each why; MADAR_REGENERATE_GIFT_VECTORS=1 cargo test -p madar-loyalty gift_vectors re-serialises.",
+  "cases": [
+    {
+      "chosen": 0,
+      "eligible": [
+        true
+      ],
+      "lines": [
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "quantity": 2
+        }
+      ],
+      "name": "a_catalogue_item_takes_one_unit",
+      "programme": {
+        "any_item": false,
+        "open": true,
+        "reward_items": [
+          "00000000-0000-4000-8000-0000000000a1"
+        ]
+      },
+      "result": {
+        "ok": {
+          "line": 0,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "units": 1
+        }
+      },
+      "rewarded": [],
+      "why": "Latte is a reward; two on the line, the gift covers one."
+    },
+    {
+      "chosen": 0,
+      "eligible": [
+        false
+      ],
+      "lines": [
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000b1",
+          "quantity": 1
+        }
+      ],
+      "name": "an_item_off_the_catalogue_is_not_a_reward",
+      "programme": {
+        "any_item": false,
+        "open": true,
+        "reward_items": [
+          "00000000-0000-4000-8000-0000000000a1"
+        ]
+      },
+      "result": {
+        "refused": "LOYALTY_GIFT_NOT_A_REWARD"
+      },
+      "rewarded": [],
+      "why": "Cake is not a reward and any item is off."
+    },
+    {
+      "chosen": 0,
+      "eligible": [
+        true
+      ],
+      "lines": [
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000b1",
+          "quantity": 1
+        }
+      ],
+      "name": "any_item_takes_anything",
+      "programme": {
+        "any_item": true,
+        "open": true,
+        "reward_items": []
+      },
+      "result": {
+        "ok": {
+          "line": 0,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000b1",
+          "units": 1
+        }
+      },
+      "rewarded": [],
+      "why": "Any item on: the cake qualifies with an empty catalogue."
+    },
+    {
+      "chosen": 0,
+      "eligible": [
+        false
+      ],
+      "lines": [
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "quantity": 1
+        }
+      ],
+      "name": "an_empty_catalogue_without_any_item_takes_nothing",
+      "programme": {
+        "any_item": false,
+        "open": true,
+        "reward_items": []
+      },
+      "result": {
+        "refused": "LOYALTY_GIFT_NOT_A_REWARD"
+      },
+      "rewarded": [],
+      "why": "No rewards listed and any item off."
+    },
+    {
+      "chosen": 0,
+      "eligible": [
+        false
+      ],
+      "lines": [
+        {
+          "is_staff_drink": true,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "quantity": 1
+        }
+      ],
+      "name": "a_staff_drink_is_not_the_gift",
+      "programme": {
+        "any_item": false,
+        "open": true,
+        "reward_items": [
+          "00000000-0000-4000-8000-0000000000a1"
+        ]
+      },
+      "result": {
+        "refused": "LOYALTY_GIFT_LINE"
+      },
+      "rewarded": [],
+      "why": "Staff drinks are comped, never the gift."
+    },
+    {
+      "chosen": 0,
+      "eligible": [
+        false
+      ],
+      "lines": [
+        {
+          "in_combo": true,
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "quantity": 1
+        }
+      ],
+      "name": "a_combo_line_is_not_the_gift",
+      "programme": {
+        "any_item": false,
+        "open": true,
+        "reward_items": [
+          "00000000-0000-4000-8000-0000000000a1"
+        ]
+      },
+      "result": {
+        "refused": "LOYALTY_GIFT_LINE"
+      },
+      "rewarded": [],
+      "why": "A combo header or part never takes the gift (C7)."
+    },
+    {
+      "chosen": 0,
+      "eligible": [
+        false,
+        true
+      ],
+      "lines": [
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "quantity": 1
+        },
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "quantity": 1
+        }
+      ],
+      "name": "a_line_a_reward_covers_is_not_the_gift",
+      "programme": {
+        "any_item": false,
+        "open": true,
+        "reward_items": [
+          "00000000-0000-4000-8000-0000000000a1"
+        ]
+      },
+      "result": {
+        "refused": "LOYALTY_GIFT_LINE"
+      },
+      "rewarded": [
+        0
+      ],
+      "why": "Line 0 already carries a points reward; line 1 is still eligible."
+    },
+    {
+      "chosen": 1,
+      "eligible": [
+        false,
+        true
+      ],
+      "lines": [
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "quantity": 1
+        },
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "quantity": 1
+        }
+      ],
+      "name": "the_other_line_of_that_basket_is",
+      "programme": {
+        "any_item": false,
+        "open": true,
+        "reward_items": [
+          "00000000-0000-4000-8000-0000000000a1"
+        ]
+      },
+      "result": {
+        "ok": {
+          "line": 1,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "units": 1
+        }
+      },
+      "rewarded": [
+        0
+      ],
+      "why": "Same basket, the gift on line 1."
+    },
+    {
+      "chosen": 3,
+      "eligible": [
+        true
+      ],
+      "lines": [
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "quantity": 1
+        }
+      ],
+      "name": "no_such_line",
+      "programme": {
+        "any_item": false,
+        "open": true,
+        "reward_items": [
+          "00000000-0000-4000-8000-0000000000a1"
+        ]
+      },
+      "result": {
+        "refused": "LOYALTY_GIFT_LINE"
+      },
+      "rewarded": [],
+      "why": "Index past the cart."
+    },
+    {
+      "chosen": null,
+      "eligible": [
+        true
+      ],
+      "lines": [
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "quantity": 1
+        }
+      ],
+      "name": "no_line_named",
+      "programme": {
+        "any_item": false,
+        "open": true,
+        "reward_items": [
+          "00000000-0000-4000-8000-0000000000a1"
+        ]
+      },
+      "result": {
+        "refused": "LOYALTY_GIFT_LINE"
+      },
+      "rewarded": [],
+      "why": "The request named no line."
+    },
+    {
+      "chosen": 0,
+      "eligible": [
+        false
+      ],
+      "lines": [
+        {
+          "is_staff_drink": false,
+          "menu_item_id": null,
+          "quantity": 1
+        }
+      ],
+      "name": "a_line_without_a_menu_item",
+      "programme": {
+        "any_item": false,
+        "open": true,
+        "reward_items": [
+          "00000000-0000-4000-8000-0000000000a1"
+        ]
+      },
+      "result": {
+        "refused": "LOYALTY_GIFT_LINE"
+      },
+      "rewarded": [],
+      "why": "Nothing to give."
+    },
+    {
+      "chosen": 0,
+      "eligible": [
+        false
+      ],
+      "lines": [
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "quantity": 0
+        }
+      ],
+      "name": "a_line_of_no_units",
+      "programme": {
+        "any_item": false,
+        "open": true,
+        "reward_items": [
+          "00000000-0000-4000-8000-0000000000a1"
+        ]
+      },
+      "result": {
+        "refused": "LOYALTY_GIFT_LINE"
+      },
+      "rewarded": [],
+      "why": "Quantity 0 has no unit to cover."
+    },
+    {
+      "chosen": 0,
+      "eligible": [
+        true
+      ],
+      "lines": [
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "quantity": 1
+        }
+      ],
+      "name": "no_open_gift",
+      "programme": {
+        "any_item": false,
+        "open": false,
+        "reward_items": [
+          "00000000-0000-4000-8000-0000000000a1"
+        ]
+      },
+      "result": {
+        "refused": "LOYALTY_GIFT_NONE"
+      },
+      "rewarded": [],
+      "why": "Eligible line, but no open gift: refused NONE; eligibility does not need the gift."
+    },
+    {
+      "chosen": 0,
+      "eligible": [
+        false
+      ],
+      "lines": [
+        {
+          "is_staff_drink": true,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000a1",
+          "quantity": 1
+        }
+      ],
+      "name": "the_line_is_judged_before_the_gift",
+      "programme": {
+        "any_item": false,
+        "open": false,
+        "reward_items": [
+          "00000000-0000-4000-8000-0000000000a1"
+        ]
+      },
+      "result": {
+        "refused": "LOYALTY_GIFT_LINE"
+      },
+      "rewarded": [],
+      "why": "No open gift AND a staff drink: the line is the first refusal."
+    },
+    {
+      "chosen": 0,
+      "eligible": [
+        false
+      ],
+      "lines": [
+        {
+          "is_staff_drink": false,
+          "menu_item_id": "00000000-0000-4000-8000-0000000000b1",
+          "quantity": 1
+        }
+      ],
+      "name": "the_item_is_judged_before_the_gift",
+      "programme": {
+        "any_item": false,
+        "open": false,
+        "reward_items": [
+          "00000000-0000-4000-8000-0000000000a1"
+        ]
+      },
+      "result": {
+        "refused": "LOYALTY_GIFT_NOT_A_REWARD"
+      },
+      "rewarded": [],
+      "why": "No open gift AND not a reward: the item is the first refusal."
+    }
+  ]
+}

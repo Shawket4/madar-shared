@@ -10,3 +10,7 @@ pub const CARD: &str = include_str!("../vectors/loyalty_card_vectors.json");
 /// `tracks::plan_tracks`: mixed baskets across stamp tracks (hand-written
 /// inputs, answers reviewed).
 pub const TRACKS: &str = include_str!("../vectors/loyalty_tracks_vectors.json");
+
+/// `gift::plan_gift`: which line may take the birthday gift (hand-written
+/// inputs and answers).
+pub const GIFT: &str = include_str!("../vectors/loyalty_gift_vectors.json");
