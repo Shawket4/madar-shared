@@ -112,7 +112,7 @@ jobs:
       - name: vectors through the wasm
         run: node --test node/vectors.test.mjs
       - name: the .d.ts files typecheck
-        run: npx --yes -p typescript@6.0.3 tsc --noEmit --strict --target es2022 --module es2022 --lib es2022,dom dist/public/madar_web.d.ts dist/full/madar_web.d.ts dist/menu/madar_menu.d.ts dist/card/madar_card.d.ts
+        run: npx --yes -p typescript@7.0.2 tsc --noEmit --strict --target es2022 --module es2022 --lib es2022,dom dist/public/madar_web.d.ts dist/full/madar_web.d.ts dist/menu/madar_menu.d.ts dist/card/madar_card.d.ts
       - uses: actions/upload-artifact@v4
         with:
           name: madar-web-dist
