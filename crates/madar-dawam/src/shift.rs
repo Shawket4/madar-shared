@@ -16,32 +16,15 @@
 //! - a time that never happens (the spring-forward gap) moves forward by the
 //!   gap: it is read at the offset in force before the jump.
 
-use chrono::offset::LocalResult;
-use chrono::{DateTime, Duration, NaiveDate, NaiveDateTime, NaiveTime, Offset, TimeZone, Utc};
+use chrono::{DateTime, NaiveDate, NaiveDateTime, NaiveTime, Utc};
 use chrono_tz::Tz;
 
 /// A wall-clock time in `tz` as an instant, the way Postgres's `timestamp AT
-/// TIME ZONE tz` places it.
+/// TIME ZONE tz` places it: madar-time's [`madar_time::try_wall_instant`] with
+/// the LATER reading of a time that happens twice.
 #[must_use]
 pub fn wall_instant(tz: Tz, wall: NaiveDateTime) -> Option<DateTime<Utc>> {
-    match tz.from_local_datetime(&wall) {
-        LocalResult::Single(x) => Some(x.with_timezone(&Utc)),
-        LocalResult::Ambiguous(_, later) => Some(later.with_timezone(&Utc)),
-        // In the gap: `wall` read at the offset in force just before the jump
-        // (found from the first wall time after it that exists).
-        LocalResult::None => {
-            let jump = (1..=180).find_map(|m| {
-                tz.from_local_datetime(&(wall + Duration::minutes(m)))
-                    .earliest()
-            })?;
-            let before = tz
-                .offset_from_utc_datetime(&(jump.naive_utc() - Duration::seconds(1)))
-                .fix();
-            Some(Utc.from_utc_datetime(
-                &(wall - Duration::seconds(i64::from(before.local_minus_utc()))),
-            ))
-        }
-    }
+    madar_time::try_wall_instant(tz, wall, madar_time::Repeated::Later)
 }
 
 /// Whether a shift from `start` to `end` crosses midnight: its end does not

@@ -3,6 +3,27 @@
 Every tag both consumers pin. A release that changes a result on either side
 says so here; everything else is a move.
 
+## v0.15.0 — One zone rule (2026-10-30)
+
+**What changes:** nothing on a till or the server until they adopt the new functions. Every
+existing function returns what it did; every vector is unchanged.
+
+- `madar-time` gains the zone helpers both sides used to copy:
+  - `DEFAULT_ZONE` / `DEFAULT_ZONE_NAME` (Africa/Cairo, the column default);
+  - `parse_zone` (an IANA name only, never an offset);
+  - `zone_or_default` → `Zone { tz, fell_back }`;
+  - `today_in`, `offset_seconds`, `format_offset`, `to_rfc3339_in` (an instant at the zone's
+    offset AT that instant), `minutes_of_day` (and `LocalParts::minutes_of_day`), `wall_clock`
+    (`YYYY-MM-DD`, `HH:MM:SS`), `last_instant_of_day`;
+  - `wall_instant(tz, wall, Repeated::{Earliest, Later})`, the general form of
+    `local_instant`, plus `try_wall_instant`.
+- `madar_time::testing`: `wall` / `wall_rfc3339` build a fixture instant from the wall clock at
+  the zone's real offset, and `SEASONS` is a summer and a winter day. A test that wrote
+  `+03:00` broke when Cairo went back to +02 on 2026-10-29.
+- `madar-dawam::shift::wall_instant` is now `madar_time::try_wall_instant` with
+  `Repeated::Later`: the same instants, one copy.
+- `madar-web`: zone parsing goes through `parse_zone`; the browser packages export nothing new.
+
 ## v0.14.0 — The Z report by person (2026-10-30)
 
 **What changes:** nothing on a till or the server until a sale carries a picked person. A till

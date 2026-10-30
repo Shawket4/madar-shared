@@ -15,8 +15,10 @@ workspace = true
 # `serde` for the offline stamp's instants; no `clock`.
 chrono = { version = "0.4", default-features = false, features = ["std", "serde"] }
 serde = { version = "1", features = ["derive"] }
-# A shift's wall-clock times placed in the branch's zone (`shift`).
+# A shift's wall-clock times placed in the branch's zone (`shift`), by
+# madar-time's one wall-time rule (same tag).
 chrono-tz = "0.10"
+madar-time = { path = "../madar-time", version = "0.6.0" }
 # A percentage of a salary (`pay::percent_of_salary`); default features off, as
 # the POS core builds rust_decimal.
 rust_decimal = { version = "1", default-features = false }

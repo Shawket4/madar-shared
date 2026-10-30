@@ -81,8 +81,8 @@ where
 
 #[cfg(feature = "public")]
 fn zone(name: &str) -> Result<chrono_tz::Tz, JsError> {
-    name.parse()
-        .map_err(|_| JsError::new("unknown time zone, or one this build leaves out"))
+    madar_time::parse_zone(name)
+        .ok_or_else(|| JsError::new("unknown time zone, or one this build leaves out"))
 }
 
 #[cfg(feature = "public")]
