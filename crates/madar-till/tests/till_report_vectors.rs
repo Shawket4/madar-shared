@@ -104,6 +104,8 @@ fn figures_of(sc: &Value, till_id: &str) -> (Figures, Vec<String>) {
                 unsent: false,
                 refunded_tax: taken.0,
                 refunded_service_charge: taken.1,
+                sold_by: s(o, "sold_by"),
+                teller: s(o, "teller_id"),
                 key,
             }
         })
@@ -207,6 +209,17 @@ fn check(file: &str, raw: &str) -> usize {
             for (k, g) in got.as_object().unwrap() {
                 assert_eq!(Some(g), want.get(k), "{file} / {name} / {till_id}: {k}");
             }
+            // The server omits `by_person` when nobody was picked on the till.
+            let by_person = f.by_person.iter().map(|p| serde_json::json!({
+                "person_id": p.person_id, "order_count": p.order_count, "total": p.total, "tips": p.tips,
+            })).collect::<Vec<_>>();
+            assert_eq!(
+                serde_json::json!(by_person),
+                want.get("by_person")
+                    .cloned()
+                    .unwrap_or_else(|| serde_json::json!([])),
+                "{file} / {name} / {till_id}: by_person"
+            );
             n += 1;
         }
     }

@@ -56,6 +56,11 @@ pub struct Sale {
     /// they were issued.
     pub refunded_tax: i64,
     pub refunded_service_charge: i64,
+    /// Who was picked as serving at checkout (`orders.sold_by`), on a branch
+    /// that asks; `None` everywhere else.
+    pub sold_by: Option<String>,
+    /// Who was signed in on the till (`orders.teller_id`).
+    pub teller: Option<String>,
 }
 
 impl Sale {
@@ -270,6 +275,55 @@ pub struct Figures {
     pub service_charge_waived_count: i64,
     pub service_charge_waived_amount: i64,
     pub close_methods: Vec<MethodTotal>,
+    /// The till's sales by who served them, when anyone was picked at
+    /// checkout; empty otherwise, so a till that never asked reports as
+    /// before.
+    pub by_person: Vec<PersonLine>,
+}
+
+/// One person's share of a till's sold sales: the person picked at checkout,
+/// else whoever was signed in. The lines add up to `total_payments` and
+/// `total_tips`; the drawer itself is shared and is not split.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct PersonLine {
+    /// `None`: a sale with nobody on it (an old row).
+    pub person_id: Option<String>,
+    pub order_count: i64,
+    /// The sales' tenders, the payment summary's figure.
+    pub total: i64,
+    pub tips: i64,
+}
+
+/// The sold sales by person, largest first (ties: a named person before
+/// nobody, then by id). Empty when no sale on the till has a picked person.
+pub fn by_person(sales: &[Sale]) -> Vec<PersonLine> {
+    if sales.iter().all(|o| o.sold_by.is_none()) {
+        return Vec::new();
+    }
+    let mut people: BTreeMap<Option<&str>, (i64, i64, i64)> = BTreeMap::new();
+    for o in sales.iter().filter(|o| o.sold()) {
+        let who = o.sold_by.as_deref().or(o.teller.as_deref());
+        let e = people.entry(who).or_insert((0, 0, 0));
+        e.0 += 1;
+        e.1 += o.legs.iter().map(|l| l.amount).sum::<i64>();
+        e.2 += o.tip;
+    }
+    let mut lines: Vec<PersonLine> = people
+        .into_iter()
+        .map(|(who, (n, total, tips))| PersonLine {
+            person_id: who.map(str::to_string),
+            order_count: n,
+            total,
+            tips,
+        })
+        .collect();
+    lines.sort_by(|a, b| {
+        b.total
+            .cmp(&a.total)
+            .then_with(|| a.person_id.is_none().cmp(&b.person_id.is_none()))
+            .then_with(|| a.person_id.cmp(&b.person_id))
+    });
+    lines
 }
 
 /// The drawer: float + cash tenders + cash tips (not voided) + movements −
@@ -391,6 +445,7 @@ pub fn fold(
         service_charge_waived_amount: sold().map(|o| o.waived_amount).sum(),
         payment_summary,
         close_methods: close_methods(sales, refunds, expected_cash, methods),
+        by_person: by_person(sales),
     }
 }
 
@@ -541,6 +596,121 @@ mod tests {
         assert!(is_blank_method(""));
         assert!(!is_blank_method("\t"));
         assert!(!is_blank_method("\u{a0}"));
+    }
+
+    fn sale(
+        key: &str,
+        status: &str,
+        cash: i64,
+        tip: i64,
+        sold_by: Option<&str>,
+        teller: Option<&str>,
+    ) -> Sale {
+        Sale {
+            key: key.into(),
+            status: status.into(),
+            payment_method: "cash".into(),
+            total: cash + tip,
+            tip,
+            legs: vec![Leg {
+                method: "Cash".into(),
+                amount: cash,
+                is_cash: true,
+            }],
+            sold_by: sold_by.map(str::to_string),
+            teller: teller.map(str::to_string),
+            ..Sale::default()
+        }
+    }
+
+    fn by_person(sales: &[Sale]) -> Vec<PersonLine> {
+        fold(0, None, sales, &[], &[], &[]).by_person
+    }
+
+    #[test]
+    fn by_person_is_empty_until_someone_is_picked_at_checkout() {
+        let sales = [
+            sale("a", "completed", 1000, 0, None, Some("t")),
+            sale("b", "completed", 2000, 0, None, Some("u")),
+        ];
+        assert_eq!(by_person(&sales), vec![]);
+    }
+
+    #[test]
+    fn by_person_credits_the_picked_person_else_whoever_was_signed_in() {
+        let sales = [
+            sale("a", "completed", 1000, 100, Some("mona"), Some("t")),
+            sale("b", "completed", 3000, 0, None, Some("t")),
+            sale("c", "completed", 500, 0, Some("karim"), Some("t")),
+            sale("d", "completed", 700, 50, Some("mona"), Some("t")),
+        ];
+        assert_eq!(
+            by_person(&sales),
+            vec![
+                PersonLine {
+                    person_id: Some("t".into()),
+                    order_count: 1,
+                    total: 3000,
+                    tips: 0,
+                },
+                PersonLine {
+                    person_id: Some("mona".into()),
+                    order_count: 2,
+                    total: 1700,
+                    tips: 150,
+                },
+                PersonLine {
+                    person_id: Some("karim".into()),
+                    order_count: 1,
+                    total: 500,
+                    tips: 0,
+                },
+            ],
+            "largest first; each sale's legs (the payment summary's figure) and tip"
+        );
+    }
+
+    #[test]
+    fn by_person_counts_sold_sales_only_and_adds_up_to_the_report() {
+        let sales = [
+            sale("a", "completed", 1000, 100, Some("mona"), Some("t")),
+            sale("b", "voided", 9000, 0, Some("mona"), Some("t")),
+            sale("c", "refunded", 4000, 0, Some("karim"), Some("t")),
+            sale("d", "completed", 600, 0, None, Some("t")),
+        ];
+        let f = fold(0, None, &sales, &[], &[], &[]);
+        assert_eq!(
+            f.by_person
+                .iter()
+                .map(|p| (p.person_id.as_deref(), p.order_count))
+                .collect::<Vec<_>>(),
+            vec![(Some("mona"), 1), (Some("t"), 1)],
+            "a voided or refunded sale credits nobody"
+        );
+        assert_eq!(
+            f.by_person.iter().map(|p| p.total).sum::<i64>(),
+            f.total_payments
+        );
+        assert_eq!(
+            f.by_person.iter().map(|p| p.tips).sum::<i64>(),
+            f.total_tips
+        );
+    }
+
+    #[test]
+    fn a_sale_with_nobody_on_it_is_its_own_line() {
+        let sales = [
+            sale("a", "completed", 1000, 0, Some("mona"), Some("t")),
+            sale("b", "completed", 1000, 0, None, None),
+        ];
+        assert_eq!(
+            by_person(&sales)
+                .iter()
+                .map(|p| p.person_id.as_deref())
+                .collect::<Vec<_>>(),
+            vec![Some("mona"), None],
+            "equal totals: a named person before nobody"
+        );
     }
 
     #[test]

@@ -3,6 +3,22 @@
 Every tag both consumers pin. A release that changes a result on either side
 says so here; everything else is a move.
 
+## v0.14.0 — The Z report by person (2026-10-30)
+
+**What changes:** nothing on a till or the server until a sale carries a picked person. A till
+where nobody was picked at checkout folds to exactly the figures it did before
+(`by_person` is empty, and the server omits it).
+
+- `madar-till::report`: `Sale` gains `sold_by` (who was picked as serving at checkout,
+  `orders.sold_by`) and `teller` (who was signed in, `orders.teller_id`). `Figures` gains
+  `by_person: Vec<PersonLine>`: the till's SOLD sales (not voided, not refunded) by the picked
+  person, else whoever was signed in, each with its order count, tenders (the payment
+  summary's figure) and tips, largest first. The lines add up to `total_payments` and
+  `total_tips`; the drawer is shared and is not split. Empty unless some sale on the till has a
+  `sold_by`. `report::by_person` is the same function on its own.
+- The vector check reads `sold_by` / `teller_id` from the order rows and treats a missing
+  `by_person` as empty (the server omits it then).
+
 ## v0.13.0 — The birthday gift's line rule (2026-10-24)
 
 **What changes:** nothing on a till or the server until they adopt the new functions. Every
